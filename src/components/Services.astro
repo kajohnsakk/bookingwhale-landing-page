@@ -1,0 +1,164 @@
+---
+const services = [
+  {
+    id: 'trainer',
+    title: 'Personal Trainer',
+    description: 'จองเทรนเนอร์ส่วนตัวสำหรับการออกกำลังกายแบบมืออาชีพ พร้อมโปรแกรมเฉพาะตัว',
+    icon: 'trainer',
+    color: 'blue',
+    features: ['โปรแกรมเฉพาะตัว', 'เทรนเนอร์มืออาชีพ', 'ติดตามผลลัพธ์'],
+    popular: true
+  },
+  {
+    id: 'retail',
+    title: 'Retail Booking',
+    description: 'จองเวลาสำหรับการช้อปปิ้งหรือบริการร้านค้าต่างๆ พร้อมบริการส่วนตัว',
+    icon: 'retail',
+    color: 'green',
+    features: ['บริการส่วนตัว', 'ไม่ต้องรอคิว', 'ปรึกษาได้ตลอด']
+  },
+  {
+    id: 'ticket',
+    title: 'Event Tickets',
+    description: 'จองตั๋วงานอีเวนต์ คอนเสิร์ต และกิจกรรมต่างๆ ง่ายๆ ในคลิกเดียว',
+    icon: 'ticket',
+    color: 'yellow',
+    features: ['ตั๋วอิเล็กทรอนิกส์', 'ยกเลิกได้', 'ราคาดีที่สุด']
+  },
+  {
+    id: 'other',
+    title: 'Other Services',
+    description: 'บริการอื่นๆ เช่น การจองห้องประชุม คลาสเรียน สปา และอื่นๆ อีกมากมาย',
+    icon: 'other',
+    color: 'purple',
+    features: ['บริการหลากหลาย', 'จองง่าย', 'ยืดหยุ่น']
+  }
+];
+
+const getIcon = (type: string) => {
+  switch (type) {
+    case 'trainer':
+      return `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+      </svg>`;
+    case 'retail':
+      return `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+      </svg>`;
+    case 'ticket':
+      return `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path>
+      </svg>`;
+    case 'other':
+      return `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+      </svg>`;
+    default:
+      return '';
+  }
+};
+
+const getColorClasses = (color: string) => {
+  switch (color) {
+    case 'blue':
+      return {
+        icon: 'text-blue-600 bg-blue-100',
+        badge: 'bg-blue-600 text-white',
+        button: 'text-blue-600 hover:text-blue-700',
+        border: 'hover:border-blue-200'
+      };
+    case 'green':
+      return {
+        icon: 'text-green-600 bg-green-100',
+        badge: 'bg-green-600 text-white',
+        button: 'text-green-600 hover:text-green-700',
+        border: 'hover:border-green-200'
+      };
+    case 'yellow':
+      return {
+        icon: 'text-yellow-600 bg-yellow-100',
+        badge: 'bg-yellow-600 text-white',
+        button: 'text-yellow-600 hover:text-yellow-700',
+        border: 'hover:border-yellow-200'
+      };
+    case 'purple':
+      return {
+        icon: 'text-purple-600 bg-purple-100',
+        badge: 'bg-purple-600 text-white',
+        button: 'text-purple-600 hover:text-purple-700',
+        border: 'hover:border-purple-200'
+      };
+    default:
+      return {
+        icon: 'text-gray-600 bg-gray-100',
+        badge: 'bg-gray-600 text-white',
+        button: 'text-gray-600 hover:text-gray-700',
+        border: 'hover:border-gray-200'
+      };
+  }
+};
+---
+
+<section id="services" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">บริการของเรา</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        เลือกบริการที่ตรงกับความต้องการของคุณ พร้อมประสบการณ์การจองที่ง่ายและรวดเร็ว
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((service) => {
+        const colors = getColorClasses(service.color);
+        return (
+          <div class={`bg-white rounded-2xl border-2 border-gray-100 ${colors.border} p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative group`}>
+            {service.popular && (
+              <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span class={`${colors.badge} px-4 py-1 rounded-full text-sm font-semibold`}>
+                  ยอดนิยม
+                </span>
+              </div>
+            )}
+            
+            <div class="text-center mb-6">
+              <div class={`w-16 h-16 ${colors.icon} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <Fragment set:html={getIcon(service.icon)} />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+              <p class="text-gray-600 leading-relaxed">{service.description}</p>
+            </div>
+            
+            <div class="space-y-3 mb-6">
+              {service.features.map((feature) => (
+                <div class="flex items-center space-x-2">
+                  <svg class={`w-4 h-4 ${colors.button}`} fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="text-sm text-gray-700">{feature}</span>
+                </div>
+              ))}
+            </div>
+            
+            <button 
+              onclick={`selectService('${service.id}')`}
+              class={`w-full ${colors.button} font-semibold py-3 px-6 rounded-xl border-2 border-current hover:bg-current hover:text-white transition-all duration-200`}
+            >
+              จองเลย →
+            </button>
+          </div>
+        );
+      })}
+    </div>
+    
+    <div class="text-center mt-12">
+      <p class="text-gray-600 mb-6">ไม่แน่ใจว่าบริการไหนเหมาะกับคุณ?</p>
+      <button 
+        onclick="openBookingModal()"
+        class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 font-semibold"
+      >
+        ปรึกษาฟรี
+      </button>
+    </div>
+  </div>
+</section>

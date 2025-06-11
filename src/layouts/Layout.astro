@@ -1,0 +1,82 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+}
+
+const { title, description = "จองบริการออนไลน์ได้ง่าย - Personal Trainer, Retail, Ticket และอื่นๆ อีกมากมาย", keywords = "booking, จองบริการ, personal trainer, retail, ticket, บริการออนไลน์" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="BookingPro" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bookingpro.com" />
+    <meta property="og:image" content="/og-image.png" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://bookingpro.com" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "BookingPro",
+        "description": "จองบริการออนไลน์ได้ง่าย",
+        "url": "https://bookingpro.com",
+        "telephone": "+66-XX-XXX-XXXX",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "TH"
+        },
+        "sameAs": [
+          "https://facebook.com/bookingpro",
+          "https://twitter.com/bookingpro"
+        ]
+      }
+    </script>
+    
+    <title>{title}</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #1f2937;
+  }
+</style>
