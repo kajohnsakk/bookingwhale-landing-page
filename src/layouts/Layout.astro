@@ -1,11 +1,17 @@
 ---
+import "../styles/global.css";
+
 export interface Props {
   title: string;
   description?: string;
   keywords?: string;
 }
 
-const { title, description = "Professional booking platform for all your service needs - Personal Trainers, Retail, Events, and more", keywords = "booking platform, service booking, personal trainer, retail booking, event tickets, online booking" } = Astro.props;
+const {
+  title,
+  description = "Professional booking platform for all your service needs - Personal Trainers, Retail, Events, and more",
+  keywords = "booking platform, service booking, personal trainer, retail booking, event tickets, online booking",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -16,30 +22,33 @@ const { title, description = "Professional booking platform for all your service
     <meta name="keywords" content={keywords} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="BookingWhale" />
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bookingwhale.com" />
     <meta property="og:image" content="/og-image.png" />
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="https://bookingwhale.com" />
-    
+
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Structured Data -->
     <script type="application/ld+json">
       {
@@ -62,9 +71,8 @@ const { title, description = "Professional booking platform for all your service
         ]
       }
     </script>
-    
+
     <title>{title}</title>
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <slot />
@@ -73,9 +81,18 @@ const { title, description = "Professional booking platform for all your service
 
 <style>
   html {
-    font-family: 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family:
+      "Noto Sans Thai",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      sans-serif;
   }
-  
+
   body {
     margin: 0;
     padding: 0;
@@ -86,43 +103,48 @@ const { title, description = "Professional booking platform for all your service
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
-  
+
   /* Enhanced typography for professional look */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: 700;
     letter-spacing: -0.025em;
     line-height: 1.2;
   }
-  
+
   .font-light {
     font-weight: 300;
   }
-  
+
   .font-medium {
     font-weight: 500;
   }
-  
+
   .font-semibold {
     font-weight: 600;
   }
-  
+
   .font-bold {
     font-weight: 700;
   }
-  
+
   .font-extrabold {
     font-weight: 800;
   }
-  
+
   .font-black {
     font-weight: 900;
   }
-  
+
   /* Professional spacing and readability */
   p {
     line-height: 1.7;
   }
-  
+
   .text-balance {
     text-wrap: balance;
   }
