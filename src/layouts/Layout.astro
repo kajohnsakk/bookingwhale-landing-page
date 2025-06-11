@@ -5,23 +5,23 @@ export interface Props {
   keywords?: string;
 }
 
-const { title, description = "จองบริการออนไลน์ได้ง่าย - Personal Trainer, Retail, Ticket และอื่นๆ อีกมากมาย", keywords = "booking, จองบริการ, personal trainer, retail, ticket, บริการออนไลน์" } = Astro.props;
+const { title, description = "Professional booking platform for all your service needs - Personal Trainers, Retail, Events, and more", keywords = "booking platform, service booking, personal trainer, retail booking, event tickets, online booking" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="th">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="BookingPro" />
+    <meta name="author" content="BookingWhale" />
     
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bookingpro.com" />
+    <meta property="og:url" content="https://bookingwhale.com" />
     <meta property="og:image" content="/og-image.png" />
     
     <!-- Twitter Card -->
@@ -31,31 +31,34 @@ const { title, description = "จองบริการออนไลน์�
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href="https://bookingpro.com" />
+    <link rel="canonical" href="https://bookingwhale.com" />
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     
     <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "BookingPro",
-        "description": "จองบริการออนไลน์ได้ง่าย",
-        "url": "https://bookingpro.com",
-        "telephone": "+66-XX-XXX-XXXX",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "TH"
+        "@type": "SoftwareApplication",
+        "name": "BookingWhale",
+        "description": "Professional booking platform for all your service needs",
+        "url": "https://bookingwhale.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
         },
         "sameAs": [
-          "https://facebook.com/bookingpro",
-          "https://twitter.com/bookingpro"
+          "https://facebook.com/bookingwhale",
+          "https://twitter.com/bookingwhale",
+          "https://linkedin.com/company/bookingwhale"
         ]
       }
     </script>
@@ -70,7 +73,7 @@ const { title, description = "จองบริการออนไลน์�
 
 <style>
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
   
   body {
@@ -78,5 +81,49 @@ const { title, description = "จองบริการออนไลน์�
     padding: 0;
     line-height: 1.6;
     color: #1f2937;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Enhanced typography for professional look */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+  
+  .font-light {
+    font-weight: 300;
+  }
+  
+  .font-medium {
+    font-weight: 500;
+  }
+  
+  .font-semibold {
+    font-weight: 600;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .font-extrabold {
+    font-weight: 800;
+  }
+  
+  .font-black {
+    font-weight: 900;
+  }
+  
+  /* Professional spacing and readability */
+  p {
+    line-height: 1.7;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
   }
 </style>

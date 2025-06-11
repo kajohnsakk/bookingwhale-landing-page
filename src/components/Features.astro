@@ -1,38 +1,38 @@
 ---
 const features = [
   {
-    title: 'ใช้งานง่าย',
-    description: 'ออกแบบ UI/UX ที่เรียบง่าย ใช้งานง่าย เหมาะสำหรับทุกคน ไม่ว่าจะเป็นผู้สูงอายุหรือเด็ก',
+    title: 'Intuitive Interface',
+    description: 'Beautifully designed UI/UX that\'s simple to use, suitable for everyone from tech-savvy users to seniors.',
     icon: 'ease',
     color: 'blue'
   },
   {
-    title: 'ปลอดภัย 100%',
-    description: 'ระบบความปลอดภัยระดับธนาคาร เข้ารหัสข้อมูลทุกขั้นตอน ข้อมูลของคุณปลอดภัยแน่นอน',
+    title: 'Bank-Level Security',
+    description: 'Enterprise-grade security with end-to-end encryption. Your data is protected with the highest standards.',
     icon: 'security',
     color: 'green'
   },
   {
-    title: '24/7 Support',
-    description: 'ทีมงานพร้อมให้บริการและช่วยเหลือตลอด 24 ชั่วโมง ทุกวัน ไม่มีวันหยุด',
+    title: '24/7 Expert Support',
+    description: 'Our dedicated support team is available around the clock, every day of the year to assist you.',
     icon: 'support',
     color: 'purple'
   },
   {
-    title: 'Multi-Platform',
-    description: 'รองรับทุกอุปกรณ์ ทั้งมือถือ แท็บเล็ต และคอมพิวเตอร์ ใช้งานได้ทุกที่ทุกเวลา',
+    title: 'Cross-Platform Access',
+    description: 'Seamlessly works across all devices - mobile, tablet, and desktop. Access anywhere, anytime.',
     icon: 'platform',
     color: 'orange'
   },
   {
-    title: 'จ่ายง่าย',
-    description: 'รองรับการชำระเงินหลากหลายช่องทาง บัตรเครดิต QR Code โอนธนาคาร และ E-Wallet',
+    title: 'Flexible Payments',
+    description: 'Multiple payment options including credit cards, QR codes, bank transfers, and digital wallets.',
     icon: 'payment',
     color: 'indigo'
   },
   {
-    title: 'ยกเลิกฟรี',
-    description: 'ยกเลิกการจองได้ฟรี ไม่เสียค่าธรรมเนียม หากแจ้งล่วงหน้า 24 ชั่วโมง',
+    title: 'Free Cancellation',
+    description: 'Cancel your bookings for free with no fees when you notify us 24 hours in advance.',
     icon: 'cancel',
     color: 'red'
   }
@@ -41,28 +41,40 @@ const features = [
 const getIcon = (type: string) => {
   switch (type) {
     case 'ease':
-      return `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H9m0 0V3a1 1 0 00-1-1H6a1 1 0 00-1 1v1.5H3.5A1.5 1.5 0 002 6v2.5a1.5 1.5 0 001.5 1.5H5V12a1 1 0 001 1h2a1 1 0 001-1V9.5h1.5A1.5 1.5 0 0012 8V6a1.5 1.5 0 00-1.5-1.5H9z"></path>
+      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        <path d="M12 6l-1.5 3H7l2.5 2-1 3L12 12l3.5 2-1-3L17 9h-3.5L12 6z"/>
+        <circle cx="12" cy="12" r="2"/>
       </svg>`;
     case 'security':
-      return `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+        <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="white"/>
       </svg>`;
     case 'support':
-      return `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        <path d="M12 6c-3.31 0-6 2.69-6 6h2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.1-.45 2.1-1.17 2.83-.74.74-1.83 1.17-2.83 1.17v2c1.66 0 3.16-.63 4.24-1.76S18 13.66 18 12c0-3.31-2.69-6-6-6z"/>
+        <circle cx="12" cy="19" r="1"/>
       </svg>`;
     case 'platform':
-      return `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M4 6h16v2H4zm0 5h16v6c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-6zm16-7H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/>
+        <circle cx="7" cy="14" r="1"/>
+        <circle cx="12" cy="14" r="1"/>
+        <circle cx="17" cy="14" r="1"/>
       </svg>`;
     case 'payment':
-      return `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10z"/>
+        <path d="M6 12h2v2H6zm4 0h8v2h-8z"/>
+        <circle cx="18" cy="15" r="1"/>
       </svg>`;
     case 'cancel':
-      return `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        <path d="M12 10.59l4.24-4.24 1.41 1.41L13.41 12l4.24 4.24-1.41 1.41L12 13.41l-4.24 4.24-1.41-1.41L10.59 12 6.35 7.76l1.41-1.41L12 10.59z"/>
+        <path d="M16 8l-4 4-4-4 1.41-1.41L12 9.17l2.59-2.58L16 8z" fill="white"/>
       </svg>`;
     default:
       return '';
@@ -89,12 +101,24 @@ const getColorClasses = (color: string) => {
 };
 ---
 
-<section id="features" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-gray-900 mb-4">ทำไมต้องเลือกเรา</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        คุณสมบัติที่ตอบสนองความต้องการของธุรกิจสมัยใหม่ ด้วยเทคโนโลยีที่ทันสมัยและปลอดภัย
+<section id="features" class="py-24 bg-white relative overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute top-0 left-0 w-full h-full">
+    <div class="absolute top-20 right-10 w-64 h-64 bg-purple-200/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+    <div class="absolute bottom-20 left-10 w-64 h-64 bg-blue-200/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
+  </div>
+  
+  <div class="container mx-auto px-4 relative">
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-2 rounded-full border border-blue-100 shadow-sm mb-6">
+        <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+        <span data-translate="enterpriseFeatures" class="text-sm font-medium text-gray-700">Enterprise Features</span>
+      </div>
+      <h2 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+        <span data-translate="whyChoose">Why Choose</span> <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">BookingWhale</span>
+      </h2>
+      <p data-translate="featuresDescription" class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        Experience the next generation of booking technology with features designed for modern businesses and demanding users who expect excellence.
       </p>
     </div>
     
@@ -102,49 +126,96 @@ const getColorClasses = (color: string) => {
       {features.map((feature, index) => {
         const colorClasses = getColorClasses(feature.color);
         return (
-          <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
-            <div class={`w-12 h-12 bg-gradient-to-r ${colorClasses} rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
-              <Fragment set:html={getIcon(feature.icon)} />
-            </div>
+          <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden">
+            <!-- Hover Gradient Background -->
+            <div class={`absolute inset-0 bg-gradient-to-br ${colorClasses} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
             
-            <h3 class="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-            <p class="text-gray-600 leading-relaxed">{feature.description}</p>
-            
-            <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div class={`h-1 bg-gradient-to-r ${colorClasses} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}></div>
+            <div class="relative z-10">
+              <div class={`w-16 h-16 bg-gradient-to-r ${colorClasses} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
+                <Fragment set:html={getIcon(feature.icon)} />
+              </div>
+              
+              <h3 data-translate={`feature${index + 1}Title`} class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                {feature.title}
+              </h3>
+              <p data-translate={`feature${index + 1}Desc`} class="text-gray-600 leading-relaxed">
+                {feature.description}
+              </p>
+              
+              <!-- Animated Underline -->
+              <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class={`h-1 bg-gradient-to-r ${colorClasses} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
+              </div>
             </div>
           </div>
         );
       })}
     </div>
     
-    <div class="mt-16 text-center">
-      <div class="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">เริ่มต้นใช้งานฟรี</h3>
-        <p class="text-gray-600 mb-6">
-          ไม่มีค่าสมัครสมาชิก ไม่มีค่าธรรมเนียมรายเดือน จ่ายแค่เมื่อคุณจองบริการเท่านั้น
-        </p>
-        <div class="flex justify-center items-center space-x-8 text-sm text-gray-500">
-          <div class="flex items-center space-x-2">
-            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-            </svg>
-            <span>ไม่มีค่าสมัคร</span>
+    <!-- Pricing CTA Section -->
+    <div class="mt-20">
+      <div class="bg-gradient-to-br from-blue-50 via-white to-purple-50 rounded-3xl p-8 lg:p-12 shadow-xl border border-white/20 backdrop-blur-sm relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-grid-slate-100 bg-[size:40px_40px] opacity-30"></div>
+        
+        <div class="relative z-10 text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-green-200 shadow-sm mb-6">
+            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span data-translate="freeToStart" class="text-sm font-medium text-gray-700">Free to Start</span>
           </div>
-          <div class="flex items-center space-x-2">
-            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-            </svg>
-            <span>ไม่มีค่าธรรมเนียมรายเดือน</span>
+          
+          <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <span data-translate="startFree">Start Using BookingWhale</span> <span class="text-green-600">Free</span>
+          </h3>
+          <p data-translate="freeDescription" class="text-xl text-gray-600 mb-8 leading-relaxed">
+            No setup fees, no monthly subscriptions, no hidden costs. Pay only when you book services. 
+            It's that simple.
+          </p>
+          
+          <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <div class="flex items-center justify-center space-x-3 bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/40">
+              <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span data-translate="noSetupFees" class="font-semibold text-gray-700">No Setup Fees</span>
+            </div>
+            <div class="flex items-center justify-center space-x-3 bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/40">
+              <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span data-translate="noMonthlyFees" class="font-semibold text-gray-700">No Monthly Fees</span>
+            </div>
+            <div class="flex items-center justify-center space-x-3 bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/40">
+              <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span data-translate="payPerBooking" class="font-semibold text-gray-700">Pay Per Booking</span>
+            </div>
           </div>
-          <div class="flex items-center space-x-2">
-            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-            </svg>
-            <span>จ่ายแค่เมื่อใช้งาน</span>
-          </div>
+          
+          <button 
+            onclick="openBookingModal()"
+            class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-4 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 font-semibold text-lg transform hover:-translate-y-1 group"
+          >
+            <span class="flex items-center justify-center space-x-2">
+              <span data-translate="startFreeToday">Start Free Today</span>
+              <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </span>
+          </button>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .bg-grid-slate-100 {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.1)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e");
+  }
+</style>
