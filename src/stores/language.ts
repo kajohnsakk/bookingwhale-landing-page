@@ -2,7 +2,7 @@ import { atom } from 'nanostores';
 
 export type Language = 'en' | 'th';
 
-export const currentLanguage = atom<Language>('en');
+export const currentLanguage = atom<Language>('th');
 
 export const translations = {
   en: {
