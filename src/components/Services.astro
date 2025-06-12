@@ -1,37 +1,36 @@
 ---
 const services = [
   {
-    id: 'trainer',
-    title: 'Personal Training',
-    description: 'Book professional personal trainers for customized fitness programs tailored to your goals and lifestyle.',
+    id: 'consulting',
+    title: 'Business Consulting',
+    description: 'Strategic guidance and expert consultation services to optimize your business operations and drive growth.',
     icon: 'trainer',
     color: 'blue',
-    features: ['Custom Programs', 'Certified Trainers', 'Progress Tracking'],
-    popular: false
+    features: ['Strategic Planning', 'Expert Analysis', 'Performance Optimization']
   },
   {
-    id: 'retail',
-    title: 'Retail Services',
-    description: 'Schedule shopping appointments and retail consultations with dedicated personal service representatives.',
+    id: 'management',
+    title: 'Resource Management',
+    description: 'Comprehensive resource allocation and management solutions for maximum operational efficiency.',
     icon: 'retail',
     color: 'green',
-    features: ['Personal Shopping', 'Skip the Queue', '24/7 Consultation']
+    features: ['Resource Planning', 'Asset Optimization', 'Real-time Analytics']
   },
   {
-    id: 'ticket',
-    title: 'Event Tickets',
-    description: 'Book tickets for events, concerts, and activities with instant confirmation and digital delivery.',
+    id: 'events',
+    title: 'Event Management',
+    description: 'End-to-end event planning and management services with professional coordination and execution.',
     icon: 'ticket',
     color: 'yellow',
-    features: ['Digital Tickets', 'Free Cancellation', 'Best Prices']
+    features: ['Event Planning', 'Logistics Management', 'Quality Assurance']
   },
   {
-    id: 'other',
-    title: 'Professional Services',
-    description: 'Book various professional services including meeting rooms, classes, spa treatments, and consultations.',
+    id: 'enterprise',
+    title: 'Enterprise Solutions',
+    description: 'Scalable enterprise-grade solutions tailored to meet complex organizational requirements and workflows.',
     icon: 'other',
     color: 'purple',
-    features: ['Wide Selection', 'Easy Booking', 'Flexible Scheduling']
+    features: ['Custom Integration', 'Scalable Architecture', 'Premium Support']
   }
 ];
 
@@ -89,13 +88,13 @@ const getColorClasses = (color: string) => {
     <div class="text-center mb-20">
       <div class="inline-flex items-center space-x-2 bg-gray-100 border border-gray-200 px-6 py-3 rounded-full mb-8">
         <div class="w-3 h-3 bg-gray-900 rounded-full"></div>
-        <span data-translate="servicePortfolio" class="text-sm font-semibold text-gray-900">Complete Service Portfolio</span>
+        <span data-translate="servicePortfolio" class="text-sm font-semibold text-gray-900">Enterprise Solutions Portfolio</span>
       </div>
       <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-        <span data-translate="ourServices" class="text-gray-900">Our Services</span>
+        <span data-translate="ourServices" class="text-gray-900">Our Solutions</span>
       </h2>
       <p data-translate="servicesDescription" class="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
-        Choose from our comprehensive range of professional services designed to meet your every need with enterprise-grade reliability.
+        Discover our comprehensive suite of enterprise solutions designed to streamline operations, enhance productivity, and drive sustainable business growth.
       </p>
     </div>
     
@@ -128,19 +127,6 @@ const getColorClasses = (color: string) => {
                 ))}
               </div>
               
-              <div class="mt-auto">
-                <button 
-                  onclick={`selectService('${service.id}')`}
-                  class={`w-full ${colors.gradient} text-white font-bold py-4 lg:py-5 px-6 rounded-2xl hover:bg-gray-800 transition-all duration-300 text-base lg:text-lg`}
-                >
-                  <span class="flex items-center justify-center space-x-3">
-                    <span data-translate="bookNow">Book Now</span>
-                    <svg class="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                  </span>
-                </button>
-              </div>
             </div>
           </div>
         );
@@ -156,16 +142,16 @@ const getColorClasses = (color: string) => {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h3 data-translate="notSureService" class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">Not sure which service fits your needs?</h3>
+          <h3 data-translate="notSureService" class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">Need a custom solution for your organization?</h3>
           <p data-translate="expertConsultants" class="text-xl text-gray-600 mb-10 leading-relaxed font-light max-w-2xl mx-auto">
-            Our expert consultants are here to help you find the perfect solution for your requirements.
+            Our solution architects and enterprise consultants will design a tailored approach that aligns with your business objectives.
           </p>
           <button 
             onclick="openBookingModal()"
             class="bg-gray-900 text-white px-10 lg:px-12 py-5 lg:py-6 rounded-2xl hover:bg-gray-800 transition-all duration-300 font-bold text-lg lg:text-xl group"
           >
             <span class="flex items-center justify-center space-x-3">
-              <span data-translate="getFreeConsultation">Get Free Consultation</span>
+              <span data-translate="getFreeConsultation">Schedule Consultation</span>
               <svg class="w-6 h-6 transform group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
