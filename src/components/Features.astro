@@ -82,40 +82,22 @@ const getIcon = (type: string) => {
 };
 
 const getColorClasses = (color: string) => {
-  switch (color) {
-    case 'blue':
-      return 'from-blue-500 to-blue-600';
-    case 'green':
-      return 'from-green-500 to-green-600';
-    case 'purple':
-      return 'from-purple-500 to-purple-600';
-    case 'orange':
-      return 'from-orange-500 to-orange-600';
-    case 'indigo':
-      return 'from-indigo-500 to-indigo-600';
-    case 'red':
-      return 'from-red-500 to-red-600';
-    default:
-      return 'from-gray-500 to-gray-600';
-  }
+  return 'bg-gray-900';
 };
 ---
 
 <section id="features" class="py-24 bg-white relative overflow-hidden">
-  <!-- Background Elements -->
-  <div class="absolute top-0 left-0 w-full h-full">
-    <div class="absolute top-20 right-10 w-64 h-64 bg-purple-200/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-    <div class="absolute bottom-20 left-10 w-64 h-64 bg-blue-200/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
-  </div>
+  <!-- Minimal Background -->
+  <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.01)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e')] opacity-30 pointer-events-none"></div>
   
   <div class="container mx-auto px-4 relative">
     <div class="text-center mb-20">
-      <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-2 rounded-full border border-blue-100 shadow-sm mb-6">
-        <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
-        <span data-translate="enterpriseFeatures" class="text-sm font-medium text-gray-700">Enterprise Features</span>
+      <div class="inline-flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full border border-gray-200 mb-6">
+        <div class="w-2 h-2 bg-gray-900 rounded-full"></div>
+        <span data-translate="enterpriseFeatures" class="text-sm font-medium text-gray-900">Enterprise Features</span>
       </div>
       <h2 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-        <span data-translate="whyChoose">Why Choose</span> <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">BookingWhale</span>
+        <span data-translate="whyChoose">Why Choose</span> <span class="text-gray-900">BookingWhale</span>
       </h2>
       <p data-translate="featuresDescription" class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
         Experience the next generation of booking technology with features designed for modern businesses and demanding users who expect excellence.
@@ -126,26 +108,20 @@ const getColorClasses = (color: string) => {
       {features.map((feature, index) => {
         const colorClasses = getColorClasses(feature.color);
         return (
-          <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden">
-            <!-- Hover Gradient Background -->
-            <div class={`absolute inset-0 bg-gradient-to-br ${colorClasses} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
+          <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl border border-gray-100 hover:border-gray-200 transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
             
             <div class="relative z-10">
-              <div class={`w-16 h-16 bg-gradient-to-r ${colorClasses} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
+              <div class={`w-16 h-16 ${colorClasses} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-105 transition-all duration-300 shadow-lg`}>
                 <Fragment set:html={getIcon(feature.icon)} />
               </div>
               
-              <h3 data-translate={`feature${index + 1}Title`} class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+              <h3 data-translate={`feature${index + 1}Title`} class="text-2xl font-bold text-gray-900 mb-4 transition-colors">
                 {feature.title}
               </h3>
               <p data-translate={`feature${index + 1}Desc`} class="text-gray-600 leading-relaxed">
                 {feature.description}
               </p>
               
-              <!-- Animated Underline -->
-              <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div class={`h-1 bg-gradient-to-r ${colorClasses} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
-              </div>
             </div>
           </div>
         );
@@ -154,18 +130,16 @@ const getColorClasses = (color: string) => {
     
     <!-- Pricing CTA Section -->
     <div class="mt-20">
-      <div class="bg-gradient-to-br from-blue-50 via-white to-purple-50 rounded-3xl p-8 lg:p-12 shadow-xl border border-white/20 backdrop-blur-sm relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 bg-grid-slate-100 bg-[size:40px_40px] opacity-30"></div>
+      <div class="bg-gray-50 rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-200 relative overflow-hidden">
         
         <div class="relative z-10 text-center max-w-4xl mx-auto">
-          <div class="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-green-200 shadow-sm mb-6">
-            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span data-translate="freeToStart" class="text-sm font-medium text-gray-700">Free to Start</span>
+          <div class="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full border border-gray-200 mb-6">
+            <div class="w-2 h-2 bg-gray-900 rounded-full"></div>
+            <span data-translate="freeToStart" class="text-sm font-medium text-gray-900">Free to Start</span>
           </div>
           
           <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            <span data-translate="startFree">Start Using BookingWhale</span> <span class="text-green-600">Free</span>
+            <span data-translate="startFree">Start Using BookingWhale</span> <span class="text-gray-900">Free</span>
           </h3>
           <p data-translate="freeDescription" class="text-xl text-gray-600 mb-8 leading-relaxed">
             No setup fees, no monthly subscriptions, no hidden costs. Pay only when you book services. 
@@ -173,20 +147,20 @@ const getColorClasses = (color: string) => {
           </p>
           
           <div class="grid md:grid-cols-3 gap-6 mb-8">
-            <div class="flex items-center justify-center space-x-3 bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/40">
-              <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <div class="flex items-center justify-center space-x-3 bg-white rounded-2xl p-4 border border-gray-200">
+              <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
               </svg>
               <span data-translate="noSetupFees" class="font-semibold text-gray-700">No Setup Fees</span>
             </div>
-            <div class="flex items-center justify-center space-x-3 bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/40">
-              <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <div class="flex items-center justify-center space-x-3 bg-white rounded-2xl p-4 border border-gray-200">
+              <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
               </svg>
               <span data-translate="noMonthlyFees" class="font-semibold text-gray-700">No Monthly Fees</span>
             </div>
-            <div class="flex items-center justify-center space-x-3 bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/40">
-              <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <div class="flex items-center justify-center space-x-3 bg-white rounded-2xl p-4 border border-gray-200">
+              <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
               </svg>
               <span data-translate="payPerBooking" class="font-semibold text-gray-700">Pay Per Booking</span>
@@ -195,7 +169,7 @@ const getColorClasses = (color: string) => {
           
           <button 
             onclick="openBookingModal()"
-            class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-4 rounded-2xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 font-semibold text-lg transform hover:-translate-y-1 group"
+            class="bg-gray-900 text-white px-10 py-4 rounded-2xl hover:bg-gray-800 transition-all duration-300 font-semibold text-lg group"
           >
             <span class="flex items-center justify-center space-x-2">
               <span data-translate="startFreeToday">Start Free Today</span>
