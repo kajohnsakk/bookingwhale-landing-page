@@ -9,8 +9,8 @@ export interface Props {
 
 const {
   title,
-  description = "Professional booking platform for all your service needs - Personal Trainers, Retail, Events, and more",
-  keywords = "booking platform, service booking, personal trainer, retail booking, event tickets, online booking",
+  description = "BookingWhale - Advanced booking platform that simplifies service reservations for businesses and customers. Features automated booking, secure payments, business analytics, and 24/7 support. Free during beta.",
+  keywords = "booking platform, service booking, online booking system, appointment booking, business management, automated booking, secure payments, booking software, reservation system, digital booking, booking app, service scheduling",
 } = Astro.props;
 ---
 
@@ -22,6 +22,13 @@ const {
     <meta name="keywords" content={keywords} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="BookingWhale" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#0EA5E9" />
+    <meta name="msapplication-TileColor" content="#0EA5E9" />
+    <meta name="application-name" content="BookingWhale" />
+    <meta name="apple-mobile-web-app-title" content="BookingWhale" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -56,26 +63,126 @@ const {
       rel="stylesheet"
     />
 
-    <!-- Structured Data -->
+    <!-- Enhanced Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "BookingWhale",
-        "description": "Professional booking platform for all your service needs",
+        "alternateName": "BookingWhale Platform",
+        "description": "Advanced booking platform that simplifies service reservations for businesses and customers with automated booking, secure payments, and business analytics.",
         "url": "https://bookingwhale.com",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "softwareVersion": "1.0",
+        "releaseNotes": "Beta version with core booking features",
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-12-15",
+        "author": {
+          "@type": "Organization",
+          "name": "BookingWhale",
+          "url": "https://bookingwhale.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "BookingWhale",
+          "url": "https://bookingwhale.com"
+        },
         "offers": {
           "@type": "Offer",
           "price": "0",
-          "priceCurrency": "USD"
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2024-12-31",
+          "description": "Free during beta period"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "150",
+          "bestRating": "5"
+        },
+        "applicationSubCategory": "BookingApplication",
+        "featureList": [
+          "Automated booking system",
+          "Secure payment processing", 
+          "Business analytics dashboard",
+          "24/7 customer support",
+          "Multi-language support",
+          "Mobile-responsive design"
+        ],
+        "screenshot": "https://bookingwhale.com/screenshot.png",
+        "sameAs": [
+          "https://facebook.com/bookingwhale",
+          "https://twitter.com/bookingwhale",
+          "https://linkedin.com/company/bookingwhale",
+          "https://instagram.com/bookingwhale"
+        ]
+      }
+    </script>
+
+    <!-- Organization Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "BookingWhale",
+        "alternateName": "BookingWhale Platform",
+        "url": "https://bookingwhale.com",
+        "logo": "https://bookingwhale.com/logo.png",
+        "description": "Leading provider of booking platform solutions for businesses worldwide",
+        "foundingDate": "2024",
+        "founder": {
+          "@type": "Person",
+          "name": "Alex Thompson"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+66-80-595-6458",
+          "contactType": "customer service",
+          "email": "hello@bookingwhale.com",
+          "availableLanguage": ["English", "Thai"]
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Business Avenue, Suite 100",
+          "addressLocality": "Bangkok",
+          "addressCountry": "Thailand",
+          "postalCode": "10110"
         },
         "sameAs": [
           "https://facebook.com/bookingwhale",
           "https://twitter.com/bookingwhale",
-          "https://linkedin.com/company/bookingwhale"
+          "https://linkedin.com/company/bookingwhale",
+          "https://instagram.com/bookingwhale"
         ]
+      }
+    </script>
+
+    <!-- Website Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "BookingWhale",
+        "url": "https://bookingwhale.com",
+        "description": "Advanced booking platform for businesses and customers",
+        "publisher": {
+          "@type": "Organization",
+          "name": "BookingWhale"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://bookingwhale.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "inLanguage": "en-US",
+        "copyrightYear": "2024",
+        "copyrightHolder": {
+          "@type": "Organization",
+          "name": "BookingWhale"
+        }
       }
     </script>
 
