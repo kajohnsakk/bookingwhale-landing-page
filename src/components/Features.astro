@@ -1,182 +1,354 @@
 ---
 const features = [
   {
-    title: 'Enterprise Architecture',
-    description: 'Scalable, cloud-native infrastructure designed to handle complex enterprise workloads with optimal performance.',
+    title: 'ระบบจองอัตโนมัติ',
+    description: 'AI จัดการการจองให้อัตโนมัติ ลดเวลา เพิ่มความแม่นยำ',
     icon: 'ease',
     color: 'blue'
   },
   {
-    title: 'Advanced Security',
-    description: 'Multi-layered security framework with SOC 2 compliance, end-to-end encryption, and zero-trust architecture.',
+    title: 'ปลอดภัย 100%',
+    description: 'การจ่ายเงินปลอดภัยมาตรฐานธนาคาร ข้อมูลลูกค้าเข้ารหัส',
     icon: 'security',
     color: 'green'
   },
   {
-    title: 'Premium Support',
-    description: 'Dedicated account management with 24/7 technical support, SLA guarantees, and priority escalation.',
-    icon: 'support',
-    color: 'purple'
-  },
-  {
-    title: 'Omnichannel Platform',
-    description: 'Unified experience across all touchpoints with seamless integration and consistent user interface.',
-    icon: 'platform',
-    color: 'orange'
-  },
-  {
-    title: 'Advanced Analytics',
-    description: 'Real-time business intelligence with customizable dashboards, predictive analytics, and automated reporting.',
+    title: 'วิเคราะห์ธุรกิจ',
+    description: 'รายงานสดทุกวันช่วยตัดสินใจ เพิ่มยอดขาย ลดต้นทุน',
     icon: 'payment',
     color: 'indigo'
   },
   {
-    title: 'API-First Design',
-    description: 'Comprehensive REST and GraphQL APIs enabling seamless third-party integrations and custom development.',
-    icon: 'cancel',
-    color: 'red'
+    title: 'สนับสนุน 24/7',
+    description: 'ทีมช่วยเหลือพร้อมให้บริการตลอด 24 ชั่วโมง ทุกวัน',
+    icon: 'support',
+    color: 'purple'
   }
 ];
 
-const getIcon = (type: string) => {
+const getIllustration = (type: string) => {
   switch (type) {
     case 'ease':
-      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-        <path d="M12 6l-1.5 3H7l2.5 2-1 3L12 12l3.5 2-1-3L17 9h-3.5L12 6z"/>
-        <circle cx="12" cy="12" r="2"/>
+      return `<svg class="w-16 h-16" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background decorative shape -->
+        <circle cx="100" cy="100" r="80" fill="#EFF6FF" opacity="0.5"/>
+        <circle cx="120" cy="120" r="60" fill="#DBEAFE" opacity="0.3"/>
+        
+        <!-- AI Brain illustration -->
+        <ellipse cx="100" cy="85" rx="45" ry="35" fill="#3B82F6" opacity="0.8"/>
+        <ellipse cx="100" cy="85" rx="35" ry="25" fill="#1E40AF" opacity="0.9"/>
+        
+        <!-- Neural network nodes -->
+        <circle cx="80" cy="75" r="4" fill="#FFFFFF"/>
+        <circle cx="100" cy="70" r="4" fill="#FFFFFF"/>
+        <circle cx="120" cy="75" r="4" fill="#FFFFFF"/>
+        <circle cx="85" cy="95" r="3" fill="#FFFFFF" opacity="0.8"/>
+        <circle cx="115" cy="95" r="3" fill="#FFFFFF" opacity="0.8"/>
+        
+        <!-- Connecting lines -->
+        <path d="M80 75 L100 70 L120 75 M85 95 L100 70 M115 95 L100 70" stroke="#FFFFFF" stroke-width="2" opacity="0.6"/>
+        
+        <!-- Automation gears -->
+        <circle cx="140" cy="120" r="15" fill="#10B981" opacity="0.8"/>
+        <circle cx="140" cy="120" r="8" fill="#FFFFFF"/>
+        <circle cx="60" cy="130" r="12" fill="#F59E0B" opacity="0.8"/>
+        <circle cx="60" cy="130" r="6" fill="#FFFFFF"/>
+        
+        <!-- Clock/Time element -->
+        <circle cx="100" cy="150" r="20" fill="#8B5CF6" opacity="0.8"/>
+        <circle cx="100" cy="150" r="15" fill="#FFFFFF"/>
+        <path d="M100 140 L100 150 L108 158" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
+        
+        <!-- Floating elements -->
+        <circle cx="40" cy="60" r="6" fill="#F59E0B" opacity="0.6"/>
+        <circle cx="160" cy="70" r="4" fill="#10B981" opacity="0.7"/>
+        <rect x="150" y="160" width="12" height="12" rx="2" fill="#3B82F6" opacity="0.5" transform="rotate(45 156 166)"/>
       </svg>`;
+      
     case 'security':
-      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-        <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="white"/>
+      return `<svg class="w-16 h-16" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background decorative shape -->
+        <rect x="20" y="20" width="160" height="160" rx="80" fill="#F0FDF4" opacity="0.5"/>
+        <rect x="40" y="40" width="120" height="120" rx="60" fill="#DCFCE7" opacity="0.3"/>
+        
+        <!-- Main shield -->
+        <path d="M100 30 L60 50 L60 90 C60 130 100 160 100 160 C100 160 140 130 140 90 L140 50 L100 30 Z" fill="#10B981"/>
+        <path d="M100 40 L70 55 L70 85 C70 115 100 140 100 140 C100 140 130 115 130 85 L130 55 L100 40 Z" fill="#FFFFFF"/>
+        
+        <!-- Checkmark -->
+        <path d="M85 95 L95 105 L115 85" stroke="#10B981" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <!-- Security badges -->
+        <circle cx="50" cy="70" r="12" fill="#1E40AF"/>
+        <text x="50" y="75" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="bold">SSL</text>
+        
+        <circle cx="150" cy="70" r="12" fill="#DC2626"/>
+        <path d="M145 70 L150 65 L155 70 L150 75 Z" fill="#FFFFFF"/>
+        
+        <!-- Bank security element -->
+        <rect x="85" y="120" width="30" height="20" rx="4" fill="#1F2937"/>
+        <rect x="88" y="123" width="24" height="14" rx="2" fill="#FFFFFF"/>
+        <circle cx="100" cy="130" r="3" fill="#1F2937"/>
+        
+        <!-- Encryption symbols -->
+        <circle cx="40" cy="130" r="8" fill="#8B5CF6" opacity="0.7"/>
+        <text x="40" y="135" text-anchor="middle" fill="#FFFFFF" font-size="8" font-weight="bold">🔐</text>
+        
+        <circle cx="160" cy="130" r="8" fill="#F59E0B" opacity="0.7"/>
+        <text x="160" y="135" text-anchor="middle" fill="#FFFFFF" font-size="8" font-weight="bold">🔑</text>
+        
+        <!-- Floating security elements -->
+        <rect x="30" y="160" width="16" height="16" rx="3" fill="#3B82F6" opacity="0.6" transform="rotate(15 38 168)"/>
+        <circle cx="170" cy="160" r="6" fill="#10B981" opacity="0.8"/>
       </svg>`;
-    case 'support':
-      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-        <path d="M12 6c-3.31 0-6 2.69-6 6h2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.1-.45 2.1-1.17 2.83-.74.74-1.83 1.17-2.83 1.17v2c1.66 0 3.16-.63 4.24-1.76S18 13.66 18 12c0-3.31-2.69-6-6-6z"/>
-        <circle cx="12" cy="19" r="1"/>
-      </svg>`;
-    case 'platform':
-      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M4 6h16v2H4zm0 5h16v6c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-6zm16-7H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/>
-        <circle cx="7" cy="14" r="1"/>
-        <circle cx="12" cy="14" r="1"/>
-        <circle cx="17" cy="14" r="1"/>
-      </svg>`;
+      
     case 'payment':
-      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10z"/>
-        <path d="M6 12h2v2H6zm4 0h8v2h-8z"/>
-        <circle cx="18" cy="15" r="1"/>
+      return `<svg class="w-16 h-16" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background decorative shape -->
+        <ellipse cx="100" cy="100" rx="90" ry="80" fill="#FEF3C7" opacity="0.5"/>
+        <ellipse cx="110" cy="110" rx="70" ry="60" fill="#FDE68A" opacity="0.3"/>
+        
+        <!-- Charts and graphs -->
+        <rect x="40" y="120" width="12" height="30" fill="#3B82F6"/>
+        <rect x="58" y="110" width="12" height="40" fill="#10B981"/>
+        <rect x="76" y="100" width="12" height="50" fill="#F59E0B"/>
+        <rect x="94" y="90" width="12" height="60" fill="#8B5CF6"/>
+        <rect x="112" y="105" width="12" height="45" fill="#EF4444"/>
+        <rect x="130" y="115" width="12" height="35" fill="#06B6D4"/>
+        <rect x="148" y="95" width="12" height="55" fill="#84CC16"/>
+        
+        <!-- Trend line -->
+        <path d="M40 140 Q70 120 100 110 Q130 100 160 105" stroke="#1E40AF" stroke-width="3" fill="none" opacity="0.8"/>
+        
+        <!-- Analytics dashboard -->
+        <rect x="60" y="50" width="80" height="50" rx="8" fill="#1F2937"/>
+        <rect x="65" y="55" width="70" height="40" rx="4" fill="#FFFFFF"/>
+        
+        <!-- Dashboard elements -->
+        <circle cx="80" cy="70" r="8" fill="#3B82F6"/>
+        <rect x="95" y="62" width="30" height="4" rx="2" fill="#E5E7EB"/>
+        <rect x="95" y="70" width="20" height="4" rx="2" fill="#E5E7EB"/>
+        <rect x="95" y="78" width="25" height="4" rx="2" fill="#E5E7EB"/>
+        
+        <!-- Pie chart -->
+        <circle cx="130" cy="75" r="12" fill="#F3F4F6"/>
+        <path d="M130 63 A12 12 0 0 1 142 75 L130 75 Z" fill="#3B82F6"/>
+        <path d="M142 75 A12 12 0 0 1 130 87 L130 75 Z" fill="#10B981"/>
+        <path d="M130 87 A12 12 0 0 1 118 75 L130 75 Z" fill="#F59E0B"/>
+        
+        <!-- Currency symbols -->
+        <circle cx="30" cy="60" r="10" fill="#10B981" opacity="0.8"/>
+        <text x="30" y="66" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="bold">$</text>
+        
+        <circle cx="170" cy="60" r="8" fill="#3B82F6" opacity="0.8"/>
+        <text x="170" y="65" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="bold">€</text>
+        
+        <!-- Growth arrow -->
+        <path d="M160 130 L170 120 L180 130 M170 140 L170 120" stroke="#10B981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <!-- Floating elements -->
+        <circle cx="25" cy="160" r="5" fill="#8B5CF6" opacity="0.6"/>
+        <rect x="170" y="170" width="10" height="10" rx="2" fill="#F59E0B" opacity="0.7" transform="rotate(30 175 175)"/>
       </svg>`;
-    case 'cancel':
-      return `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-        <path d="M12 10.59l4.24-4.24 1.41 1.41L13.41 12l4.24 4.24-1.41 1.41L12 13.41l-4.24 4.24-1.41-1.41L10.59 12 6.35 7.76l1.41-1.41L12 10.59z"/>
-        <path d="M16 8l-4 4-4-4 1.41-1.41L12 9.17l2.59-2.58L16 8z" fill="white"/>
+      
+    case 'support':
+      return `<svg class="w-16 h-16" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background decorative shape -->
+        <ellipse cx="100" cy="100" rx="85" ry="90" fill="#FDF4FF" opacity="0.5"/>
+        <ellipse cx="110" cy="110" rx="65" ry="70" fill="#F3E8FF" opacity="0.3"/>
+        
+        <!-- Support agent head -->
+        <circle cx="100" cy="70" r="25" fill="#E0E7FF"/>
+        <circle cx="100" cy="65" r="20" fill="#8B5CF6"/>
+        
+        <!-- Headset -->
+        <path d="M80 60 Q80 45 100 45 Q120 45 120 60" stroke="#1E293B" stroke-width="4" fill="none"/>
+        <circle cx="80" cy="65" r="8" fill="#1E293B"/>
+        <circle cx="120" cy="65" r="8" fill="#1E293B"/>
+        <circle cx="80" cy="65" r="5" fill="#64748B"/>
+        <circle cx="120" cy="65" r="5" fill="#64748B"/>
+        
+        <!-- Microphone -->
+        <rect x="75" y="75" width="4" height="15" rx="2" fill="#1E293B"/>
+        <circle cx="77" cy="92" r="3" fill="#374151"/>
+        
+        <!-- 24/7 badge -->
+        <circle cx="140" cy="50" r="18" fill="#10B981"/>
+        <text x="140" y="46" text-anchor="middle" fill="#FFFFFF" font-size="8" font-weight="bold">24</text>
+        <text x="140" y="56" text-anchor="middle" fill="#FFFFFF" font-size="8" font-weight="bold">7</text>
+        
+        <!-- Chat bubbles -->
+        <ellipse cx="70" cy="120" rx="25" ry="18" fill="#3B82F6"/>
+        <path d="M55 135 L45 145 L65 140" fill="#3B82F6"/>
+        <ellipse cx="67" cy="115" rx="15" ry="3" fill="#FFFFFF" opacity="0.8"/>
+        <ellipse cx="67" cy="122" rx="12" ry="3" fill="#FFFFFF" opacity="0.6"/>
+        
+        <ellipse cx="130" cy="115" rx="30" ry="20" fill="#10B981"/>
+        <path d="M145 132 L155 142 L135 137" fill="#10B981"/>
+        <circle cx="120" cy="110" r="2" fill="#FFFFFF"/>
+        <circle cx="128" cy="110" r="2" fill="#FFFFFF"/>
+        <circle cx="136" cy="110" r="2" fill="#FFFFFF"/>
+        
+        <!-- Rating stars -->
+        <g transform="translate(130, 160)">
+          <path d="M0 6 L2 0 L4 6 L-1 2 L5 2 Z" fill="#FBBF24"/>
+          <path d="M8 6 L10 0 L12 6 L7 2 L13 2 Z" fill="#FBBF24"/>
+          <path d="M16 6 L18 0 L20 6 L15 2 L21 2 Z" fill="#FBBF24"/>
+          <path d="M24 6 L26 0 L28 6 L23 2 L29 2 Z" fill="#FBBF24"/>
+          <path d="M32 6 L34 0 L36 6 L31 2 L37 2 Z" fill="#FBBF24"/>
+        </g>
+        
+        <!-- Phone/contact icons -->
+        <circle cx="40" cy="160" r="12" fill="#3B82F6" opacity="0.8"/>
+        <path d="M35 155 Q40 150 45 155 L45 165 Q40 170 35 165 Z" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+        
+        <circle cx="160" cy="170" r="10" fill="#F59E0B" opacity="0.8"/>
+        <rect x="156" y="166" width="8" height="8" rx="2" fill="#FFFFFF"/>
+        <rect x="158" y="168" width="4" height="2" fill="#F59E0B"/>
+        
+        <!-- Floating elements -->
+        <circle cx="30" cy="50" r="6" fill="#EF4444" opacity="0.6"/>
+        <path d="M170 40 C170 35, 175 35, 175 40 C175 35, 180 35, 180 40 C180 45, 175 50, 175 50 C175 50, 170 45, 170 40 Z" fill="#EF4444" opacity="0.5"/>
+        <rect x="25" y="120" width="12" height="12" rx="3" fill="#8B5CF6" opacity="0.4" transform="rotate(20 31 126)"/>
       </svg>`;
+      
     default:
       return '';
   }
 };
 
-const getColorClasses = (color: string) => {
-  return 'bg-gray-900';
-};
 ---
 
-<section id="features" class="py-24 bg-white relative overflow-hidden">
+<section id="features" class="section-padding bg-gray-50 relative overflow-hidden">
   <!-- Minimal Background -->
   <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.01)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e')] opacity-30 pointer-events-none"></div>
   
-  <div class="container mx-auto px-4 relative">
-    <div class="text-center mb-20">
-      <div class="inline-flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full border border-gray-200 mb-6">
-        <div class="w-2 h-2 bg-gray-900 rounded-full"></div>
-        <span data-translate="enterpriseFeatures" class="text-sm font-medium text-gray-900">Platform Capabilities</span>
+  <div class="container-tight relative">
+    <div class="text-center mb-12">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 relative inline-block">
+          <span data-translate="whyChoose" class="relative z-10">แพลตฟอร์มของเรา</span>
+          <div class="absolute bottom-2 left-0 right-0 h-3 bg-blue-700 opacity-50 -skew-x-12 transform origin-bottom-left"></div>
+        </h2>
+        <p data-translate="featuresDescription" class="text-base lg:text-lg font-normal leading-relaxed text-gray-600 max-w-3xl mx-auto">
+          BookingWhale application aims to provide low-cost, convenient, and smart access to booking services, payment solutions, business management tools, and customer support for everyone.
+        </p>
       </div>
-      <h2 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-        <span data-translate="whyChoose">Why Choose</span> <span class="text-gray-900">Our Platform</span>
-      </h2>
-      <p data-translate="featuresDescription" class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-        Built for enterprise-scale operations with advanced capabilities that empower organizations to achieve operational excellence and drive digital transformation.
-      </p>
     </div>
     
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {features.map((feature, index) => {
-        const colorClasses = getColorClasses(feature.color);
-        return (
-          <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl border border-gray-100 hover:border-gray-200 transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
-            
-            <div class="relative z-10">
-              <div class={`w-16 h-16 ${colorClasses} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-105 transition-all duration-300 shadow-lg`}>
-                <Fragment set:html={getIcon(feature.icon)} />
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {features.map((feature, index) => {
+          return (
+            <div class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-200 p-6 text-center">
+              {/* Vector illustration */}
+              <div class="mb-6 transform group-hover:scale-110 transition-all duration-500 flex justify-center items-center">
+                <Fragment set:html={getIllustration(feature.icon)} />
               </div>
               
-              <h3 data-translate={`feature${index + 1}Title`} class="text-2xl font-bold text-gray-900 mb-4 transition-colors">
+              {/* Content */}
+              <h3 data-translate={`feature${index + 1}Title`} class="text-lg font-semibold text-gray-900 mb-2">
                 {feature.title}
               </h3>
-              <p data-translate={`feature${index + 1}Desc`} class="text-gray-600 leading-relaxed">
+              <p data-translate={`feature${index + 1}Desc`} class="text-sm text-gray-600 leading-relaxed">
                 {feature.description}
               </p>
-              
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
     
-    <!-- Pricing CTA Section -->
-    <div class="mt-20">
-      <div class="bg-gray-50 rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-200 relative overflow-hidden">
+    <!-- CTA Section - Enhanced with Interactive Elements -->
+    <div class="mt-16 lg:mt-20">
+      <div class="bg-gray-900 rounded-2xl lg:rounded-3xl p-6 sm:p-10 lg:p-16 max-w-6xl mx-auto relative overflow-hidden min-h-[140px] sm:min-h-[160px] lg:min-h-[200px] group">
+        <!-- Animated Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
         
-        <div class="relative z-10 text-center max-w-4xl mx-auto">
-          <div class="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full border border-gray-200 mb-6">
-            <div class="w-2 h-2 bg-gray-900 rounded-full"></div>
-            <span data-translate="freeToStart" class="text-sm font-medium text-gray-900">Free to Start</span>
+        <!-- Floating Particles Animation -->
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute top-4 right-12 w-2 h-2 bg-blue-400 rounded-full animate-ping opacity-30"></div>
+          <div class="absolute top-8 right-20 w-1 h-1 bg-green-400 rounded-full animate-pulse opacity-40"></div>
+          <div class="absolute bottom-6 right-16 w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce opacity-35"></div>
+          <div class="absolute top-12 left-1/2 w-1 h-1 bg-yellow-400 rounded-full animate-pulse opacity-30"></div>
+        </div>
+        
+        <!-- Large Background illustration - Left Side -->
+        <div class="absolute left-0 top-0 w-32 sm:w-48 lg:w-64 xl:w-80 h-full opacity-15 sm:opacity-20 pointer-events-none group-hover:opacity-25 transition-opacity duration-500">
+          <svg class="w-full h-full" viewBox="0 0 300 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Main Phone mockup - Larger -->
+            <rect x="20" y="15" width="70" height="110" rx="12" fill="white" opacity="0.5"/>
+            <rect x="30" y="30" width="50" height="8" rx="4" fill="white" opacity="0.6"/>
+            <rect x="30" y="45" width="35" height="6" rx="3" fill="white" opacity="0.6"/>
+            <rect x="30" y="55" width="45" height="6" rx="3" fill="white" opacity="0.6"/>
+            <circle cx="55" cy="80" r="12" fill="white" opacity="0.6"/>
+            <rect x="35" y="105" width="40" height="10" rx="5" fill="white" opacity="0.7"/>
+            
+            <!-- Secondary smaller phone -->
+            <rect x="110" y="35" width="45" height="70" rx="8" fill="white" opacity="0.3"/>
+            <rect x="118" y="45" width="30" height="4" rx="2" fill="white" opacity="0.4"/>
+            <rect x="118" y="52" width="20" height="3" rx="1.5" fill="white" opacity="0.4"/>
+            <circle cx="133" cy="70" r="8" fill="white" opacity="0.4"/>
+            <rect x="123" y="85" width="20" height="6" rx="3" fill="white" opacity="0.5"/>
+            
+            <!-- Floating UI elements -->
+            <circle cx="170" cy="30" r="6" fill="white" opacity="0.4"/>
+            <circle cx="190" cy="60" r="4" fill="white" opacity="0.4"/>
+            <circle cx="160" cy="90" r="3" fill="white" opacity="0.4"/>
+            <circle cx="180" cy="110" r="5" fill="white" opacity="0.4"/>
+            
+            <!-- Check marks and success indicators -->
+            <path d="M175 45L178 48L185 41" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+            <path d="M195 75L198 78L205 71" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+            <path d="M165 115L168 118L175 111" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+            
+            <!-- App interface lines -->
+            <rect x="200" y="40" width="35" height="4" rx="2" fill="white" opacity="0.3"/>
+            <rect x="200" y="48" width="25" height="4" rx="2" fill="white" opacity="0.3"/>
+            <rect x="200" y="56" width="40" height="4" rx="2" fill="white" opacity="0.3"/>
+            <rect x="200" y="70" width="30" height="4" rx="2" fill="white" opacity="0.3"/>
+            <rect x="200" y="78" width="35" height="4" rx="2" fill="white" opacity="0.3"/>
+            
+            <!-- Decorative dots pattern -->
+            <circle cx="250" cy="25" r="2" fill="white" opacity="0.3"/>
+            <circle cx="260" cy="35" r="2" fill="white" opacity="0.3"/>
+            <circle cx="270" cy="45" r="2" fill="white" opacity="0.3"/>
+            <circle cx="250" cy="85" r="2" fill="white" opacity="0.3"/>
+            <circle cx="260" cy="95" r="2" fill="white" opacity="0.3"/>
+            <circle cx="270" cy="105" r="2" fill="white" opacity="0.3"/>
+          </svg>
+        </div>
+        
+        <!-- Subtle Border Glow -->
+        <div class="absolute inset-0 rounded-2xl lg:rounded-3xl border border-gray-700 group-hover:border-blue-500/30 transition-colors duration-500"></div>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
+          <div class="text-center sm:text-left flex-1">
+            <h3 class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-100 transition-colors duration-300" data-translate="startFree">
+              เริ่มใช้ BookingWhale ฟรี
+            </h3>
+            <p class="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed group-hover:text-gray-200 transition-colors duration-300" data-translate="freeDescription">
+              ไม่มีค่าเริ่มต้น ไม่ผูกสัญญา ยกเลิกได้ตลอดเวลา
+            </p>
           </div>
           
-          <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            <span data-translate="startFree">Enterprise Trial</span> <span class="text-gray-900">Available</span>
-          </h3>
-          <p data-translate="freeDescription" class="text-xl text-gray-600 mb-8 leading-relaxed">
-            Experience our enterprise platform with a comprehensive trial. Custom pricing models available for enterprise deployments with dedicated support and professional services.
-          </p>
-          
-          <div class="grid md:grid-cols-3 gap-6 mb-8">
-            <div class="flex items-center justify-center space-x-3 bg-white rounded-2xl p-4 border border-gray-200">
-              <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span data-translate="noSetupFees" class="font-semibold text-gray-700">Enterprise Support</span>
-            </div>
-            <div class="flex items-center justify-center space-x-3 bg-white rounded-2xl p-4 border border-gray-200">
-              <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span data-translate="noMonthlyFees" class="font-semibold text-gray-700">Custom Deployment</span>
-            </div>
-            <div class="flex items-center justify-center space-x-3 bg-white rounded-2xl p-4 border border-gray-200">
-              <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span data-translate="payPerBooking" class="font-semibold text-gray-700">Scalable Pricing</span>
-            </div>
+          <div class="flex-shrink-0">
+            <button 
+              onclick="openBookingModal()"
+              class="group/btn bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 sm:px-8 sm:py-3 lg:px-10 lg:py-4 rounded-lg sm:rounded-xl transition-all duration-300 font-semibold sm:font-bold text-base sm:text-lg shadow-lg sm:shadow-xl hover:shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 relative overflow-hidden"
+              data-translate="startFreeToday"
+            >
+              <!-- Button shine effect -->
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
+              
+              <span class="flex items-center justify-center gap-2 relative z-10">
+                ลองใช้ฟรี
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </span>
+            </button>
           </div>
-          
-          <button 
-            onclick="openBookingModal()"
-            class="bg-gray-900 text-white px-10 py-4 rounded-2xl hover:bg-gray-800 transition-all duration-300 font-semibold text-lg group"
-          >
-            <span class="flex items-center justify-center space-x-2">
-              <span data-translate="startFreeToday">Request Demo</span>
-              <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-              </svg>
-            </span>
-          </button>
         </div>
       </div>
     </div>

@@ -4,6 +4,9 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
 import Features from '../components/Features.astro';
+import Newsletter from '../components/Newsletter.astro';
+import FAQ from '../components/FAQ.astro';
+import Security from '../components/Security.astro';
 import BookingModal from '../components/BookingModal.astro';
 import Footer from '../components/Footer.astro';
 ---
@@ -17,6 +20,8 @@ import Footer from '../components/Footer.astro';
   <Hero />
   <Services />
   <Features />
+  <FAQ />
+  <Security />
   <Footer />
   <BookingModal />
   
@@ -38,17 +43,7 @@ import Footer from '../components/Footer.astro';
       });
     });
 
-    // Header background on scroll
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      if (window.scrollY > 100) {
-        header?.classList.add('bg-white/95');
-        header?.classList.remove('bg-white/90');
-      } else {
-        header?.classList.add('bg-white/90');
-        header?.classList.remove('bg-white/95');
-      }
-    });
+    // Header background on scroll - handled in Header.astro
 
     // Intersection Observer for animations
     const observerOptions = {

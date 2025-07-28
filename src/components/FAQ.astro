@@ -1,0 +1,140 @@
+---
+const faqs = [
+  {
+    id: 'what-is',
+    question: 'What is BookingWhale?',
+    answer: 'BookingWhale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We\'re currently in beta development.'
+  },
+  {
+    id: 'when-launch',
+    question: 'When will it be available?',
+    answer: 'We\'re launching our beta version soon! Join our early access list to be among the first 1,000 users to try the platform.'
+  },
+  {
+    id: 'cost',
+    question: 'How much does it cost?',
+    answer: 'BookingWhale will be free during our beta period. Early adopters will get special pricing when we launch our full platform.'
+  },
+  {
+    id: 'features',
+    question: 'What features will be included?',
+    answer: 'Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools.'
+  },
+  {
+    id: 'support',
+    question: 'Do you provide support?',
+    answer: 'Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions.'
+  },
+  {
+    id: 'security',
+    question: 'Is my data secure?',
+    answer: 'Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us.'
+  }
+];
+---
+
+<section id="faq" class="section-padding bg-gray-50 relative overflow-hidden">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.01)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e')] opacity-30 pointer-events-none"></div>
+  
+  <div class="container-tight relative">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 relative inline-block">
+        <span data-translate="faqTitle" class="relative z-10">คำถามที่พบบ่อย</span>
+        <div class="absolute bottom-2 left-0 right-0 h-3 bg-blue-700 opacity-50 -skew-x-12 transform origin-bottom-left"></div>
+      </h2>
+      <p data-translate="faqDescription" class="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+        มีคำถามเกี่ยวกับ BookingWhale? เราได้รวบรวมคำถามที่พบบ่อยไว้ที่นี่
+      </p>
+    </div>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="space-y-4">
+        {faqs.map((faq, index) => (
+          <div class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-200 overflow-hidden">
+            <button 
+              class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none"
+              onclick={`toggleFAQ('faq-${index}')`}
+            >
+              <h3 data-translate={`${faq.id}Question`} class="text-lg font-semibold text-gray-900">
+                {faq.question}
+              </h3>
+              <svg 
+                class="faq-icon w-5 h-5 text-gray-500 transform transition-transform duration-200"
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div 
+              id={`faq-${index}`}
+              class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-out"
+            >
+              <div class="px-6 pb-5">
+                <p data-translate={`${faq.id}Answer`} class="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Contact CTA -->
+    <div class="mt-12 text-center">
+      <div class="inline-flex items-center space-x-3 bg-white rounded-xl px-6 py-4 border border-gray-200 shadow-sm">
+        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class="text-left">
+          <p class="text-sm font-medium text-gray-900" data-translate="stillHaveQuestions">ยังมีคำถามอื่นๆ?</p>
+          <p class="text-sm text-gray-600" data-translate="contactUs">ติดต่อเราได้ตลอด 24/7</p>
+        </div>
+        <a 
+          href="tel:0805956458"
+          class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
+          data-translate="callNow"
+        >
+          โทรเลย
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleFAQ(faqId) {
+    const faqAnswer = document.getElementById(faqId);
+    const faqIcon = faqAnswer?.previousElementSibling?.querySelector('.faq-icon');
+    
+    if (faqAnswer?.classList.contains('max-h-0')) {
+      // Open
+      faqAnswer.classList.remove('max-h-0');
+      faqAnswer.classList.add('max-h-96');
+      faqIcon?.classList.add('rotate-180');
+    } else {
+      // Close
+      faqAnswer?.classList.add('max-h-0');
+      faqAnswer?.classList.remove('max-h-96');
+      faqIcon?.classList.remove('rotate-180');
+    }
+  }
+  
+  // Make function globally available
+  window.toggleFAQ = toggleFAQ;
+</script>
+
+<style>
+  .faq-answer {
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .faq-icon {
+    transition: transform 0.2s ease;
+  }
+</style>

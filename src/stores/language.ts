@@ -17,8 +17,9 @@ export const translations = {
     heroSubtitle: 'Seamlessly',
     heroDescription: 'The ultimate booking platform for Personal Trainers, Retail, Events, and more.',
     heroTagline: 'Enterprise-grade. Simple to use.',
-    trustedBy: 'Trusted by 10,000+ businesses',
+    trustedBy: 'Join the first 1,000 early adopters',
     startBookingNow: 'Start Booking Now',
+    learnMore: 'Learn More',
     exploreServices: 'Explore Services',
     activeUsers: 'Active Users',
     uptime: 'Uptime',
@@ -108,8 +109,8 @@ export const translations = {
     cancellationFree: 'Free Cancellation',
     cancellationDesc: 'Cancel your bookings for free with no fees when you notify us 24 hours in advance.',
     freeToStart: 'Free to Start',
-    startFree: 'Start Using BookingWhale Free',
-    freeDescription: 'No setup fees, no monthly subscriptions, no hidden costs. Pay only when you book services. It\'s that simple.',
+    startFree: 'Join Early Access - FREE',
+    freeDescription: 'Be among the first to experience the future of booking. No setup fees, no commitments. Start your journey with us today.',
     noSetupFees: 'No Setup Fees',
     noMonthlyFees: 'No Monthly Fees',
     payPerBooking: 'Pay Per Booking',
@@ -131,10 +132,10 @@ export const translations = {
     callBooking: 'Call 080-595-6458',
     
     // Footer
-    footerDescription: 'The most comprehensive booking platform for professional services. Trusted by thousands of businesses worldwide for reliability and excellence.',
+    footerDescription: 'Next-generation booking platform designed for modern businesses. Join us as we revolutionize the way services are booked and managed.',
     readyToStart: 'Ready to Get Started?',
     experienceFuture: 'Experience the Future of Booking',
-    footerCtaDescription: 'Join thousands of satisfied customers who trust BookingWhale for their service booking needs. Start your journey today, completely free.',
+    footerCtaDescription: 'Be part of the future of booking technology. Join our early access program and help shape the platform that will transform how businesses operate.',
     startBookingNowFooter: 'Start Booking Now',
     callUs: 'Call Us',
     available247: 'Available 24/7',
@@ -145,7 +146,59 @@ export const translations = {
     allRightsReserved: 'All rights reserved.',
     privacyPolicy: 'Privacy Policy',
     termsOfService: 'Terms of Service',
-    cookiePolicy: 'Cookie Policy'
+    cookiePolicy: 'Cookie Policy',
+    
+    // FAQ Section
+    faqTitle: 'Frequently Asked Questions',
+    faqDescription: 'Have questions about BookingWhale? We\'ve compiled the most common questions here.',
+    stillHaveQuestions: 'Still have questions?',
+    contactUs: 'Contact us anytime 24/7',
+    callNow: 'Call Now',
+    
+    // FAQ Items
+    'what-isQuestion': 'What is BookingWhale?',
+    'what-isAnswer': 'BookingWhale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We\'re currently in beta development.',
+    'when-launchQuestion': 'When will it be available?',
+    'when-launchAnswer': 'We\'re launching our beta version soon! Join our early access list to be among the first 1,000 users to try the platform.',
+    costQuestion: 'How much does it cost?',
+    costAnswer: 'BookingWhale will be free during our beta period. Early adopters will get special pricing when we launch our full platform.',
+    featuresQuestion: 'What features will be included?',
+    featuresAnswer: 'Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools.',
+    supportQuestion: 'Do you provide support?',
+    supportAnswer: 'Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions.',
+    securityQuestion: 'Is my data secure?',
+    securityAnswer: 'Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us.',
+    
+    // Team Section
+    teamTitle: 'Meet Our Team',
+    teamDescription: 'Meet the experienced team behind BookingWhale',
+    founderBadge: 'Founder',
+    founderName: 'Alex Thompson',
+    founderTitle: 'CEO & Founder',
+    founderStory1: 'After 8 years in the tech industry, I saw the same problems over and over - complex, time-consuming, and non-transparent service booking.',
+    founderStory2: 'BookingWhale was born from the need to solve this problem for businesses and customers worldwide, with modern technology and user-centered design.',
+    credential1: '8+ Years Tech Experience',
+    credential2: '3 Successful Startups',
+    credential3: 'Stanford MBA',
+    missionTitle: 'Our Mission',
+    missionText: 'To make service booking simple, fast, and transparent for everyone in the world, with cutting-edge technology and excellent user experience.',
+    visionTitle: 'Our Vision',
+    visionText: 'To be the #1 booking platform chosen by businesses worldwide, and to be an example of innovation and excellence in the industry.',
+    trustIndicator1: 'Bootstrap Funded',
+    trustIndicator2: 'Bank-Level Security',
+    trustIndicator3: 'Dedicated Team',
+    
+    // Newsletter Section
+    newsletterTitle: 'Join',
+    newsletterDescription: 'Be the first to get updates and try BookingWhale before anyone else. Get Early Bird special pricing.',
+    emailPlaceholder: 'your.email@example.com',
+    joinWaitlist: 'Join Waitlist',
+    subscriptionSuccess: 'Thank you! We\'ll be in touch soon.',
+    subscriptionError: 'Something went wrong. Please try again.',
+    noSpam: 'No spam',
+    unsubscribeAnytime: 'Unsubscribe anytime',
+    earlyUsers: '1,000',
+    earlyUsersText: 'early users'
   },
   th: {
     // Navigation
@@ -159,15 +212,16 @@ export const translations = {
     heroSubtitle: 'ได้ง่ายในคลิกเดียว',
     heroDescription: 'แพลตฟอร์มการจองบริการที่ครบครัน สำหรับ Personal Trainer, ร้านค้า, อีเวนต์ และอื่นๆ',
     heroTagline: 'ระดับองค์กร ใช้งานง่าย',
-    trustedBy: 'ได้รับความไว้วางใจจากธุรกิจกว่า 10,000 แห่ง',
+    trustedBy: 'เข้าร่วมเป็น 1,000 คนแรกที่ได้ทดลองใช้ก่อนใคร',
     startBookingNow: 'เริ่มจองตอนนี้',
+    learnMore: 'ดูวิธีการใช้',
     exploreServices: 'ดูบริการทั้งหมด',
     activeUsers: 'ผู้ใช้งาน',
     uptime: 'อัพไทม์',
     support: 'ซัพพอร์ต',
     
     // Services Section
-    ourServices: 'บริการของเรา',
+    ourServices: 'บริการหลัก',
     servicePortfolio: 'บริการครบครัน',
     servicesDescription: 'เลือกจากบริการมืออาชีพที่หลากหลาย ออกแบบมาเพื่อตอบสนองทุกความต้องการด้วยคุณภาพระดับองค์กร',
     personalTraining: 'เทรนเนอร์ส่วนตัว',
@@ -191,7 +245,7 @@ export const translations = {
     wideSelection: 'บริการหลากหลาย',
     easyBooking: 'จองง่าย',
     flexibleScheduling: 'ยืดหยุ่นเรื่องเวลา',
-    notSureService: 'ไม่แน่ใจว่าบริการไหนเหมาะกับคุณ?',
+    notSureService: 'เริ่มใช้ BookingWhale ฟรี',
     expertConsultants: 'ทีมผู้เชี่ยวชาญของเราพร้อมช่วยเหลือคุณค้นหาโซลูชั่นที่เหมาะสมที่สุด',
     getFreeConsultation: 'ปรึกษาฟรี',
     
@@ -234,9 +288,9 @@ export const translations = {
     flexiblescheduling: 'ยืดหยุ่นเรื่องเวลา',
     
     // Features Section
-    whyChoose: 'ทำไมต้องเลือก',
+    whyChoose: 'แพลตฟอร์มของเรา',
     enterpriseFeatures: 'คุณสมบัติระดับองค์กร',
-    featuresDescription: 'สัมผัสเทคโนโลยีการจองรุ่นใหม่ด้วยคุณสมบัติที่ออกแบบมาสำหรับธุรกิจสมัยใหม่และผู้ใช้ที่คาดหวังความเป็นเลิศ',
+    featuresDescription: 'BookingWhale application มุ่งเน้นให้บริการการจองที่ราคาย่อมเยา สะดวก และชาญฉลาด พร้อมเครื่องมือจัดการธุรกิจและการสนับสนุนลูกค้าสำหรับทุกคน',
     intuitiveInterface: 'ใช้งานง่าย',
     intuitiveDesc: 'ออกแบบ UI/UX ที่สวยงามและใช้งานง่าย เหมาะสำหรับทุกคนตั้งแต่ผู้ใช้เทคโนโลยีจนถึงผู้สูงอายุ',
     bankLevelSecurity: 'ความปลอดภัยระดับธนาคาร',
@@ -250,8 +304,8 @@ export const translations = {
     cancellationFree: 'ยกเลิกฟรี',
     cancellationDesc: 'ยกเลิกการจองฟรีโดยไม่มีค่าธรรมเนียม เมื่อแจ้ง 24 ชั่วโมงล่วงหน้า',
     freeToStart: 'เริ่มต้นฟรี',
-    startFree: 'เริ่มใช้ BookingWhale ฟรี',
-    freeDescription: 'ไม่มีค่าติดตั้ง ไม่มีค่าสมาชิกรายเดือน ไม่มีค่าใช้จ่ายซ่อนเร้น จ่ายเฉพาะเมื่อจองบริการเท่านั้น',
+    startFree: 'เข้าร่วม Early Access - ฟรี',
+    freeDescription: 'เป็นคนแรกที่ได้สัมผัสอนาคตของการจอง ไม่มีค่าติดตั้ง ไม่ผูกมัด เริ่มต้นการเดินทางกับเราวันนี้',
     noSetupFees: 'ไม่มีค่าติดตั้ง',
     noMonthlyFees: 'ไม่มีค่ารายเดือน',
     payPerBooking: 'จ่ายตามการจอง',
@@ -273,10 +327,10 @@ export const translations = {
     callBooking: 'โทร 080-595-6458',
     
     // Footer
-    footerDescription: 'แพลตฟอร์มการจองบริการที่ครอบคลุมที่สุดสำหรับบริการมืออาชีพ ได้รับความไว้วางใจจากธุรกิจหลายพันแห่งทั่วโลก',
+    footerDescription: 'แพลตฟอร์มการจองรุ่นใหม่ที่ออกแบบมาสำหรับธุรกิจสมัยใหม่ เข้าร่วมกับเราในการปฏิวัติวิธีการจองและจัดการบริการ',
     readyToStart: 'พร้อมเริ่มต้นแล้วหรือยัง?',
     experienceFuture: 'สัมผัสอนาคตของการจอง',
-    footerCtaDescription: 'เข้าร่วมกับลูกค้าหลายพันคนที่พึงพอใจที่วางใจ BookingWhale สำหรับความต้องการการจองบริการ เริ่มต้นการเดินทางของคุณวันนี้ ฟรี',
+    footerCtaDescription: 'เป็นส่วนหนึ่งของอนาคตเทคโนโลยีการจอง เข้าร่วมโปรแกรม early access และช่วยสร้างแพลตฟอร์มที่จะเปลี่ยนวิธีการทำธุรกิจ',
     startBookingNowFooter: 'เริ่มจองตอนนี้',
     callUs: 'โทรหาเรา',
     available247: 'พร้อมบริการ 24/7',
@@ -287,7 +341,59 @@ export const translations = {
     allRightsReserved: 'สงวนลิขสิทธิ์',
     privacyPolicy: 'นโยบายความเป็นส่วนตัว',
     termsOfService: 'ข้อกำหนดการใช้บริการ',
-    cookiePolicy: 'นโยบายคุกกี้'
+    cookiePolicy: 'นโยบายคุกกี้',
+    
+    // FAQ Section
+    faqTitle: 'คำถามที่พบบ่อย',
+    faqDescription: 'มีคำถามเกี่ยวกับ BookingWhale? เราได้รวบรวมคำถามที่พบบ่อยไว้ที่นี่',
+    stillHaveQuestions: 'ยังมีคำถามอื่นๆ?',
+    contactUs: 'ติดต่อเราได้ตลอด 24/7',
+    callNow: 'โทรเลย',
+    
+    // FAQ Items
+    'what-isQuestion': 'BookingWhale คืออะไร?',
+    'what-isAnswer': 'BookingWhale คือแพลตฟอร์มการจองรุ่นใหม่ที่ออกแบบมาเพื่อทำให้การจองบริการง่ายขึ้นสำหรับธุรกิจและลูกค้า ขณะนี้เรากำลังพัฒนาเวอร์ชัน beta',
+    'when-launchQuestion': 'เมื่อไหร่จะใช้ได้?',
+    'when-launchAnswer': 'เรากำลังเปิดตัวเวอร์ชัน beta เร็วๆ นี้! เข้าร่วมรายชื่อ early access เพื่อเป็น 1,000 คนแรกที่ได้ทดลองใช้แพลตฟอร์ม',
+    costQuestion: 'ราคาเท่าไหร่?',
+    costAnswer: 'BookingWhale จะฟรีในช่วง beta ผู้ใช้งานแรกจะได้ราคาพิเศษเมื่อเราเปิดตัวแพลตฟอร์มเต็มรูปแบบ',
+    featuresQuestion: 'จะมีฟีเจอร์อะไรบ้าง?',
+    featuresAnswer: 'แพลตฟอร์มของเราจะรวมการจองอัตโนมัติ การชำระเงินปลอดภัย วิเคราะห์ธุรกิจ การสนับสนุน 24/7 และการเชื่อมต่อกับเครื่องมือที่มีอยู่',
+    supportQuestion: 'มีการสนับสนุนไหม?',
+    supportAnswer: 'ใช่! เรามีการสนับสนุน 24/7 ผ่านแชท อีเมล และโทรศัพท์ ทีมงานเฉพาะของเราจะช่วยคุณเริ่มต้นและตอบคำถามต่างๆ',
+    securityQuestion: 'ข้อมูลของฉันปลอดภัยไหม?',
+    securityAnswer: 'แน่นอน เราใช้การเข้ารหัสระดับธนาคารและปฏิบัติตามมาตรฐานอุตสาหกรรมเพื่อปกป้องข้อมูลของคุณ ข้อมูลของคุณปลอดภัยกับเรา',
+    
+    // Team Section
+    teamTitle: 'ทีมผู้สร้าง',
+    teamDescription: 'พบกับทีมที่มีประสบการณ์ที่อยู่เบื้องหลัง BookingWhale',
+    founderBadge: 'ผู้ก่อตั้ง',
+    founderName: 'อเล็กซ์ ธอมป์สัน',
+    founderTitle: 'CEO & ผู้ก่อตั้ง',
+    founderStory1: 'หลังจากประสบการณ์ 8 ปีในอุตสาหกรรมเทคโนโลยี ผมเห็นปัญหาเดิมๆ ซ้ำแล้วซ้ำเล่า - การจองบริการที่ซับซ้อน เสียเวลา และไม่โปร่งใส',
+    founderStory2: 'BookingWhale เกิดขึ้นจากความต้องการที่จะแก้ไขปัญหานี้ให้กับธุรกิจและลูกค้าทั่วโลก ด้วยเทคโนโลยีที่ทันสมัยและการออกแบบที่เน้นผู้ใช้เป็นหลัก',
+    credential1: 'ประสบการณ์เทค 8+ ปี',
+    credential2: 'สตาร์ทอัพสำเร็จ 3 แห่ง',
+    credential3: 'Stanford MBA',
+    missionTitle: 'พันธกิจของเรา',
+    missionText: 'ทำให้การจองบริการเป็นเรื่องง่าย รวดเร็ว และโปร่งใส สำหรับทุกคนในโลก ด้วยเทคโนโลจีที่ทันสมัยและประสบการณ์ผู้ใช้ที่ยอดเยี่ยม',
+    visionTitle: 'วิสัยทัศน์ของเรา',
+    visionText: 'เป็นแพลตฟอร์มการจองอันดับ 1 ที่ธุรกิจทั่วโลกเลือกใช้ และเป็นตัวอย่างของนวัตกรรมและความเป็นเลิศในอุตสาหกรรม',
+    trustIndicator1: 'ทุนตัวเอง',
+    trustIndicator2: 'ความปลอดภัยระดับธนาคาร',
+    trustIndicator3: 'ทีมงานเฉพาะ',
+    
+    // Newsletter Section
+    newsletterTitle: 'เข้าร่วม',
+    newsletterDescription: 'เป็นคนแรกที่ได้รับข่าวสารและได้ทดลองใช้ BookingWhale ก่อนใคร รับ Early Bird ราคาพิเศษ',
+    emailPlaceholder: 'your.email@example.com',
+    joinWaitlist: 'เข้าร่วมรายชื่อรอ',
+    subscriptionSuccess: 'ขอบคุณ! เราจะติดต่อกลับเร็วๆ นี้',
+    subscriptionError: 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง',
+    noSpam: 'ไม่มี spam',
+    unsubscribeAnytime: 'ยกเลิกได้ตลอดเวลา',
+    earlyUsers: '1,000',
+    earlyUsersText: 'คนแรก'
   }
 };
 
