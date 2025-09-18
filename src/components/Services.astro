@@ -1,38 +1,40 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 const services = [
   {
     id: "booking",
     title: "จองง่ายผ่าน Line และทุกช่องทางออนไลน์",
-    description: "ลูกค้าจองได้ง่ายผ่าน LINE หรือแสกน QR Code หน้าร้าน พร้อมลิงก์ครบ Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้จากทุกที่ทุกเวลา",
+    description:
+      "ลูกค้าจองได้ทันทีผ่าน LINE หรือสแกน QR Code หน้าร้าน พร้อมลิงก์แชร์บน Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้ง่ายทุกที่ทุกเวลา",
     icon: "lucide:mouse-pointer-click",
-    badge: "BOOKING EASY"
+    badge: "BOOKING EASY",
   },
   {
     id: "schedule",
     title: "จัดตารางอย่างอัจฉริยะไม่พลาดทุกคิว",
-    description: "หมดกังวลเมื่อลูกค้าเล็กน้อยละเอียด ระบบจัดตารางให้ชาญฉลาดใช้เต็ม พร้อมจองและเวลาทำงานในหน้าเดียว เป็นเรื่องง่าย ไม่ซับซ้อน",
+    description:
+      "หมดกังวลเมื่อมีลูกค้าเข้ามาเยอะ ระบบจะจัดคิวให้อัตโนมัติ พร้อมจองวัน และเวลาเดิมให้ลูกค้าประจำ ให้การนัดหมายเป็นเรื่องง่าย ไม่ตกหล่น",
     icon: "lucide:calendar-check-2",
-    badge: "SMART SCHEDULE"
+    badge: "SMART SCHEDULE",
   },
   {
     id: "noshow",
     title: "ลดการผิดนัด (No-Show) และยกเลิกกระทันหัน",
-    description: "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกเสียสายซื้อล่าช้า No-Show รายได้ให้เต็ม และไม่เสียโอกาสการขาย",
+    description:
+      "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกใกล้เวลานัด ช่วยลด No-Show รักษาคิวให้เต็มและไม่เสียโอกาสทางการขาย",
     icon: "lucide:user-x",
-    badge: "SHOW UP"
+    badge: "SHOW UP",
   },
   {
     id: "rebooking",
     title: "สร้างความสัมพันธ์กับลูกค้า เพิ่มการจองซ้ำ",
-    description: "หลังจากใช้บริการ ระบบจะส่งโปรโมชั่นให้ลูกค้าจองรอบใหม่ ลดขั้นตอนการติดต่อผ่าน LINE เพื่อช่วยลูกค้าจองรอบใหม่ในบัตนั้น ประหยัดเวลาในการดูแลลูกค้า",
+    description:
+      "หลังการใช้บริการ ระบบจะส่งข้อความผ่าน LINE เพื่อชวนลูกค้าจองรอบถัดไปทันที ลดขั้นตอนการตัดสินใจ ช่วยให้คิวเต็มต่อเนื่อง",
     icon: "lucide:heart-handshake",
-    badge: "REBOOKING"
+    badge: "REBOOKING",
   },
 ];
-
-
 ---
 
 <section
@@ -41,23 +43,53 @@ const services = [
   aria-labelledby="services-heading"
 >
   <!-- Enhanced Background Elements -->
-  <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(59 130 246 / 0.03)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e')] opacity-60 pointer-events-none"></div>
+  <div
+    class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(59 130 246 / 0.03)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e')] opacity-60 pointer-events-none"
+  >
+  </div>
 
   <!-- Multiple Floating Decorations -->
-  <div class="absolute top-16 right-8 w-72 h-72 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
-  <div class="absolute bottom-16 left-8 w-56 h-56 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse pointer-events-none" style="animation-delay: 2s;"></div>
-  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-cyan-100/20 to-blue-100/20 rounded-full blur-3xl animate-pulse pointer-events-none" style="animation-delay: 4s;"></div>
+  <div
+    class="absolute top-16 right-8 w-72 h-72 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute bottom-16 left-8 w-56 h-56 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse pointer-events-none"
+    style="animation-delay: 2s;"
+  >
+  </div>
+  <div
+    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-cyan-100/20 to-blue-100/20 rounded-full blur-3xl animate-pulse pointer-events-none"
+    style="animation-delay: 4s;"
+  >
+  </div>
 
   <div class="container-tight relative">
     <div class="text-center mb-16">
       <div class="relative">
-        <h2 id="services-heading" class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 relative inline-block">
-          <span data-translate="ourServices" class="relative z-10">Why Booking Whale</span>
-          <div class="absolute bottom-2 left-0 right-0 h-3 opacity-60 -skew-x-12 transform origin-bottom-left" style="background-color: #0047ff;"></div>
+        <h2
+          id="services-heading"
+          class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 relative inline-block"
+        >
+          <span data-translate="ourServices" class="relative z-10"
+            >Why Booking Whale</span
+          >
+          <div
+            class="absolute bottom-2 left-0 right-0 h-3 opacity-60 -skew-x-12 transform origin-bottom-left"
+            style="background-color: #0047ff;"
+          >
+          </div>
 
           {/* Subtle decorative elements */}
-          <div class="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-blue-200 to-indigo-200 rounded-full opacity-20 animate-pulse"></div>
-          <div class="absolute -top-2 -right-6 w-6 h-6 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+          <div
+            class="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-blue-200 to-indigo-200 rounded-full opacity-20 animate-pulse"
+          >
+          </div>
+          <div
+            class="absolute -top-2 -right-6 w-6 h-6 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full opacity-30 animate-pulse"
+            style="animation-delay: 1s;"
+          >
+          </div>
         </h2>
         <p
           data-translate="servicesDescription"
@@ -85,27 +117,29 @@ const services = [
             ? "bg-white/20 text-white border border-white/30"
             : "text-white";
 
-          const textClass = isDiagonal
-            ? "text-white"
-            : "text-gray-900";
+          const textClass = isDiagonal ? "text-white" : "text-gray-900";
 
-          const descClass = isDiagonal
-            ? "text-blue-100"
-            : "text-gray-600";
+          const descClass = isDiagonal ? "text-blue-100" : "text-gray-600";
 
           return (
             <div
               class={`${bgClass} rounded-2xl p-8 text-center relative overflow-hidden shadow-xl transition-all duration-500 group/card`}
-              style={isDiagonal ? { backgroundColor: '#0047ff' } : {}}
+              style={isDiagonal ? { backgroundColor: "#0047ff" } : {}}
             >
               {/* Subtle corner decorations */}
-              <div class={`absolute top-0 right-0 w-16 h-16 opacity-10 ${isDiagonal ? 'bg-white' : 'bg-blue-500'}`} style="clip-path: polygon(100% 0%, 0% 0%, 100% 100%);"></div>
-              <div class={`absolute bottom-0 left-0 w-12 h-12 opacity-5 ${isDiagonal ? 'bg-white' : 'bg-blue-500'}`} style="clip-path: polygon(0% 100%, 0% 0%, 100% 100%);"></div>
+              <div
+                class={`absolute top-0 right-0 w-16 h-16 opacity-10 ${isDiagonal ? "bg-white" : "bg-blue-500"}`}
+                style="clip-path: polygon(100% 0%, 0% 0%, 100% 100%);"
+              />
+              <div
+                class={`absolute bottom-0 left-0 w-12 h-12 opacity-5 ${isDiagonal ? "bg-white" : "bg-blue-500"}`}
+                style="clip-path: polygon(0% 100%, 0% 0%, 100% 100%);"
+              />
 
               {/* Enhanced Professional badge */}
               <div
                 class={`absolute top-6 left-6 ${badgeClass} text-xs font-bold px-4 py-2 rounded-full shadow-lg transform -rotate-2 transition-all duration-300 backdrop-blur-sm`}
-                style={!isDiagonal ? { backgroundColor: '#0047ff' } : {}}
+                style={!isDiagonal ? { backgroundColor: "#0047ff" } : {}}
               >
                 {service.badge}
               </div>
@@ -114,15 +148,17 @@ const services = [
               <div class="mb-8 transform transition-all duration-500">
                 <div
                   class={`w-20 h-20 mx-auto mb-4 flex items-center justify-center ${iconBgClass} rounded-2xl shadow-xl transition-all duration-500 relative group/icon`}
-                  style={!isDiagonal ? { color: '#0047ff' } : {}}
+                  style={!isDiagonal ? { color: "#0047ff" } : {}}
                 >
                   <Icon name={service.icon} width={40} height={40} />
 
                   {/* Enhanced Icon glow effect */}
-                  <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent opacity-100 transition-opacity duration-300"></div>
+                  <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent opacity-100 transition-opacity duration-300" />
 
                   {/* Subtle border */}
-                  <div class={`absolute inset-0 rounded-2xl border ${isDiagonal ? 'border-white/30' : 'border-blue-200/50'}`}></div>
+                  <div
+                    class={`absolute inset-0 rounded-2xl border ${isDiagonal ? "border-white/30" : "border-blue-200/50"}`}
+                  />
                 </div>
               </div>
 
@@ -143,11 +179,24 @@ const services = [
 
                 {/* Enhanced Bottom accent line */}
                 <div class="relative">
-                  <div class="w-16 h-1.5 mx-auto rounded-full opacity-60 transition-all duration-300" style={isDiagonal ? { backgroundColor: 'rgba(255,255,255,0.4)' } : { backgroundColor: '#0047ff' }}></div>
-                  <div class="w-8 h-1.5 mx-auto mt-1 rounded-full opacity-30 transition-all duration-300" style={isDiagonal ? { backgroundColor: 'rgba(255,255,255,0.2)' } : { backgroundColor: '#0047ff' }}></div>
+                  <div
+                    class="w-16 h-1.5 mx-auto rounded-full opacity-60 transition-all duration-300"
+                    style={
+                      isDiagonal
+                        ? { backgroundColor: "rgba(255,255,255,0.4)" }
+                        : { backgroundColor: "#0047ff" }
+                    }
+                  />
+                  <div
+                    class="w-8 h-1.5 mx-auto mt-1 rounded-full opacity-30 transition-all duration-300"
+                    style={
+                      isDiagonal
+                        ? { backgroundColor: "rgba(255,255,255,0.2)" }
+                        : { backgroundColor: "#0047ff" }
+                    }
+                  />
                 </div>
               </div>
-
             </div>
           );
         })
@@ -303,4 +352,3 @@ const services = [
     }
   }
 </style>
-

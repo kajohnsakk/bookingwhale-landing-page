@@ -2,9 +2,9 @@
 ---
 
 <div class="language-switcher relative">
-  <button 
+  <button
     id="languageToggle"
-    class="flex items-center space-x-2 bg-gray-100 backdrop-blur-sm px-3 py-2 rounded-lg border border-gray-200 hover:bg-gray-200 transition-all duration-300 text-sm font-medium text-gray-700"
+    class="flex items-center space-x-2 bg-gray-100 backdrop-blur-sm px-3 py-2 rounded-lg border border-gray-200 hover:bg-gray-200 active:bg-gray-300 transition-all duration-300 text-sm font-medium text-gray-700 touch-manipulation min-h-[44px]"
   >
     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
@@ -17,21 +17,19 @@
     </svg>
   </button>
   
-  <div 
-    id="languageDropdown" 
-    class="absolute top-full mt-2 right-0 bg-white backdrop-blur-xl rounded-xl border border-gray-200 shadow-2xl py-2 min-w-[120px] opacity-0 invisible transform scale-95 transition-all duration-300 z-50"
+  <div
+    id="languageDropdown"
+    class="absolute top-full mt-2 right-0 bg-white backdrop-blur-xl rounded-xl border border-gray-200 shadow-2xl py-2 min-w-[120px] opacity-0 invisible transform scale-95 transition-all duration-300 z-[9999]"
   >
-    <button 
-      onclick="switchLanguage('en')" 
-      class="language-option w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors flex items-center space-x-2 text-gray-700"
+    <button
+      class="language-option w-full px-4 py-3 text-left hover:bg-gray-50 active:bg-gray-100 transition-colors flex items-center space-x-2 text-gray-700 touch-manipulation"
       data-lang="en"
     >
       <span class="text-base">🇺🇸</span>
       <span class="font-medium">English</span>
     </button>
-    <button 
-      onclick="switchLanguage('th')" 
-      class="language-option w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors flex items-center space-x-2 text-gray-700"
+    <button
+      class="language-option w-full px-4 py-3 text-left hover:bg-gray-50 active:bg-gray-100 transition-colors flex items-center space-x-2 text-gray-700 touch-manipulation"
       data-lang="th"
     >
       <span class="text-base">🇹🇭</span>
@@ -53,35 +51,122 @@
   const langArrow = document.getElementById('langArrow');
   
   // Toggle dropdown
-  function toggleLanguageDropdown() {
+  function toggleLanguageDropdown(event) {
+    // Prevent event bubbling to avoid immediate close
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     isDropdownOpen = !isDropdownOpen;
-    
+
     if (isDropdownOpen) {
+      // Position dropdown correctly on mobile
+      positionDropdown();
+
       languageDropdown?.classList.remove('opacity-0', 'invisible', 'scale-95');
       languageDropdown?.classList.add('opacity-100', 'visible', 'scale-100');
       langArrow?.classList.add('rotate-180');
+
+      // Prevent body scroll on mobile when dropdown is open
+      if (window.innerWidth <= 768) {
+        document.body.classList.add('dropdown-open');
+      }
+
+      // Add a small delay to prevent immediate closing on mobile
+      setTimeout(() => {
+        document.addEventListener('click', handleOutsideClick);
+        document.addEventListener('touchstart', handleOutsideClick);
+      }, 10);
     } else {
+      closeDropdown();
+    }
+  }
+
+  // Position dropdown correctly on mobile devices
+  function positionDropdown() {
+    if (!languageDropdown || !languageToggle) return;
+
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      const toggleRect = languageToggle.getBoundingClientRect();
+      const dropdownHeight = 120; // Approximate height of dropdown
+      const viewportHeight = window.innerHeight;
+
+      // Check if there's enough space below
+      const spaceBelow = viewportHeight - toggleRect.bottom;
+
+      if (spaceBelow < dropdownHeight) {
+        // Position above the toggle
+        languageDropdown.style.position = 'fixed';
+        languageDropdown.style.bottom = (viewportHeight - toggleRect.top + 8) + 'px';
+        languageDropdown.style.top = 'auto';
+      } else {
+        // Position below the toggle
+        languageDropdown.style.position = 'fixed';
+        languageDropdown.style.top = (toggleRect.bottom + 8) + 'px';
+        languageDropdown.style.bottom = 'auto';
+      }
+
+      languageDropdown.style.right = (window.innerWidth - toggleRect.right) + 'px';
+      languageDropdown.style.left = 'auto';
+    } else {
+      // Reset positioning for desktop
+      languageDropdown.style.position = '';
+      languageDropdown.style.top = '';
+      languageDropdown.style.bottom = '';
+      languageDropdown.style.right = '';
+      languageDropdown.style.left = '';
+    }
+  }
+
+  // Close dropdown function
+  function closeDropdown() {
+    if (isDropdownOpen) {
       languageDropdown?.classList.add('opacity-0', 'invisible', 'scale-95');
       languageDropdown?.classList.remove('opacity-100', 'visible', 'scale-100');
       langArrow?.classList.remove('rotate-180');
+      isDropdownOpen = false;
+
+      // Remove body scroll lock
+      document.body.classList.remove('dropdown-open');
+
+      // Remove event listeners
+      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener('touchstart', handleOutsideClick);
+    }
+  }
+
+  // Handle outside clicks
+  function handleOutsideClick(event) {
+    const languageSwitcher = document.querySelector('.language-switcher');
+    if (languageSwitcher && !languageSwitcher.contains(event.target)) {
+      closeDropdown();
     }
   }
   
   // Switch language function
-  function switchLanguage(lang) {
+  function switchLanguage(lang, event) {
+    // Prevent event bubbling
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     currentLanguage.set(lang);
     localStorage.setItem('language', lang);
-    
+
     // Update current language display
     if (currentLangElement) {
       currentLangElement.textContent = lang.toUpperCase();
     }
-    
+
     // Update all text content
     updatePageContent();
-    
+
     // Close dropdown
-    toggleLanguageDropdown();
+    closeDropdown();
   }
   
   // Update page content based on current language
@@ -157,12 +242,39 @@
   
   // Event listeners
   languageToggle?.addEventListener('click', toggleLanguageDropdown);
-  
-  // Close dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.language-switcher') && isDropdownOpen) {
-      toggleLanguageDropdown();
+  languageToggle?.addEventListener('touchstart', (e) => {
+    // Prevent double-firing on mobile devices
+    e.preventDefault();
+    toggleLanguageDropdown(e);
+  }, { passive: false });
+
+  // Add event listeners to language options
+  document.querySelectorAll('.language-option').forEach(option => {
+    const lang = option.getAttribute('data-lang');
+
+    // Click events
+    option.addEventListener('click', (e) => switchLanguage(lang, e));
+
+    // Touch events for better mobile support
+    option.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      switchLanguage(lang, e);
+    }, { passive: false });
+  });
+
+  // Handle window resize and orientation change
+  window.addEventListener('resize', () => {
+    if (isDropdownOpen) {
+      positionDropdown();
     }
+  });
+
+  window.addEventListener('orientationchange', () => {
+    setTimeout(() => {
+      if (isDropdownOpen) {
+        positionDropdown();
+      }
+    }, 100);
   });
   
   // Make functions globally available
@@ -174,15 +286,77 @@
 </script>
 
 <style>
+  .language-switcher {
+    position: relative;
+    z-index: 1000;
+  }
+
   .language-switcher .language-option:hover {
     background-color: rgba(249, 250, 251, 1);
   }
-  
+
   .language-option[data-lang="en"]:hover {
     background-color: rgba(59, 130, 246, 0.1);
   }
-  
+
   .language-option[data-lang="th"]:hover {
     background-color: rgba(34, 197, 94, 0.1);
+  }
+
+  /* Mobile-specific styles */
+  @media (max-width: 768px) {
+    .language-switcher {
+      position: relative;
+    }
+
+    .language-switcher #languageDropdown {
+      position: fixed;
+      z-index: 9999;
+      min-width: 140px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .language-switcher button {
+      min-height: 44px; /* Apple's recommended minimum touch target size */
+    }
+
+    .language-option {
+      padding: 0.75rem 1rem !important;
+      font-size: 1rem;
+      min-height: 44px;
+      cursor: pointer;
+    }
+
+    /* Prevent text selection on mobile */
+    .language-switcher * {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Better touch feedback */
+    .language-option:active {
+      background-color: rgba(59, 130, 246, 0.2) !important;
+      transform: scale(0.98);
+    }
+
+    /* Prevent scroll when dropdown is open */
+    body.dropdown-open {
+      overflow: hidden;
+    }
+  }
+
+  /* Ensure dropdown is above everything */
+  #languageDropdown {
+    z-index: 9999 !important;
+  }
+
+  /* Smooth touch interactions */
+  .touch-manipulation {
+    touch-action: manipulation;
   }
 </style>

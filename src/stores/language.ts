@@ -14,10 +14,10 @@ export const translations = {
     bookNow: "Book Now",
 
     // Hero Section
-    heroTitle: "Book Services",
-    heroSubtitle: "Seamlessly",
+    heroTitle: "Booking System via",
+    heroSubtitle: "Easy booking, fast sales, instant customer connection",
     heroDescription:
-      "The ultimate booking platform for Personal Trainers, Retail, Events, and more.",
+      "Appointment booking system, queue management, customer database collection. Create your own booking system connected to LINE Official Account. Easy to use, ready to start immediately.",
     heroTagline: "Enterprise-grade. Simple to use.",
     trustedBy: "Join the first 1,000 early adopters",
     startBookingNow: "Start Booking Now",
@@ -28,10 +28,9 @@ export const translations = {
     support: "Support",
 
     // Services Section
-    ourServices: "Our Services",
+    ourServices: "Why Booking Whale",
     servicePortfolio: "Complete Service Portfolio",
-    servicesDescription:
-      "Choose from our comprehensive range of professional services designed to meet your every need with enterprise-grade reliability.",
+    servicesDescription: "Everything You Need in One Place",
     personalTraining: "Personal Training",
     personalTrainingDesc:
       "Book professional personal trainers for customized fitness programs tailored to your goals and lifestyle.",
@@ -76,22 +75,36 @@ export const translations = {
     otherDesc:
       "Book various professional services including meeting rooms, classes, spa treatments, and consultations.",
 
+    // New Services Section - Why Booking Whale
+    bookingTitle: "Easy Booking via LINE and All Online Channels",
+    bookingDesc:
+      "Customers can book instantly through LINE or scan QR codes at your store, with shareable links for Facebook, Instagram, or websites. Accessible anytime, anywhere.",
+    scheduleTitle: "Smart Scheduling Never Miss a Queue",
+    scheduleDesc:
+      "No more worries when customers pile up. The system automatically arranges queues and remembers regular customers' preferred dates and times, making appointments simple and foolproof.",
+    noshowTitle: "Reduce No-Shows and Last-Minute Cancellations",
+    noshowDesc:
+      "Advance notifications via LINE with SLA settings or cancellation fees for late changes. Reduce no-shows, keep queues full, and never miss sales opportunities.",
+    rebookingTitle: "Build Customer Relationships, Increase Repeat Bookings",
+    rebookingDesc:
+      "After service completion, the system automatically sends LINE messages inviting customers to book their next appointment. Simplify decision-making and maintain continuous queue fulfillment.",
+
     // Feature translations
-    feature1Title: "Automated Booking System",
+    feature1Title: "Instant Online Booking",
     feature1Desc:
-      "Fast and accurate booking process. Customers can select time and confirm quickly without complications.",
-    feature2Title: "Multi-Platform Support",
+      "Customers can easily book through LINE OA, website, or QR Code with Rich Menu buttons in LINE that take customers directly to the booking system.",
+    feature2Title: "Smart Queue Management",
     feature2Desc:
-      "Access from mobile, tablet, and desktop. Manage your business anywhere, anytime.",
-    feature3Title: "Reports & Analytics",
+      "No matter how many customers you have, the system automatically arranges queues, prevents double bookings or missed appointments. Complete management with confidence in every appointment.",
+    feature3Title: "Appointment Reminders & Rebooking Boost",
     feature3Desc:
-      "View revenue data, customer count, and booking statistics in real-time for informed business decisions.",
-    feature4Title: "24/7 Professional Support",
+      "Advance notifications via LINE reduce no-shows with cancellation rules, and automatic rebooking messages after service to keep customers coming back continuously.",
+    feature4Title: "Complete Booking Data Collection",
     feature4Desc:
-      "Expert team ready to provide guidance and resolve issues around the clock, every day.",
-    feature5Title: "Flexible Payments",
+      "Record all booking data with historical records for analysis to increase sales opportunities, plus special digital signature feature to confirm actual service usage.",
+    feature5Title: "Real-Time Business Tracking",
     feature5Desc:
-      "Multiple payment options including credit cards, QR codes, bank transfers, and digital wallets.",
+      "Real-time booking summary helps you see a clear overview of your business and plan accurately.",
     feature6Title: "Free Cancellation",
     feature6Desc:
       "Cancel your bookings for free with no fees when you notify us 24 hours in advance.",
@@ -111,7 +124,7 @@ export const translations = {
     flexiblescheduling: "Flexible Scheduling",
 
     // Features Section
-    whyChoose: "Why Choose",
+    whyChoose: "Our Features",
     enterpriseFeatures: "Enterprise Features",
     featuresDescription:
       "Experience the next generation of booking technology with features designed for modern businesses and demanding users who expect excellence.",
@@ -269,9 +282,9 @@ export const translations = {
     support: "ซัพพอร์ต",
 
     // Services Section
-    ourServices: "Why Booking Whale",
+    ourServices: "ทำไมต้อง Booking Whale",
     servicePortfolio: "บริการครบครัน",
-    servicesDescription: "ทำไมต้องใช้ booking whale ระบบจองคิวและนัดหมาย?",
+    servicesDescription: "ทุกอย่างที่คุณต้องการ ในที่เดียว",
     personalTraining: "เทรนเนอร์ส่วนตัว",
     personalTrainingDesc:
       "จองเทรนเนอร์มืออาชีพสำหรับโปรแกรมฟิตเนสเฉพาะตัว ที่ออกแบบตามเป้าหมายและไลฟ์สไตล์ของคุณ",
@@ -314,6 +327,20 @@ export const translations = {
     otherTitle: "บริการมืออาชีพ",
     otherDesc:
       "จองบริการมืออาชีพต่างๆ รวมถึงห้องประชุม คลาสเรียน สปา และการปรึกษา",
+
+    // New Services Section - Why Booking Whale
+    bookingTitle: "จองง่ายผ่าน Line และทุกช่องทางออนไลน์",
+    bookingDesc:
+      "ลูกค้าจองได้ทันทีผ่าน LINE หรือสแกน QR Code หน้าร้าน พร้อมลิงก์แชร์บน Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้ง่ายทุกที่ทุกเวลา",
+    scheduleTitle: "จัดตารางอย่างอัจฉริยะไม่พลาดทุกคิว",
+    scheduleDesc:
+      "หมดกังวลเมื่อมีลูกค้าเข้ามาเยอะ ระบบจะจัดคิวให้อัตโนมัติ พร้อมจองวัน และเวลาเดิมให้ลูกค้าประจำ ให้การนัดหมายเป็นเรื่องง่าย ไม่ตกหล่น",
+    noshowTitle: "ลดการผิดนัด (No-Show) และยกเลิกกระทันหัน",
+    noshowDesc:
+      "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกใกล้เวลานัด ช่วยลด No-Show รักษาคิวให้เต็มและไม่เสียโอกาสทางการขาย",
+    rebookingTitle: "สร้างความสัมพันธ์กับลูกค้า เพิ่มการจองซ้ำ",
+    rebookingDesc:
+      "หลังการใช้บริการ ระบบจะส่งข้อความผ่าน LINE เพื่อชวนลูกค้าจองรอบถัดไปทันที ลดขั้นตอนการตัดสินใจ ช่วยให้คิวเต็มต่อเนื่อง",
 
     // Feature translations
     feature1Title: "จองออนไลน์ได้ทันที",
