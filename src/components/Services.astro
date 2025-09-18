@@ -1,347 +1,153 @@
 ---
-import { t } from "../stores/language";
+import { Icon } from 'astro-icon/components'
 
 const services = [
   {
     id: "booking",
-    title: "จองบริการ",
-    description: "จองและจ่ายใน 1 ขั้นตอน",
-    icon: "calendar",
-    features: ["จองทันที", "ยืนยันเร็ว", "ชำระง่าย"],
+    title: "จองง่ายผ่าน Line และทุกช่องทางออนไลน์",
+    description: "ลูกค้าจองได้ง่ายผ่าน LINE หรือแสกน QR Code หน้าร้าน พร้อมลิงก์ครบ Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้จากทุกที่ทุกเวลา",
+    icon: "lucide:mouse-pointer-click",
+    badge: "BOOKING EASY"
   },
   {
-    id: "management",
-    title: "จัดการธุรกิจ",
-    description: "ควบคุมธุรกิจจากหน้าเดียว",
-    icon: "management",
-    features: ["รายงานสด", "ลูกค้าทั้งหมด", "วิเคราะห์ง่าย"],
+    id: "schedule",
+    title: "จัดตารางอย่างอัจฉริยะไม่พลาดทุกคิว",
+    description: "หมดกังวลเมื่อลูกค้าเล็กน้อยละเอียด ระบบจัดตารางให้ชาญฉลาดใช้เต็ม พร้อมจองและเวลาทำงานในหน้าเดียว เป็นเรื่องง่าย ไม่ซับซ้อน",
+    icon: "lucide:calendar-check-2",
+    badge: "SMART SCHEDULE"
   },
   {
-    id: "platform",
-    title: "แพลตฟอร์มครบครัน",
-    description: "เครื่องมือสำหรับทุกธุรกิจ",
-    icon: "platform",
-    features: ["ใช้ง่าย", "ปรับแต่งได้", "ปลอดภัย"],
+    id: "noshow",
+    title: "ลดการผิดนัด (No-Show) และยกเลิกกระทันหัน",
+    description: "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกเสียสายซื้อล่าช้า No-Show รายได้ให้เต็ม และไม่เสียโอกาสการขาย",
+    icon: "lucide:user-x",
+    badge: "SHOW UP"
   },
   {
-    id: "support",
-    title: "สนับสนุน 24/7",
-    description: "ทีมช่วยเหลือพร้อมตลอดเวลา",
-    icon: "support",
-    features: ["แชท 24/7", "โทรด่วน", "คู่มือสด"],
+    id: "rebooking",
+    title: "สร้างความสัมพันธ์กับลูกค้า เพิ่มการจองซ้ำ",
+    description: "หลังจากใช้บริการ ระบบจะส่งโปรโมชั่นให้ลูกค้าจองรอบใหม่ ลดขั้นตอนการติดต่อผ่าน LINE เพื่อช่วยลูกค้าจองรอบใหม่ในบัตนั้น ประหยัดเวลาในการดูแลลูกค้า",
+    icon: "lucide:heart-handshake",
+    badge: "REBOOKING"
   },
 ];
 
-const getIllustration = (type: string) => {
-  switch (type) {
-    case "calendar":
-      return `<svg class="w-24 h-24 mx-auto" viewBox="0 0 300 300" fill="none">
-        <!-- Background decorative shape -->
-        <circle cx="150" cy="150" r="120" fill="#EFF6FF" opacity="0.5"/>
-        <circle cx="180" cy="180" r="80" fill="#DBEAFE" opacity="0.3"/>
-        
-        <!-- Calendar base -->
-        <rect x="75" y="100" width="150" height="120" rx="12" fill="#FFFFFF"/>
-        <rect x="75" y="100" width="150" height="40" rx="12" fill="#3B82F6"/>
-        <rect x="75" y="120" width="150" height="20" fill="#3B82F6"/>
-        
-        <!-- Calendar rings -->
-        <rect x="95" y="85" width="20" height="30" rx="10" fill="#1E40AF"/>
-        <rect x="185" y="85" width="20" height="30" rx="10" fill="#1E40AF"/>
-        <circle cx="105" cy="95" r="4" fill="#FFFFFF"/>
-        <circle cx="195" cy="95" r="4" fill="#FFFFFF"/>
-        
-        <!-- Calendar grid -->
-        <rect x="90" y="155" width="25" height="20" rx="4" fill="#F3F4F6"/>
-        <rect x="125" y="155" width="25" height="20" rx="4" fill="#F3F4F6"/>
-        <rect x="160" y="155" width="25" height="20" rx="4" fill="#10B981"/>
-        <rect x="195" y="155" width="25" height="20" rx="4" fill="#F3F4F6"/>
-        
-        <rect x="90" y="185" width="25" height="20" rx="4" fill="#F3F4F6"/>
-        <rect x="125" y="185" width="25" height="20" rx="4" fill="#3B82F6"/>
-        <rect x="160" y="185" width="25" height="20" rx="4" fill="#F3F4F6"/>
-        <rect x="195" y="185" width="25" height="20" rx="4" fill="#F59E0B"/>
-        
-        <!-- Time indicator -->
-        <circle cx="240" cy="80" r="25" fill="#10B981"/>
-        <path d="M240 65 L240 80 L250 90" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-        
-        <!-- Checkmark accent -->
-        <circle cx="60" cy="210" r="18" fill="#10B981"/>
-        <path d="M52 210 L58 216 L68 206" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        
-        <!-- Floating accents -->
-        <circle cx="50" cy="70" r="8" fill="#F59E0B" opacity="0.8"/>
-        <circle cx="250" cy="200" r="6" fill="#8B5CF6" opacity="0.6"/>
-        <rect x="230" y="240" width="20" height="20" rx="4" fill="#3B82F6" opacity="0.4" transform="rotate(45 240 250)"/>
-      </svg>`;
-      
-    case "management":
-      return `<svg class="w-24 h-24 mx-auto" viewBox="0 0 300 300" fill="none">
-        <!-- Background decorative shape -->
-        <rect x="30" y="30" width="240" height="240" rx="120" fill="#F0FDF4" opacity="0.5"/>
-        <rect x="60" y="60" width="180" height="180" rx="90" fill="#DCFCE7" opacity="0.3"/>
-        
-        <!-- Dashboard screen -->
-        <rect x="60" y="80" width="180" height="120" rx="8" fill="#1F2937"/>
-        <rect x="65" y="85" width="170" height="110" rx="4" fill="#FFFFFF"/>
-        
-        <!-- Browser header -->
-        <rect x="65" y="85" width="170" height="25" fill="#F3F4F6"/>
-        <circle cx="75" cy="97" r="3" fill="#EF4444"/>
-        <circle cx="85" cy="97" r="3" fill="#F59E0B"/>
-        <circle cx="95" cy="97" r="3" fill="#10B981"/>
-        
-        <!-- Bar chart -->
-        <rect x="80" y="160" width="15" height="25" fill="#DBEAFE"/>
-        <rect x="100" y="145" width="15" height="40" fill="#3B82F6"/>
-        <rect x="120" y="155" width="15" height="30" fill="#93C5FD"/>
-        <rect x="140" y="135" width="15" height="50" fill="#10B981"/>
-        <rect x="160" y="150" width="15" height="35" fill="#6EE7B7"/>
-        
-        <!-- Pie chart -->
-        <circle cx="205" cy="145" r="25" fill="#F3F4F6"/>
-        <path d="M205 120 A25 25 0 0 1 230 145 L205 145 Z" fill="#3B82F6"/>
-        <path d="M230 145 A25 25 0 0 1 205 170 L205 145 Z" fill="#10B981"/>
-        <path d="M205 170 A25 25 0 0 1 180 145 L205 145 Z" fill="#F59E0B"/>
-        
-        <!-- Dashboard stand -->
-        <rect x="140" y="200" width="20" height="25" fill="#6B7280"/>
-        <rect x="120" y="220" width="60" height="8" rx="4" fill="#9CA3AF"/>
-        
-        <!-- Success indicator -->
-        <circle cx="250" cy="70" r="20" fill="#10B981"/>
-        <path d="M240 68 L248 76 L260 64" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-        
-        <!-- Floating accents -->
-        <rect x="40" y="50" width="25" height="25" rx="4" fill="#8B5CF6" opacity="0.6" transform="rotate(15 52 62)"/>
-        <circle cx="250" cy="230" r="10" fill="#3B82F6" opacity="0.5"/>
-        <path d="M50 250 L65 235 L80 250" fill="#F59E0B" opacity="0.4"/>
-      </svg>`;
-      
-    case "support":
-      return `<svg class="w-24 h-24 mx-auto" viewBox="0 0 300 300" fill="none">
-        <!-- Background decorative shape -->
-        <ellipse cx="150" cy="150" rx="120" ry="110" fill="#FDF4FF" opacity="0.5"/>
-        <ellipse cx="170" cy="170" rx="90" ry="80" fill="#F3E8FF" opacity="0.3"/>
-        
-        <!-- Support agent -->
-        <circle cx="150" cy="100" r="35" fill="#E0E7FF"/>
-        <circle cx="150" cy="95" r="28" fill="#8B5CF6"/>
-        
-        <!-- Headset -->
-        <path d="M115 85 Q115 65 150 65 Q185 65 185 85" stroke="#1E293B" stroke-width="6" fill="none"/>
-        <circle cx="115" cy="90" r="12" fill="#1E293B"/>
-        <circle cx="185" cy="90" r="12" fill="#1E293B"/>
-        <circle cx="115" cy="90" r="8" fill="#64748B"/>
-        <circle cx="185" cy="90" r="8" fill="#64748B"/>
-        
-        <!-- Microphone -->
-        <rect x="105" y="100" width="6" height="20" rx="3" fill="#1E293B"/>
-        <circle cx="108" cy="125" r="5" fill="#374151"/>
-        
-        <!-- Chat bubbles -->
-        <rect x="50" y="160" width="80" height="50" rx="12" fill="#3B82F6"/>
-        <path d="M70 210 L60 225 L80 215" fill="#3B82F6"/>
-        <rect x="60" y="175" width="50" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
-        <rect x="60" y="185" width="35" height="6" rx="3" fill="#FFFFFF" opacity="0.7"/>
-        
-        <rect x="170" y="150" width="90" height="55" rx="12" fill="#10B981"/>
-        <path d="M230 205 L240 220 L220 210" fill="#10B981"/>
-        <circle cx="185" cy="170" r="3" fill="#FFFFFF"/>
-        <circle cx="195" cy="170" r="3" fill="#FFFFFF"/>
-        <circle cx="205" cy="170" r="3" fill="#FFFFFF"/>
-        
-        <!-- Rating stars -->
-        <g transform="translate(200, 60)">
-          <path d="M0 10 L4 0 L8 10 L-2 4 L10 4 Z" fill="#FBBF24"/>
-          <path d="M20 10 L24 0 L28 10 L18 4 L30 4 Z" fill="#FBBF24"/>
-          <path d="M40 10 L44 0 L48 10 L38 4 L50 4 Z" fill="#FBBF24"/>
-        </g>
-        
-        <!-- Support badge -->
-        <circle cx="250" cy="100" r="25" fill="#10B981"/>
-        <text x="250" y="107" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="bold">24/7</text>
-        
-        <!-- Floating accents -->
-        <circle cx="50" cy="60" r="8" fill="#F59E0B" opacity="0.7"/>
-        <rect x="240" y="240" width="20" height="20" rx="4" fill="#8B5CF6" opacity="0.5" transform="rotate(30 250 250)"/>
-        <path d="M60 250 C60 245, 65 245, 65 250 C65 245, 70 245, 70 250 C70 255, 65 260, 65 260 C65 260, 60 255, 60 250 Z" fill="#EF4444" opacity="0.6"/>
-      </svg>`;
 
-    case "platform":
-      return `<svg class="w-24 h-24 mx-auto" viewBox="0 0 300 300" fill="none">
-        <!-- Background decorative shape -->
-        <circle cx="150" cy="150" r="110" fill="#F0F9FF" opacity="0.4"/>
-        <circle cx="150" cy="150" r="80" fill="#E0F2FE" opacity="0.3"/>
-        
-        <!-- Central platform hub -->
-        <circle cx="150" cy="150" r="30" fill="#0EA5E9"/>
-        <circle cx="150" cy="150" r="20" fill="#FFFFFF"/>
-        <circle cx="150" cy="150" r="12" fill="#0EA5E9" opacity="0.8"/>
-        
-        <!-- Four service modules positioned perfectly around center -->
-        <!-- Top module -->
-        <rect x="130" y="90" width="40" height="25" rx="5" fill="#10B981"/>
-        <rect x="133" y="93" width="34" height="19" rx="3" fill="#FFFFFF"/>
-        <rect x="136" y="96" width="10" height="2" rx="1" fill="#10B981"/>
-        <rect x="136" y="99" width="14" height="2" rx="1" fill="#10B981" opacity="0.6"/>
-        <rect x="136" y="102" width="8" height="2" rx="1" fill="#10B981" opacity="0.4"/>
-        
-        <!-- Right module -->
-        <rect x="185" y="130" width="25" height="40" rx="5" fill="#8B5CF6"/>
-        <rect x="188" y="133" width="19" height="34" rx="3" fill="#FFFFFF"/>
-        <!-- Vertical chart bars -->
-        <rect x="191" y="145" width="2" height="8" fill="#8B5CF6"/>
-        <rect x="194" y="142" width="2" height="11" fill="#8B5CF6"/>
-        <rect x="197" y="144" width="2" height="9" fill="#8B5CF6"/>
-        <rect x="200" y="140" width="2" height="13" fill="#8B5CF6"/>
-        <rect x="203" y="143" width="2" height="10" fill="#8B5CF6"/>
-        
-        <!-- Bottom module -->
-        <rect x="130" y="185" width="40" height="25" rx="5" fill="#F59E0B"/>
-        <rect x="133" y="188" width="34" height="19" rx="3" fill="#FFFFFF"/>
-        <circle cx="150" cy="197" r="4" fill="#F59E0B" opacity="0.8"/>
-        <text x="150" y="201" text-anchor="middle" fill="#FFFFFF" font-size="6" font-weight="bold">$</text>
-        
-        <!-- Left module -->
-        <rect x="90" y="130" width="25" height="40" rx="5" fill="#EF4444"/>
-        <rect x="93" y="133" width="19" height="34" rx="3" fill="#FFFFFF"/>
-        <circle cx="102" cy="147" r="2" fill="#EF4444"/>
-        <rect x="100" y="152" width="4" height="5" rx="1" fill="#EF4444" opacity="0.8"/>
-        
-        <!-- Connection lines from center to each module -->
-        <path d="M150 120 L150 105" stroke="#0EA5E9" stroke-width="2" opacity="0.6"/>
-        <path d="M180 150 L195 150" stroke="#0EA5E9" stroke-width="2" opacity="0.6"/>
-        <path d="M150 180 L150 195" stroke="#0EA5E9" stroke-width="2" opacity="0.6"/>
-        <path d="M120 150 L105 150" stroke="#0EA5E9" stroke-width="2" opacity="0.6"/>
-        
-        <!-- Data flow animation points -->
-        <circle cx="150" cy="112" r="2" fill="#0EA5E9" opacity="0.8">
-          <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="188" cy="150" r="2" fill="#0EA5E9" opacity="0.8">
-          <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="0.5s"/>
-        </circle>
-        <circle cx="150" cy="188" r="2" fill="#0EA5E9" opacity="0.8">
-          <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite" begin="1s"/>
-        </circle>
-        <circle cx="112" cy="150" r="2" fill="#0EA5E9" opacity="0.8">
-          <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="1.5s"/>
-        </circle>
-        
-        <!-- Platform integration indicators -->
-        <circle cx="150" cy="60" r="8" fill="#06B6D4" opacity="0.7"/>
-        <circle cx="150" cy="60" r="4" fill="#FFFFFF"/>
-        <text x="150" y="64" text-anchor="middle" fill="#06B6D4" font-size="6" font-weight="bold">API</text>
-        
-        <circle cx="150" cy="240" r="8" fill="#84CC16" opacity="0.7"/>
-        <circle cx="150" cy="240" r="4" fill="#FFFFFF"/>
-        <circle cx="150" cy="240" r="2" fill="#84CC16"/>
-        
-        <!-- Mobile and web icons at top -->
-        <rect x="125" y="35" width="8" height="15" rx="2" fill="#64748B" opacity="0.6"/>
-        <rect x="126" y="37" width="6" height="11" rx="1" fill="#FFFFFF"/>
-        
-        <rect x="167" y="40" width="15" height="8" rx="2" fill="#64748B" opacity="0.6"/>
-        <rect x="168" y="41" width="13" height="6" rx="1" fill="#FFFFFF"/>
-        
-        <!-- Security shield at bottom -->
-        <path d="M150 260 L145 265 L145 275 C145 280 150 285 150 285 C150 285 155 280 155 275 L155 265 L150 260 Z" fill="#10B981" opacity="0.7"/>
-        <path d="M148 270 L149 271 L152 268" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        
-        <!-- Subtle floating elements -->
-        <circle cx="80" cy="80" r="3" fill="#F59E0B" opacity="0.5"/>
-        <circle cx="220" cy="80" r="2" fill="#8B5CF6" opacity="0.6"/>
-        <circle cx="80" cy="220" r="2" fill="#EF4444" opacity="0.5"/>
-        <circle cx="220" cy="220" r="3" fill="#10B981" opacity="0.6"/>
-      </svg>`;
-      
-    default:
-      return "";
-  }
-};
-
-const getColorClasses = (color: string) => {
-  return {
-    icon: "text-white bg-gray-900",
-    badge: "bg-gray-900 text-white",
-    button: "text-gray-900 hover:text-gray-700",
-    border: "hover:border-gray-300 hover:shadow-lg",
-    gradient: "bg-gray-900",
-  };
-};
 ---
 
 <section
   id="services"
-  class="section-padding bg-white relative overflow-hidden"
+  class="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
   aria-labelledby="services-heading"
 >
+  <!-- Enhanced Background Elements -->
+  <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(59 130 246 / 0.03)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e')] opacity-60 pointer-events-none"></div>
+
+  <!-- Multiple Floating Decorations -->
+  <div class="absolute top-16 right-8 w-72 h-72 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
+  <div class="absolute bottom-16 left-8 w-56 h-56 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse pointer-events-none" style="animation-delay: 2s;"></div>
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-cyan-100/20 to-blue-100/20 rounded-full blur-3xl animate-pulse pointer-events-none" style="animation-delay: 4s;"></div>
+
   <div class="container-tight relative">
-    <div class="text-center mb-12">
-      <h2 id="services-heading" class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 relative inline-block">
-        <span data-translate="ourServices" class="relative z-10">{t("ourServices")}</span>
-        <div class="absolute bottom-2 left-0 right-0 h-3 bg-blue-700 opacity-50 -skew-x-12 transform origin-bottom-left"></div>
-      </h2>
-      <p
-        data-translate="servicesDescription"
-        class="text-body-large text-gray-600 max-w-2xl mx-auto"
-      >
-        ทุกอย่างที่คุณต้องการ ในที่เดียว
-      </p>
+    <div class="text-center mb-16">
+      <div class="relative">
+        <h2 id="services-heading" class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 relative inline-block">
+          <span data-translate="ourServices" class="relative z-10">Why Booking Whale</span>
+          <div class="absolute bottom-2 left-0 right-0 h-3 opacity-60 -skew-x-12 transform origin-bottom-left" style="background-color: #0047ff;"></div>
+
+          {/* Subtle decorative elements */}
+          <div class="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-blue-200 to-indigo-200 rounded-full opacity-20 animate-pulse"></div>
+          <div class="absolute -top-2 -right-6 w-6 h-6 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+        </h2>
+        <p
+          data-translate="servicesDescription"
+          class="text-body-large text-gray-600 max-w-2xl mx-auto leading-relaxed"
+        >
+          ทุกอย่างที่คุณต้องการ ในที่เดียว
+        </p>
+      </div>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
       {
         services.map((service, index) => {
-          return (
-            <div class="group bg-white hover:bg-blue-50/30 rounded-2xl p-6 transition-all duration-300 text-center border border-gray-100 hover:border-blue-200 relative overflow-hidden">
+          // Diagonal pattern: index 0,3 (top-left, bottom-right) vs index 1,2 (top-right, bottom-left)
+          const isDiagonal = index === 0 || index === 3;
+          const bgClass = isDiagonal
+            ? "text-white"
+            : "bg-white text-gray-900 border border-gray-200";
 
-              {/* Illustration */}
-              <div class="mb-6 transform group-hover:scale-105 transition-all duration-300">
-                <Fragment set:html={getIllustration(service.icon)} />
+          const iconBgClass = isDiagonal
+            ? "bg-white/20 text-white"
+            : "bg-blue-50";
+
+          const badgeClass = isDiagonal
+            ? "bg-white/20 text-white border border-white/30"
+            : "text-white";
+
+          const textClass = isDiagonal
+            ? "text-white"
+            : "text-gray-900";
+
+          const descClass = isDiagonal
+            ? "text-blue-100"
+            : "text-gray-600";
+
+          return (
+            <div
+              class={`${bgClass} rounded-2xl p-8 text-center relative overflow-hidden shadow-xl transition-all duration-500 group/card`}
+              style={isDiagonal ? { backgroundColor: '#0047ff' } : {}}
+            >
+              {/* Subtle corner decorations */}
+              <div class={`absolute top-0 right-0 w-16 h-16 opacity-10 ${isDiagonal ? 'bg-white' : 'bg-blue-500'}`} style="clip-path: polygon(100% 0%, 0% 0%, 100% 100%);"></div>
+              <div class={`absolute bottom-0 left-0 w-12 h-12 opacity-5 ${isDiagonal ? 'bg-white' : 'bg-blue-500'}`} style="clip-path: polygon(0% 100%, 0% 0%, 100% 100%);"></div>
+
+              {/* Enhanced Professional badge */}
+              <div
+                class={`absolute top-6 left-6 ${badgeClass} text-xs font-bold px-4 py-2 rounded-full shadow-lg transform -rotate-2 transition-all duration-300 backdrop-blur-sm`}
+                style={!isDiagonal ? { backgroundColor: '#0047ff' } : {}}
+              >
+                {service.badge}
+              </div>
+
+              {/* Enhanced Icon container */}
+              <div class="mb-8 transform transition-all duration-500">
+                <div
+                  class={`w-20 h-20 mx-auto mb-4 flex items-center justify-center ${iconBgClass} rounded-2xl shadow-xl transition-all duration-500 relative group/icon`}
+                  style={!isDiagonal ? { color: '#0047ff' } : {}}
+                >
+                  <Icon name={service.icon} width={40} height={40} />
+
+                  {/* Enhanced Icon glow effect */}
+                  <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent opacity-100 transition-opacity duration-300"></div>
+
+                  {/* Subtle border */}
+                  <div class={`absolute inset-0 rounded-2xl border ${isDiagonal ? 'border-white/30' : 'border-blue-200/50'}`}></div>
+                </div>
               </div>
 
               {/* Content */}
-              <div>
+              <div class="relative z-10">
                 <h3
                   data-translate={`${service.id}Title`}
-                  class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-900 transition-colors"
+                  class={`text-xl font-bold mb-4 leading-tight ${textClass}`}
                 >
                   {service.title}
                 </h3>
                 <p
                   data-translate={`${service.id}Desc`}
-                  class="text-gray-600 text-sm mb-5 leading-relaxed"
+                  class={`text-base mb-6 leading-relaxed ${descClass}`}
                 >
                   {service.description}
                 </p>
 
-                {/* Features */}
-                <div class="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <div class="flex items-center justify-center space-x-2 text-sm text-gray-600">
-                      <div class="w-1.5 h-1.5 bg-blue-500 rounded-full group-hover:bg-blue-600 transition-colors" />
-                      <span
-                        data-translate={service.features[featureIndex]
-                          .replace(" ", "")
-                          .toLowerCase()}
-                        class="font-medium"
-                      >
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
+                {/* Enhanced Bottom accent line */}
+                <div class="relative">
+                  <div class="w-16 h-1.5 mx-auto rounded-full opacity-60 transition-all duration-300" style={isDiagonal ? { backgroundColor: 'rgba(255,255,255,0.4)' } : { backgroundColor: '#0047ff' }}></div>
+                  <div class="w-8 h-1.5 mx-auto mt-1 rounded-full opacity-30 transition-all duration-300" style={isDiagonal ? { backgroundColor: 'rgba(255,255,255,0.2)' } : { backgroundColor: '#0047ff' }}></div>
                 </div>
               </div>
 
-              {/* Professional border accent */}
-              <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-600 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              {/* Floating elements on hover */}
-              <div class="absolute -top-2 -right-2 w-4 h-4 bg-blue-400 rounded-full opacity-0 group-hover:opacity-60 group-hover:animate-bounce transition-all duration-300" />
-              <div class="absolute -bottom-2 -left-2 w-3 h-3 bg-green-400 rounded-full opacity-0 group-hover:opacity-40 group-hover:animate-pulse transition-all duration-500" />
             </div>
           );
         })
@@ -498,22 +304,3 @@ const getColorClasses = (color: string) => {
   }
 </style>
 
-<script>
-  import { currentLanguage, translations } from "../stores/language";
-
-  function updateTranslations() {
-    const lang = currentLanguage.get();
-    document.querySelectorAll("[data-translate]").forEach((element) => {
-      const key = element.getAttribute("data-translate");
-      if (key && translations[lang] && translations[lang][key]) {
-        element.textContent = translations[lang][key];
-      }
-    });
-  }
-
-  // Initial translation
-  updateTranslations();
-
-  // Listen for language changes
-  currentLanguage.subscribe(updateTranslations);
-</script>

@@ -1,0 +1,302 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const blogs = [
+    {
+      id: 1,
+      title: "วิธีลดลูกค้าไม่มาตามนัด 80% ด้วยระบบจองคิวอัจฉริยะ",
+      excerpt: "เรียนรู้กลยุทธ์ที่พิสูจน์แล้วในการลดปัญหา No-Show และเพิ่มประสิทธิภาพการจัดการคิวของธุรกิจ",
+      date: "15 มกราคม 2025",
+      category: "การจัดการคิว",
+      gradient: "from-blue-500 to-blue-600",
+      lang: "th",
+      content: `
+        <p>การที่ลูกค้าไม่มาตามนัดหมาย (No-Show) เป็นปัญหาใหญ่ที่ส่งผลกระทบต่อรายได้และประสิทธิภาพของธุรกิจบริการ ไม่ว่าจะเป็นร้านเสริมสวย คลินิก หรือธุรกิจบริการอื่นๆ</p>
+
+        <h2>สาเหตุหลักของปัญหา No-Show</h2>
+        <ul>
+          <li>ลูกค้าลืมนัดหมาย</li>
+          <li>ไม่มีระบบแจ้งเตือนที่ชัดเจน</li>
+          <li>การจองที่ซับซ้อนและไม่สะดวก</li>
+          <li>ไม่มีนโยบายการยกเลิกที่เหมาะสม</li>
+        </ul>
+
+        <h2>วิธีแก้ไขด้วยระบบจองคิวอัจฉริยะ</h2>
+
+        <h3>1. ระบบแจ้งเตือนอัตโนมัติ</h3>
+        <p>ส่งข้อความแจ้งเตือนผ่าน LINE ล่วงหน้า 24 ชั่วโมง และ 2 ชั่วโมงก่อนเวลานัดหมาย พร้อมปุ่มยืนยันการมาใช้บริการ</p>
+
+        <h3>2. การจองที่ง่ายและรวดเร็ว</h3>
+        <p>ใช้ QR Code หรือลิงก์ LINE ให้ลูกค้าสามารถจองได้ภายใน 30 วินาที ลดความซับซ้อนในขั้นตอนการจอง</p>
+
+        <h3>3. นโยบายการยกเลิกที่ชัดเจน</h3>
+        <p>กำหนดเวลาในการยกเลิกล่วงหน้าอย่างน้อย 4 ชั่วโมง และมีระบบ Waiting List สำหรับลูกค้าที่ต้องการเข้ามาแทน</p>
+
+        <h2>ผลลัพธ์ที่ได้รับ</h2>
+        <p>ธุรกิจที่ใช้ระบบจองคิวอัจฉริยะสามารถลดปัญหา No-Show ได้มากถึง 80% และเพิ่มรายได้เฉลี่ย 15-25% ต่อเดือน</p>
+      `
+    },
+    {
+      id: 2,
+      title: "ทำไมธุรกิจไทยต้องเปลี่ยนจากการจองโทรศัพท์มาเป็นระบบ LINE",
+      excerpt: "ค้นพบเหตุผลที่ธุรกิจไทยกำลังเปลี่ยนไปใช้ LINE OA และวิธีการเปลี่ยนแปลงที่เหมาะสม",
+      date: "12 มกราคม 2025",
+      category: "LINE OA",
+      gradient: "from-green-500 to-green-600",
+      lang: "th",
+      content: `
+        <p>ในยุคดิจิทัลที่คนไทยใช้ LINE กันแทบทุกคน การเปลี่ยนจากการรับจองผ่านโทรศัพท์มาเป็นระบบ LINE OA จึงเป็นทางเลือกที่ดีที่สุดสำหรับธุรกิจไทย</p>
+
+        <h2>ปัญหาของการรับจองผ่านโทรศัพท์</h2>
+        <ul>
+          <li>ต้องมีพนักงานคอยรับสายตลอดเวลา</li>
+          <li>ลูกค้าโทรไม่ติดในช่วงเวลาที่ยุ่ง</li>
+          <li>ข้อมูลการจองอาจผิดพลาดจากการสื่อสาร</li>
+          <li>ไม่สามารถให้บริการนอกเวลาทำการได้</li>
+        </ul>
+
+        <h2>ข้อดีของระบบ LINE OA</h2>
+
+        <h3>1. ให้บริการ 24/7</h3>
+        <p>ลูกค้าสามารถจองได้ตลอดเวลา แม้นอกเวลาทำการ ผ่านเมนูอัตโนมัติใน LINE OA</p>
+
+        <h3>2. ลดต้นทุนพนักงาน</h3>
+        <p>ไม่ต้องมีพนักงานคอยรับจองตลอดเวลา ระบบจัดการได้อัตโนมัติ</p>
+
+        <h3>3. ข้อมูลแม่นยำ</h3>
+        <p>ลูกค้าเลือกวันเวลาเองผ่านระบบ ลดข้อผิดพลาดจากการสื่อสาร</p>
+
+        <h3>4. การตลาดที่ดีขึ้น</h3>
+        <p>ส่งโปรโมชั่นและข้อมูลข่าวสารได้โดยตรงถึงลูกค้า</p>
+
+        <h2>วิธีการเปลี่ยนแปลง</h2>
+        <ol>
+          <li>สร้าง LINE Official Account</li>
+          <li>ตั้งค่า Rich Menu และ Auto Reply</li>
+          <li>เชื่อมต่อกับระบบจองออนไลน์</li>
+          <li>อบรมพนักงานให้ใช้ระบบใหม่</li>
+          <li>แจ้งให้ลูกค้าเก่าทราบและส่งเสริมให้ใช้</li>
+        </ol>
+
+        <p>การเปลี่ยนแปลงนี้จะช่วยให้ธุรกิจของคุณมีประสิทธิภาพมากขึ้นและสามารถให้บริการลูกค้าได้ดีกว่าเดิม</p>
+      `
+    },
+    {
+      id: 3,
+      title: "การจัดการคิวอัจฉริยะ: ลดเวลารอของลูกค้า 70%",
+      excerpt: "ค้นพบกลยุทธ์ที่พิสูจน์แล้วในการปรับปรุงการไหลของลูกค้าและลดเวลารออย่างมีนัยสำคัญด้วยระบบคิวอัจฉริยะ",
+      date: "10 มกราคม 2025",
+      category: "การจัดการคิว",
+      gradient: "from-purple-500 to-purple-600",
+      lang: "th",
+      content: `
+        <p>เวลารอที่นานเป็นหนึ่งในความไม่พอใจที่ใหญ่ที่สุดของลูกค้าและสามารถส่งผลกระทบต่อรายได้ของธุรกิจอย่างมีนัยสำคัญ ระบบจัดการคิวอัจฉริยะมีวิธีแก้ไขที่สามารถลดเวลารอของลูกค้าได้มากถึง 70%</p>
+
+        <h2>ต้นทุนของการจัดการคิวที่ไม่ดี</h2>
+        <ul>
+          <li>ความไม่พอใจของลูกค้าและรีวิวเชิงลบ</li>
+          <li>สูญเสียรายได้จากลูกค้าที่จากไป</li>
+          <li>การใช้พนักงานที่ไม่มีประสิทธิภาพ</li>
+          <li>ความแออัดและปัญหาด้านความปลอดภัย</li>
+        </ul>
+
+        <h2>คุณสมบัติหลักของระบบคิวอัจฉริยะ</h2>
+
+        <h3>1. การติดตามคิวแบบเรียลไทม์</h3>
+        <p>ติดตามความยาวของคิว เวลารอเฉลี่ย และระยะเวลาการให้บริการแบบเรียลไทม์เพื่อการปรับปรุงทันที</p>
+
+        <h3>2. การวิเคราะห์เชิงทำนาย</h3>
+        <p>ใช้ข้อมูลในอดีตเพื่อทำนายช่วงเวลาที่มีคนเยอะและจัดพนักงานให้เหมาะสม ป้องกันปัญหาคอขวดก่อนที่จะเกิดขึ้น</p>
+
+        <h3>3. การจัดคิวเสมือน</h3>
+        <p>อนุญาตให้ลูกค้าเข้าคิวจากระยะไกลและได้รับการแจ้งเตือนเมื่อถึงตาของพวกเขา ลดการรอคอยแบบนั่งนิ่ง</p>
+
+        <h3>4. การจัดสรรทรัพยากรแบบไดนามิก</h3>
+        <p>กระจายพนักงานและทรัพยากรอัตโนมัติตามรูปแบบความต้องการแบบเรียลไทม์</p>
+
+        <h2>กลยุทธ์การนำไปใช้</h2>
+
+        <h3>ขั้นตอนที่ 1: การประเมิน</h3>
+        <p>วิเคราะห์รูปแบบคิวปัจจุบัน เวลาเร่งด่วน และพฤติกรรมของลูกค้าเพื่อสร้างตัวชี้วัดพื้นฐาน</p>
+
+        <h3>ขั้นตอนที่ 2: การรวมเทคโนโลยี</h3>
+        <p>ใช้ซอฟต์แวร์จัดการคิวอัจฉริยะที่มีการแจ้งเตือนผ่านมือถือและความสามารถในการติดตามแบบเรียลไทม์</p>
+
+        <h3>ขั้นตอนที่ 3: การฝึกอบรมพนักงาน</h3>
+        <p>ฝึกอบรมพนักงานให้ใช้ระบบใหม่และตอบสนองต่อข้อมูลคิวแบบเรียลไทม์อย่างมีประสิทธิภาพ</p>
+
+        <h3>ขั้นตอนที่ 4: การสื่อสารกับลูกค้า</h3>
+        <p>ให้ความรู้แก่ลูกค้าเกี่ยวกับกระบวนการคิวใหม่และตัวเลือกการรอแบบเสมือน</p>
+
+        <h2>การวัดความสำเร็จ</h2>
+        <p>ติดตามตัวชี้วัดสำคัญรวมถึงเวลารอเฉลี่ย คะแนนความพึงพอใจของลูกค้า อัตราการให้บริการสำเร็จ และประสิทธิภาพของพนักงานเพื่อให้มั่นใจในการปรับปรุงอย่างต่อเนื่อง</p>
+
+        <p>ธุรกิจที่ใช้การจัดการคิวอัจฉริยะมักจะเห็นการลดลงของเวลารอ 70% การเพิ่มขึ้นของความพึงพอใจของลูกค้า 25% และการปรับปรุงประสิทธิภาพของพนักงาน 15%</p>
+      `
+    }
+  ];
+
+  // สร้างบทความทั้งหมด 20 บทความ (เพิ่ม 17 บทความเป็นภาษาไทย)
+  const additionalBlogs = [
+    {
+      id: 4,
+      title: "การใช้ QR Code ในระบบจองคิว: เพิ่มความสะดวกให้ลูกค้า",
+      excerpt: "เรียนรู้วิธีการนำ QR Code มาใช้ในระบบจองคิวเพื่อให้ลูกค้าเข้าถึงการจองได้ง่ายขึ้น",
+      date: "8 มกราคม 2025",
+      category: "เทคโนโลยี",
+      lang: "th",
+      content: `<p>QR Code กลายเป็นเครื่องมือที่สำคัญในการเชื่อมต่อโลกออฟไลน์และออนไลน์ เป็นการเพิ่มความสะดวกให้กับลูกค้าในการเข้าถึงระบบจองคิว...</p>`
+    },
+    {
+      id: 5,
+      title: "การเปลี่ยนแปลงดิจิทัลในธุรกิจบริการ: คู่มือฉบับสมบูรณ์",
+      excerpt: "เรียนรู้วิธีที่ธุรกิจบริการสามารถใช้เครื่องมือดิจิทัลเพื่อปรับปรุงการดำเนินงานและยกระดับประสบการณ์ลูกค้า",
+      date: "5 มกราคม 2025",
+      category: "การเปลี่ยนแปลงดิจิทัล",
+      lang: "th",
+      content: `<p>การเปลี่ยนแปลงดิจิทัลไม่ใช่แค่การใช้เทคโนโลยี แต่เป็นการเปลี่ยนแปลงวิธีคิดและวิธีการทำงานของธุรกิจทั้งหมด...</p>`
+    }
+    // เพิ่มบทความอื่นๆ ตามต้องการ
+  ];
+
+  // รวมบทความทั้งหมด
+  const allBlogs = [...blogs, ...additionalBlogs];
+
+  return allBlogs.map(blog => ({
+    params: { id: blog.id.toString() },
+    props: { blog }
+  }));
+}
+
+const { blog } = Astro.props;
+---
+
+<Layout
+  title={`${blog.title} - BookingWhale Blog`}
+  description={blog.excerpt}
+  keywords={`${blog.category}, booking system, queue management, business tips`}
+>
+  <Header />
+
+  <!-- Article Hero -->
+  <article class="pt-20 sm:pt-22 md:pt-24 lg:pt-26 xl:pt-28 pb-8 sm:pb-10 md:pb-12 lg:pb-14 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="container-tight">
+      <!-- Breadcrumb -->
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-gray-500">
+          <li><a href="/" class="hover:text-blue-600">หน้าแรก</a></li>
+          <li><span>/</span></li>
+          <li><a href="/blog" class="hover:text-blue-600">บล็อก</a></li>
+          <li><span>/</span></li>
+          <li class="text-gray-900">{blog.title}</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <div class="flex items-center mb-4">
+          <span class={`bg-${blog.category === 'การจัดการคิว' ? 'blue' : blog.category === 'LINE OA' ? 'green' : 'purple'}-100 text-${blog.category === 'การจัดการคิว' ? 'blue' : blog.category === 'LINE OA' ? 'green' : 'purple'}-800 text-sm font-medium px-3 py-1 rounded-full`}>
+            {blog.category}
+          </span>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          {blog.title}
+        </h1>
+
+        <div class="flex items-center text-gray-500 mb-6">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span>{blog.date}</span>
+        </div>
+
+        <p class="text-xl text-gray-600 leading-relaxed">
+          {blog.excerpt}
+        </p>
+      </header>
+
+      <!-- Article Image -->
+      <div class="aspect-video relative overflow-hidden rounded-xl mb-12">
+        <img
+          src={blog.id === 1 ? "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" :
+               blog.id === 2 ? "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2039&q=80" :
+               "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80"}
+          alt={blog.title}
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-8 left-8 right-8">
+          <span class={`inline-block bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-4 py-2 rounded-full mb-4`}>
+            {blog.category}
+          </span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white leading-tight">{blog.title}</h2>
+        </div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="prose prose-lg max-w-none">
+        <div set:html={blog.content}></div>
+      </div>
+
+      <!-- Back to Blog -->
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <a href="/blog" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          กลับไปยังบล็อก
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>
+
+<style>
+  .prose {
+    color: #374151;
+  }
+
+  .prose h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #111827;
+  }
+
+  .prose h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #111827;
+  }
+
+  .prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+  }
+
+  .prose ul, .prose ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose ul li {
+    list-style-type: disc;
+  }
+
+  .prose ol li {
+    list-style-type: decimal;
+  }
+</style>

@@ -1,0 +1,355 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const blogs = [
+  {
+    id: 1,
+    slug: "reduce-no-show-80-percent-smart-queue-system",
+    title: "วิธีลดลูกค้าไม่มาตามนัด 80% ด้วยระบบจองคิวอัจฉริยะ",
+    excerpt: "เรียนรู้กลยุทธ์ที่พิสูจน์แล้วในการลดปัญหา No-Show และเพิ่มประสิทธิภาพการจัดการคิวของธุรกิจ",
+    date: "15 มกราคม 2025",
+    category: "การจัดการคิว",
+    gradient: "from-blue-500 to-blue-600",
+    lang: "th"
+  },
+  {
+    id: 2,
+    slug: "why-thai-business-switch-phone-to-line-booking",
+    title: "ทำไมธุรกิจไทยต้องเปลี่ยนจากการจองโทรศัพท์มาเป็นระบบ LINE",
+    excerpt: "ค้นพบเหตุผลที่ธุรกิจไทยกำลังเปลี่ยนไปใช้ LINE OA และวิธีการเปลี่ยนแปลงที่เหมาะสม",
+    date: "12 มกราคม 2025",
+    category: "LINE OA",
+    gradient: "from-green-500 to-green-600",
+    lang: "th"
+  },
+  {
+    id: 3,
+    slug: "smart-queue-management-reduce-wait-time-70-percent",
+    title: "การจัดการคิวอัจฉริยะ: ลดเวลารอของลูกค้า 70%",
+    excerpt: "ค้นพบกลยุทธ์ที่พิสูจน์แล้วในการปรับปรุงการไหลของลูกค้าและลดเวลารออย่างมีนัยสำคัญด้วยระบบคิวอัจฉริยะ",
+    date: "10 มกราคม 2025",
+    category: "การจัดการคิว",
+    gradient: "from-purple-500 to-purple-600",
+    lang: "th"
+  },
+  {
+    id: 4,
+    slug: "qr-code-queue-booking-system-customer-convenience",
+    title: "การใช้ QR Code ในระบบจองคิว: เพิ่มความสะดวกให้ลูกค้า",
+    excerpt: "เรียนรู้วิธีการนำ QR Code มาใช้ในระบบจองคิวเพื่อให้ลูกค้าเข้าถึงการจองได้ง่ายขึ้น",
+    date: "8 มกราคม 2025",
+    category: "เทคโนโลยี",
+    gradient: "from-indigo-500 to-indigo-600",
+    lang: "th"
+  },
+  {
+    id: 5,
+    slug: "digital-transformation-service-business-complete-guide",
+    title: "การเปลี่ยนแปลงดิจิทัลในธุรกิจบริการ: คู่มือฉบับสมบูรณ์",
+    excerpt: "เรียนรู้วิธีที่ธุรกิจบริการสามารถใช้เครื่องมือดิจิทัลเพื่อปรับปรุงการดำเนินงานและยกระดับประสบการณ์ลูกค้า",
+    date: "5 มกราคม 2025",
+    category: "การเปลี่ยนแปลงดิจิทัล",
+    gradient: "from-orange-500 to-orange-600",
+    lang: "th"
+  },
+  {
+    id: 6,
+    slug: "customer-retention-automated-notifications",
+    title: "การเพิ่ม Customer Retention ด้วยระบบแจ้งเตือนอัตโนมัติ",
+    excerpt: "วิธีการใช้ระบบแจ้งเตือนผ่าน LINE เพื่อเพิ่มความผูกพันของลูกค้าและสร้างการจองซ้ำ",
+    date: "3 มกราคม 2025",
+    category: "การรักษาลูกค้า",
+    gradient: "from-pink-500 to-pink-600",
+    lang: "th"
+  },
+  {
+    id: 7,
+    slug: "api-integration-booking-systems-best-practices",
+    title: "การเชื่อมต่อ API สำหรับระบบจอง: แนวปฏิบัติที่ดีที่สุด",
+    excerpt: "คู่มือทางเทคนิคสำหรับการเชื่อมต่อ API ของบุคคลที่สามกับระบบจองของคุณเพื่อเพิ่มฟังก์ชันการทำงาน",
+    date: "1 มกราคม 2025",
+    category: "เทคนิค",
+    gradient: "from-cyan-500 to-cyan-600",
+    lang: "th"
+  },
+  {
+    id: 8,
+    slug: "customer-data-analytics-increase-sales",
+    title: "การวิเคราะห์ข้อมูลลูกค้าเพื่อเพิ่มยอดขาย",
+    excerpt: "เทคนิคการใช้ Analytics และ Business Intelligence ในการเพิ่มประสิทธิภาพธุรกิจ",
+    date: "30 ธันวาคม 2024",
+    category: "การวิเคราะห์ข้อมูล",
+    gradient: "from-teal-500 to-teal-600",
+    lang: "th"
+  },
+  {
+    id: 9,
+    slug: "mobile-first-booking-why-customers-want-it",
+    title: "การจองผ่านมือถือเป็นอันดับแรก: ทำไมลูกค้าถึงต้องการ",
+    excerpt: "ทำความเข้าใจการเปลี่ยนแปลงไปสู่การจองผ่านมือถือและวิธีปรับปรุงระบบให้เหมาะสมกับผู้ใช้สมาร์ทโฟน",
+    date: "28 ธันวาคม 2024",
+    category: "เทคโนโลยีมือถือ",
+    gradient: "from-red-500 to-red-600",
+    lang: "th"
+  },
+  {
+    id: 10,
+    slug: "good-user-experience-design-online-booking-system",
+    title: "การออกแบบ User Experience ที่ดีสำหรับระบบจองออนไลน์",
+    excerpt: "หลักการสำคัญในการออกแบบ UI/UX ที่ทำให้ลูกค้าจองได้ง่ายและรวดเร็ว",
+    date: "25 ธันวาคม 2024",
+    category: "การออกแบบ UX",
+    gradient: "from-violet-500 to-violet-600",
+    lang: "th"
+  },
+  {
+    id: 11,
+    slug: "security-best-practices-online-booking-platform",
+    title: "แนวปฏิบัติด้านความปลอดภัยสำหรับแพลตฟอร์มจองออนไลน์",
+    excerpt: "มาตรการความปลอดภัยที่จำเป็นเพื่อปกป้องข้อมูลลูกค้าและรักษาความน่าเชื่อถือในระบบจองของคุณ",
+    date: "22 ธันวาคม 2024",
+    category: "ความปลอดภัย",
+    gradient: "from-gray-600 to-gray-700",
+    lang: "th"
+  },
+  {
+    id: 12,
+    slug: "using-chatbot-queue-booking-reduce-cost-increase-efficiency",
+    title: "การใช้ Chatbot ในระบบจองคิว: ลดต้นทุนและเพิ่มประสิทธิภาพ",
+    excerpt: "วิธีการนำ AI Chatbot มาช่วยในการจัดการคิวและตอบคำถามลูกค้าแบบอัตโนมัติ",
+    date: "20 ธันวาคม 2024",
+    category: "เทคโนโลยี AI",
+    gradient: "from-emerald-500 to-emerald-600",
+    lang: "th"
+  },
+  {
+    id: 13,
+    slug: "payment-system-integration-smooth-transactions-better-experience",
+    title: "การเชื่อมต่อระบบชำระเงิน: ธุรกรรมที่ราบรื่นเพื่อประสบการณ์ที่ดีขึ้น",
+    excerpt: "คู่มือการเชื่อมต่อตัวเลือกการชำระเงินหลายรูปแบบในระบบจองของคุณเพื่อความสะดวกสูงสุด",
+    date: "18 ธันวาคม 2024",
+    category: "ระบบชำระเงิน",
+    gradient: "from-yellow-500 to-yellow-600",
+    lang: "th"
+  },
+  {
+    id: 14,
+    slug: "measuring-roi-online-booking-system",
+    title: "การวัดผล ROI ของระบบจองออนไลน์",
+    excerpt: "วิธีการคำนวณและวัดผลตอบแทนจากการลงทุนในระบบจองคิวดิจิทัล",
+    date: "15 ธันวาคม 2024",
+    category: "กลยุทธ์ธุรกิจ",
+    gradient: "from-lime-500 to-lime-600",
+    lang: "th"
+  },
+  {
+    id: 15,
+    slug: "multi-branch-booking-management-business-expansion",
+    title: "การจัดการการจองหลายสาขา: การขยายธุรกิจของคุณ",
+    excerpt: "กลยุทธ์สำหรับการจัดการการจองในหลายสถานที่ด้วยการควบคุมและรายงานแบบรวมศูนย์",
+    date: "12 ธันวาคม 2024",
+    category: "การขยายธุรกิจ",
+    gradient: "from-rose-500 to-rose-600",
+    lang: "th"
+  },
+  {
+    id: 16,
+    slug: "preparing-business-peak-season-queue-booking-system",
+    title: "การเตรียมธุรกิจสำหรับ Peak Season ด้วยระบบจองคิว",
+    excerpt: "เคล็ดลับการเตรียมความพร้อมและจัดการคิวในช่วงที่มีลูกค้าเยอะ",
+    date: "10 ธันวาคม 2024",
+    category: "การวางแผนตามฤดูกาล",
+    gradient: "from-amber-500 to-amber-600",
+    lang: "th"
+  },
+  {
+    id: 17,
+    slug: "customer-communication-beyond-basic-notifications",
+    title: "การสื่อสารกับลูกค้า: เกินกว่าการแจ้งเตือนพื้นฐาน",
+    excerpt: "กลยุทธ์ขั้นสูงสำหรับการมีส่วนร่วมของลูกค้าผ่านข้อความที่ปรับแต่งเฉพาะบุคคลและการติดตาม",
+    date: "8 ธันวาคม 2024",
+    category: "การสื่อสาร",
+    gradient: "from-sky-500 to-sky-600",
+    lang: "th"
+  },
+  {
+    id: 18,
+    slug: "using-social-media-create-awareness-booking-system",
+    title: "การใช้ Social Media ในการสร้าง Awareness สำหรับระบบจอง",
+    excerpt: "กลยุทธ์การตลาดผ่าน Social Media เพื่อให้ลูกค้าเข้ามาใช้ระบบจองออนไลน์",
+    date: "5 ธันวาคม 2024",
+    category: "การตลาด Social Media",
+    gradient: "from-fuchsia-500 to-fuchsia-600",
+    lang: "th"
+  },
+  {
+    id: 19,
+    slug: "future-booking-system-ai-automation-trends",
+    title: "อนาคตของระบบจอง: แนวโน้ม AI และระบบอัตโนมัติ",
+    excerpt: "สำรวจเทคโนโลยีที่กำลังจะมาซึ่งจะกำหนดอนาคตของการจองออนไลน์และการจัดการคิว",
+    date: "1 ธันวาคม 2024",
+    category: "เทคโนโลยีอนาคต",
+    gradient: "from-slate-500 to-slate-600",
+    lang: "th"
+  },
+  {
+    id: 20,
+    slug: "choosing-right-queue-booking-system-for-your-business",
+    title: "การเลือกระบบจองคิวที่เหมาะกับธุรกิจของคุณ",
+    excerpt: "คู่มือการเลือกระบบจองออนไลน์ที่ตรงกับความต้องการและงบประมาณของธุรกิจ",
+    date: "28 พฤศจิกายน 2024",
+    category: "คู่มือธุรกิจ",
+    gradient: "from-neutral-500 to-neutral-600",
+    lang: "th"
+  }
+];
+
+const getCategoryColor = (category: string) => {
+  const colors = {
+    'การจัดการคิว': 'blue',
+    'LINE OA': 'green',
+    'เทคโนโลยี': 'indigo',
+    'การเปลี่ยนแปลงดิจิทัล': 'orange',
+    'การรักษาลูกค้า': 'pink',
+    'เทคนิค': 'cyan',
+    'การวิเคราะห์ข้อมูล': 'teal',
+    'เทคโนโลยีมือถือ': 'red',
+    'การออกแบบ UX': 'violet',
+    'ความปลอดภัย': 'gray',
+    'เทคโนโลยี AI': 'emerald',
+    'ระบบชำระเงิน': 'yellow',
+    'กลยุทธ์ธุรกิจ': 'lime',
+    'การขยายธุรกิจ': 'rose',
+    'การวางแผนตามฤดูกาล': 'amber',
+    'การสื่อสาร': 'sky',
+    'การตลาด Social Media': 'fuchsia',
+    'เทคโนโลยีอนาคต': 'slate',
+    'คู่มือธุรกิจ': 'neutral'
+  };
+  return colors[category] || 'blue';
+};
+---
+
+<Layout
+  title="Blog - BookingWhale | บทความเกี่ยวกับระบบจองออนไลน์"
+  description="อ่านบทความและเคล็ดลับเกี่ยวกับการใช้ระบบจองออนไลน์ การจัดการคิว และการเพิ่มประสิทธิภาพธุรกิจด้วย BookingWhale"
+  keywords="blog booking system, ระบบจองออนไลน์, การจัดการคิว, LINE OA, booking tips, business strategy"
+>
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="pt-20 sm:pt-22 md:pt-24 lg:pt-26 xl:pt-28 pb-8 sm:pb-10 md:pb-12 lg:pb-14 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(59 130 246 / 0.03)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e')] opacity-60 pointer-events-none"></div>
+
+    <div class="container-tight relative text-center">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <span class="relative inline-block">
+          บทความและเคล็ดลับ
+          <div class="absolute bottom-2 left-0 right-0 h-3 opacity-60 -skew-x-12 transform origin-bottom-left" style="background-color: #0047ff;"></div>
+        </span>
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        เรียนรู้เคล็ดลับและกลยุทธ์ในการเพิ่มประสิทธิภาพธุรกิจของคุณด้วยระบบจองออนไลน์
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Grid -->
+  <section class="py-4 sm:py-6 md:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="container-tight">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {blogs.map((blog) => {
+          const getImageUrl = (id: number) => {
+            const imageMap = {
+              1: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              2: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2039&q=80",
+              3: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
+              4: "https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2081&q=80",
+              5: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              6: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              7: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
+              8: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+              9: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              10: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2064&q=80",
+              11: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              12: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              13: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+              14: "https://images.unsplash.com/photo-1590479773265-7464e5d48118?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
+              15: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              16: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              17: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              18: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              19: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              20: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+            };
+            return imageMap[id] || "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
+          };
+
+          return (
+          <article class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200">
+            <div class="aspect-video relative overflow-hidden">
+              <img
+                src={getImageUrl(blog.id)}
+                alt={blog.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">
+                  {blog.category}
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span>{blog.date}</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                {blog.title}
+              </h3>
+              <p class="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                {blog.excerpt}
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <span class={`bg-${getCategoryColor(blog.category)}-100 text-${getCategoryColor(blog.category)}-800 text-xs font-medium px-2.5 py-0.5 rounded`}>
+                    {blog.category}
+                  </span>
+                </div>
+                <a href={`/blog/${blog.slug}`} class="text-blue-600 hover:text-blue-700 font-medium flex items-center group-hover:translate-x-1 transition-transform">
+                  อ่านต่อ
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        )})}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
