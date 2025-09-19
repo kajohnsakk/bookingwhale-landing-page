@@ -14,20 +14,20 @@ const {
   keywords = "booking platform, service booking, online booking system, appointment booking, business management, automated booking, secure payments, booking software, reservation system, digital booking, booking app, service scheduling",
 } = Astro.props;
 
-// Language detection for proper hreflang and locale
+// Language detection for proper hreflang and locale - Default to Thai
 const currentPath = Astro.url.pathname;
-const isThaiContent = currentPath.includes('/th') || title.includes('จอง') || description.includes('ระบบ');
-const currentLang = isThaiContent ? 'th' : 'en';
-const currentLocale = isThaiContent ? 'th_TH' : 'en_US';
+const isEnglishContent = currentPath.includes('/en') || currentPath.includes('/english');
+const currentLang = isEnglishContent ? 'en' : 'th';
+const currentLocale = isEnglishContent ? 'en_US' : 'th_TH';
 
-// Language-specific SEO optimization
-const localizedDescription = isThaiContent
-  ? "BookingWhale - ระบบจองออนไลน์ที่ดีที่สุดสำหรับธุรกิจไทย เชื่อมต่อ LINE OA, จัดการคิว, ลดการไม่มาตามนัด และเพิ่มรายได้ ใช้งานฟรีในช่วงเบต้า"
-  : "BookingWhale - Thailand's best LINE OA booking system for businesses. Smart queue management, automated reminders, reduced no-shows, and increased revenue. Free during beta.";
+// Language-specific SEO optimization - Default to Thai
+const localizedDescription = isEnglishContent
+  ? "BookingWhale - Thailand's best LINE OA booking system for businesses. Smart queue management, automated reminders, reduced no-shows, and increased revenue. Free during beta."
+  : "BookingWhale - ระบบจองออนไลน์ที่ดีที่สุดสำหรับธุรกิจไทย เชื่อมต่อ LINE OA, จัดการคิว, ลดการไม่มาตามนัด และเพิ่มรายได้ ใช้งานฟรีในช่วงเบต้า";
 
-const localizedKeywords = isThaiContent
-  ? "ระบบจองออนไลน์, จองผ่าน LINE OA, จัดการคิว, ระบบนัดหมาย, BookingWhale, จองออนไลน์ไทย, ลดการไม่มาตามนัด, ธุรกิจไทย, ระบบจองร้านเสริมสวย, ระบบจองคลินิก, ระบบจองร้านอาหาร, จองออนไลน์กรุงเทพ, จองออนไลน์เชียงใหม่, จองออนไลน์ภูเก็ต, จองออนไลน์พัทยา, ระบบจองสปา, ระบบจองทันตกรรม, ระบบจองนวดแผนไทย, จองออนไลน์ร้านตัดผม, ระบบจองฟิตเนส"
-  : "LINE OA booking system, Thailand booking platform, online appointment booking, queue management system, booking software Thailand, no-show reduction, Thai business solutions, beauty salon booking, clinic booking system, restaurant reservation, booking system Bangkok, booking system Chiang Mai, booking system Phuket, booking system Pattaya, spa booking Thailand, dental clinic booking, Thai massage booking, hair salon booking, fitness booking Thailand";
+const localizedKeywords = isEnglishContent
+  ? "LINE OA booking system, Thailand booking platform, online appointment booking, queue management system, booking software Thailand, no-show reduction, Thai business solutions, beauty salon booking, clinic booking system, restaurant reservation, booking system Bangkok, booking system Chiang Mai, booking system Phuket, booking system Pattaya, spa booking Thailand, dental clinic booking, Thai massage booking, hair salon booking, fitness booking Thailand"
+  : "ระบบจองออนไลน์, จองผ่าน LINE OA, จัดการคิว, ระบบนัดหมาย, BookingWhale, จองออนไลน์ไทย, ลดการไม่มาตามนัด, ธุรกิจไทย, ระบบจองร้านเสริมสวย, ระบบจองคลินิก, ระบบจองร้านอาหาร, จองออนไลน์กรุงเทพ, จองออนไลน์เชียงใหม่, จองออนไลน์ภูเก็ต, จองออนไลน์พัทยา, ระบบจองสปา, ระบบจองทันตกรรม, ระบบจองนวดแผนไทย, จองออนไลน์ร้านตัดผม, ระบบจองฟิตเนส";
 ---
 
 <!doctype html>
@@ -72,7 +72,7 @@ const localizedKeywords = isThaiContent
     <!-- Hreflang for multilingual support -->
     <link rel="alternate" hreflang="en" href="https://bookingwhale.com/en" />
     <link rel="alternate" hreflang="th" href="https://bookingwhale.com/th" />
-    <link rel="alternate" hreflang="x-default" href="https://bookingwhale.com" />
+    <link rel="alternate" hreflang="x-default" href="https://bookingwhale.com/th" />
 
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -310,7 +310,7 @@ const localizedKeywords = isThaiContent
           "target": "https://bookingwhale.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string"
         },
-        "inLanguage": "en-US",
+        "inLanguage": "th-TH",
         "copyrightYear": "2024",
         "copyrightHolder": {
           "@type": "Organization",
