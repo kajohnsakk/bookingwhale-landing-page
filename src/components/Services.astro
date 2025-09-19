@@ -6,7 +6,7 @@ const services = [
     id: "booking",
     title: "จองง่ายผ่าน Line และทุกช่องทางออนไลน์",
     description:
-      "ลูกค้าจองได้ทันทีผ่าน LINE หรือสแกน QR Code หน้าร้าน พร้อมลิงก์แชร์บน Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้ง่ายทุกที่ทุกเวลา",
+      "ลูกค้าจองได้ทันทีผ่าน LINE หรือสแกน QR Code หน้าร้าน พร้อมลิงก์แชร์บน Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้ง่ายทุกที่ทุกเวลา ดู<a href='#features' class='text-blue-300 hover:text-white transition-colors'>ฟีเจอร์เพิ่มเติม</a>",
     icon: "lucide:mouse-pointer-click",
     badge: "BOOKING EASY",
   },
@@ -14,7 +14,7 @@ const services = [
     id: "schedule",
     title: "จัดตารางอย่างอัจฉริยะไม่พลาดทุกคิว",
     description:
-      "หมดกังวลเมื่อมีลูกค้าเข้ามาเยอะ ระบบจะจัดคิวให้อัตโนมัติ พร้อมจองวัน และเวลาเดิมให้ลูกค้าประจำ ให้การนัดหมายเป็นเรื่องง่าย ไม่ตกหล่น",
+      "หมดกังวลเมื่อมีลูกค้าเข้ามาเยอะ ระบบจะจัดคิวให้อัตโนมัติ พร้อมจองวัน และเวลาเดิมให้ลูกค้าประจำ ให้การนัดหมายเป็นเรื่องง่าย ไม่ตกหล่น อ่าน<a href='#blog' class='text-blue-300 hover:text-white transition-colors'>บทความจัดการคิว</a>",
     icon: "lucide:calendar-check-2",
     badge: "SMART SCHEDULE",
   },
@@ -22,7 +22,7 @@ const services = [
     id: "noshow",
     title: "ลดการผิดนัด (No-Show) และยกเลิกกระทันหัน",
     description:
-      "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกใกล้เวลานัด ช่วยลด No-Show รักษาคิวให้เต็มและไม่เสียโอกาสทางการขาย",
+      "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกใกล้เวลานัด ช่วยลด No-Show รักษาคิวให้เต็มและไม่เสียโอกาสทางการขาย ดู<a href='#faq' class='text-blue-300 hover:text-white transition-colors'>คำถามเกี่ยวกับการแจ้งเตือน</a>",
     icon: "lucide:user-x",
     badge: "SHOW UP",
   },
@@ -30,12 +30,70 @@ const services = [
     id: "rebooking",
     title: "สร้างความสัมพันธ์กับลูกค้า เพิ่มการจองซ้ำ",
     description:
-      "หลังการใช้บริการ ระบบจะส่งข้อความผ่าน LINE เพื่อชวนลูกค้าจองรอบถัดไปทันที ลดขั้นตอนการตัดสินใจ ช่วยให้คิวเต็มต่อเนื่อง",
+      "หลังการใช้บริการ ระบบจะส่งข้อความผ่าน LINE เพื่อชวนลูกค้าจองรอบถัดไปทันที ลดขั้นตอนการตัดสินใจ ช่วยให้คิวเต็มต่อเนื่อง <a href='#contact' class='text-blue-300 hover:text-white transition-colors'>ติดต่อเราเพื่อเริ่มต้น</a>",
     icon: "lucide:heart-handshake",
     badge: "REBOOKING",
   },
 ];
 ---
+
+<!-- Service Schema markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "provider": {
+    "@type": "Organization",
+    "name": "BookingWhale",
+    "url": "https://bookingwhale.com"
+  },
+  "serviceType": "Booking Management System",
+  "description": "Complete LINE OA booking management platform for Thai businesses",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "BookingWhale Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "LINE OA Online Booking",
+          "description": "Easy booking through LINE Official Account and all online channels including QR codes and social media integration"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Smart Queue Management",
+          "description": "Intelligent scheduling system that automatically manages queues and prevents double bookings"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "No-Show Reduction",
+          "description": "LINE notification system with reminders and cancellation policies to reduce no-shows"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Customer Relationship Management",
+          "description": "Automated rebooking messages and customer retention system through LINE messaging"
+        }
+      }
+    ]
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Thailand"
+  },
+  "availableLanguage": ["Thai", "English"]
+}
+</script>
 
 <section
   id="services"
@@ -48,21 +106,6 @@ const services = [
   >
   </div>
 
-  <!-- Multiple Floating Decorations -->
-  <div
-    class="absolute top-16 right-8 w-72 h-72 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse pointer-events-none"
-  >
-  </div>
-  <div
-    class="absolute bottom-16 left-8 w-56 h-56 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-pulse pointer-events-none"
-    style="animation-delay: 2s;"
-  >
-  </div>
-  <div
-    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-cyan-100/20 to-blue-100/20 rounded-full blur-3xl animate-pulse pointer-events-none"
-    style="animation-delay: 4s;"
-  >
-  </div>
 
   <div class="container-tight relative">
     <div class="text-center mb-16">
@@ -80,16 +123,6 @@ const services = [
           >
           </div>
 
-          {/* Subtle decorative elements */}
-          <div
-            class="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-blue-200 to-indigo-200 rounded-full opacity-20 animate-pulse"
-          >
-          </div>
-          <div
-            class="absolute -top-2 -right-6 w-6 h-6 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full opacity-30 animate-pulse"
-            style="animation-delay: 1s;"
-          >
-          </div>
         </h2>
         <p
           data-translate="servicesDescription"
@@ -123,8 +156,10 @@ const services = [
 
           return (
             <div
-              class={`${bgClass} rounded-2xl p-8 text-center relative overflow-hidden shadow-xl transition-all duration-500 group/card`}
-              style={isDiagonal ? { backgroundColor: "#0047ff" } : {}}
+              class={`${bgClass} rounded-2xl p-8 text-center relative overflow-hidden shadow-xl transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 group/card service-card cursor-pointer`}
+              style={isDiagonal ? `background-color: #0047ff; opacity: 0; transform: translateX(${index % 2 === 0 ? '-100px' : '100px'}) rotateY(45deg);` : `opacity: 0; transform: translateX(${index % 2 === 0 ? '-100px' : '100px'}) rotateY(-45deg);`}
+              data-delay={index * 200}
+              data-direction={index % 2 === 0 ? 'left' : 'right'}
             >
               {/* Subtle corner decorations */}
               <div
@@ -138,7 +173,7 @@ const services = [
 
               {/* Enhanced Professional badge */}
               <div
-                class={`absolute top-6 left-6 ${badgeClass} text-xs font-bold px-4 py-2 rounded-full shadow-lg transform -rotate-2 transition-all duration-300 backdrop-blur-sm`}
+                class={`absolute top-6 left-6 ${badgeClass} text-xs font-bold px-4 py-2 rounded-full shadow-lg transform -rotate-2 transition-all duration-500 backdrop-blur-sm badge-element hover:scale-110`}
                 style={!isDiagonal ? { backgroundColor: "#0047ff" } : {}}
               >
                 {service.badge}
@@ -147,8 +182,8 @@ const services = [
               {/* Enhanced Icon container */}
               <div class="mb-8 transform transition-all duration-500">
                 <div
-                  class={`w-20 h-20 mx-auto mb-4 flex items-center justify-center ${iconBgClass} rounded-2xl shadow-xl transition-all duration-500 relative group/icon`}
-                  style={!isDiagonal ? { color: "#0047ff" } : {}}
+                  class={`w-20 h-20 mx-auto mb-4 flex items-center justify-center ${iconBgClass} rounded-2xl shadow-xl transition-all duration-500 relative group/icon hover:shadow-2xl`}
+                  style={!isDiagonal ? `color: #0047ff; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);` : `transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);`}
                 >
                   <Icon name={service.icon} width={40} height={40} />
 
@@ -206,7 +241,71 @@ const services = [
 </section>
 
 <style>
-  /* Enhanced animations for services */
+  /* Service card animations */
+  .service-card {
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .service-card:hover .group\/icon {
+    animation: bounceIcon 0.6s ease-in-out;
+  }
+
+  .service-card:hover .badge-element {
+    animation: wiggleBadge 0.8s ease-in-out;
+  }
+
+  @keyframes bounceIcon {
+    0%, 100% { transform: translateY(0) scale(1) rotateZ(0deg); }
+    25% { transform: translateY(-10px) scale(1.1) rotateZ(5deg); }
+    50% { transform: translateY(-5px) scale(1.05) rotateZ(-3deg); }
+    75% { transform: translateY(-8px) scale(1.08) rotateZ(2deg); }
+  }
+
+  @keyframes wiggleBadge {
+    0%, 100% { transform: rotate(-2deg) scale(1); }
+    25% { transform: rotate(8deg) scale(1.05); }
+    50% { transform: rotate(-10deg) scale(1.03); }
+    75% { transform: rotate(5deg) scale(1.02); }
+  }
+
+  @keyframes floatIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.8);
+    }
+    50% {
+      opacity: 0.7;
+      transform: translateY(-10px) scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px) rotateY(45deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotateY(0deg);
+    }
+  }
+
+  @keyframes slideInFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100px) rotateY(-45deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotateY(0deg);
+    }
+  }
   @keyframes icon-float {
     0%,
     100% {
@@ -352,3 +451,107 @@ const services = [
     }
   }
 </style>
+
+<script>
+  // Intersection Observer for service cards animation
+  const serviceObserverOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const serviceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = parseInt(entry.target.getAttribute('data-delay') || '0', 10);
+        const element = entry.target as HTMLElement;
+
+        setTimeout(() => {
+          element.style.opacity = '1';
+          element.style.transform = 'translateX(0) rotateY(0deg)';
+
+          // Add floating animation to content
+          const content = element.querySelector('.relative.z-10');
+          if (content) {
+            (content as HTMLElement).style.animation = 'floatIn 0.8s ease-out both';
+            (content as HTMLElement).style.animationDelay = '0.3s';
+          }
+        }, delay);
+
+        serviceObserver.unobserve(entry.target);
+      }
+    });
+  }, serviceObserverOptions);
+
+  // Start observing all service cards
+  document.addEventListener('DOMContentLoaded', () => {
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+      serviceObserver.observe(card);
+    });
+
+    // Add enhanced hover effects
+    serviceCards.forEach((card, index) => {
+      const badge = card.querySelector('.badge-element');
+      const icon = card.querySelector('.group\/icon');
+
+      card.addEventListener('mouseenter', () => {
+        // Add subtle tilt effect
+        (card as HTMLElement).style.transform = `rotateX(5deg) rotateY(${index % 2 === 0 ? '3deg' : '-3deg'}) scale(1.02)`;
+
+        // Pulse effect for badge
+        if (badge) {
+          (badge as HTMLElement).style.transform = 'rotate(-2deg) scale(1.1)';
+          (badge as HTMLElement).style.boxShadow = '0 0 20px rgba(0, 71, 255, 0.3)';
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        (card as HTMLElement).style.transform = 'rotateX(0) rotateY(0deg) scale(1)';
+
+        if (badge) {
+          (badge as HTMLElement).style.transform = 'rotate(-2deg) scale(1)';
+          (badge as HTMLElement).style.boxShadow = '';
+        }
+      });
+
+      // Add click ripple effect
+      card.addEventListener('click', (e) => {
+        const ripple = document.createElement('div');
+        const rect = card.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          left: ${x}px;
+          top: ${y}px;
+          background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+          border-radius: 50%;
+          transform: scale(0);
+          animation: rippleEffect 0.6s ease-out;
+          pointer-events: none;
+          z-index: 1;
+        `;
+
+        card.appendChild(ripple);
+
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // Add ripple animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes rippleEffect {
+        0% { transform: scale(0); opacity: 1; }
+        100% { transform: scale(2); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  });
+</script>

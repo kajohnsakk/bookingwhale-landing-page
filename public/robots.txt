@@ -1,23 +1,89 @@
+# BookingWhale - Robots.txt
+# LINE OA booking system for Thai businesses
+# https://bookingwhale.com
+
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemap location
 Sitemap: https://bookingwhale.com/sitemap.xml
 
-# Crawl-delay for better server performance
+# Crawl-delay for optimal server performance
 Crawl-delay: 1
 
-# Block admin areas (if any)
+# Block development and system directories
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_astro/
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /src/
+Disallow: /temp/
+Disallow: /tmp/
 
-# Allow important SEO pages
+# Block sensitive files
+Disallow: /*.json$
+Disallow: /*.log$
+Disallow: /*.config.js$
+Disallow: /package.json
+Disallow: /.env
+Disallow: /.gitignore
+
+# Allow important pages and sections
 Allow: /
-Allow: /about
-Allow: /features
-Allow: /pricing
-Allow: /contact
-Allow: /help
+Allow: /en
+Allow: /th
+Allow: /blog
+Allow: /blog/*
 Allow: /privacy
 Allow: /terms
+Allow: /cookies
+
+# Allow section anchors for single-page app
+Allow: /#services
+Allow: /#features
+Allow: /#faq
+Allow: /#contact
+
+# Allow essential assets
+Allow: /favicon.ico
+Allow: /logo.png
+Allow: /assets/
+Allow: /images/
+
+# Special rules for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Block bad bots and scrapers
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+# Additional sitemaps (if any)
+# Sitemap: https://bookingwhale.com/sitemap-images.xml
+# Sitemap: https://bookingwhale.com/sitemap-news.xml

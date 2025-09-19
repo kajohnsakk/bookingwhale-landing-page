@@ -1,0 +1,67 @@
+---
+export interface Props {
+  index?: boolean;
+  follow?: boolean;
+  noarchive?: boolean;
+  nosnippet?: boolean;
+  noimageindex?: boolean;
+  maxSnippet?: number;
+  maxImagePreview?: 'none' | 'standard' | 'large';
+  maxVideoPreview?: number;
+}
+
+const {
+  index = true,
+  follow = true,
+  noarchive = false,
+  nosnippet = false,
+  noimageindex = false,
+  maxSnippet = -1,
+  maxImagePreview = 'large',
+  maxVideoPreview = -1
+} = Astro.props;
+
+// Build robots meta content
+const robotsDirectives = [];
+
+if (index) {
+  robotsDirectives.push('index');
+} else {
+  robotsDirectives.push('noindex');
+}
+
+if (follow) {
+  robotsDirectives.push('follow');
+} else {
+  robotsDirectives.push('nofollow');
+}
+
+if (noarchive) robotsDirectives.push('noarchive');
+if (nosnippet) robotsDirectives.push('nosnippet');
+if (noimageindex) robotsDirectives.push('noimageindex');
+
+if (maxSnippet !== -1) {
+  robotsDirectives.push(`max-snippet:${maxSnippet}`);
+}
+
+if (maxImagePreview !== 'large') {
+  robotsDirectives.push(`max-image-preview:${maxImagePreview}`);
+} else {
+  robotsDirectives.push('max-image-preview:large');
+}
+
+if (maxVideoPreview !== -1) {
+  robotsDirectives.push(`max-video-preview:${maxVideoPreview}`);
+}
+
+const robotsContent = robotsDirectives.join(', ');
+---
+
+<!-- Robots meta tag for granular control -->
+<meta name="robots" content={robotsContent} />
+
+<!-- Google-specific robots meta tag -->
+<meta name="googlebot" content={robotsContent} />
+
+<!-- Bing-specific robots meta tag -->
+<meta name="bingbot" content={robotsContent} />

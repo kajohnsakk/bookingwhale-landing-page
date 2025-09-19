@@ -1,232 +1,198 @@
 ---
 ---
 
-<section class="relative pt-16 pb-6 lg:pt-20 lg:pb-8 overflow-hidden bg-darker">
-  <!-- Dark Theme Background -->
+<section class="relative pt-12 pb-8 lg:pt-16 lg:pb-12 overflow-hidden" style="background-color: #fcfcfd;">
+  <!-- Clean minimal background -->
   <div class="absolute inset-0 overflow-hidden">
-    <!-- Dime-style geometric elements -->
-    <div class="absolute top-20 left-10 w-40 h-40 bg-blue-500/20 rounded-3xl rotate-12 animate-float-slow"></div>
-    <div class="absolute bottom-20 right-10 w-32 h-32 bg-green-400/20 rounded-full animate-float-delayed"></div>
-    <div class="absolute top-1/3 right-1/3 w-24 h-24 bg-green-400/10 rounded-2xl rotate-45 animate-pulse-gentle"></div>
-    
-    <!-- Subtle grid pattern -->
-    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.02)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e')] opacity-50"></div>
+    <!-- Subtle grid for structure -->
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' width='40' height='40' fill='none' stroke='rgb(156 163 175 / 0.08)'%3e%3cpath d='M40 0v40M0 0v40'/%3e%3c/svg%3e')] opacity-100"></div>
   </div>
-  
-  <div class="container-tight relative">
-    <div class="grid lg:grid-cols-12 gap-6 lg:gap-12 items-center min-h-[50vh] lg:min-h-[55vh]">
-      <div class="lg:col-span-7 space-y-6 fade-in-up order-2 lg:order-1">
-        <div class="space-y-4">
-          <div class="relative">
-            <h1 class="text-display text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
-              <span class="block text-white leading-tight">
-                <span data-translate="heroTitle">ระบบจองผ่าน</span> <span class="line-oa-green">LINE OA</span>
-              </span>
-              <div class="mt-3">
-                <span class="text-blue-400 block text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold" data-translate="heroSubtitle">
-                  จองง่าย ขายไว เชื่อมต่อลูกค้าได้ทันที
-                </span>
-              </div>
-            </h1>
 
-            {/* Decorative accent */}
-            <div class="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-blue-400 to-green-400 rounded-full opacity-60"></div>
+  <div class="container-tight relative">
+    <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center min-h-[40vh] lg:min-h-[45vh]">
+      <div class="lg:col-span-7 space-y-6 fade-in-up order-2 lg:order-1">
+        <div class="space-y-6">
+          <div class="relative">
+            <h1 class="text-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl" itemProp="headline">
+              <span class="block text-gray-900 leading-tight font-bold">
+                <span data-translate="heroTitle">ระบบจองผ่าน</span>
+                <span class="line-oa-green relative group inline-block">
+                  LINE OA
+                  <div class="absolute -bottom-2 left-0 right-0 h-3 bg-green-400/20 -rotate-1 group-hover:rotate-0.5 transition-transform duration-200 ease-out"></div>
+                  <div class="absolute -bottom-2 left-0 right-0 h-3 bg-green-400/10 rotate-1 group-hover:-rotate-0.5 transition-transform duration-200 ease-out"></div>
+                </span>
+              </span>
+              <span class="text-blue-600 block text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold mt-4" data-translate="heroSubtitle">
+                จองง่าย ขายไว เชื่อมต่อลูกค้าได้ทันที
+              </span>
+            </h1>
           </div>
 
-          <p data-translate="heroDescription" class="text-base lg:text-lg text-gray-300 max-w-2xl leading-relaxed">
-            ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที
+          <p data-translate="heroDescription" class="text-lg lg:text-xl text-gray-600 max-w-2xl leading-relaxed">
+            <a href="#services" class="text-blue-600 hover:underline">ระบบจองนัดหมาย</a>
+            <a href="#features" class="text-blue-600 hover:underline">จัดการคิว</a>
+            เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ
+            <strong>LINE Official Account</strong> ใช้งานง่าย พร้อมเริ่มได้ทันที
+            ดู<a href="#faq" class="text-blue-600 hover:underline">คำถามที่พบบ่อย</a>และ
+            <a href="#blog" class="text-blue-600 hover:underline">บทความ</a>เพื่อข้อมูลเพิ่มเติม
           </p>
 
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-4 items-start pt-2">
+        <div class="flex flex-col sm:flex-row gap-4 items-center pt-2">
           <button
             onclick="openBookingModal()"
             data-translate="startBookingNow"
-            class="group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center"
+            class="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 hover:scale-102 transition-all duration-150 ease-out flex items-center relative overflow-hidden"
           >
-            <span>เริ่มใช้ฟรี</span>
-            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Button shimmer effect -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[400%] transition-transform duration-500 ease-out"></div>
+            <span class="relative z-10">เริ่มใช้ฟรี</span>
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-0.5 transition-transform duration-200 ease-out relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
             </svg>
           </button>
 
-          <button class="group bg-white/10 hover:bg-white/20 text-white border border-white/30 px-6 py-4 rounded-xl font-semibold backdrop-blur-sm hover:backdrop-blur-md transition-all duration-300 flex items-center">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>ดูตัวอย่าง</span>
-          </button>
+          <div class="relative group">
+            <img
+              src="/assets/line-logo.png"
+              alt="LINE Official Account integration for automated booking system - connect instantly with customers through LINE chat"
+              class="h-14 opacity-80 hover:opacity-100 transition-all duration-200 ease-out hover:scale-105 transform"
+            />
+            <!-- Subtle glow effect -->
+            <div class="absolute inset-0 bg-green-400 rounded-lg opacity-0 group-hover:opacity-8 blur-md transition-opacity duration-250 ease-out"></div>
+          </div>
         </div>
       </div>
       
-      <!-- LINE LIFF Webview Visual -->
-      <div class="lg:col-span-5 relative fade-in-right order-1 lg:order-2">
-        <!-- Mobile Frame -->
-        <div class="relative bg-gray-900 rounded-3xl p-2 shadow-2xl transform rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-700">
-          <!-- Screen -->
-          <div class="bg-white rounded-2xl overflow-hidden">
-            <!-- Status Bar -->
-            <div class="bg-black px-4 py-1 flex justify-between items-center text-white text-xs">
-              <span>9:41</span>
+      <!-- Mobile App Mockup -->
+      <div class="lg:col-span-5 relative fade-in-right order-1 lg:order-2 flex justify-center mt-12 lg:mt-8">
+        <!-- Minimal iPhone Frame -->
+        <div class="relative bg-gray-900 rounded-[2rem] p-1.5 shadow-xl w-64 max-w-xs">
+          <!-- iPhone Screen -->
+          <div class="bg-white rounded-[1.5rem] overflow-hidden h-[480px] relative">
+            <!-- Clean Status Bar -->
+            <div class="bg-white px-3 py-1.5 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-900">9:41</span>
               <div class="flex items-center space-x-1">
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M2 17h20v2H2zm1.5-4.5L9 16l3.5-3.5L19 18V6H5v6.5z"/></svg>
-                <span>100%</span>
-              </div>
-            </div>
-
-            <!-- LIFF Header -->
-            <div class="bg-white px-4 py-3 border-b border-gray-100 flex items-center justify-between">
-              <button class="text-gray-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
-              </button>
-              <h1 class="text-lg font-semibold text-gray-900">BookingWhale</h1>
-              <button class="text-gray-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01"/>
-                </svg>
-              </button>
-            </div>
-
-            <!-- LIFF Content -->
-            <div class="p-3 space-y-4 min-h-[320px] bg-gray-50">
-              <!-- Dashboard Overview -->
-              <div class="bg-white rounded-lg p-3 shadow-sm">
-                <div class="flex items-center space-x-2 mb-3">
-                  <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h2 class="font-medium text-gray-900 text-sm">ภาพรวมธุรกิจ</h2>
-                    <p class="text-xs text-gray-600">อัปเดตล่าสุด: วันนี้</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-2">
-                  <div class="bg-gray-50 rounded-md p-2 text-center border">
-                    <div class="text-sm font-bold text-gray-800">487</div>
-                    <div class="text-xs text-gray-600">Active Users</div>
-                  </div>
-                  <div class="bg-gray-50 rounded-md p-2 text-center border">
-                    <div class="text-sm font-bold text-gray-800">₿2.4M</div>
-                    <div class="text-xs text-gray-600">Revenue</div>
-                  </div>
-                  <div class="bg-gray-50 rounded-md p-2 text-center border">
-                    <div class="text-sm font-bold text-green-600">+18%</div>
-                    <div class="text-xs text-gray-600">Growth</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Management Tools -->
-              <div class="space-y-2">
-                <h3 class="font-medium text-gray-900 text-sm">Management</h3>
-                <div class="space-y-1.5">
-                  <button class="w-full bg-white rounded-lg p-2.5 shadow-sm border border-gray-200 text-left flex items-center justify-between hover:bg-gray-50">
-                    <div class="flex items-center space-x-2">
-                      <div class="w-5 h-5 bg-blue-100 rounded flex items-center justify-center">
-                        <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <div class="font-medium text-gray-900 text-xs">Analytics</div>
-                        <div class="text-xs text-gray-500">Performance metrics</div>
-                      </div>
-                    </div>
-                    <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                  </button>
-
-                  <button class="w-full bg-white rounded-lg p-2.5 shadow-sm border border-gray-200 text-left flex items-center justify-between hover:bg-gray-50">
-                    <div class="flex items-center space-x-2">
-                      <div class="w-5 h-5 bg-gray-100 rounded flex items-center justify-center">
-                        <svg class="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <div class="font-medium text-gray-900 text-xs">Team Management</div>
-                        <div class="text-xs text-gray-500">User permissions</div>
-                      </div>
-                    </div>
-                    <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                  </button>
-
-                  <button class="w-full bg-white rounded-lg p-2.5 shadow-sm border border-gray-200 text-left flex items-center justify-between hover:bg-gray-50">
-                    <div class="flex items-center space-x-2">
-                      <div class="w-5 h-5 bg-gray-100 rounded flex items-center justify-center">
-                        <svg class="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <div class="font-medium text-gray-900 text-xs">System Settings</div>
-                        <div class="text-xs text-gray-500">Configuration</div>
-                      </div>
-                    </div>
-                    <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                  </button>
+                <div class="w-4 h-2 border border-gray-800 rounded-sm">
+                  <div class="w-3 h-1 bg-gray-800 rounded-sm m-0.5"></div>
                 </div>
               </div>
             </div>
 
-            <!-- Bottom Status -->
-            <div class="p-3 bg-gray-50 border-t border-gray-200">
-              <div class="flex items-center justify-between text-xs">
-                <div class="flex items-center space-x-2 text-gray-600">
-                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span>System Operational</span>
+            <!-- Minimal App Header -->
+            <div class="bg-white px-3 py-3 border-b border-gray-100">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <img src="/logo.png" alt="BookingWhale - Smart booking management platform logo" class="w-6 h-6 rounded" />
+                  <span class="text-sm font-bold text-gray-900">BookingWhale</span>
                 </div>
-                <div class="text-gray-500">v2.1.4</div>
+                <div class="w-6 h-6 bg-gray-900 rounded-full flex items-center justify-center">
+                  <span class="text-xs font-bold text-white">A</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Clean App Content -->
+            <div class="px-3 py-3 bg-gray-50 flex-1">
+
+              <!-- Simple Stats -->
+              <div class="grid grid-cols-2 gap-2 mb-3">
+                <div class="bg-white rounded-lg p-3 text-center border border-gray-200">
+                  <div class="text-lg font-bold text-gray-900">42</div>
+                  <div class="text-xs text-gray-600">Today's Bookings</div>
+                </div>
+                <div class="bg-white rounded-lg p-3 text-center border border-gray-200">
+                  <div class="text-lg font-bold text-gray-900">320</div>
+                  <div class="text-xs text-gray-600">Total Customers</div>
+                </div>
+              </div>
+
+              <!-- Clean Schedule -->
+              <div class="bg-white rounded-lg p-3 mb-3 border border-gray-200">
+                <h3 class="text-sm font-bold text-gray-900 mb-2">Today's Queue</h3>
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                      <div class="w-6 h-6 bg-gray-900 rounded-full flex items-center justify-center">
+                        <span class="text-xs font-bold text-white">S</span>
+                      </div>
+                      <div>
+                        <div class="text-xs font-medium text-gray-900">Sarah Johnson</div>
+                        <div class="text-xs text-gray-500">13:00 • Haircut</div>
+                      </div>
+                    </div>
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  </div>
+
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                      <div class="w-6 h-6 bg-gray-900 rounded-full flex items-center justify-center">
+                        <span class="text-xs font-bold text-white">M</span>
+                      </div>
+                      <div>
+                        <div class="text-xs font-medium text-gray-900">Mike Chen</div>
+                        <div class="text-xs text-gray-500">14:30 • Massage</div>
+                      </div>
+                    </div>
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  </div>
+
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                      <div class="w-6 h-6 bg-gray-900 rounded-full flex items-center justify-center">
+                        <span class="text-xs font-bold text-white">L</span>
+                      </div>
+                      <div>
+                        <div class="text-xs font-medium text-gray-900">Lisa Williams</div>
+                        <div class="text-xs text-gray-500">16:00 • Manicure</div>
+                      </div>
+                    </div>
+                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Simple Actions -->
+              <div class="grid grid-cols-2 gap-2">
+                <button class="bg-gray-900 rounded-lg p-3 text-center">
+                  <div class="text-xs font-bold text-white">New Booking</div>
+                </button>
+                <button class="bg-white rounded-lg p-3 text-center border border-gray-200">
+                  <div class="text-xs font-bold text-gray-900">View Stats</div>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Clean Bottom Nav -->
+            <div class="bg-white px-3 py-2 border-t border-gray-200">
+              <div class="flex justify-around">
+                <div class="flex flex-col items-center py-1">
+                  <div class="w-5 h-5 bg-gray-900 rounded flex items-center justify-center">
+                    <div class="w-2 h-2 bg-white rounded"></div>
+                  </div>
+                  <span class="text-xs text-gray-900 mt-1 font-medium">หน้าหลัก</span>
+                </div>
+                <div class="flex flex-col items-center py-1">
+                  <div class="w-5 h-5 bg-gray-300 rounded flex items-center justify-center">
+                    <div class="w-2 h-2 bg-gray-600 rounded"></div>
+                  </div>
+                  <span class="text-xs text-gray-500 mt-1">ปฏิทิน</span>
+                </div>
+                <div class="flex flex-col items-center py-1">
+                  <div class="w-5 h-5 bg-gray-300 rounded flex items-center justify-center">
+                    <div class="w-2 h-2 bg-gray-600 rounded"></div>
+                  </div>
+                  <span class="text-xs text-gray-500 mt-1">ตั้งค่า</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Animated Floating Elements -->
-        <div class="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-6 h-6 sm:w-8 sm:h-8 rounded-full opacity-60 animate-bounce-gentle" style="background-color: #06d755;"></div>
-        <div class="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 w-4 h-4 sm:w-6 sm:h-6 bg-blue-400 rounded-full opacity-50 animate-pulse-gentle"></div>
-        <div class="absolute top-1/2 -left-2 w-3 h-3 rounded-full opacity-40 animate-float-slow" style="background-color: #06d755;"></div>
-        <div class="absolute top-1/4 -right-2 w-5 h-5 bg-blue-400 rounded-lg opacity-30 animate-rotate-slow"></div>
-
-        <!-- LIFF Badges -->
-        <div class="absolute -bottom-3 -right-6 sm:-bottom-4 sm:-right-8 bg-white rounded-2xl p-3 sm:p-4 shadow-lg transform rotate-6 hover:rotate-3 transition-transform duration-500 border border-gray-100 animate-float-delayed">
-          <div class="flex items-center space-x-2">
-            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center" style="background-color: #06d755;">
-              <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.168 18.477 18.582 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-              </svg>
-            </div>
-            <div>
-              <div class="text-xs font-semibold text-gray-900">LINE LIFF</div>
-              <div class="text-xs text-gray-600 hidden sm:block">Webview App</div>
-            </div>
-          </div>
         </div>
 
-        <div class="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 bg-white rounded-2xl p-3 sm:p-4 shadow-lg transform -rotate-6 hover:-rotate-3 transition-transform duration-500 border border-gray-100 animate-float-gentle">
-          <div class="flex items-center space-x-2">
-            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-lg flex items-center justify-center" style="background-color: #0047ff;">
-              <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-              </svg>
-            </div>
-            <div>
-              <div class="text-xs font-semibold text-gray-900">Native Experience</div>
-              <div class="text-xs text-gray-600 hidden sm:block">ใน LINE App</div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -324,41 +290,83 @@
     }
   }
   
-  /* Animation classes */
+  /* Modern Minimal Animation Classes */
   .fade-in-up {
     animation: fade-in-up 0.8s ease-out;
   }
-  
+
   .fade-in-right {
     animation: fade-in-right 0.8s ease-out 0.2s both;
   }
-  
-  .animate-float-slow {
-    animation: float-slow 6s infinite ease-in-out;
+
+  .animate-float-up {
+    animation: float-up 6s infinite ease-in-out;
   }
-  
+
+  .animate-scale-breathe {
+    animation: scale-breathe 4s infinite ease-in-out;
+  }
+
+  .animate-rotate-gentle {
+    animation: rotate-gentle 8s infinite linear;
+  }
+
+  .animate-slide-x {
+    animation: slide-x 5s infinite ease-in-out;
+  }
+
   .animate-float-delayed {
-    animation: float-delayed 8s infinite ease-in-out 2s;
+    animation: float-delayed 6s infinite ease-in-out 1s;
   }
-  
-  .animate-float-gentle {
-    animation: float-gentle 4s infinite ease-in-out 1s;
-  }
-  
+
   .animate-bounce-gentle {
     animation: bounce-gentle 3s infinite ease-in-out;
   }
-  
-  .animate-pulse-gentle {
-    animation: pulse-gentle 4s infinite ease-in-out 1.5s;
+
+  /* Clean Minimal Keyframes */
+  @keyframes float-up {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
   }
-  
-  .animate-rotate-slow {
-    animation: rotate-slow 20s infinite linear;
+
+  @keyframes scale-breathe {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
   }
-  
-  .animate-card-hover {
-    animation: card-hover 6s infinite ease-in-out;
+
+  @keyframes rotate-gentle {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes slide-x {
+    0%, 100% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
   }
   
   /* Performance optimizations */
@@ -402,6 +410,11 @@
     .animate-card-hover {
       animation: none;
     }
+  }
+
+  /* Custom shadow for professional look */
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   }
 
   /* LINE OA Green color */

@@ -10,6 +10,7 @@ export const translations = {
     services: "Services",
     features: "Features",
     faq: "FAQ",
+    blog: "Blog",
     contact: "Contact",
     bookNow: "Book Now",
 
@@ -18,9 +19,9 @@ export const translations = {
     heroSubtitle: "Easy booking, fast sales, instant customer connection",
     heroDescription:
       "Appointment booking system, queue management, customer database collection. Create your own booking system connected to LINE Official Account. Easy to use, ready to start immediately.",
-    heroTagline: "Enterprise-grade. Simple to use.",
+    heroTagline: "",
     trustedBy: "Join the first 1,000 early adopters",
-    startBookingNow: "Start Booking Now",
+    startBookingNow: "GET STARTED",
     learnMore: "Learn More",
     exploreServices: "Explore Services",
     activeUsers: "Active Users",
@@ -264,6 +265,7 @@ export const translations = {
     services: "บริการหลัก",
     features: "แพลตฟอร์ม",
     faq: "คำถามที่พบบ่อย",
+    blog: "บทความ",
     contact: "ติดต่อ",
     bookNow: "จองเลย",
 
@@ -274,7 +276,7 @@ export const translations = {
       "ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที",
     heroTagline: "",
     trustedBy: "เข้าร่วมเป็น 1,000 คนแรกที่ได้ทดลองใช้ก่อนใคร",
-    startBookingNow: "เริ่มจองตอนนี้",
+    startBookingNow: "เริ่มใช้งาน",
     learnMore: "ดูวิธีการใช้",
     exploreServices: "ดูบริการทั้งหมด",
     activeUsers: "ผู้ใช้งาน",

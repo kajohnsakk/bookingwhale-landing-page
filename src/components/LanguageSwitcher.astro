@@ -4,35 +4,34 @@
 <div class="language-switcher relative">
   <button
     id="languageToggle"
-    class="flex items-center space-x-2 bg-gray-100 backdrop-blur-sm px-3 py-2 rounded-lg border border-gray-200 hover:bg-gray-200 active:bg-gray-300 transition-all duration-300 text-sm font-medium text-gray-700 touch-manipulation min-h-[44px]"
+    class="flex items-center space-x-1.5 text-gray-600 hover:text-blue-600 transition-all duration-200 font-medium text-sm lg:text-base relative group touch-manipulation min-h-[44px] px-2 py-1"
   >
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-      <path d="M5.6 10.25C6.26 8.83 7.88 8 12 8s5.74.83 6.4 2.25H5.6zm0 3.5h12.8c-.66 1.42-2.28 2.25-6.4 2.25s-5.74-.83-6.4-2.25z" fill="rgba(55,65,81,0.3)"/>
-      <circle cx="12" cy="12" r="1" fill="rgba(55,65,81,0.4)"/>
+    <span id="currentFlag" class="text-sm">🇺🇸</span>
+    <span id="currentLang" class="text-inherit">EN</span>
+    <svg class="w-3 h-3 transform transition-transform duration-200 text-gray-400 group-hover:text-blue-600" id="langArrow" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
     </svg>
-    <span id="currentLang">EN</span>
-    <svg class="w-3 h-3 transform transition-transform duration-200" id="langArrow" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-    </svg>
+    <span
+      class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"
+    ></span>
   </button>
   
   <div
     id="languageDropdown"
-    class="absolute top-full mt-2 right-0 bg-white backdrop-blur-xl rounded-xl border border-gray-200 shadow-2xl py-2 min-w-[120px] opacity-0 invisible transform scale-95 transition-all duration-300 z-[9999]"
+    class="absolute top-full mt-2 right-0 bg-white backdrop-blur-lg rounded-lg border border-gray-200 shadow-lg py-2 min-w-[120px] opacity-0 invisible transform scale-95 transition-all duration-200 z-[9999]"
   >
     <button
-      class="language-option w-full px-4 py-3 text-left hover:bg-gray-50 active:bg-gray-100 transition-colors flex items-center space-x-2 text-gray-700 touch-manipulation"
+      class="language-option w-full px-3 py-2 text-left hover:bg-gray-50 transition-colors flex items-center space-x-2 text-gray-700 hover:text-gray-900 touch-manipulation text-sm"
       data-lang="en"
     >
-      <span class="text-base">🇺🇸</span>
+      <span class="text-sm">🇺🇸</span>
       <span class="font-medium">English</span>
     </button>
     <button
-      class="language-option w-full px-4 py-3 text-left hover:bg-gray-50 active:bg-gray-100 transition-colors flex items-center space-x-2 text-gray-700 touch-manipulation"
+      class="language-option w-full px-3 py-2 text-left hover:bg-gray-50 transition-colors flex items-center space-x-2 text-gray-700 hover:text-gray-900 touch-manipulation text-sm"
       data-lang="th"
     >
-      <span class="text-base">🇹🇭</span>
+      <span class="text-sm">🇹🇭</span>
       <span class="font-medium">ไทย</span>
     </button>
   </div>
@@ -158,8 +157,12 @@
     localStorage.setItem('language', lang);
 
     // Update current language display
+    const currentFlagElement = document.getElementById('currentFlag');
     if (currentLangElement) {
       currentLangElement.textContent = lang.toUpperCase();
+    }
+    if (currentFlagElement) {
+      currentFlagElement.textContent = lang === 'th' ? '🇹🇭' : '🇺🇸';
     }
 
     // Update all text content
@@ -232,11 +235,15 @@
   function initLanguage() {
     const savedLang = localStorage.getItem('language') || 'en';
     currentLanguage.set(savedLang);
-    
+
+    const currentFlagElement = document.getElementById('currentFlag');
     if (currentLangElement) {
       currentLangElement.textContent = savedLang.toUpperCase();
     }
-    
+    if (currentFlagElement) {
+      currentFlagElement.textContent = savedLang === 'th' ? '🇹🇭' : '🇺🇸';
+    }
+
     updatePageContent();
   }
   

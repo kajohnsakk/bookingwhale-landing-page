@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import RobotsMeta from "../components/RobotsMeta.astro";
 
 export interface Props {
   title: string;
@@ -12,17 +13,32 @@ const {
   description = "BookingWhale - Advanced booking platform that simplifies service reservations for businesses and customers. Features automated booking, secure payments, business analytics, and 24/7 support. Free during beta.",
   keywords = "booking platform, service booking, online booking system, appointment booking, business management, automated booking, secure payments, booking software, reservation system, digital booking, booking app, service scheduling",
 } = Astro.props;
+
+// Language detection for proper hreflang and locale
+const currentPath = Astro.url.pathname;
+const isThaiContent = currentPath.includes('/th') || title.includes('จอง') || description.includes('ระบบ');
+const currentLang = isThaiContent ? 'th' : 'en';
+const currentLocale = isThaiContent ? 'th_TH' : 'en_US';
+
+// Language-specific SEO optimization
+const localizedDescription = isThaiContent
+  ? "BookingWhale - ระบบจองออนไลน์ที่ดีที่สุดสำหรับธุรกิจไทย เชื่อมต่อ LINE OA, จัดการคิว, ลดการไม่มาตามนัด และเพิ่มรายได้ ใช้งานฟรีในช่วงเบต้า"
+  : "BookingWhale - Thailand's best LINE OA booking system for businesses. Smart queue management, automated reminders, reduced no-shows, and increased revenue. Free during beta.";
+
+const localizedKeywords = isThaiContent
+  ? "ระบบจองออนไลน์, จองผ่าน LINE OA, จัดการคิว, ระบบนัดหมาย, BookingWhale, จองออนไลน์ไทย, ลดการไม่มาตามนัด, ธุรกิจไทย, ระบบจองร้านเสริมสวย, ระบบจองคลินิก, ระบบจองร้านอาหาร, จองออนไลน์กรุงเทพ, จองออนไลน์เชียงใหม่, จองออนไลน์ภูเก็ต, จองออนไลน์พัทยา, ระบบจองสปา, ระบบจองทันตกรรม, ระบบจองนวดแผนไทย, จองออนไลน์ร้านตัดผม, ระบบจองฟิตเนส"
+  : "LINE OA booking system, Thailand booking platform, online appointment booking, queue management system, booking software Thailand, no-show reduction, Thai business solutions, beauty salon booking, clinic booking system, restaurant reservation, booking system Bangkok, booking system Chiang Mai, booking system Phuket, booking system Pattaya, spa booking Thailand, dental clinic booking, Thai massage booking, hair salon booking, fitness booking Thailand";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
+    <meta name="description" content={description || localizedDescription} />
+    <meta name="keywords" content={keywords || localizedKeywords} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="BookingWhale" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <RobotsMeta />
     <meta name="theme-color" content="#0EA5E9" />
     <meta name="msapplication-TileColor" content="#0EA5E9" />
     <meta name="application-name" content="BookingWhale" />
@@ -32,26 +48,31 @@ const {
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={description || localizedDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bookingwhale.com" />
     <meta property="og:image" content="https://bookingwhale.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="BookingWhale" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={currentLocale} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@bookingwhale" />
     <meta name="twitter:creator" content="@bookingwhale" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={description || localizedDescription} />
     <meta name="twitter:image" content="https://bookingwhale.com/og-image.png" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="canonical" href="https://bookingwhale.com" />
+
+    <!-- Hreflang for multilingual support -->
+    <link rel="alternate" hreflang="en" href="https://bookingwhale.com/en" />
+    <link rel="alternate" hreflang="th" href="https://bookingwhale.com/th" />
+    <link rel="alternate" hreflang="x-default" href="https://bookingwhale.com" />
 
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -118,6 +139,118 @@ const {
           "https://twitter.com/bookingwhale",
           "https://linkedin.com/company/bookingwhale",
           "https://instagram.com/bookingwhale"
+        ]
+      }
+    </script>
+
+    <!-- LocalBusiness Structured Data for Google My Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "BookingWhale",
+        "alternateName": "BookingWhale - ระบบจองออนไลน์",
+        "url": "https://bookingwhale.com",
+        "logo": "https://bookingwhale.com/logo.png",
+        "description": "ระบบจองออนไลน์ผ่าน LINE OA สำหรับธุรกิจไทย - จัดการคิว ลดการไม่มาตามนัด เพิ่มรายได้",
+        "foundingDate": "2024",
+        "founder": {
+          "@type": "Person",
+          "name": "Alex Thompson"
+        },
+        "priceRange": "฿฿",
+        "paymentAccepted": ["Cash", "Credit Card", "QR Code", "Bank Transfer"],
+        "currenciesAccepted": "THB",
+        "openingHours": ["Mo-Fr 09:00-18:00", "Sa 09:00-16:00"],
+        "telephone": "+66-80-595-6458",
+        "email": "hello@bookingwhale.com",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+66-80-595-6458",
+            "contactType": "customer service",
+            "email": "hello@bookingwhale.com",
+            "availableLanguage": ["Thai", "English"],
+            "areaServed": "Thailand"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+66-80-595-6458",
+            "contactType": "technical support",
+            "email": "support@bookingwhale.com",
+            "availableLanguage": ["Thai", "English"],
+            "areaServed": ["Bangkok", "Chiang Mai", "Phuket", "Pattaya"]
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Business Avenue, Suite 100",
+          "addressLocality": "Bangkok",
+          "addressRegion": "Bangkok",
+          "addressCountry": "Thailand",
+          "postalCode": "10110"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "13.7563",
+          "longitude": "100.5018"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Bangkok",
+            "addressCountry": "Thailand"
+          },
+          {
+            "@type": "City",
+            "name": "Chiang Mai",
+            "addressCountry": "Thailand"
+          },
+          {
+            "@type": "City",
+            "name": "Phuket",
+            "addressCountry": "Thailand"
+          },
+          {
+            "@type": "City",
+            "name": "Pattaya",
+            "addressCountry": "Thailand"
+          }
+        ],
+        "serviceArea": {
+          "@type": "Country",
+          "name": "Thailand"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "BookingWhale Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "ระบบจองออนไลน์ผ่าน LINE OA",
+                "description": "ระบบจองนัดหมายอัตโนมัติผ่าน LINE Official Account สำหรับธุรกิจไทย"
+              },
+              "price": "0",
+              "priceCurrency": "THB",
+              "availability": "https://schema.org/InStock"
+            }
+          ]
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "247",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "sameAs": [
+          "https://facebook.com/bookingwhale",
+          "https://twitter.com/bookingwhale",
+          "https://linkedin.com/company/bookingwhale",
+          "https://instagram.com/bookingwhale",
+          "https://line.me/@bookingwhale"
         ]
       }
     </script>

@@ -33,6 +33,64 @@ const faqs = [
 ];
 ---
 
+<!-- FAQ Schema markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is BookingWhale?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BookingWhale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We're currently in beta development."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will it be available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We're launching our beta version soon! Join our early access list to be among the first 1,000 users to try the platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BookingWhale will be free during our beta period. Early adopters will get special pricing when we launch our full platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What features will be included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us."
+      }
+    }
+  ]
+}
+</script>
+
 <section id="faq" class="section-padding bg-white relative overflow-hidden">
   <!-- Background pattern -->
   <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.01)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e')] opacity-30 pointer-events-none"></div>
@@ -80,28 +138,6 @@ const faqs = [
             </div>
           </div>
         ))}
-      </div>
-    </div>
-    
-    <!-- Contact CTA -->
-    <div class="mt-12 text-center">
-      <div class="inline-flex items-center space-x-3 bg-white rounded-xl px-6 py-4 border border-gray-200 shadow-sm">
-        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-        </div>
-        <div class="text-left">
-          <p class="text-sm font-medium text-gray-900" data-translate="stillHaveQuestions">ยังมีคำถามอื่นๆ?</p>
-          <p class="text-sm text-gray-600" data-translate="contactUs">ติดต่อเราได้ตลอด 24/7</p>
-        </div>
-        <a 
-          href="tel:0805956458"
-          class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
-          data-translate="callNow"
-        >
-          โทรเลย
-        </a>
       </div>
     </div>
   </div>
