@@ -6,8 +6,8 @@
     id="languageToggle"
     class="flex items-center space-x-1.5 text-gray-600 hover:text-blue-600 transition-all duration-200 font-medium text-sm lg:text-base relative group touch-manipulation min-h-[44px] px-2 py-1"
   >
-    <span id="currentFlag" class="text-sm">🇺🇸</span>
-    <span id="currentLang" class="text-inherit">EN</span>
+    <span id="currentFlag" class="text-sm">🇹🇭</span>
+    <span id="currentLang" class="text-inherit">TH</span>
     <svg class="w-3 h-3 transform transition-transform duration-200 text-gray-400 group-hover:text-blue-600" id="langArrow" fill="currentColor" viewBox="0 0 20 20">
       <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
     </svg>
@@ -233,7 +233,7 @@
   
   // Initialize language on page load
   function initLanguage() {
-    const savedLang = localStorage.getItem('language') || 'en';
+    const savedLang = localStorage.getItem('language') || 'th';
     currentLanguage.set(savedLang);
 
     const currentFlagElement = document.getElementById('currentFlag');
