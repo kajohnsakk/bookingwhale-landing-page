@@ -182,7 +182,7 @@ const services = [
               {/* Enhanced Icon container */}
               <div class="mb-8 transform transition-all duration-500">
                 <div
-                  class={`w-20 h-20 mx-auto mb-4 flex items-center justify-center ${iconBgClass} rounded-2xl shadow-xl transition-all duration-500 relative group/icon hover:shadow-2xl`}
+                  class={`w-20 h-20 mx-auto mb-4 flex items-center justify-center ${iconBgClass} rounded-2xl shadow-xl transition-all duration-500 relative service-icon hover:shadow-2xl`}
                   style={!isDiagonal ? `color: #0047ff; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);` : `transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);`}
                 >
                   <Icon name={service.icon} width={40} height={40} />
@@ -248,7 +248,7 @@ const services = [
     transform-style: preserve-3d;
   }
 
-  .service-card:hover .group\/icon {
+  .service-card:hover .service-icon {
     animation: bounceIcon 0.6s ease-in-out;
   }
 
@@ -492,7 +492,7 @@ const services = [
     // Add enhanced hover effects
     serviceCards.forEach((card, index) => {
       const badge = card.querySelector('.badge-element');
-      const icon = card.querySelector('.group\/icon');
+      const icon = card.querySelector('.service-icon');
 
       card.addEventListener('mouseenter', () => {
         // Add subtle tilt effect
