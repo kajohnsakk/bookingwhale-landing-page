@@ -15,7 +15,7 @@
       class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"
     ></span>
   </button>
-  
+
   <div
     id="languageDropdown"
     class="absolute top-full mt-2 right-0 bg-white backdrop-blur-lg rounded-lg border border-gray-200 shadow-lg py-2 min-w-[120px] opacity-0 invisible transform scale-95 transition-all duration-200 z-[9999]"
@@ -37,259 +37,175 @@
   </div>
 </div>
 
-<script>
-  // Import language store
-  import { currentLanguage, translations } from '../stores/language.ts';
-  
-  let isDropdownOpen = false;
-  
-  // Elements
-  const languageToggle = document.getElementById('languageToggle');
-  const languageDropdown = document.getElementById('languageDropdown');
-  const currentLangElement = document.getElementById('currentLang');
-  const langArrow = document.getElementById('langArrow');
-  
-  // Toggle dropdown
-  function toggleLanguageDropdown(event) {
-    // Prevent event bubbling to avoid immediate close
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
+<script is:inline>
+(function() {
+  // Inline translations to avoid module loading
+  var translations = {
+    en: {
+      services: "Services", features: "Features", faq: "FAQ", blog: "Blog", contact: "Contact", bookNow: "Book Now",
+      heroTitle: "Booking System via", heroSubtitle: "Easy booking, fast sales, instant customer connection",
+      heroDescription: "Appointment booking system, queue management, customer database collection. Create your own booking system connected to LINE Official Account. Easy to use, ready to start immediately.",
+      heroTagline: "", trustedBy: "Join the first 1,000 early adopters", startBookingNow: "GET STARTED",
+      exploreServices: "Explore Services", activeUsers: "Active Users", uptime: "Uptime", support: "Support",
+      ourServices: "Why Booking Whale", servicesDescription: "Everything You Need in One Place",
+      bookingTitle: "Easy Booking via LINE and All Online Channels",
+      bookingDesc: "Customers can book instantly through LINE or scan QR codes at your store, with shareable links for Facebook, Instagram, or websites. Accessible anytime, anywhere.",
+      scheduleTitle: "Smart Scheduling Never Miss a Queue",
+      scheduleDesc: "No more worries when customers pile up. The system automatically arranges queues and remembers regular customers' preferred dates and times, making appointments simple and foolproof.",
+      noshowTitle: "Reduce No-Shows and Last-Minute Cancellations",
+      noshowDesc: "Advance notifications via LINE with SLA settings or cancellation fees for late changes. Reduce no-shows, keep queues full, and never miss sales opportunities.",
+      rebookingTitle: "Build Customer Relationships, Increase Repeat Bookings",
+      rebookingDesc: "After service completion, the system automatically sends LINE messages inviting customers to book their next appointment. Simplify decision-making and maintain continuous queue fulfillment.",
+      whyChoose: "Our Features",
+      featuresDescription: "Experience the next generation of booking technology with features designed for modern businesses and demanding users who expect excellence.",
+      feature1Title: "Instant Online Booking", feature1Desc: "Customers can easily book through LINE OA, website, or QR Code with Rich Menu buttons in LINE that take customers directly to the booking system.",
+      feature2Title: "Smart Queue Management", feature2Desc: "No matter how many customers you have, the system automatically arranges queues, prevents double bookings or missed appointments. Complete management with confidence in every appointment.",
+      feature3Title: "Appointment Reminders & Rebooking Boost", feature3Desc: "Advance notifications via LINE reduce no-shows with cancellation rules, and automatic rebooking messages after service to keep customers coming back continuously.",
+      feature4Title: "Complete Booking Data Collection", feature4Desc: "Record all booking data with historical records for analysis to increase sales opportunities, plus special digital signature feature to confirm actual service usage.",
+      feature5Title: "Real-Time Business Tracking", feature5Desc: "Real-time booking summary helps you see a clear overview of your business and plan accurately.",
+      faqTitle: "Frequently Asked Questions", faqDescription: "Have questions about BookingWhale? We've compiled the most common questions here.",
+      "what-isQuestion": "What is BookingWhale?", "what-isAnswer": "BookingWhale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We're currently in beta development.",
+      "when-launchQuestion": "When will it be available?", "when-launchAnswer": "We're launching our beta version soon! Join our early access list to be among the first 1,000 users to try the platform.",
+      costQuestion: "How much does it cost?", costAnswer: "BookingWhale will be free during our beta period. Early adopters will get special pricing when we launch our full platform.",
+      featuresQuestion: "What features will be included?", featuresAnswer: "Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools.",
+      supportQuestion: "Do you provide support?", supportAnswer: "Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions.",
+      securityQuestion: "Is my data secure?", securityAnswer: "Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us.",
+      available247: "Available 24/7", allRightsReserved: "All rights reserved.", privacyPolicy: "Privacy Policy", termsOfService: "Terms of Service", cookiePolicy: "Cookie Policy"
+    },
+    th: {
+      services: "บริการหลัก", features: "แพลตฟอร์ม", faq: "คำถามที่พบบ่อย", blog: "บทความ", contact: "ติดต่อ", bookNow: "จองเลย",
+      heroTitle: "ระบบจองผ่าน", heroSubtitle: "จองง่าย ขายไว เชื่อมต่อลูกค้าได้ทันที",
+      heroDescription: "ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที",
+      heroTagline: "", trustedBy: "เข้าร่วมเป็น 1,000 คนแรกที่ได้ทดลองใช้ก่อนใคร", startBookingNow: "เริ่มใช้งาน",
+      exploreServices: "ดูบริการทั้งหมด", activeUsers: "ผู้ใช้งาน", uptime: "อัพไทม์", support: "ซัพพอร์ต",
+      ourServices: "ทำไมต้อง Booking Whale", servicesDescription: "ทุกอย่างที่คุณต้องการ ในที่เดียว",
+      bookingTitle: "จองง่ายผ่าน Line และทุกช่องทางออนไลน์",
+      bookingDesc: "ลูกค้าจองได้ทันทีผ่าน LINE หรือสแกน QR Code หน้าร้าน พร้อมลิงก์แชร์บน Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้ง่ายทุกที่ทุกเวลา",
+      scheduleTitle: "จัดตารางอย่างอัจฉริยะไม่พลาดทุกคิว",
+      scheduleDesc: "หมดกังวลเมื่อมีลูกค้าเข้ามาเยอะ ระบบจะจัดคิวให้อัตโนมัติ พร้อมจองวัน และเวลาเดิมให้ลูกค้าประจำ ให้การนัดหมายเป็นเรื่องง่าย ไม่ตกหล่น",
+      noshowTitle: "ลดการผิดนัด (No-Show) และยกเลิกกระทันหัน",
+      noshowDesc: "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกใกล้เวลานัด ช่วยลด No-Show รักษาคิวให้เต็มและไม่เสียโอกาสทางการขาย",
+      rebookingTitle: "สร้างความสัมพันธ์กับลูกค้า เพิ่มการจองซ้ำ",
+      rebookingDesc: "หลังการใช้บริการ ระบบจะส่งข้อความผ่าน LINE เพื่อชวนลูกค้าจองรอบถัดไปทันที ลดขั้นตอนการตัดสินใจ ช่วยให้คิวเต็มต่อเนื่อง",
+      whyChoose: "ฟีเจอร์ของเรา",
+      featuresDescription: "ระบบจองที่ครบครันด้วยฟีเจอร์ที่ออกแบบมาเพื่อตอบสนองความต้องการของธุรกิจสมัยใหม่",
+      feature1Title: "จองออนไลน์ได้ทันที", feature1Desc: "ลูกค้าจองง่ายผ่าน LINE OA, เว็บไซต์ หรือ QR Code พร้อมปุ่ม Rich Menu ใน LINE ที่พาลูกค้าเข้าสู่ระบบจองได้ทันที",
+      feature2Title: "จัดการคิวอัจฉริยะ", feature2Desc: "ไม่ว่าลูกค้าจะเยอะแค่ไหน ระบบช่วยจัดตารางคิวให้อัตโนมัติ ป้องกันการนัดคิวซ้อนหรือตกหล่น จัดการครบ มั่นใจทุกการนัดหมาย",
+      feature3Title: "แจ้งเตือนทุกนัด กระตุ้นการจองซ้ำ", feature3Desc: "แจ้งเตือนล่วงหน้าผ่าน LINE ลด No-Show พร้อมกติกาการยกเลิก และข้อความชวนจองซ้ำอัตโนมัติหลังใช้บริการ ให้ลูกค้ากลับมาใช้บริการได้ต่อเนื่อง",
+      feature4Title: "เก็บข้อมูลการจองครบถ้วน", feature4Desc: "บันทึกข้อมูลทุกการจองพร้อมประวัติย้อนหลัง เพื่อนำไปวิเคราะห์ต่อยอดเพิ่มโอกาสการขาย พร้อมฟีเจอร์พิเศษ ลายเซ็นดิจิทัล เพื่อยืนยันการใช้บริการจริง",
+      feature5Title: "ติดตามผลธุรกิจแบบเรียลไทม์", feature5Desc: "สรุปข้อมูลการจองแบบเรียลไทม์ ช่วยให้คุณมองเห็นภาพรวมของธุรกิจได้อย่างชัดเจน และวางแผนได้แม่นยำ",
+      faqTitle: "คำถามที่พบบ่อย", faqDescription: "มีคำถามเกี่ยวกับ BookingWhale? เราได้รวบรวมคำถามที่พบบ่อยไว้ที่นี่",
+      "what-isQuestion": "BookingWhale คืออะไร?", "what-isAnswer": "BookingWhale คือแพลตฟอร์มการจองรุ่นใหม่ที่ออกแบบมาเพื่อทำให้การจองบริการง่ายขึ้นสำหรับธุรกิจและลูกค้า ขณะนี้เรากำลังพัฒนาเวอร์ชัน beta",
+      "when-launchQuestion": "เมื่อไหร่จะใช้ได้?", "when-launchAnswer": "เรากำลังเปิดตัวเวอร์ชัน beta เร็วๆ นี้! เข้าร่วมรายชื่อ early access เพื่อเป็น 1,000 คนแรกที่ได้ทดลองใช้แพลตฟอร์ม",
+      costQuestion: "ราคาเท่าไหร่?", costAnswer: "BookingWhale จะฟรีในช่วง beta ผู้ใช้งานแรกจะได้ราคาพิเศษเมื่อเราเปิดตัวแพลตฟอร์มเต็มรูปแบบ",
+      featuresQuestion: "จะมีฟีเจอร์อะไรบ้าง?", featuresAnswer: "แพลตฟอร์มของเราจะรวมการจองอัตโนมัติ การชำระเงินปลอดภัย วิเคราะห์ธุรกิจ การสนับสนุน 24/7 และการเชื่อมต่อกับเครื่องมือที่มีอยู่",
+      supportQuestion: "มีการสนับสนุนไหม?", supportAnswer: "ใช่! เรามีการสนับสนุน 24/7 ผ่านแชท อีเมล และโทรศัพท์ ทีมงานเฉพาะของเราจะช่วยคุณเริ่มต้นและตอบคำถามต่างๆ",
+      securityQuestion: "ข้อมูลของฉันปลอดภัยไหม?", securityAnswer: "แน่นอน เราใช้การเข้ารหัสระดับธนาคารและปฏิบัติตามมาตรฐานอุตสาหกรรมเพื่อปกป้องข้อมูลของคุณ ข้อมูลของคุณปลอดภัยกับเรา",
+      available247: "พร้อมบริการ 24/7", allRightsReserved: "สงวนลิขสิทธิ์", privacyPolicy: "นโยบายความเป็นส่วนตัว", termsOfService: "ข้อกำหนดการใช้บริการ", cookiePolicy: "นโยบายคุกกี้"
     }
+  };
 
+  var currentLang = 'th';
+  var isDropdownOpen = false;
+
+  function initLanguage() {
+    currentLang = localStorage.getItem('language') || 'th';
+    updateDisplay();
+    updatePageContent();
+  }
+
+  function updateDisplay() {
+    var flagEl = document.getElementById('currentFlag');
+    var langEl = document.getElementById('currentLang');
+    if (flagEl) flagEl.textContent = currentLang === 'th' ? '🇹🇭' : '🇺🇸';
+    if (langEl) langEl.textContent = currentLang.toUpperCase();
+  }
+
+  function updatePageContent() {
+    var t = translations[currentLang];
+    document.querySelectorAll('[data-translate]').forEach(function(el) {
+      var key = el.getAttribute('data-translate');
+      if (key && t[key]) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = t[key];
+        } else if (key === 'heroDescription') {
+          el.innerHTML = t.heroDescription + '<br><span class="text-base lg:text-lg text-gray-500">' + (t.heroTagline || '') + '</span>';
+        } else {
+          el.textContent = t[key];
+        }
+      }
+    });
+  }
+
+  function toggleDropdown(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
     isDropdownOpen = !isDropdownOpen;
+    var dropdown = document.getElementById('languageDropdown');
+    var arrow = document.getElementById('langArrow');
 
     if (isDropdownOpen) {
-      // Position dropdown correctly on mobile
-      positionDropdown();
-
-      languageDropdown?.classList.remove('opacity-0', 'invisible', 'scale-95');
-      languageDropdown?.classList.add('opacity-100', 'visible', 'scale-100');
-      langArrow?.classList.add('rotate-180');
-
-      // Prevent body scroll on mobile when dropdown is open
-      if (window.innerWidth <= 768) {
-        document.body.classList.add('dropdown-open');
-      }
-
-      // Add a small delay to prevent immediate closing on mobile
-      setTimeout(() => {
-        document.addEventListener('click', handleOutsideClick);
-        document.addEventListener('touchstart', handleOutsideClick);
+      dropdown.classList.remove('opacity-0', 'invisible', 'scale-95');
+      dropdown.classList.add('opacity-100', 'visible', 'scale-100');
+      if (arrow) arrow.classList.add('rotate-180');
+      setTimeout(function() {
+        document.addEventListener('click', closeOnOutside);
       }, 10);
     } else {
       closeDropdown();
     }
   }
 
-  // Position dropdown correctly on mobile devices
-  function positionDropdown() {
-    if (!languageDropdown || !languageToggle) return;
-
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile) {
-      const toggleRect = languageToggle.getBoundingClientRect();
-      const dropdownHeight = 120; // Approximate height of dropdown
-      const viewportHeight = window.innerHeight;
-
-      // Check if there's enough space below
-      const spaceBelow = viewportHeight - toggleRect.bottom;
-
-      if (spaceBelow < dropdownHeight) {
-        // Position above the toggle
-        languageDropdown.style.position = 'fixed';
-        languageDropdown.style.bottom = (viewportHeight - toggleRect.top + 8) + 'px';
-        languageDropdown.style.top = 'auto';
-      } else {
-        // Position below the toggle
-        languageDropdown.style.position = 'fixed';
-        languageDropdown.style.top = (toggleRect.bottom + 8) + 'px';
-        languageDropdown.style.bottom = 'auto';
-      }
-
-      languageDropdown.style.right = (window.innerWidth - toggleRect.right) + 'px';
-      languageDropdown.style.left = 'auto';
-    } else {
-      // Reset positioning for desktop
-      languageDropdown.style.position = '';
-      languageDropdown.style.top = '';
-      languageDropdown.style.bottom = '';
-      languageDropdown.style.right = '';
-      languageDropdown.style.left = '';
-    }
-  }
-
-  // Close dropdown function
   function closeDropdown() {
-    if (isDropdownOpen) {
-      languageDropdown?.classList.add('opacity-0', 'invisible', 'scale-95');
-      languageDropdown?.classList.remove('opacity-100', 'visible', 'scale-100');
-      langArrow?.classList.remove('rotate-180');
-      isDropdownOpen = false;
-
-      // Remove body scroll lock
-      document.body.classList.remove('dropdown-open');
-
-      // Remove event listeners
-      document.removeEventListener('click', handleOutsideClick);
-      document.removeEventListener('touchstart', handleOutsideClick);
+    var dropdown = document.getElementById('languageDropdown');
+    var arrow = document.getElementById('langArrow');
+    if (dropdown) {
+      dropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+      dropdown.classList.remove('opacity-100', 'visible', 'scale-100');
     }
+    if (arrow) arrow.classList.remove('rotate-180');
+    isDropdownOpen = false;
+    document.removeEventListener('click', closeOnOutside);
   }
 
-  // Handle outside clicks
-  function handleOutsideClick(event) {
-    const languageSwitcher = document.querySelector('.language-switcher');
-    if (languageSwitcher && !languageSwitcher.contains(event.target)) {
-      closeDropdown();
-    }
+  function closeOnOutside(e) {
+    var switcher = document.querySelector('.language-switcher');
+    if (switcher && !switcher.contains(e.target)) closeDropdown();
   }
-  
-  // Switch language function
-  function switchLanguage(lang, event) {
-    // Prevent event bubbling
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
 
-    currentLanguage.set(lang);
+  function switchLang(lang, e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    currentLang = lang;
     localStorage.setItem('language', lang);
-
-    // Update current language display
-    const currentFlagElement = document.getElementById('currentFlag');
-    if (currentLangElement) {
-      currentLangElement.textContent = lang.toUpperCase();
-    }
-    if (currentFlagElement) {
-      currentFlagElement.textContent = lang === 'th' ? '🇹🇭' : '🇺🇸';
-    }
-
-    // Update all text content
+    updateDisplay();
     updatePageContent();
-
-    // Close dropdown
     closeDropdown();
   }
-  
-  // Update page content based on current language
-  function updatePageContent() {
-    const lang = currentLanguage.get();
-    const t = translations[lang];
-    
-    // Update navigation
-    const servicesLink = document.querySelector('[data-translate="services"]');
-    const featuresLink = document.querySelector('[data-translate="features"]');
-    const contactLink = document.querySelector('[data-translate="contact"]');
-    const bookNowButtons = document.querySelectorAll('[data-translate="bookNow"]');
-    
-    if (servicesLink) servicesLink.textContent = t.services;
-    if (featuresLink) featuresLink.textContent = t.features;
-    if (contactLink) contactLink.textContent = t.contact;
-    bookNowButtons.forEach(btn => btn.textContent = t.bookNow);
-    
-    // Update hero section
-    const heroTitle = document.querySelector('[data-translate="heroTitle"]');
-    const heroSubtitle = document.querySelector('[data-translate="heroSubtitle"]');
-    const heroDescription = document.querySelector('[data-translate="heroDescription"]');
-    const heroTagline = document.querySelector('[data-translate="heroTagline"]');
-    const trustedBy = document.querySelector('[data-translate="trustedBy"]');
-    const startBookingNow = document.querySelector('[data-translate="startBookingNow"]');
-    const exploreServices = document.querySelector('[data-translate="exploreServices"]');
-    
-    if (heroTitle) heroTitle.textContent = t.heroTitle;
-    if (heroSubtitle) heroSubtitle.textContent = t.heroSubtitle;
-    if (heroDescription) heroDescription.innerHTML = t.heroDescription + '<br><span class="text-lg text-gray-500">' + t.heroTagline + '</span>';
-    if (trustedBy) trustedBy.textContent = t.trustedBy;
-    if (startBookingNow) startBookingNow.textContent = t.startBookingNow;
-    if (exploreServices) exploreServices.textContent = t.exploreServices;
-    
-    // Update stats
-    const activeUsersLabel = document.querySelector('[data-translate="activeUsers"]');
-    const uptimeLabel = document.querySelector('[data-translate="uptime"]');
-    const supportLabel = document.querySelector('[data-translate="support"]');
-    
-    if (activeUsersLabel) activeUsersLabel.textContent = t.activeUsers;
-    if (uptimeLabel) uptimeLabel.textContent = t.uptime;
-    if (supportLabel) supportLabel.textContent = t.support;
-    
-    // Update all other translatable elements
-    document.querySelectorAll('[data-translate]').forEach(element => {
-      const key = element.getAttribute('data-translate');
-      if (key && t[key]) {
-        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-          element.placeholder = t[key];
-        } else {
-          // Special handling for elements that might have HTML content
-          if (key === 'heroDescription') {
-            element.innerHTML = t.heroDescription + '<br><span class="text-base lg:text-lg text-gray-500">' + t.heroTagline + '</span>';
-          } else {
-            element.textContent = t[key];
-          }
-        }
-      }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  function init() {
+    initLanguage();
+
+    var toggle = document.getElementById('languageToggle');
+    if (toggle) {
+      toggle.addEventListener('click', toggleDropdown);
+    }
+
+    document.querySelectorAll('.language-option').forEach(function(opt) {
+      var lang = opt.getAttribute('data-lang');
+      opt.addEventListener('click', function(e) { switchLang(lang, e); });
     });
   }
-  
-  // Initialize language on page load
-  function initLanguage() {
-    const savedLang = localStorage.getItem('language') || 'th';
-    currentLanguage.set(savedLang);
 
-    const currentFlagElement = document.getElementById('currentFlag');
-    if (currentLangElement) {
-      currentLangElement.textContent = savedLang.toUpperCase();
-    }
-    if (currentFlagElement) {
-      currentFlagElement.textContent = savedLang === 'th' ? '🇹🇭' : '🇺🇸';
-    }
-
-    updatePageContent();
-  }
-  
-  // Event listeners
-  languageToggle?.addEventListener('click', toggleLanguageDropdown);
-  languageToggle?.addEventListener('touchstart', (e) => {
-    // Prevent double-firing on mobile devices
-    e.preventDefault();
-    toggleLanguageDropdown(e);
-  }, { passive: false });
-
-  // Add event listeners to language options
-  document.querySelectorAll('.language-option').forEach(option => {
-    const lang = option.getAttribute('data-lang');
-
-    // Click events
-    option.addEventListener('click', (e) => switchLanguage(lang, e));
-
-    // Touch events for better mobile support
-    option.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      switchLanguage(lang, e);
-    }, { passive: false });
-  });
-
-  // Handle window resize and orientation change
-  window.addEventListener('resize', () => {
-    if (isDropdownOpen) {
-      positionDropdown();
-    }
-  });
-
-  window.addEventListener('orientationchange', () => {
-    setTimeout(() => {
-      if (isDropdownOpen) {
-        positionDropdown();
-      }
-    }, 100);
-  });
-  
-  // Make functions globally available
-  window.switchLanguage = switchLanguage;
-  window.toggleLanguageDropdown = toggleLanguageDropdown;
-  
-  // Initialize on page load
-  document.addEventListener('DOMContentLoaded', initLanguage);
+  // Expose globally
+  window.switchLanguage = switchLang;
+  window.toggleLanguageDropdown = toggleDropdown;
+})();
 </script>
 
 <style>
@@ -310,59 +226,28 @@
     background-color: rgba(34, 197, 94, 0.1);
   }
 
-  /* Mobile-specific styles */
   @media (max-width: 768px) {
-    .language-switcher {
-      position: relative;
-    }
-
     .language-switcher #languageDropdown {
       position: fixed;
       z-index: 9999;
       min-width: 140px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .language-switcher button {
-      min-height: 44px; /* Apple's recommended minimum touch target size */
+      min-height: 44px;
     }
 
     .language-option {
       padding: 0.75rem 1rem !important;
-      font-size: 1rem;
       min-height: 44px;
-      cursor: pointer;
-    }
-
-    /* Prevent text selection on mobile */
-    .language-switcher * {
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    /* Better touch feedback */
-    .language-option:active {
-      background-color: rgba(59, 130, 246, 0.2) !important;
-      transform: scale(0.98);
-    }
-
-    /* Prevent scroll when dropdown is open */
-    body.dropdown-open {
-      overflow: hidden;
     }
   }
 
-  /* Ensure dropdown is above everything */
   #languageDropdown {
     z-index: 9999 !important;
   }
 
-  /* Smooth touch interactions */
   .touch-manipulation {
     touch-action: manipulation;
   }
