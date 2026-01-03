@@ -33,21 +33,30 @@ const localizedKeywords = isEnglishContent
 <!doctype html>
 <html lang={currentLang}>
   <head>
-    <!-- Google tag (gtag.js) - Deferred to avoid blocking render -->
+    <!-- Google tag (gtag.js) - Load during idle time to not affect LCP/FCP -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-N2554HPN72');
-      // Load gtag.js after page load
-      if (typeof window !== 'undefined') {
-        window.addEventListener('load', function() {
-          var s = document.createElement('script');
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-N2554HPN72';
-          s.async = true;
-          document.head.appendChild(s);
-        });
+      function loadGA() {
+        if (window.gaLoaded) return;
+        window.gaLoaded = true;
+        gtag('js', new Date());
+        gtag('config', 'G-N2554HPN72');
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-N2554HPN72';
+        s.async = true;
+        document.head.appendChild(s);
       }
+      // Load GA after 3 seconds or on user interaction (whichever comes first)
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() { setTimeout(loadGA, 2000); });
+      } else {
+        setTimeout(loadGA, 3000);
+      }
+      // Also load on first user interaction
+      ['scroll', 'click', 'touchstart', 'keydown'].forEach(function(e) {
+        window.addEventListener(e, loadGA, { once: true, passive: true });
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="description" content={description || localizedDescription} />
