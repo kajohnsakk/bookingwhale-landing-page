@@ -1,0 +1,268 @@
+---
+import ScrollReveal from "./motion/ScrollReveal.tsx";
+import { StaggerContainer, StaggerItem } from "./motion/StaggerContainer.tsx";
+
+const visible = [
+  { name: "LINE OA", color: "#06C755", icon: "line" },
+  { name: "LINE Login", color: "#06C755", icon: "line-login" },
+  { name: "Notifications", color: "#FFCA28", icon: "bell" },
+  { name: "Cloud Storage", color: "#FF9900", icon: "cloud" },
+  { name: "Gmail", color: "#EA4335", icon: "gmail" },
+  { name: "QR Code", color: "#1A1A1A", icon: "qr" },
+  { name: "Real-time", color: "#10B981", icon: "zap" },
+  { name: "PDF", color: "#EF4444", icon: "file" },
+  { name: "Analytics", color: "#E37400", icon: "analytics" },
+  { name: "Payments", color: "#635BFF", icon: "credit-card" },
+];
+
+const reserve = [
+  { name: "Google Calendar", color: "#4285F4", icon: "google-calendar" },
+  { name: "Google Maps", color: "#34A853", icon: "google-maps" },
+  { name: "Webhooks", color: "#FF4088", icon: "webhook" },
+  { name: "SMS", color: "#7C3AED", icon: "sms" },
+  { name: "CDN", color: "#8C4FFF", icon: "globe" },
+];
+---
+
+<section id="integrations" class="bg-white min-h-screen flex items-center">
+  <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px] w-full py-16 lg:py-20">
+    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20">
+      <ScrollReveal client:visible>
+        <div class="lg:max-w-md flex-shrink-0">
+          <h2
+            class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-black tracking-[-0.03em] leading-[1.1] whitespace-nowrap"
+          >
+            <span data-translate="intTitle">เชื่อมต่อทุกระบบ ในที่เดียว</span>
+          </h2>
+          <p
+            data-translate="intDescription"
+            class="text-lg sm:text-xl text-gray-600 mt-5 leading-relaxed font-medium"
+          >
+            รองรับทุกเครื่องมือที่ธุรกิจของคุณต้องการ ตั้งแต่ LINE OA ไปจนถึงระบบคลาวด์ระดับ Enterprise
+          </p>
+          <a
+            href="#features"
+            data-translate="intExplore"
+            class="inline-flex items-center text-black font-bold text-base mt-8 hover:text-blue-600 transition-colors"
+          >
+            ดูฟีเจอร์ทั้งหมด
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </ScrollReveal>
+
+      <StaggerContainer client:visible staggerDelay={0.04} className="grid grid-cols-5 gap-7 flex-1 max-w-[560px] ml-auto">
+        {visible.map((item, i) => (
+          <StaggerItem variant="scale-up">
+            <div class="flip-card" data-index={i}>
+              <div class="flip-card-inner">
+                <div class="flip-face flip-front" style={`background:${item.color}`} data-icon={item.icon} data-color={item.color} data-name={item.name}>
+                  <div class="flip-icon" data-icon-key={item.icon}></div>
+                  <span class="flip-label">{item.name}</span>
+                </div>
+                <div class="flip-face flip-back">
+                  <div class="flip-icon"></div>
+                  <span class="flip-label"></span>
+                </div>
+              </div>
+            </div>
+          </StaggerItem>
+        ))}
+      </StaggerContainer>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ reserveData: reserve }}>
+  const iconSvgs = {
+    'line': `<svg viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>`,
+    'line-login': `<svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>`,
+    'bell': `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>`,
+    'cloud': `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>`,
+    'globe': `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+    'gmail': `<svg viewBox="0 0 24 24" fill="white"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>`,
+    'qr': `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><path d="M14 14h2v2h-2z"/><path d="M20 14h2v2h-2z"/><path d="M14 20h2v2h-2z"/><path d="M20 20h2v2h-2z"/><path d="M17 17h2v2h-2z"/></svg>`,
+    'zap': `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+    'file': `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+    'analytics': `<svg viewBox="0 0 24 24" fill="white"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></svg>`,
+    'credit-card': `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>`,
+    'google-calendar': `<svg viewBox="0 0 24 24" fill="white"><path d="M18.316 5.684H24v12.632h-5.684V5.684zM5.684 24h12.632v-5.684H5.684V24zM18.316 5.684V0H1.895A1.894 1.894 0 0 0 0 1.895v16.421h5.684V5.684h12.632zm-7.207 6.25v-.065c.272-.144.5-.349.687-.617s.279-.595.279-.982c0-.379-.099-.72-.3-1.025a2.05 2.05 0 0 0-.832-.714 2.703 2.703 0 0 0-1.197-.257c-.6 0-1.094.156-1.481.467-.386.311-.65.671-.793 1.078l1.085.452c.086-.249.224-.461.413-.633.189-.172.445-.257.767-.257.33 0 .602.088.816.264a.86.86 0 0 1 .322.703c0 .33-.12.589-.36.778-.24.19-.535.284-.886.284h-.567v1.085h.633c.407 0 .748.109 1.02.327.272.218.407.499.407.843 0 .336-.129.614-.387.832s-.565.327-.924.327c-.351 0-.651-.103-.897-.311-.248-.208-.422-.502-.521-.881l-1.096.452c.178.616.505 1.082.977 1.401.472.319.984.478 1.538.477a2.84 2.84 0 0 0 1.293-.291c.382-.193.684-.458.902-.794.218-.336.327-.72.327-1.149 0-.429-.115-.797-.344-1.105a2.067 2.067 0 0 0-.881-.689zm2.093-1.931l.602.913L15 10.045v5.744h1.187V8.446h-.827l-2.158 1.557zM22.105 0h-3.289v5.184H24V1.895A1.894 1.894 0 0 0 22.105 0zm-3.289 23.5l4.684-4.684h-4.684V23.5zM0 22.105C0 23.152.848 24 1.895 24h3.289v-5.184H0v3.289z"/></svg>`,
+    'google-maps': `<svg viewBox="0 0 24 24" fill="white"><path d="M19.527 4.799c1.212 2.608.937 5.678-.405 8.173-1.101 2.047-2.744 3.74-4.098 5.614-.619.858-1.244 1.75-1.669 2.727-.141.325-.263.658-.383.992-.121.333-.224.673-.34 1.008-.109.314-.236.684-.627.687h-.007c-.466-.001-.579-.53-.695-.887-.284-.874-.581-1.713-1.019-2.525-.51-.944-1.145-1.817-1.79-2.671L19.527 4.799zM8.545 7.705l-3.959 4.707c.724 1.54 1.821 2.863 2.871 4.18.247.31.494.622.737.936l4.984-5.925-.029.01c-1.741.601-3.691-.291-4.392-1.987a3.377 3.377 0 0 1-.209-.716c-.063-.437-.077-.761-.004-1.198l.001-.007zM5.492 3.149l-.003.004c-1.947 2.466-2.281 5.88-1.117 8.77l4.785-5.689-.058-.05-3.607-3.035zM14.661.436l-3.838 4.563a.295.295 0 0 1 .027-.01c1.6-.551 3.403.15 4.22 1.626.176.319.323.683.377 1.045.068.446.085.773.012 1.22l-.003.016 3.836-4.561A8.382 8.382 0 0 0 14.67.439l-.009-.003zM9.466 5.868L14.162.285l-.047-.012A8.31 8.31 0 0 0 11.986 0a8.439 8.439 0 0 0-6.169 2.766l-.016.018 3.665 3.084z"/></svg>`,
+    'webhook': `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2"/><path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06"/><path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8H12"/></svg>`,
+    'sms': `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="8" y1="10" x2="8.01" y2="10"/><line x1="12" y1="10" x2="12.01" y2="10"/><line x1="16" y1="10" x2="16.01" y2="10"/></svg>`,
+  };
+
+  const pool = [...reserveData];
+  const cards = Array.from(document.querySelectorAll('.flip-card'));
+
+  document.querySelectorAll('.flip-icon[data-icon-key]').forEach((el) => {
+    const key = el.getAttribute('data-icon-key');
+    if (key && iconSvgs[key]) el.innerHTML = iconSvgs[key];
+  });
+
+  function prepareBack(card) {
+    if (pool.length === 0) return null;
+    const randIdx = Math.floor(Math.random() * pool.length);
+    const item = pool[randIdx];
+    const back = card.querySelector('.flip-back');
+    const backIcon = back.querySelector('.flip-icon');
+    back.style.background = item.color;
+    back.setAttribute('data-icon', item.icon);
+    back.setAttribute('data-color', item.color);
+    back.setAttribute('data-name', item.name);
+    backIcon.innerHTML = iconSvgs[item.icon] || '';
+    const backLabel = back.querySelector('.flip-label');
+    if (backLabel) backLabel.textContent = item.name;
+    return { item, randIdx };
+  }
+
+  function flipCard(card) {
+    const inner = card.querySelector('.flip-card-inner');
+    if (inner.classList.contains('flipped') || inner.classList.contains('resetting')) return;
+
+    const prepared = prepareBack(card);
+    if (!prepared) return;
+
+    const front = card.querySelector('.flip-front');
+    const oldItem = {
+      name: front.getAttribute('data-name'),
+      color: front.getAttribute('data-color'),
+      icon: front.getAttribute('data-icon'),
+    };
+    pool.splice(prepared.randIdx, 1);
+    pool.push(oldItem);
+
+    inner.classList.add('flipped');
+
+    function onEnd(e) {
+      if (e.propertyName !== 'transform') return;
+      inner.removeEventListener('transitionend', onEnd);
+
+      const back = card.querySelector('.flip-back');
+      const frontIcon = front.querySelector('.flip-icon');
+      front.style.background = back.style.background;
+      front.setAttribute('data-icon', back.getAttribute('data-icon'));
+      front.setAttribute('data-color', back.getAttribute('data-color'));
+      front.setAttribute('data-name', back.getAttribute('data-name'));
+      frontIcon.innerHTML = back.querySelector('.flip-icon').innerHTML;
+      const frontLabel = front.querySelector('.flip-label');
+      const backLabel = back.querySelector('.flip-label');
+      if (frontLabel && backLabel) frontLabel.textContent = backLabel.textContent;
+
+      inner.classList.add('resetting');
+      inner.classList.remove('flipped');
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          inner.classList.remove('resetting');
+        });
+      });
+    }
+
+    inner.addEventListener('transitionend', onEnd);
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener('click', () => flipCard(card));
+  });
+
+  function getColumns() {
+    return window.innerWidth >= 640 ? 5 : 3;
+  }
+
+  setInterval(() => {
+    const cols = getColumns();
+    cards.forEach((card, i) => {
+      const col = i % cols;
+      setTimeout(() => flipCard(card), col * 120);
+    });
+  }, 5000);
+</script>
+
+<style is:global>
+  .flip-card {
+    perspective: 800px;
+    cursor: pointer;
+  }
+
+  .flip-card:hover .flip-card-inner:not(.flipped) {
+    transform: scale(1.08);
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  .flip-card-inner.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-inner.resetting {
+    transition: none;
+  }
+
+  .flip-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    gap: 0.35rem;
+    padding: 0.5rem;
+  }
+
+  .flip-back {
+    transform: rotateY(180deg);
+  }
+
+  .flip-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .flip-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .flip-label {
+    font-size: 9px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  @media (min-width: 640px) {
+    .flip-icon {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .flip-label {
+      font-size: 11px;
+    }
+
+    .flip-face {
+      gap: 0.4rem;
+    }
+  }
+</style>

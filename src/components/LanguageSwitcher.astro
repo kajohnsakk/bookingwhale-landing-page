@@ -1,48 +1,23 @@
 ---
 ---
 
-<div class="language-switcher relative">
+<div class="lang-toggle-wrap">
   <button
-    id="languageToggle"
-    class="flex items-center space-x-1.5 text-gray-600 hover:text-blue-600 transition-all duration-200 font-medium text-sm lg:text-base relative group touch-manipulation min-h-[44px] px-2 py-1"
+    class="lang-toggle js-lang-toggle"
+    aria-label="Switch language"
   >
-    <span id="currentFlag" class="text-sm">🇹🇭</span>
-    <span id="currentLang" class="text-inherit">TH</span>
-    <svg class="w-3 h-3 transform transition-transform duration-200 text-gray-400 group-hover:text-blue-600" id="langArrow" fill="currentColor" viewBox="0 0 20 20">
-      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
-    </svg>
-    <span
-      class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"
-    ></span>
+    <span class="lang-toggle-slider js-lang-slider"></span>
+    <span class="lang-toggle-option js-lang-opt" data-lang="th">TH</span>
+    <span class="lang-toggle-option js-lang-opt" data-lang="en">EN</span>
   </button>
-
-  <div
-    id="languageDropdown"
-    class="absolute top-full mt-2 right-0 bg-white backdrop-blur-lg rounded-lg border border-gray-200 shadow-lg py-2 min-w-[120px] opacity-0 invisible transform scale-95 transition-all duration-200 z-[9999]"
-  >
-    <button
-      class="language-option w-full px-3 py-2 text-left hover:bg-gray-50 transition-colors flex items-center space-x-2 text-gray-700 hover:text-gray-900 touch-manipulation text-sm"
-      data-lang="en"
-    >
-      <span class="text-sm">🇺🇸</span>
-      <span class="font-medium">English</span>
-    </button>
-    <button
-      class="language-option w-full px-3 py-2 text-left hover:bg-gray-50 transition-colors flex items-center space-x-2 text-gray-700 hover:text-gray-900 touch-manipulation text-sm"
-      data-lang="th"
-    >
-      <span class="text-sm">🇹🇭</span>
-      <span class="font-medium">ไทย</span>
-    </button>
-  </div>
 </div>
 
 <script is:inline>
 (function() {
-  // Inline translations to avoid module loading
   var translations = {
     en: {
       services: "Services", features: "Features", faq: "FAQ", blog: "Blog", contact: "Contact", bookNow: "Book Now",
+      heroEyebrow: "LINE OA BOOKING PLATFORM",
       heroTitle: "Booking System via", heroSubtitle: "Easy booking, fast sales, instant customer connection",
       heroDescription: "Appointment booking system, queue management, customer database collection. Create your own booking system connected to LINE Official Account. Easy to use, ready to start immediately.",
       heroTagline: "", trustedBy: "Join the first 1,000 early adopters", startBookingNow: "GET STARTED",
@@ -65,15 +40,27 @@
       feature5Title: "Real-Time Business Tracking", feature5Desc: "Real-time booking summary helps you see a clear overview of your business and plan accurately.",
       faqTitle: "Frequently Asked Questions", faqDescription: "Have questions about BookingWhale? We've compiled the most common questions here.",
       "what-isQuestion": "What is BookingWhale?", "what-isAnswer": "BookingWhale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We're currently in beta development.",
-      "when-launchQuestion": "When will it be available?", "when-launchAnswer": "We're launching our beta version soon! Join our early access list to be among the first 1,000 users to try the platform.",
+      "when-launchQuestion": "When will it be available?", "when-launchAnswer": "We're launching our beta version soon! Join our early access list to be among the first customers to try the platform and receive exclusive benefits from us.",
       costQuestion: "How much does it cost?", costAnswer: "BookingWhale will be free during our beta period. Early adopters will get special pricing when we launch our full platform.",
       featuresQuestion: "What features will be included?", featuresAnswer: "Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools.",
       supportQuestion: "Do you provide support?", supportAnswer: "Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions.",
       securityQuestion: "Is my data secure?", securityAnswer: "Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us.",
-      available247: "Available 24/7", allRightsReserved: "All rights reserved.", privacyPolicy: "Privacy Policy", termsOfService: "Terms of Service", cookiePolicy: "Cookie Policy"
+      available247: "Available 24/7", allRightsReserved: "All rights reserved.", privacyPolicy: "Privacy Policy", termsOfService: "Terms of Service", cookiePolicy: "Cookie Policy",
+      statBusinesses: "Businesses", statUptime: "Uptime", statSupport: "Support",
+      learnMore: "Learn more",
+      bookingBullet1: "LINE OA Rich Menu", bookingBullet2: "QR Code", bookingBullet3: "Facebook & Instagram",
+      scheduleBullet1: "Auto queue management", scheduleBullet2: "Double booking prevention", scheduleBullet3: "Auto recurring booking",
+      noshowBullet1: "LINE notifications", noshowBullet2: "Cancellation policies", noshowBullet3: "Reduce No-Shows",
+      rebookingBullet1: "Auto rebooking messages", rebookingBullet2: "Personalized messages", rebookingBullet3: "Continuous queue fill",
+      blogTitle: "Articles & Tips", blogDescription: "Learn tips and strategies to boost your business efficiency with online booking systems",
+      viewAllBlogs: "View all articles",
+      integrations: "Integrations",
+      intTitle: "All your tools, one platform.", intDescription: "Supports every tool your business needs — from LINE OA to enterprise-grade cloud infrastructure.",
+      intExplore: "Explore all features"
     },
     th: {
       services: "บริการหลัก", features: "แพลตฟอร์ม", faq: "คำถามที่พบบ่อย", blog: "บทความ", contact: "ติดต่อ", bookNow: "จองเลย",
+      heroEyebrow: "LINE OA BOOKING PLATFORM",
       heroTitle: "ระบบจองผ่าน", heroSubtitle: "จองง่าย ขายไว เชื่อมต่อลูกค้าได้ทันที",
       heroDescription: "ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที",
       heroTagline: "", trustedBy: "เข้าร่วมเป็น 1,000 คนแรกที่ได้ทดลองใช้ก่อนใคร", startBookingNow: "เริ่มใช้งาน",
@@ -96,29 +83,53 @@
       feature5Title: "ติดตามผลธุรกิจแบบเรียลไทม์", feature5Desc: "สรุปข้อมูลการจองแบบเรียลไทม์ ช่วยให้คุณมองเห็นภาพรวมของธุรกิจได้อย่างชัดเจน และวางแผนได้แม่นยำ",
       faqTitle: "คำถามที่พบบ่อย", faqDescription: "มีคำถามเกี่ยวกับ BookingWhale? เราได้รวบรวมคำถามที่พบบ่อยไว้ที่นี่",
       "what-isQuestion": "BookingWhale คืออะไร?", "what-isAnswer": "BookingWhale คือแพลตฟอร์มการจองรุ่นใหม่ที่ออกแบบมาเพื่อทำให้การจองบริการง่ายขึ้นสำหรับธุรกิจและลูกค้า ขณะนี้เรากำลังพัฒนาเวอร์ชัน beta",
-      "when-launchQuestion": "เมื่อไหร่จะใช้ได้?", "when-launchAnswer": "เรากำลังเปิดตัวเวอร์ชัน beta เร็วๆ นี้! เข้าร่วมรายชื่อ early access เพื่อเป็น 1,000 คนแรกที่ได้ทดลองใช้แพลตฟอร์ม",
+      "when-launchQuestion": "เมื่อไหร่จะใช้ได้?", "when-launchAnswer": "เรากำลังเปิดตัวเวอร์ชัน beta เร็วๆ นี้! เข้าร่วมรายชื่อ early access เพื่อเป็นลูกค้ากลุ่มแรกที่ได้ทดลองใช้แพลตฟอร์มและรับสิทธิพิเศษจากเรา",
       costQuestion: "ราคาเท่าไหร่?", costAnswer: "BookingWhale จะฟรีในช่วง beta ผู้ใช้งานแรกจะได้ราคาพิเศษเมื่อเราเปิดตัวแพลตฟอร์มเต็มรูปแบบ",
       featuresQuestion: "จะมีฟีเจอร์อะไรบ้าง?", featuresAnswer: "แพลตฟอร์มของเราจะรวมการจองอัตโนมัติ การชำระเงินปลอดภัย วิเคราะห์ธุรกิจ การสนับสนุน 24/7 และการเชื่อมต่อกับเครื่องมือที่มีอยู่",
       supportQuestion: "มีการสนับสนุนไหม?", supportAnswer: "ใช่! เรามีการสนับสนุน 24/7 ผ่านแชท อีเมล และโทรศัพท์ ทีมงานเฉพาะของเราจะช่วยคุณเริ่มต้นและตอบคำถามต่างๆ",
       securityQuestion: "ข้อมูลของฉันปลอดภัยไหม?", securityAnswer: "แน่นอน เราใช้การเข้ารหัสระดับธนาคารและปฏิบัติตามมาตรฐานอุตสาหกรรมเพื่อปกป้องข้อมูลของคุณ ข้อมูลของคุณปลอดภัยกับเรา",
-      available247: "พร้อมบริการ 24/7", allRightsReserved: "สงวนลิขสิทธิ์", privacyPolicy: "นโยบายความเป็นส่วนตัว", termsOfService: "ข้อกำหนดการใช้บริการ", cookiePolicy: "นโยบายคุกกี้"
+      available247: "พร้อมบริการ 24/7", allRightsReserved: "สงวนลิขสิทธิ์", privacyPolicy: "นโยบายความเป็นส่วนตัว", termsOfService: "ข้อกำหนดการใช้บริการ", cookiePolicy: "นโยบายคุกกี้",
+      statBusinesses: "ธุรกิจที่ใช้งาน", statUptime: "อัพไทม์", statSupport: "ซัพพอร์ต",
+      learnMore: "เรียนรู้เพิ่มเติม",
+      bookingBullet1: "LINE OA Rich Menu", bookingBullet2: "QR Code", bookingBullet3: "Facebook & Instagram",
+      scheduleBullet1: "จัดคิวอัตโนมัติ", scheduleBullet2: "ป้องกันจองซ้ำ", scheduleBullet3: "จองเวลาเดิมอัตโนมัติ",
+      noshowBullet1: "แจ้งเตือนผ่าน LINE", noshowBullet2: "กติกาการยกเลิก", noshowBullet3: "ลด No-Show",
+      rebookingBullet1: "ชวนจองซ้ำอัตโนมัติ", rebookingBullet2: "ข้อความส่วนตัว", rebookingBullet3: "คิวเต็มต่อเนื่อง",
+      blogTitle: "บทความและเคล็ดลับ", blogDescription: "เรียนรู้เคล็ดลับและกลยุทธ์ในการเพิ่มประสิทธิภาพธุรกิจของคุณด้วยระบบจองออนไลน์",
+      viewAllBlogs: "ดูบทความทั้งหมด",
+      integrations: "ระบบที่เชื่อมต่อ",
+      intTitle: "เชื่อมต่อทุกระบบ ในที่เดียว", intDescription: "รองรับทุกเครื่องมือที่ธุรกิจของคุณต้องการ ตั้งแต่ LINE OA ไปจนถึงระบบคลาวด์ระดับ Enterprise",
+      intExplore: "ดูฟีเจอร์ทั้งหมด"
     }
   };
 
   var currentLang = 'th';
-  var isDropdownOpen = false;
+
+  function detectLocale() {
+    var lang = navigator.language || navigator.userLanguage || '';
+    return lang.toLowerCase().startsWith('th') ? 'th' : 'en';
+  }
 
   function initLanguage() {
-    currentLang = localStorage.getItem('language') || 'th';
-    updateDisplay();
+    var saved = localStorage.getItem('language');
+    currentLang = saved || detectLocale();
+    updateToggle();
     updatePageContent();
   }
 
-  function updateDisplay() {
-    var flagEl = document.getElementById('currentFlag');
-    var langEl = document.getElementById('currentLang');
-    if (flagEl) flagEl.textContent = currentLang === 'th' ? '🇹🇭' : '🇺🇸';
-    if (langEl) langEl.textContent = currentLang.toUpperCase();
+  function updateToggle() {
+    document.querySelectorAll('.js-lang-slider').forEach(function(slider) {
+      slider.style.transform = currentLang === 'en' ? 'translateX(100%)' : 'translateX(0)';
+      slider.className = 'lang-toggle-slider js-lang-slider';
+    });
+    document.querySelectorAll('.js-lang-opt').forEach(function(opt) {
+      var lang = opt.getAttribute('data-lang');
+      if (lang === currentLang) {
+        opt.classList.add('lang-active');
+      } else {
+        opt.classList.remove('lang-active');
+      }
+    });
   }
 
   function updatePageContent() {
@@ -137,51 +148,39 @@
     });
   }
 
-  function toggleDropdown(e) {
-    if (e) { e.preventDefault(); e.stopPropagation(); }
-    isDropdownOpen = !isDropdownOpen;
-    var dropdown = document.getElementById('languageDropdown');
-    var arrow = document.getElementById('langArrow');
-
-    if (isDropdownOpen) {
-      dropdown.classList.remove('opacity-0', 'invisible', 'scale-95');
-      dropdown.classList.add('opacity-100', 'visible', 'scale-100');
-      if (arrow) arrow.classList.add('rotate-180');
+  function animateSwitch(callback) {
+    var toggles = document.querySelectorAll('.js-lang-toggle');
+    var sliders = document.querySelectorAll('.js-lang-slider');
+    toggles.forEach(function(t) { t.classList.add('lang-switching'); });
+    sliders.forEach(function(s) { s.classList.add('lang-slider-squish'); });
+    setTimeout(function() {
+      callback();
       setTimeout(function() {
-        document.addEventListener('click', closeOnOutside);
-      }, 10);
-    } else {
-      closeDropdown();
-    }
+        sliders.forEach(function(s) { s.classList.remove('lang-slider-squish'); });
+        toggles.forEach(function(t) { t.classList.remove('lang-switching'); });
+      }, 150);
+    }, 80);
   }
 
-  function closeDropdown() {
-    var dropdown = document.getElementById('languageDropdown');
-    var arrow = document.getElementById('langArrow');
-    if (dropdown) {
-      dropdown.classList.add('opacity-0', 'invisible', 'scale-95');
-      dropdown.classList.remove('opacity-100', 'visible', 'scale-100');
-    }
-    if (arrow) arrow.classList.remove('rotate-180');
-    isDropdownOpen = false;
-    document.removeEventListener('click', closeOnOutside);
+  function toggleLang() {
+    animateSwitch(function() {
+      currentLang = currentLang === 'th' ? 'en' : 'th';
+      localStorage.setItem('language', currentLang);
+      updateToggle();
+      updatePageContent();
+    });
   }
 
-  function closeOnOutside(e) {
-    var switcher = document.querySelector('.language-switcher');
-    if (switcher && !switcher.contains(e.target)) closeDropdown();
+  function switchLang(lang) {
+    if (lang === currentLang) return;
+    animateSwitch(function() {
+      currentLang = lang;
+      localStorage.setItem('language', lang);
+      updateToggle();
+      updatePageContent();
+    });
   }
 
-  function switchLang(lang, e) {
-    if (e) { e.preventDefault(); e.stopPropagation(); }
-    currentLang = lang;
-    localStorage.setItem('language', lang);
-    updateDisplay();
-    updatePageContent();
-    closeDropdown();
-  }
-
-  // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
@@ -191,64 +190,92 @@
   function init() {
     initLanguage();
 
-    var toggle = document.getElementById('languageToggle');
-    if (toggle) {
-      toggle.addEventListener('click', toggleDropdown);
-    }
-
-    document.querySelectorAll('.language-option').forEach(function(opt) {
-      var lang = opt.getAttribute('data-lang');
-      opt.addEventListener('click', function(e) { switchLang(lang, e); });
+    document.querySelectorAll('.js-lang-toggle').forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleLang();
+      });
     });
+
   }
 
-  // Expose globally
   window.switchLanguage = switchLang;
-  window.toggleLanguageDropdown = toggleDropdown;
+  window.toggleLanguageDropdown = toggleLang;
 })();
 </script>
 
 <style>
-  .language-switcher {
+  .lang-toggle-wrap {
     position: relative;
     z-index: 1000;
   }
 
-  .language-switcher .language-option:hover {
-    background-color: rgba(249, 250, 251, 1);
+  .lang-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f3f4f6;
+    border-radius: 9999px;
+    padding: 2px;
+    cursor: pointer;
+    border: 1px solid #e5e7eb;
+    outline: none;
+    min-height: 24px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
   }
 
-  .language-option[data-lang="en"]:hover {
-    background-color: rgba(59, 130, 246, 0.1);
+  .lang-toggle:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.08);
   }
 
-  .language-option[data-lang="th"]:hover {
-    background-color: rgba(34, 197, 94, 0.1);
+  .lang-toggle:active {
+    transform: scale(0.96);
   }
 
-  @media (max-width: 768px) {
-    .language-switcher #languageDropdown {
-      position: fixed;
-      z-index: 9999;
-      min-width: 140px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .language-switcher button {
-      min-height: 44px;
-    }
-
-    .language-option {
-      padding: 0.75rem 1rem !important;
-      min-height: 44px;
-    }
+  .lang-toggle.lang-switching {
+    transform: scale(0.94);
   }
 
-  #languageDropdown {
-    z-index: 9999 !important;
+  .lang-toggle:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
   }
 
-  .touch-manipulation {
-    touch-action: manipulation;
+  .lang-toggle-slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(50% - 2px);
+    height: calc(100% - 4px);
+    background: white;
+    border-radius: 9999px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+  }
+
+  .lang-slider-squish {
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                width 0.15s ease;
+    width: calc(50% + 3px) !important;
+  }
+
+  .lang-toggle-option {
+    position: relative;
+    z-index: 1;
+    padding: 0 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #9ca3af;
+    pointer-events: none;
+    transition: color 0.2s ease;
+    line-height: 20px;
+  }
+
+  .lang-toggle-option.lang-active {
+    color: #1f2937;
   }
 </style>

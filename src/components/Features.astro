@@ -1,119 +1,115 @@
 ---
+import ScrollReveal from "./motion/ScrollReveal.tsx";
+import SlideReveal from "./motion/SlideReveal.tsx";
+
 const features = [
   {
+    eyebrow: "BOOKING",
     title: "จองออนไลน์ได้ทันที",
     description:
       "จองง่ายผ่าน LINE OA, เว็บไซต์ หรือ QR Code พร้อมปุ่ม Rich Menu ใน LINE ที่เข้าสู่ระบบจองได้ทันที",
     image: "/features/online-booking.webp",
     alt: "Online booking system interface showing LINE OA integration with QR code and Rich Menu for instant customer booking",
-    color: "blue",
   },
   {
+    eyebrow: "SCHEDULING",
     title: "จัดการคิวอัจฉริยะ",
     description:
       "ไม่ว่าจะเยอะแค่ไหน ระบบช่วยจัดตารางคิวให้อัตโนมัติ ป้องกันการนัดคิวซ้อนหรือตกหล่น จัดการครบ มั่นใจทุกการนัดหมาย",
     image: "/features/queue-scheduling.webp",
     alt: "Smart queue management dashboard showing automated scheduling system that prevents double bookings and manages appointments efficiently",
-    color: "green",
   },
   {
+    eyebrow: "NOTIFICATIONS",
     title: "แจ้งเตือนทุกนัด กระตุ้นการจองซ้ำ",
     description:
       "แจ้งเตือนล่วงหน้าผ่าน LINE ลด No-Show พร้อมกติกาการยกเลิก และข้อความชวนจองซ้ำอัตโนมัติหลังใช้บริการ เพื่อการใช้บริการที่ต่อเนื่อง",
     image: "/features/booking-reminders.webp",
     alt: "LINE notification system showing appointment reminders, no-show prevention, and automated rebooking messages for customer retention",
-    color: "indigo",
   },
   {
+    eyebrow: "DATA",
     title: "เก็บข้อมูลการจองครบถ้วน",
     description:
       "บันทึกข้อมูลทุกการจองพร้อมประวัติย้อนหลัง เพื่อนำไปวิเคราะห์ต่อยอดเพิ่มโอกาสการขาย พร้อมฟีเจอร์พิเศษ ลายเซ็นดิจิทัล เพื่อยืนยันการใช้บริการจริง",
     image: "/features/booking-secure-data.webp",
     alt: "Comprehensive booking data management system with customer history, analytics dashboard, and digital signature verification feature",
-    color: "purple",
   },
   {
+    eyebrow: "ANALYTICS",
     title: "ติดตามผลธุรกิจแบบเรียลไทม์",
     description:
       "สรุปข้อมูลการจองแบบเรียลไทม์ ช่วยให้คุณมองเห็นภาพรวมของธุรกิจได้อย่างชัดเจน และวางแผนได้แม่นยำ",
     image: "/features/real-time-tracking.webp",
     alt: "Real-time business analytics dashboard showing booking statistics, revenue tracking, and business performance metrics for strategic planning",
-    color: "orange",
   },
 ];
 ---
 
 <section
   id="features"
-  class="section-padding relative"
-  style="background-color: white;"
+  class="section-padding bg-white overflow-hidden"
   aria-labelledby="features-heading"
 >
-  <div class="container-tight relative">
-    <div class="text-center mb-12">
-      <div class="max-w-4xl mx-auto">
+  <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
+    <ScrollReveal client:visible>
+      <div class="text-center mb-16">
         <h2
           id="features-heading"
-          class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 relative inline-block"
+          class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em]"
         >
-          <span data-translate="whyChoose" class="relative z-10"
-            >ฟีเจอร์ของเรา</span
-          >
-          <div
-            class="absolute bottom-2 left-0 right-0 h-3 opacity-60 -skew-x-12 transform origin-bottom-left"
-            style="background-color: #0047ff;"
-          >
-          </div>
+          <span data-translate="whyChoose">ฟีเจอร์ของเรา</span>
         </h2>
         <p
           data-translate="featuresDescription"
-          class="text-lg lg:text-xl font-normal leading-relaxed text-gray-600 max-w-4xl mx-auto"
+          class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium"
         >
           ระบบจองที่ครบครันด้วยฟีเจอร์ที่ออกแบบมาเพื่อตอบสนองความต้องการของธุรกิจสมัยใหม่
         </p>
       </div>
-    </div>
+    </ScrollReveal>
 
-    <div class="max-w-6xl mx-auto space-y-20">
+    <div class="space-y-16 lg:space-y-24">
       {
         features.map((feature, index) => {
           const isEven = index % 2 === 0;
+          const textDir = isEven ? "left" : "right";
+          const imgDir = isEven ? "right" : "left";
           return (
             <div
-              class={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-8 lg:gap-12 feature-item`}
-              style={`opacity: 0; transform: translateY(4rem);`}
-              data-delay={index * 200}
+              class={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-8 sm:gap-12 lg:gap-20`}
             >
-              {/* Content */}
-              <div class="flex-1">
+              <SlideReveal client:visible direction={textDir} className="flex-1">
+                <span class="text-blue-600 text-[13px] font-semibold uppercase tracking-wide mb-3 block">
+                  {feature.eyebrow}
+                </span>
                 <h3
                   data-translate={`feature${index + 1}Title`}
-                  class="text-2xl lg:text-3xl font-bold text-gray-900 mb-6"
+                  class="text-xl sm:text-2xl lg:text-[1.75rem] font-black text-gray-900 mb-4"
                 >
                   {feature.title}
                 </h3>
                 <p
                   data-translate={`feature${index + 1}Desc`}
-                  class="text-gray-600 leading-relaxed text-lg lg:text-xl"
+                  class="text-gray-600 leading-relaxed text-xl"
                 >
                   {feature.description}
                 </p>
-              </div>
+              </SlideReveal>
 
-              {/* Image */}
-              <div class="flex-1 flex justify-center">
-                <div class="w-full max-w-md">
+              <SlideReveal client:visible direction={imgDir} delay={0.1} className="flex-1 flex justify-center">
+                <div class="w-full max-w-sm sm:max-w-md">
                   <img
                     src={feature.image}
                     alt={feature.alt}
-                    class="w-full h-auto rounded-2xl"
+                    class="w-full h-auto rounded-xl border border-gray-200 shadow-sm"
                     loading="lazy"
                     decoding="async"
                     width="700"
                     height="525"
                   />
                 </div>
-              </div>
+              </SlideReveal>
             </div>
           );
         })
@@ -121,47 +117,3 @@ const features = [
     </div>
   </div>
 </section>
-
-<style>
-  .feature-item {
-    transition:
-      opacity 0.8s ease-out,
-      transform 0.8s ease-out;
-  }
-</style>
-
-<script>
-  // Intersection Observer for feature items slide-up animation
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -100px 0px",
-  };
-
-  const featureObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const delay = parseInt(
-          entry.target.getAttribute("data-delay") || "0",
-          10
-        );
-
-        setTimeout(() => {
-          const element = entry.target as HTMLElement;
-          element.style.opacity = "1";
-          element.style.transform = "translateY(0)";
-        }, delay);
-
-        // Stop observing once animated
-        featureObserver.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  // Start observing all feature items
-  document.addEventListener("DOMContentLoaded", () => {
-    const featureItems = document.querySelectorAll(".feature-item");
-    featureItems.forEach((item) => {
-      featureObserver.observe(item);
-    });
-  });
-</script>
