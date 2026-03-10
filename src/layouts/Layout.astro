@@ -75,7 +75,7 @@ const localizedKeywords = isEnglishContent
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description || localizedDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bookingwhale.com" />
+    <meta property="og:url" content={`https://bookingwhale.com${currentPath}`} />
     <meta property="og:image" content="https://bookingwhale.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -96,19 +96,21 @@ const localizedKeywords = isEnglishContent
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="canonical" href="https://bookingwhale.com" />
+    <link rel="canonical" href={`https://bookingwhale.com${currentPath}`} />
 
     <!-- Hreflang for multilingual support -->
     <link rel="alternate" hreflang="en" href="https://bookingwhale.com/en" />
     <link rel="alternate" hreflang="th" href="https://bookingwhale.com/th" />
-    <link rel="alternate" hreflang="x-default" href="https://bookingwhale.com/th" />
+    <link rel="alternate" hreflang="x-default" href="https://bookingwhale.com" />
 
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <link rel="preconnect" href="https://images.unsplash.com" />
+
     <!-- Preload critical LCP image -->
-    <link rel="preload" as="image" href="/logo.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/features/online-booking.webp" type="image/webp" fetchpriority="high" />
 
     <!-- Google Fonts - Noto Sans Thai for Thai characters -->
     <link
@@ -143,8 +145,8 @@ const localizedKeywords = isEnglishContent
         "browserRequirements": "Requires JavaScript. Requires HTML5.",
         "softwareVersion": "1.0",
         "releaseNotes": "Beta version with core booking features",
-        "datePublished": "2024-01-01",
-        "dateModified": "2024-12-15",
+        "datePublished": "2025-01-01",
+        "dateModified": "2026-03-11",
         "author": {
           "@type": "Organization",
           "name": "BookingWhale",
@@ -160,7 +162,7 @@ const localizedKeywords = isEnglishContent
           "price": "0",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "priceValidUntil": "2024-12-31",
+          "priceValidUntil": "2026-12-31",
           "description": "Free during beta period"
         },
         "aggregateRating": {
@@ -203,18 +205,18 @@ const localizedKeywords = isEnglishContent
           "@type": "Person",
           "name": "Alex Thompson"
         },
-        "priceRange": "฿฿",
+        "priceRange": "$$",
         "paymentAccepted": ["Cash", "Credit Card", "QR Code", "Bank Transfer"],
         "currenciesAccepted": "THB",
         "openingHours": ["Mo-Fr 09:00-18:00", "Sa 09:00-16:00"],
         "telephone": "+66-80-595-6458",
-        "email": "hello@bookingwhale.com",
+        "email": "info@bookingwhale.com",
         "contactPoint": [
           {
             "@type": "ContactPoint",
             "telephone": "+66-80-595-6458",
             "contactType": "customer service",
-            "email": "hello@bookingwhale.com",
+            "email": "info@bookingwhale.com",
             "availableLanguage": ["Thai", "English"],
             "areaServed": "Thailand"
           },
@@ -229,16 +231,9 @@ const localizedKeywords = isEnglishContent
         ],
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "123 Business Avenue, Suite 100",
           "addressLocality": "Bangkok",
           "addressRegion": "Bangkok",
-          "addressCountry": "Thailand",
-          "postalCode": "10110"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "13.7563",
-          "longitude": "100.5018"
+          "addressCountry": "Thailand"
         },
         "areaServed": [
           {
@@ -319,15 +314,13 @@ const localizedKeywords = isEnglishContent
           "@type": "ContactPoint",
           "telephone": "+66-80-595-6458",
           "contactType": "customer service",
-          "email": "hello@bookingwhale.com",
+          "email": "info@bookingwhale.com",
           "availableLanguage": ["English", "Thai"]
         },
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "123 Business Avenue, Suite 100",
           "addressLocality": "Bangkok",
-          "addressCountry": "Thailand",
-          "postalCode": "10110"
+          "addressCountry": "Thailand"
         },
         "sameAs": [
           "https://facebook.com/bookingwhale",
@@ -356,7 +349,7 @@ const localizedKeywords = isEnglishContent
           "query-input": "required name=search_term_string"
         },
         "inLanguage": "th-TH",
-        "copyrightYear": "2024",
+        "copyrightYear": "2025",
         "copyrightHolder": {
           "@type": "Organization",
           "name": "BookingWhale"

@@ -1,17 +1,12 @@
 # BookingWhale - Robots.txt
-# LINE OA booking system for Thai businesses
 # https://bookingwhale.com
 
 User-agent: *
 Allow: /
-
-# Sitemap location
-Sitemap: https://bookingwhale.com/sitemap.xml
-
-# Crawl-delay for optimal server performance
 Crawl-delay: 1
 
-# Block development and system directories
+Sitemap: https://bookingwhale.com/sitemap.xml
+
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_astro/
@@ -21,16 +16,10 @@ Disallow: /.git/
 Disallow: /src/
 Disallow: /temp/
 Disallow: /tmp/
-
-# Block sensitive files
-Disallow: /*.json$
-Disallow: /*.log$
-Disallow: /*.config.js$
 Disallow: /package.json
 Disallow: /.env
 Disallow: /.gitignore
 
-# Allow important pages and sections
 Allow: /
 Allow: /en
 Allow: /th
@@ -39,20 +28,11 @@ Allow: /blog/*
 Allow: /privacy
 Allow: /terms
 Allow: /cookies
-
-# Allow section anchors for single-page app
-Allow: /#services
-Allow: /#features
-Allow: /#faq
-Allow: /#contact
-
-# Allow essential assets
 Allow: /favicon.ico
 Allow: /logo.webp
 Allow: /assets/
 Allow: /images/
 
-# Special rules for search engines
 User-agent: Googlebot
 Allow: /
 
@@ -68,7 +48,6 @@ Allow: /
 User-agent: Baiduspider
 Allow: /
 
-# Block bad bots and scrapers
 User-agent: SemrushBot
 Disallow: /
 
@@ -80,7 +59,3 @@ Disallow: /
 
 User-agent: DotBot
 Disallow: /
-
-# Additional sitemaps (if any)
-# Sitemap: https://bookingwhale.com/sitemap-images.xml
-# Sitemap: https://bookingwhale.com/sitemap-news.xml

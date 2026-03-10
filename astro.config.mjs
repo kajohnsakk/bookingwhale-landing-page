@@ -2,12 +2,14 @@
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [icon(), react()],
+  site: 'https://bookingwhale.com',
+  integrations: [icon(), react(), sitemap()],
   build: {
     inlineStylesheets: 'always'
   },

@@ -116,6 +116,8 @@ const faqs = [
             <div class="bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors duration-200 overflow-hidden">
               <button
                 class="faq-toggle w-full px-4 py-3 sm:px-5 sm:py-4 text-left flex items-center justify-between focus:outline-none"
+                aria-expanded="false"
+                aria-controls={`faq-${index}`}
                 onclick={`toggleFAQ('faq-${index}')`}
               >
                 <h3 data-translate={`${faq.id}Question`} class="text-lg font-semibold text-gray-900">
@@ -152,13 +154,15 @@ const faqs = [
 <script>
   function toggleFAQ(faqId) {
     const faqAnswer = document.getElementById(faqId);
-    const faqIcon = faqAnswer?.previousElementSibling?.querySelector('.faq-icon');
+    const button = faqAnswer?.previousElementSibling as HTMLElement;
+    const faqIcon = button?.querySelector('.faq-icon');
     const isOpen = faqAnswer?.dataset.open === 'true';
 
     document.querySelectorAll('.faq-answer[data-open="true"]').forEach((el) => {
       if (el.id === faqId) return;
       el.dataset.open = 'false';
       (el as HTMLElement).style.height = el.scrollHeight + 'px';
+      el.previousElementSibling?.setAttribute('aria-expanded', 'false');
       requestAnimationFrame(() => {
         (el as HTMLElement).style.height = '0';
       });
@@ -167,6 +171,7 @@ const faqs = [
 
     if (!isOpen) {
       faqAnswer.dataset.open = 'true';
+      button?.setAttribute('aria-expanded', 'true');
       faqAnswer.style.height = faqAnswer.scrollHeight + 'px';
       faqIcon?.classList.add('rotate-180');
       faqAnswer.addEventListener('transitionend', () => {
@@ -176,6 +181,7 @@ const faqs = [
       }, { once: true });
     } else {
       faqAnswer.dataset.open = 'false';
+      button?.setAttribute('aria-expanded', 'false');
       faqAnswer.style.height = faqAnswer.scrollHeight + 'px';
       requestAnimationFrame(() => {
         faqAnswer.style.height = '0';
