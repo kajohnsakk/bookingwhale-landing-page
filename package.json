@@ -9,13 +9,20 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.2",
     "@heroicons/react": "^2.2.0",
     "@iconify-json/lucide": "^1.2.68",
     "@tailwindcss/vite": "^4.1.9",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "astro": "^5.9.2",
     "astro-icon": "^1.1.5",
+    "framer-motion": "^12.35.2",
     "lucide-react": "^0.544.0",
     "nanostores": "^1.0.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "simple-icons": "^16.11.0",
     "tailwindcss": "^4.1.9"
   }
 }

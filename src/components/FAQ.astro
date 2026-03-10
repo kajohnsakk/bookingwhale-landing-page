@@ -1,4 +1,7 @@
 ---
+import ScrollReveal from "./motion/ScrollReveal.tsx";
+import { StaggerContainer, StaggerItem } from "./motion/StaggerContainer.tsx";
+
 const faqs = [
   {
     id: 'what-is',
@@ -8,7 +11,7 @@ const faqs = [
   {
     id: 'when-launch',
     question: 'When will it be available?',
-    answer: 'We\'re launching our beta version soon! Join our early access list to be among the first 1,000 users to try the platform.'
+    answer: 'We\'re launching our beta version soon! Join our early access list to be among the first customers to try the platform and receive exclusive benefits from us.'
   },
   {
     id: 'cost',
@@ -33,7 +36,6 @@ const faqs = [
 ];
 ---
 
-<!-- FAQ Schema markup -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -52,7 +54,7 @@ const faqs = [
       "name": "When will it be available?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We're launching our beta version soon! Join our early access list to be among the first 1,000 users to try the platform."
+        "text": "We're launching our beta version soon! Join our early access list to be among the first customers to try the platform and receive exclusive benefits from us."
       }
     },
     {
@@ -91,54 +93,58 @@ const faqs = [
 }
 </script>
 
-<section id="faq" class="section-padding bg-white relative overflow-hidden">
-  <!-- Background pattern -->
-  <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.01)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e')] opacity-30 pointer-events-none"></div>
-  
-  <div class="container-tight relative">
-    <div class="text-center mb-12">
-      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 relative inline-block">
-        <span data-translate="faqTitle" class="relative z-10">คำถามที่พบบ่อย</span>
-        <div class="absolute bottom-2 left-0 right-0 h-3 bg-blue-700 opacity-50 -skew-x-12 transform origin-bottom-left"></div>
-      </h2>
-      <p data-translate="faqDescription" class="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
-        มีคำถามเกี่ยวกับ BookingWhale? เราได้รวบรวมคำถามที่พบบ่อยไว้ที่นี่
-      </p>
-    </div>
-    
+<section id="faq" class="section-padding bg-gray-50" aria-labelledby="faq-heading">
+  <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
+    <ScrollReveal client:visible>
+      <div class="text-center mb-12">
+        <h2
+          id="faq-heading"
+          class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em]"
+        >
+          <span data-translate="faqTitle">คำถามที่พบบ่อย</span>
+        </h2>
+        <p data-translate="faqDescription" class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium">
+          มีคำถามเกี่ยวกับ BookingWhale? เราได้รวบรวมคำถามที่พบบ่อยไว้ที่นี่
+        </p>
+      </div>
+    </ScrollReveal>
+
     <div class="max-w-4xl mx-auto">
-      <div class="space-y-4">
+      <StaggerContainer client:visible staggerDelay={0.06} className="flex flex-col gap-3">
         {faqs.map((faq, index) => (
-          <div class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-200 overflow-hidden">
-            <button 
-              class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none"
-              onclick={`toggleFAQ('faq-${index}')`}
-            >
-              <h3 data-translate={`${faq.id}Question`} class="text-lg font-semibold text-gray-900">
-                {faq.question}
-              </h3>
-              <svg 
-                class="faq-icon w-5 h-5 text-gray-500 transform transition-transform duration-200"
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
+          <StaggerItem variant="fade-up">
+            <div class="bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors duration-200 overflow-hidden">
+              <button
+                class="faq-toggle w-full px-4 py-3 sm:px-5 sm:py-4 text-left flex items-center justify-between focus:outline-none"
+                onclick={`toggleFAQ('faq-${index}')`}
               >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-            <div 
-              id={`faq-${index}`}
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-out"
-            >
-              <div class="px-6 pb-5">
-                <p data-translate={`${faq.id}Answer`} class="text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
+                <h3 data-translate={`${faq.id}Question`} class="text-lg font-semibold text-gray-900">
+                  {faq.question}
+                </h3>
+                <svg
+                  class="faq-icon w-5 h-5 text-gray-400 transform transition-transform duration-200 flex-shrink-0 ml-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div
+                id={`faq-${index}`}
+                class="faq-answer overflow-hidden"
+                style="height: 0;"
+              >
+                <div class="px-4 pb-3 sm:px-5 sm:pb-4">
+                  <p data-translate={`${faq.id}Answer`} class="text-base text-gray-600 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </div>
   </div>
 </section>
@@ -147,30 +153,46 @@ const faqs = [
   function toggleFAQ(faqId) {
     const faqAnswer = document.getElementById(faqId);
     const faqIcon = faqAnswer?.previousElementSibling?.querySelector('.faq-icon');
-    
-    if (faqAnswer?.classList.contains('max-h-0')) {
-      // Open
-      faqAnswer.classList.remove('max-h-0');
-      faqAnswer.classList.add('max-h-96');
+    const isOpen = faqAnswer?.dataset.open === 'true';
+
+    document.querySelectorAll('.faq-answer[data-open="true"]').forEach((el) => {
+      if (el.id === faqId) return;
+      el.dataset.open = 'false';
+      (el as HTMLElement).style.height = el.scrollHeight + 'px';
+      requestAnimationFrame(() => {
+        (el as HTMLElement).style.height = '0';
+      });
+      el.previousElementSibling?.querySelector('.faq-icon')?.classList.remove('rotate-180');
+    });
+
+    if (!isOpen) {
+      faqAnswer.dataset.open = 'true';
+      faqAnswer.style.height = faqAnswer.scrollHeight + 'px';
       faqIcon?.classList.add('rotate-180');
+      faqAnswer.addEventListener('transitionend', () => {
+        if (faqAnswer.dataset.open === 'true') {
+          faqAnswer.style.height = 'auto';
+        }
+      }, { once: true });
     } else {
-      // Close
-      faqAnswer?.classList.add('max-h-0');
-      faqAnswer?.classList.remove('max-h-96');
+      faqAnswer.dataset.open = 'false';
+      faqAnswer.style.height = faqAnswer.scrollHeight + 'px';
+      requestAnimationFrame(() => {
+        faqAnswer.style.height = '0';
+      });
       faqIcon?.classList.remove('rotate-180');
     }
   }
-  
-  // Make function globally available
+
   window.toggleFAQ = toggleFAQ;
 </script>
 
 <style>
   .faq-answer {
-    transition: max-height 0.3s ease-out;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .faq-icon {
-    transition: transform 0.2s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 </style>
