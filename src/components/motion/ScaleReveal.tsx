@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
 import type { ReactNode } from "react";
 
 interface Props {
@@ -12,12 +13,26 @@ export default function ScaleReveal({
   delay = 0,
   className,
 }: Props) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
+  const controls = useAnimation();
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (isInView) {
+      if (hasAnimated.current) {
+        controls.set({ opacity: 0, scale: 0.96 });
+      }
+      controls.start({ opacity: 1, scale: 1, transition: { duration: 0.5, delay, ease: "easeOut" } });
+      hasAnimated.current = true;
+    }
+  }, [isInView, controls, delay]);
+
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, scale: 0.96 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+      animate={controls}
       className={className}
     >
       {children}
