@@ -24,13 +24,13 @@ const reserve = [
 ];
 ---
 
-<section id="integrations" class="bg-white min-h-screen flex items-center">
+<section id="integrations" class="bg-white lg:min-h-screen flex items-center">
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px] w-full py-16 lg:py-20">
-    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20">
+    <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
       <ScrollReveal client:visible>
-        <div class="lg:max-w-md flex-shrink-0">
+        <div class="text-center lg:text-left lg:max-w-md flex-shrink-0">
           <h2
-            class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-black tracking-[-0.03em] leading-[1.1] whitespace-nowrap"
+            class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-black tracking-[-0.03em] leading-[1.1]"
           >
             <span data-translate="intTitle">เชื่อมต่อทุกระบบ ในที่เดียว</span>
           </h2>
@@ -53,7 +53,7 @@ const reserve = [
         </div>
       </ScrollReveal>
 
-      <StaggerContainer client:visible staggerDelay={0.04} className="grid grid-cols-5 gap-7 flex-1 max-w-[560px] ml-auto">
+      <StaggerContainer client:visible staggerDelay={0.04} className="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-5 md:gap-6 lg:gap-7 flex-1 w-full max-w-[260px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[560px] mx-auto lg:ml-auto">
         {visible.map((item, i) => (
           <StaggerItem variant="scale-up">
             <div class="flip-card" data-index={i}>

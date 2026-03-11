@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-import HoverScale from "./motion/HoverScale.tsx";
 import ScrollReveal from "./motion/ScrollReveal.tsx";
 import { StaggerContainer, StaggerItem } from "./motion/StaggerContainer.tsx";
 
@@ -10,7 +8,11 @@ const services = [
     title: "จองง่ายผ่าน Line และทุกช่องทางออนไลน์",
     description:
       "ลูกค้าจองได้ทันทีผ่าน LINE หรือสแกน QR Code หน้าร้าน พร้อมลิงก์แชร์บน Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้ง่ายทุกที่ทุกเวลา",
-    icon: "lucide:mouse-pointer-click",
+    image: "/why-us/social.webp",
+    alt: "Online booking system interface showing LINE OA integration with QR code and Rich Menu for instant customer booking",
+    link: "#features",
+    linkText: "ดูฟีเจอร์การจอง",
+    linkId: "bookingLink",
     bullets: ["LINE OA Rich Menu", "QR Code", "Facebook & Instagram"],
     bulletIds: ["bookingBullet1", "bookingBullet2", "bookingBullet3"],
   },
@@ -19,7 +21,11 @@ const services = [
     title: "จัดตารางอย่างอัจฉริยะไม่พลาดทุกคิว",
     description:
       "หมดกังวลเมื่อมีลูกค้าเข้ามาเยอะ ระบบจะจัดคิวให้อัตโนมัติ พร้อมจองวัน และเวลาเดิมให้ลูกค้าประจำ ให้การนัดหมายเป็นเรื่องง่าย ไม่ตกหล่น",
-    icon: "lucide:calendar-check-2",
+    image: "/why-us/schedule-plan.webp",
+    alt: "Smart queue management dashboard showing automated scheduling system that prevents double bookings",
+    link: "#features",
+    linkText: "ดูระบบจัดคิว",
+    linkId: "scheduleLink",
     bullets: ["จัดคิวอัตโนมัติ", "ป้องกันจองซ้ำ", "จองเวลาเดิมอัตโนมัติ"],
     bulletIds: ["scheduleBullet1", "scheduleBullet2", "scheduleBullet3"],
   },
@@ -28,7 +34,11 @@ const services = [
     title: "ลดการผิดนัด (No-Show) และยกเลิกกระทันหัน",
     description:
       "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกใกล้เวลานัด ช่วยลด No-Show รักษาคิวให้เต็มและไม่เสียโอกาสทางการขาย",
-    icon: "lucide:user-x",
+    image: "/why-us/cancel.webp",
+    alt: "LINE notification system showing appointment reminders and no-show prevention",
+    link: "#features",
+    linkText: "ดูระบบแจ้งเตือน",
+    linkId: "noshowLink",
     bullets: ["แจ้งเตือนผ่าน LINE", "กติกาการยกเลิก", "ลด No-Show"],
     bulletIds: ["noshowBullet1", "noshowBullet2", "noshowBullet3"],
   },
@@ -37,7 +47,11 @@ const services = [
     title: "สร้างความสัมพันธ์กับลูกค้า เพิ่มการจองซ้ำ",
     description:
       "หลังการใช้บริการ ระบบจะส่งข้อความผ่าน LINE เพื่อชวนลูกค้าจองรอบถัดไปทันที ลดขั้นตอนการตัดสินใจ ช่วยให้คิวเต็มต่อเนื่อง",
-    icon: "lucide:heart-handshake",
+    image: "/why-us/loyalty.webp",
+    alt: "Customer retention dashboard with automated rebooking messages and analytics",
+    link: "#features",
+    linkText: "ดูระบบจองซ้ำ",
+    linkId: "rebookingLink",
     bullets: ["ชวนจองซ้ำอัตโนมัติ", "ข้อความส่วนตัว", "คิวเต็มต่อเนื่อง"],
     bulletIds: ["rebookingBullet1", "rebookingBullet2", "rebookingBullet3"],
   },
@@ -103,7 +117,7 @@ const services = [
 
 <section
   id="services"
-  class="section-padding bg-gray-50"
+  class="section-padding bg-white"
   aria-labelledby="services-heading"
 >
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
@@ -124,46 +138,58 @@ const services = [
       </div>
     </ScrollReveal>
 
-    <StaggerContainer client:visible staggerDelay={0.1} className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+    <StaggerContainer client:visible staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-10 lg:gap-y-12 max-w-5xl mx-auto">
       {
         services.map((service) => (
-          <StaggerItem variant="scale-up" className="h-full">
-            <HoverScale client:visible className="h-full">
-              <div class="bg-white rounded-xl border border-gray-200 p-6 lg:p-8 hover:border-gray-300 hover:shadow-sm transition-all duration-200 h-full flex flex-col">
-                <Icon name={service.icon} width={40} height={40} class="text-blue-600 mb-4" />
-
-                <h3
-                  data-translate={`${service.id}Title`}
-                  class="text-xl font-bold text-gray-900 mb-2"
-                >
-                  {service.title}
-                </h3>
-                <p
-                  data-translate={`${service.id}Desc`}
-                  class="text-base text-gray-600 leading-relaxed mb-4 flex-grow"
-                >
-                  {service.description}
-                </p>
-
-                <ul class="space-y-2 mb-5">
-                  {service.bullets.map((bullet, i) => (
-                    <li class="flex items-center gap-2 text-[13px] text-gray-600">
-                      <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span data-translate={service.bulletIds[i]}>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a href="#features" data-translate="learnMore" class="text-blue-600 hover:text-blue-700 text-[13px] font-medium inline-flex items-center">
-                  เรียนรู้เพิ่มเติม
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
+          <StaggerItem variant="fade-up" className="h-full">
+            <div class="group">
+              <div class="mb-4 overflow-hidden rounded-lg flex items-center justify-center">
+                <img
+                  src={service.image}
+                  alt={service.alt}
+                  class="max-h-[220px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                  width="700"
+                  height="525"
+                />
               </div>
-            </HoverScale>
+
+              <h3
+                data-translate={`${service.id}Title`}
+                class="text-xl font-bold text-gray-900 mb-3"
+              >
+                {service.title}
+              </h3>
+              <p
+                data-translate={`${service.id}Desc`}
+                class="text-base text-gray-600 leading-relaxed mb-4"
+              >
+                {service.description}
+              </p>
+
+              <ul class="space-y-2 mb-5">
+                {service.bullets.map((bullet, i) => (
+                  <li class="flex items-center gap-2 text-[13px] text-gray-600">
+                    <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span data-translate={service.bulletIds[i]}>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={service.link}
+                data-translate={service.linkId}
+                class="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1 transition-colors"
+              >
+                {service.linkText}
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
           </StaggerItem>
         ))
       }
