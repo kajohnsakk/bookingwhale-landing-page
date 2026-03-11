@@ -1,5 +1,9 @@
 ---
+import { t } from "../i18n/utils";
+import type { Lang } from "../i18n/utils";
 
+interface Props { lang?: Lang; }
+const { lang = "th" } = Astro.props;
 ---
 
 <footer id="contact" class="bg-gray-950 text-white">
@@ -78,7 +82,7 @@
                 href="#services"
                 data-translate="ourServices"
                 class="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                >Why Booking Whale</a
+                >{t("ourServices", lang)}</a
               >
             </li>
             <li>
@@ -86,7 +90,7 @@
                 href="#features"
                 data-translate="whyChoose"
                 class="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                >ฟีเจอร์ของเรา</a
+                >{t("whyChoose", lang)}</a
               >
             </li>
             <li>
@@ -94,7 +98,7 @@
                 href="#integrations"
                 data-translate="integrations"
                 class="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                >ระบบที่เชื่อมต่อ</a
+                >{t("integrations", lang)}</a
               >
             </li>
             <li>
@@ -102,7 +106,7 @@
                 href="#faq"
                 data-translate="faq"
                 class="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                >คำถามที่พบบ่อย</a
+                >{t("faq", lang)}</a
               >
             </li>
             <li>
@@ -110,7 +114,7 @@
                 href="#blog"
                 data-translate="blog"
                 class="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                >บทความ</a
+                >{t("blog", lang)}</a
               >
             </li>
             <li>
@@ -118,7 +122,7 @@
                 href="#contact"
                 data-translate="contact"
                 class="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                >ติดต่อ</a
+                >{t("contact", lang)}</a
               >
             </li>
           </ul>
@@ -155,10 +159,10 @@
                 ></path>
               </svg>
               <a
-                href="mailto:info@bookingwhale.com"
+                href="mailto:info@bookingwhale.co"
                 class="text-gray-400 hover:text-white transition-colors text-sm"
               >
-                info@bookingwhale.com
+                info@bookingwhale.co
               </a>
             </div>
             <div class="flex items-center space-x-2">
@@ -174,7 +178,7 @@
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
-              <span data-translate="available247" class="font-medium text-gray-400 text-sm">Enterprise Support 24/7</span>
+              <span data-translate="available247" class="font-medium text-gray-400 text-sm">{t("available247", lang)}</span>
             </div>
           </div>
         </div>
@@ -188,7 +192,7 @@
         <div class="text-gray-500 text-sm text-center md:text-left">
           <span
             >&copy; {new Date().getFullYear()} Booking Whale. <span data-translate="allRightsReserved"
-              >All rights reserved.</span
+              >{t("allRightsReserved", lang)}</span
             ></span
           >
         </div>
@@ -196,12 +200,12 @@
           <a
             href="/privacy-policy"
             data-translate="privacyPolicy"
-            class="text-gray-500 hover:text-white transition-colors">Privacy</a
+            class="text-gray-500 hover:text-white transition-colors">{t("privacyPolicy", lang)}</a
           >
           <a
             href="/terms"
             data-translate="termsOfService"
-            class="text-gray-500 hover:text-white transition-colors">Terms</a
+            class="text-gray-500 hover:text-white transition-colors">{t("termsOfService", lang)}</a
           >
         </div>
       </div>

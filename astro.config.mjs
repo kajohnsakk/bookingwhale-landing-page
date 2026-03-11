@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bookingwhale.com',
+  site: 'https://bookingwhale.co',
   integrations: [icon(), react(), sitemap()],
   build: {
     inlineStylesheets: 'always'

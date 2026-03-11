@@ -541,6 +541,6 @@ The future belongs to businesses that can turn data into action instantly. The q
 
 **Start Your Free 30-Day Trial** with full analytics capabilities included
 
-[**Begin Data-Driven Transformation Today**](https://bookingwhale.com/business-analytics)
+[**Begin Data-Driven Transformation Today**](https://bookingwhale.co/business-analytics)
 
 **Analytics Strategy Consultation:** Get a custom analytics roadmap from our business intelligence experts

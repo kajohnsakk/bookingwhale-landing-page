@@ -1,43 +1,44 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro';
-import Features from '../components/Features.astro';
-import Integrations from '../components/Integrations.astro';
-import FAQ from '../components/FAQ.astro';
-import Blog from '../components/Blog.astro';
-import BookingModal from '../components/BookingModal.astro';
-import Footer from '../components/Footer.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Services from '../../components/Services.astro';
+import Features from '../../components/Features.astro';
+import Integrations from '../../components/Integrations.astro';
+import FAQ from '../../components/FAQ.astro';
+import Blog from '../../components/Blog.astro';
+import BookingModal from '../../components/BookingModal.astro';
+import Footer from '../../components/Footer.astro';
 ---
 
 <Layout
-  title="Booking Whale - ระบบจองคิวผ่าน LINE OA | จัดการนัดหมาย ลด No-Show เพิ่มยอดจองซ้ำ"
-  description="Booking Whale ระบบจองคิวออนไลน์ผ่าน LINE Official Account สำหรับธุรกิจไทย จัดคิวอัตโนมัติ แจ้งเตือนลด No-Show ชวนจองซ้ำอัตโนมัติ เชื่อมต่อทุกช่องทาง ใช้งานง่าย เพิ่มประสิทธิภาพธุรกิจของคุณ"
-  keywords="ระบบจองคิว, LINE OA booking, จองคิวออนไลน์, นัดหมายออนไลน์, booking platform, ระบบจัดการนัดหมาย, ลด no-show, จองคิวผ่าน LINE, booking system Thailand, ระบบจองสำหรับธุรกิจ"
+  title="Booking Whale - LINE OA Booking System | Smart Queue Management & No-Show Prevention"
+  description="Booking Whale - Online booking platform via LINE Official Account for Thai businesses. Smart queue management, automated reminders, reduce no-shows, and increase repeat bookings."
+  keywords="booking system, LINE OA booking, online booking, appointment scheduling, booking platform, queue management, reduce no-show, LINE booking system, booking system Thailand, business booking"
+  lang="en"
 >
-  <Header />
+  <Header lang="en" />
 
   <div class="sticky-section" data-sticky="1">
-    <Hero />
+    <Hero lang="en" />
   </div>
   <div class="sticky-section" data-sticky="2">
-    <Services />
+    <Services lang="en" />
   </div>
   <div class="sticky-section" data-sticky="3">
-    <Features />
+    <Features lang="en" />
   </div>
   <div class="sticky-section" data-sticky="4">
-    <Integrations />
+    <Integrations lang="en" />
   </div>
   <div class="sticky-section" data-sticky="5">
-    <FAQ />
+    <FAQ lang="en" />
   </div>
   <div class="relative z-20">
-    <Blog />
-    <Footer />
+    <Blog lang="en" />
+    <Footer lang="en" />
   </div>
-  <BookingModal />
+  <BookingModal lang="en" />
 
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

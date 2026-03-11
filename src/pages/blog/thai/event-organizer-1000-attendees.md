@@ -391,6 +391,6 @@ tags: ["Event Management", "ระบบจองงาน", "การจัด
 
 **เริ่มต้นฟรี 14 วัน** พร้อมทีมงานช่วยวางแผนงาน
 
-[**จัดงานระดับมืออาชีพวันนี้**](https://bookingwhale.com/event-management)
+[**จัดงานระดับมืออาชีพวันนี้**](https://bookingwhale.co/event-management)
 
 **สอบถามเพิ่มเติม:** LINE @bookingwhale-events

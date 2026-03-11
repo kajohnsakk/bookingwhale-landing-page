@@ -60,7 +60,7 @@ function validateSitemap() {
       },
       {
         name: 'Homepage URL',
-        test: sitemap.includes('<loc>https://bookingwhale.com/</loc>')
+        test: sitemap.includes('<loc>https://bookingwhale.co/</loc>')
       },
       {
         name: 'Hreflang attributes',

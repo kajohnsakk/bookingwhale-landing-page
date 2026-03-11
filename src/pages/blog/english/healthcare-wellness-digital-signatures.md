@@ -462,6 +462,6 @@ The technology exists today to eliminate the administrative burden that has long
 
 **Start Your Free 14-Day Trial** with full HIPAA compliance included
 
-[**Transform Your Patient Experience Today**](https://bookingwhale.com/healthcare-digital-signatures)
+[**Transform Your Patient Experience Today**](https://bookingwhale.co/healthcare-digital-signatures)
 
 **HIPAA Compliance Consultation:** Get expert guidance on secure healthcare implementation

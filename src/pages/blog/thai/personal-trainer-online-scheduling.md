@@ -420,6 +420,6 @@ tags: ["Personal Trainer", "ระบบจองออนไลน์", "กา
 
 **เริ่มต้นฟรี 14 วัน** พร้อมคำปรึกษาจากผู้เชี่ยวชาญ
 
-[**ปรับปรุงธุรกิจ Personal Training วันนี้**](https://bookingwhale.com/personal-trainer)
+[**ปรับปรุงธุรกิจ Personal Training วันนี้**](https://bookingwhale.co/personal-trainer)
 
 **สอบถามเพิ่มเติม:** LINE @bookingwhale-fitness

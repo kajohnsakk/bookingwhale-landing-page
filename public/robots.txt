@@ -1,11 +1,11 @@
 # BookingWhale - Robots.txt
-# https://bookingwhale.com
+# https://bookingwhale.co
 
 User-agent: *
 Allow: /
 Crawl-delay: 1
 
-Sitemap: https://bookingwhale.com/sitemap.xml
+Sitemap: https://bookingwhale.co/sitemap.xml
 
 Disallow: /admin/
 Disallow: /api/
@@ -21,13 +21,10 @@ Disallow: /.env
 Disallow: /.gitignore
 
 Allow: /
-Allow: /en
-Allow: /th
 Allow: /blog
 Allow: /blog/*
-Allow: /privacy
+Allow: /privacy-policy
 Allow: /terms
-Allow: /cookies
 Allow: /favicon.ico
 Allow: /logo.webp
 Allow: /assets/

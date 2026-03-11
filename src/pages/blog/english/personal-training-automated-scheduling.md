@@ -482,6 +482,6 @@ The technology exists today to scale your personal training business beyond what
 
 **Start Your Free 14-Day Trial** and begin scaling immediately
 
-[**Transform Your Training Business Today**](https://bookingwhale.com/personal-trainer)
+[**Transform Your Training Business Today**](https://bookingwhale.co/personal-trainer)
 
 **Success Consultation:** Get a custom scaling plan from our fitness business experts

@@ -1,58 +1,46 @@
 ---
 import ScrollReveal from "./motion/ScrollReveal.tsx";
 import { StaggerContainer, StaggerItem } from "./motion/StaggerContainer.tsx";
+import { t } from "../i18n/utils";
+import type { Lang } from "../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "th" } = Astro.props;
 
 const services = [
   {
     id: "booking",
-    title: "จองง่ายผ่าน Line และทุกช่องทางออนไลน์",
-    description:
-      "ลูกค้าจองได้ทันทีผ่าน LINE หรือสแกน QR Code หน้าร้าน พร้อมลิงก์แชร์บน Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้ง่ายทุกที่ทุกเวลา",
     image: "/why-us/social.webp",
     alt: "Online booking system interface showing LINE OA integration with QR code and Rich Menu for instant customer booking",
     link: "#features",
-    linkText: "ดูฟีเจอร์การจอง",
     linkId: "bookingLink",
-    bullets: ["LINE OA Rich Menu", "QR Code", "Facebook & Instagram"],
     bulletIds: ["bookingBullet1", "bookingBullet2", "bookingBullet3"],
   },
   {
     id: "schedule",
-    title: "จัดตารางอย่างอัจฉริยะไม่พลาดทุกคิว",
-    description:
-      "หมดกังวลเมื่อมีลูกค้าเข้ามาเยอะ ระบบจะจัดคิวให้อัตโนมัติ พร้อมจองวัน และเวลาเดิมให้ลูกค้าประจำ ให้การนัดหมายเป็นเรื่องง่าย ไม่ตกหล่น",
     image: "/why-us/schedule-plan.webp",
     alt: "Smart queue management dashboard showing automated scheduling system that prevents double bookings",
     link: "#features",
-    linkText: "ดูระบบจัดคิว",
     linkId: "scheduleLink",
-    bullets: ["จัดคิวอัตโนมัติ", "ป้องกันจองซ้ำ", "จองเวลาเดิมอัตโนมัติ"],
     bulletIds: ["scheduleBullet1", "scheduleBullet2", "scheduleBullet3"],
   },
   {
     id: "noshow",
-    title: "ลดการผิดนัด (No-Show) และยกเลิกกระทันหัน",
-    description:
-      "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกใกล้เวลานัด ช่วยลด No-Show รักษาคิวให้เต็มและไม่เสียโอกาสทางการขาย",
     image: "/why-us/cancel.webp",
     alt: "LINE notification system showing appointment reminders and no-show prevention",
     link: "#features",
-    linkText: "ดูระบบแจ้งเตือน",
     linkId: "noshowLink",
-    bullets: ["แจ้งเตือนผ่าน LINE", "กติกาการยกเลิก", "ลด No-Show"],
     bulletIds: ["noshowBullet1", "noshowBullet2", "noshowBullet3"],
   },
   {
     id: "rebooking",
-    title: "สร้างความสัมพันธ์กับลูกค้า เพิ่มการจองซ้ำ",
-    description:
-      "หลังการใช้บริการ ระบบจะส่งข้อความผ่าน LINE เพื่อชวนลูกค้าจองรอบถัดไปทันที ลดขั้นตอนการตัดสินใจ ช่วยให้คิวเต็มต่อเนื่อง",
     image: "/why-us/loyalty.webp",
     alt: "Customer retention dashboard with automated rebooking messages and analytics",
     link: "#features",
-    linkText: "ดูระบบจองซ้ำ",
     linkId: "rebookingLink",
-    bullets: ["ชวนจองซ้ำอัตโนมัติ", "ข้อความส่วนตัว", "คิวเต็มต่อเนื่อง"],
     bulletIds: ["rebookingBullet1", "rebookingBullet2", "rebookingBullet3"],
   },
 ];
@@ -65,7 +53,7 @@ const services = [
   "provider": {
     "@type": "Organization",
     "name": "BookingWhale",
-    "url": "https://bookingwhale.com"
+    "url": "https://bookingwhale.co"
   },
   "serviceType": "Booking Management System",
   "description": "Complete LINE OA booking management platform for Thai businesses",
@@ -127,13 +115,13 @@ const services = [
           id="services-heading"
           class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em]"
         >
-          <span data-translate="ourServices">Why Booking Whale</span>
+          <span data-translate="ourServices">{t("ourServices", lang)}</span>
         </h2>
         <p
           data-translate="servicesDescription"
           class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium"
         >
-          ทุกอย่างที่คุณต้องการ ในที่เดียว
+          {t("servicesDescription", lang)}
         </p>
       </div>
     </ScrollReveal>
@@ -159,22 +147,22 @@ const services = [
                 data-translate={`${service.id}Title`}
                 class="text-xl font-bold text-gray-900 mb-3"
               >
-                {service.title}
+                {t(`${service.id}Title`, lang)}
               </h3>
               <p
                 data-translate={`${service.id}Desc`}
                 class="text-base text-gray-600 leading-relaxed mb-4"
               >
-                {service.description}
+                {t(`${service.id}Desc`, lang)}
               </p>
 
               <ul class="space-y-2 mb-5">
-                {service.bullets.map((bullet, i) => (
+                {service.bulletIds.map((bulletId) => (
                   <li class="flex items-center gap-2 text-[13px] text-gray-600">
                     <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span data-translate={service.bulletIds[i]}>{bullet}</span>
+                    <span data-translate={bulletId}>{t(bulletId, lang)}</span>
                   </li>
                 ))}
               </ul>
@@ -184,7 +172,7 @@ const services = [
                 data-translate={service.linkId}
                 class="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center gap-1 transition-colors"
               >
-                {service.linkText}
+                {t(service.linkId, lang)}
                 <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>

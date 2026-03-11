@@ -104,15 +104,11 @@
   };
 
   var currentLang = 'th';
-
-  function detectLocale() {
-    var lang = navigator.language || navigator.userLanguage || '';
-    return lang.toLowerCase().startsWith('th') ? 'th' : 'en';
-  }
+  var isEnglish = window.location.pathname.startsWith('/en');
 
   function initLanguage() {
-    var saved = localStorage.getItem('language');
-    currentLang = saved || detectLocale();
+    currentLang = isEnglish ? 'en' : 'th';
+    localStorage.setItem('language', currentLang);
     updateToggle();
     updatePageContent();
   }
@@ -162,12 +158,25 @@
     }, 80);
   }
 
+  function navigateToLang(targetLang) {
+    var hash = window.location.hash || '';
+    var targetPath;
+    if (targetLang === 'en') {
+      targetPath = '/en' + hash;
+    } else {
+      targetPath = '/' + hash;
+    }
+    window.location.href = targetPath;
+  }
+
   function toggleLang() {
     animateSwitch(function() {
-      currentLang = currentLang === 'th' ? 'en' : 'th';
+      var targetLang = currentLang === 'th' ? 'en' : 'th';
+      currentLang = targetLang;
       localStorage.setItem('language', currentLang);
       updateToggle();
       updatePageContent();
+      navigateToLang(targetLang);
     });
   }
 
@@ -175,9 +184,10 @@
     if (lang === currentLang) return;
     animateSwitch(function() {
       currentLang = lang;
-      localStorage.setItem('language', lang);
+      localStorage.setItem('language', currentLang);
       updateToggle();
       updatePageContent();
+      navigateToLang(lang);
     });
   }
 

@@ -1,6 +1,11 @@
 ---
 import ScrollReveal from "./motion/ScrollReveal.tsx";
 import { StaggerContainer, StaggerItem } from "./motion/StaggerContainer.tsx";
+import { t } from "../i18n/utils";
+import type { Lang } from "../i18n/utils";
+
+interface Props { lang?: Lang; }
+const { lang = "th" } = Astro.props;
 
 const visible = [
   { name: "LINE OA", color: "#06C755", icon: "line" },
@@ -32,20 +37,20 @@ const reserve = [
           <h2
             class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-black tracking-[-0.03em] leading-[1.1]"
           >
-            <span data-translate="intTitle">เชื่อมต่อทุกระบบ ในที่เดียว</span>
+            <span data-translate="intTitle">{t("intTitle", lang)}</span>
           </h2>
           <p
             data-translate="intDescription"
             class="text-lg sm:text-xl text-gray-600 mt-5 leading-relaxed font-medium"
           >
-            รองรับทุกเครื่องมือที่ธุรกิจของคุณต้องการ ตั้งแต่ LINE OA ไปจนถึงระบบคลาวด์ระดับ Enterprise
+            {t("intDescription", lang)}
           </p>
           <a
             href="#features"
             data-translate="intExplore"
             class="inline-flex items-center text-black font-bold text-base mt-8 hover:text-blue-600 transition-colors"
           >
-            ดูฟีเจอร์ทั้งหมด
+            {t("intExplore", lang)}
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
             </svg>

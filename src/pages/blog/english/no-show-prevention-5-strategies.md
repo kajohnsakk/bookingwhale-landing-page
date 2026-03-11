@@ -539,6 +539,6 @@ The strategies exist today to dramatically reduce no-shows and transform your bu
 
 **Start Your Free 14-Day Trial** and see immediate no-show reduction
 
-[**Eliminate No-Shows Starting Today**](https://bookingwhale.com/no-show-prevention)
+[**Eliminate No-Shows Starting Today**](https://bookingwhale.co/no-show-prevention)
 
 **No-Show Analysis Consultation:** Get a custom assessment of your current no-show costs and prevention opportunities
