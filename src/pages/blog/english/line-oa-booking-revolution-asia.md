@@ -473,6 +473,6 @@ The revolution has begun. The question isn't whether to join—it's whether you'
 
 **Start Your Free 14-Day Trial** with full LINE OA integration included
 
-[**Transform Your Asian Business Today**](https://bookingwhale.com/line-oa-integration)
+[**Transform Your Asian Business Today**](https://bookingwhale.co/line-oa-integration)
 
 **Get Expert Consultation:** LINE @bookingwhale-asia

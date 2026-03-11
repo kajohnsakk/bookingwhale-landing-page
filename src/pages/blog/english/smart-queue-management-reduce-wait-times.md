@@ -567,6 +567,6 @@ Every minute your customers spend waiting unnecessarily is a minute of opportuni
 
 **Start Your Free 14-Day Trial** and see immediate wait time improvements
 
-[**Transform Your Customer Experience Today**](https://bookingwhale.com/smart-queue-management)
+[**Transform Your Customer Experience Today**](https://bookingwhale.co/smart-queue-management)
 
 **Schedule Expert Consultation:** Contact our queue management specialists

@@ -493,6 +493,6 @@ The future of service business bookings is here, and it fits in a simple QR code
 
 **Start Your Free 14-Day Trial** and eliminate phone booking delays
 
-[**Transform Your Booking Process Today**](https://bookingwhale.com/qr-code-booking)
+[**Transform Your Booking Process Today**](https://bookingwhale.co/qr-code-booking)
 
 **Get Implementation Support:** Our QR transformation specialists guide your entire journey

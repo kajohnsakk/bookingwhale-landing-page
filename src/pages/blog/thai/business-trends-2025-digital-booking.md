@@ -412,7 +412,7 @@ tags: ["แนวโน้มธุรกิจ 2025", "Digital Transformation",
 
 **เริ่มต้นฟรี 14 วัน** พร้อมคำปรึกษาแผนการปรับตัวสู่อนาคต
 
-[**เตรียมธุรกิจสู่ปี 2025 วันนี้**](https://bookingwhale.com/future-ready-2025)
+[**เตรียมธุรกิจสู่ปี 2025 วันนี้**](https://bookingwhale.co/future-ready-2025)
 
 **ปรึกษาผู้เชี่ยวชาญ:** LINE @bookingwhale-future
 

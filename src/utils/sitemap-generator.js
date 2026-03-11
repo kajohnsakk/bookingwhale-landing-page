@@ -2,7 +2,7 @@
 // This can be used to programmatically generate/update the sitemap
 
 export const siteConfig = {
-  baseUrl: 'https://bookingwhale.com',
+  baseUrl: 'https://bookingwhale.co',
   defaultLanguage: 'en',
   supportedLanguages: ['en', 'th'],
   lastModified: new Date().toISOString().split('T')[0] // YYYY-MM-DD format

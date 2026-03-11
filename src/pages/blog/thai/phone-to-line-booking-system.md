@@ -485,6 +485,6 @@ LINE เป็นแอปพลิเคชันที่ได้รับค
 
 **ทดลองใช้ฟรี 14 วัน** ไม่ต้องผูกมัด ไม่ต้องใช้บัตรเครดิต
 
-[**เริ่มต้น Digital Transformation วันนี้**](https://bookingwhale.com/line-booking)
+[**เริ่มต้น Digital Transformation วันนี้**](https://bookingwhale.co/line-booking)
 
 **หรือปรึกษาฟรี:** LINE @bookingwhale-th

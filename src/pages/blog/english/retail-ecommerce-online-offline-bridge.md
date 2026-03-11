@@ -519,6 +519,6 @@ The question isn't whether omnichannel retail will become standard—it's whethe
 
 **Start Your Free 30-Day Trial** and begin your omnichannel transformation
 
-[**Unify Your Customer Experience Today**](https://bookingwhale.com/omnichannel-retail)
+[**Unify Your Customer Experience Today**](https://bookingwhale.co/omnichannel-retail)
 
 **Omnichannel Strategy Consultation:** Get a custom roadmap from our retail transformation experts

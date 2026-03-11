@@ -527,6 +527,6 @@ The technology exists today to transform large event management from a stressful
 
 **Start Your Free 30-Day Trial** designed specifically for large events
 
-[**Transform Your Event Management Today**](https://bookingwhale.com/large-event-management)
+[**Transform Your Event Management Today**](https://bookingwhale.co/large-event-management)
 
 **Enterprise Event Consultation:** Get a custom event management strategy from our large event specialists
