@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
 import type { ReactNode } from "react";
 
 interface ContainerProps {
@@ -12,11 +13,26 @@ export function StaggerContainer({
   staggerDelay = 0.1,
   className,
 }: ContainerProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { margin: "-60px" });
+  const controls = useAnimation();
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (isInView) {
+      if (hasAnimated.current) {
+        controls.set("hidden");
+      }
+      controls.start("visible");
+      hasAnimated.current = true;
+    }
+  }, [isInView, controls]);
+
   return (
     <motion.div
+      ref={ref}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
+      animate={controls}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: staggerDelay } },

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from "react";
-import { motion, useAnimate } from "framer-motion";
+import { motion, useAnimate, useAnimation, useInView } from "framer-motion";
 
 interface Integration {
   name: string;
@@ -89,15 +89,28 @@ function Tile({
     onRegister(index, flip);
   }, [index, flip, onRegister]);
 
+  const tileRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(tileRef, { margin: "-60px" });
+  const tileControls = useAnimation();
+  const hasAppeared = useRef(false);
+
+  useEffect(() => {
+    if (isInView) {
+      if (hasAppeared.current) {
+        tileControls.set({ opacity: 0, scale: 0.95 });
+      }
+      tileControls.start({ opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut", delay: index * 0.04 } });
+      hasAppeared.current = true;
+    }
+  }, [isInView, tileControls, index]);
+
   return (
-    <div style={{ perspective: 800 }}>
+    <div style={{ perspective: 800 }} ref={tileRef}>
       <motion.div
         ref={scope}
         onClick={flip}
         initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.04 }}
+        animate={tileControls}
         whileHover={{ scale: 1.08 }}
         style={{
           background: current.color,

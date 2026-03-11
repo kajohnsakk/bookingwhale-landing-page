@@ -1,4 +1,5 @@
-import { motion, type Variants } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
 import type { ReactNode } from "react";
 
 interface Props {
@@ -8,26 +9,32 @@ interface Props {
   className?: string;
 }
 
-const variants = (delay: number, duration: number): Variants => ({
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration, delay, ease: "easeOut" },
-  },
-});
-
 export default function FadeIn({
   children,
   delay = 0,
   duration = 0.5,
   className,
 }: Props) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
+  const controls = useAnimation();
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (isInView) {
+      if (hasAnimated.current) {
+        controls.set({ opacity: 0 });
+      }
+      controls.start({ opacity: 1, transition: { duration, delay, ease: "easeOut" } });
+      hasAnimated.current = true;
+    }
+  }, [isInView, controls, delay, duration]);
+
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={variants(delay, duration)}
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={controls}
       className={className}
     >
       {children}

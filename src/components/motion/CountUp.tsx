@@ -25,13 +25,14 @@ export default function CountUp({
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(from);
   const rounded = useTransform(motionValue, (v) => Math.round(v));
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: false, margin: "-80px" });
 
   useEffect(() => {
     if (isInView) {
+      motionValue.set(from);
       animate(motionValue, to, { duration, ease: "easeOut" });
     }
-  }, [isInView, motionValue, to, duration]);
+  }, [isInView, motionValue, from, to, duration]);
 
   useEffect(() => {
     const unsubscribe = rounded.on("change", (v) => {
