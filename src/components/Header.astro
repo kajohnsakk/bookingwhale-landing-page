@@ -22,11 +22,11 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
             fetchpriority="high"
           />
         </a>
-        <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+        <div class="hidden lg:flex items-center space-x-8">
           <a
             href="#services"
             data-translate="ourServices"
-            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-sm lg:text-[15px]"
+            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="เรียนรู้เหตุผลที่ต้องเลือก BookingWhale สำหรับธุรกิจของคุณ"
           >
             ทำไมต้อง Booking Whale
@@ -34,7 +34,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
           <a
             href="#features"
             data-translate="whyChoose"
-            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-sm lg:text-[15px]"
+            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="ดูฟีเจอร์ครบครันของ BookingWhale ที่จะช่วยเพิ่มประสิทธิภาพธุรกิจ"
           >
             ฟีเจอร์ของเรา
@@ -42,7 +42,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
           <a
             href="#integrations"
             data-translate="integrations"
-            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-sm lg:text-[15px]"
+            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="เชื่อมต่อทุกเครื่องมือที่ธุรกิจต้องการในที่เดียว"
           >
             ระบบที่เชื่อมต่อ
@@ -50,7 +50,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
           <a
             href="#faq"
             data-translate="faq"
-            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-sm lg:text-[15px]"
+            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="คำตอบสำหรับคำถามที่พบบ่อยเกี่ยวกับ BookingWhale"
           >
             คำถามที่พบบ่อย
@@ -58,7 +58,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
           <a
             href="#blog"
             data-translate="blog"
-            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-sm lg:text-[15px]"
+            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="อ่านบทความและเคล็ดลับการเพิ่มประสิทธิภาพธุรกิจ"
           >
             บทความ
@@ -66,7 +66,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
           <a
             href="#contact"
             data-translate="contact"
-            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-sm lg:text-[15px]"
+            class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="ติดต่อทีมงาน BookingWhale สำหรับความช่วยเหลือ"
           >
             ติดต่อ
@@ -74,14 +74,8 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
         </div>
       </div>
 
-      <div class="hidden md:flex items-center space-x-4">
+      <div class="hidden lg:flex items-center space-x-4">
         <LanguageSwitcher />
-        <a
-          href="tel:0805956458"
-          class="text-blue-600 font-bold text-sm lg:text-[15px] hover:text-blue-700 transition-colors"
-        >
-          080-595-6458
-        </a>
         <button
           onclick="openBookingModal()"
           data-translate="startBookingNow"
@@ -91,7 +85,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
         </button>
       </div>
 
-      <div class="md:hidden flex items-center space-x-3">
+      <div class="lg:hidden flex items-center space-x-3">
         <LanguageSwitcher />
         <button
           id="mobileMenuToggle"
@@ -107,7 +101,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
 
     <div
       id="mobileMenu"
-      class="md:hidden overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0"
+      class="lg:hidden overflow-hidden transition-all duration-300 ease-out max-h-0 opacity-0"
     >
       <div class="pt-4 pb-6 border-t border-gray-100 mt-4">
         <div class="flex flex-col space-y-1">
@@ -177,7 +171,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth >= 768 && isMobileMenuOpen) {
+    if (window.innerWidth >= 1024 && isMobileMenuOpen) {
       closeMobileMenu();
     }
   });
