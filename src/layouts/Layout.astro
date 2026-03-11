@@ -6,28 +6,29 @@ export interface Props {
   title: string;
   description?: string;
   keywords?: string;
+  lang?: "th" | "en";
 }
 
 const {
   title,
-  description = "BookingWhale - Advanced booking platform that simplifies service reservations for businesses and customers. Features automated booking, secure payments, business analytics, and 24/7 support. Free during beta.",
-  keywords = "booking platform, service booking, online booking system, appointment booking, business management, automated booking, secure payments, booking software, reservation system, digital booking, booking app, service scheduling",
+  description,
+  keywords,
+  lang = "th",
 } = Astro.props;
 
-// Language detection for proper hreflang and locale - Default to Thai
 const currentPath = Astro.url.pathname;
-const isEnglishContent = currentPath.includes('/en') || currentPath.includes('/english');
-const currentLang = isEnglishContent ? 'en' : 'th';
-const currentLocale = isEnglishContent ? 'en_US' : 'th_TH';
+const currentLang = lang;
+const currentLocale = lang === "en" ? "en_US" : "th_TH";
 
-// Language-specific SEO optimization - Default to Thai
-const localizedDescription = isEnglishContent
+const localizedDescription = lang === "en"
   ? "BookingWhale - Thailand's best LINE OA booking system for businesses. Smart queue management, automated reminders, reduced no-shows, and increased revenue. Free during beta."
   : "BookingWhale - ระบบจองออนไลน์ที่ดีที่สุดสำหรับธุรกิจไทย เชื่อมต่อ LINE OA, จัดการคิว, ลดการไม่มาตามนัด และเพิ่มรายได้ ใช้งานฟรีในช่วงเบต้า";
 
-const localizedKeywords = isEnglishContent
+const localizedKeywords = lang === "en"
   ? "LINE OA booking system, Thailand booking platform, online appointment booking, queue management system, booking software Thailand, no-show reduction, Thai business solutions, beauty salon booking, clinic booking system, restaurant reservation, booking system Bangkok, booking system Chiang Mai, booking system Phuket, booking system Pattaya, spa booking Thailand, dental clinic booking, Thai massage booking, hair salon booking, fitness booking Thailand"
   : "ระบบจองออนไลน์, จองผ่าน LINE OA, จัดการคิว, ระบบนัดหมาย, BookingWhale, จองออนไลน์ไทย, ลดการไม่มาตามนัด, ธุรกิจไทย, ระบบจองร้านเสริมสวย, ระบบจองคลินิก, ระบบจองร้านอาหาร, จองออนไลน์กรุงเทพ, จองออนไลน์เชียงใหม่, จองออนไลน์ภูเก็ต, จองออนไลน์พัทยา, ระบบจองสปา, ระบบจองทันตกรรม, ระบบจองนวดแผนไทย, จองออนไลน์ร้านตัดผม, ระบบจองฟิตเนส";
+
+const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || '/'}` : currentPath;
 ---
 
 <!doctype html>
@@ -96,7 +97,10 @@ const localizedKeywords = isEnglishContent
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="canonical" href={`https://bookingwhale.co${currentPath}`} />
+    <link rel="canonical" href={`https://bookingwhale.co${canonicalPath}`} />
+    <link rel="alternate" hreflang="th" href="https://bookingwhale.co/" />
+    <link rel="alternate" hreflang="en" href="https://bookingwhale.co/en" />
+    <link rel="alternate" hreflang="x-default" href="https://bookingwhale.co/" />
 
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

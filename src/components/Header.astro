@@ -1,6 +1,11 @@
 ---
 import LanguageSwitcher from "./LanguageSwitcher.astro";
 import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
+import { t } from "../i18n/utils";
+import type { Lang } from "../i18n/utils";
+
+interface Props { lang?: Lang; }
+const { lang = "th" } = Astro.props;
 ---
 
 <HeaderScrollEffect client:load />
@@ -29,7 +34,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
             class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="เรียนรู้เหตุผลที่ต้องเลือก BookingWhale สำหรับธุรกิจของคุณ"
           >
-            ทำไมต้อง Booking Whale
+            {t("ourServices", lang)}
           </a>
           <a
             href="#features"
@@ -37,7 +42,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
             class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="ดูฟีเจอร์ครบครันของ BookingWhale ที่จะช่วยเพิ่มประสิทธิภาพธุรกิจ"
           >
-            ฟีเจอร์ของเรา
+            {t("whyChoose", lang)}
           </a>
           <a
             href="#integrations"
@@ -45,7 +50,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
             class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="เชื่อมต่อทุกเครื่องมือที่ธุรกิจต้องการในที่เดียว"
           >
-            ระบบที่เชื่อมต่อ
+            {t("integrations", lang)}
           </a>
           <a
             href="#faq"
@@ -53,7 +58,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
             class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="คำตอบสำหรับคำถามที่พบบ่อยเกี่ยวกับ BookingWhale"
           >
-            คำถามที่พบบ่อย
+            {t("faq", lang)}
           </a>
           <a
             href="#blog"
@@ -61,7 +66,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
             class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="อ่านบทความและเคล็ดลับการเพิ่มประสิทธิภาพธุรกิจ"
           >
-            บทความ
+            {t("blog", lang)}
           </a>
           <a
             href="#contact"
@@ -69,7 +74,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
             class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="ติดต่อทีมงาน BookingWhale สำหรับความช่วยเหลือ"
           >
-            ติดต่อ
+            {t("contact", lang)}
           </a>
         </div>
       </div>
@@ -81,7 +86,7 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
           data-translate="startBookingNow"
           class="bg-blue-600 text-white text-sm px-6 py-1.5 rounded-full hover:bg-blue-700 transition-colors duration-150 font-bold"
         >
-          เริ่มใช้งาน
+          {t("startBookingNow", lang)}
         </button>
       </div>
 
@@ -107,19 +112,19 @@ import HeaderScrollEffect from "./motion/HeaderScrollEffect.tsx";
       <div class="pt-4 pb-6 border-t border-gray-100 mt-4">
         <div class="flex flex-col space-y-1">
           <a href="#services" data-translate="ourServices" class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50" onclick="closeMobileMenu()">
-            ทำไมต้อง Booking Whale
+            {t("ourServices", lang)}
           </a>
           <a href="#features" data-translate="whyChoose" class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50" onclick="closeMobileMenu()">
-            ฟีเจอร์ของเรา
+            {t("whyChoose", lang)}
           </a>
           <a href="#faq" data-translate="faq" class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50" onclick="closeMobileMenu()">
-            คำถามที่พบบ่อย
+            {t("faq", lang)}
           </a>
           <a href="#blog" data-translate="blog" class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50" onclick="closeMobileMenu()">
-            บทความ
+            {t("blog", lang)}
           </a>
           <a href="#contact" data-translate="contact" class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50" onclick="closeMobileMenu()">
-            ติดต่อ
+            {t("contact", lang)}
           </a>
         </div>
       </div>

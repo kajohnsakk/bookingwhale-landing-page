@@ -2,6 +2,11 @@
 import ScrollReveal from "./motion/ScrollReveal.tsx";
 import FadeIn from "./motion/FadeIn.tsx";
 import ScaleReveal from "./motion/ScaleReveal.tsx";
+import { t } from "../i18n/utils";
+import type { Lang } from "../i18n/utils";
+
+interface Props { lang?: Lang; }
+const { lang = "th" } = Astro.props;
 ---
 
 <section class="bg-white pt-24 pb-20 lg:pt-32 lg:pb-32">
@@ -9,7 +14,7 @@ import ScaleReveal from "./motion/ScaleReveal.tsx";
     <div class="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
       <div class="text-center lg:text-left">
         <FadeIn client:load>
-          <p class="text-[13px] sm:text-sm font-bold uppercase tracking-[0.25em] text-gray-900 mb-6" data-translate="heroEyebrow">LINE OA BOOKING PLATFORM</p>
+          <p class="text-[13px] sm:text-sm font-bold uppercase tracking-[0.25em] text-gray-900 mb-6" data-translate="heroEyebrow">{t("heroEyebrow", lang)}</p>
         </FadeIn>
 
         <ScrollReveal client:load delay={0.1}>
@@ -17,7 +22,7 @@ import ScaleReveal from "./motion/ScaleReveal.tsx";
             class="text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] font-black text-black tracking-[-0.03em] leading-[1.08]"
             itemProp="headline"
           >
-            <span data-translate="heroTitle">ระบบจองผ่าน</span><span class="text-blue-600 whitespace-nowrap"> LINE OA</span>
+            <span data-translate="heroTitle">{t("heroTitle", lang)}</span><span class="text-blue-600 whitespace-nowrap"> LINE OA</span>
           </h1>
         </ScrollReveal>
 
@@ -26,7 +31,7 @@ import ScaleReveal from "./motion/ScaleReveal.tsx";
             data-translate="heroSubtitle"
             class="text-lg sm:text-xl lg:text-[22px] text-gray-700 mt-6 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium"
           >
-            จองง่าย ขายไว เชื่อมต่อลูกค้าได้ทันที
+            {t("heroSubtitle", lang)}
           </p>
         </ScrollReveal>
 
@@ -35,7 +40,7 @@ import ScaleReveal from "./motion/ScaleReveal.tsx";
             data-translate="heroDescription"
             class="text-base sm:text-lg lg:text-xl text-gray-600 mt-4 leading-relaxed max-w-lg mx-auto lg:mx-0 font-normal"
           >
-            ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที
+            {t("heroDescription", lang)}
           </p>
         </ScrollReveal>
 
@@ -46,14 +51,14 @@ import ScaleReveal from "./motion/ScaleReveal.tsx";
               data-translate="startBookingNow"
               class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-3.5 sm:px-12 sm:py-4 lg:px-14 lg:py-[18px] rounded-full font-bold text-base sm:text-lg transition-colors duration-200 w-full sm:w-auto min-w-[200px] sm:min-w-[220px]"
             >
-              เริ่มใช้ฟรี
+              {t("startBookingNow", lang)}
             </button>
             <a
               href="#features"
               data-translate="learnMore"
               class="text-blue-600 px-10 py-3.5 sm:px-12 sm:py-4 lg:px-14 lg:py-[18px] rounded-full font-bold text-base sm:text-lg border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 text-center w-full sm:w-auto min-w-[200px] sm:min-w-[220px]"
             >
-              ดูฟีเจอร์ทั้งหมด
+              {t("learnMore", lang)}
             </a>
           </div>
         </ScrollReveal>

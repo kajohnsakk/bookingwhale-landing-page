@@ -1,45 +1,43 @@
 ---
 import ScrollReveal from "./motion/ScrollReveal.tsx";
 import SlideReveal from "./motion/SlideReveal.tsx";
+import { t } from "../i18n/utils";
+import type { Lang } from "../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "th" } = Astro.props;
 
 const features = [
   {
     eyebrow: "BOOKING",
-    title: "จองออนไลน์ได้ทันที",
-    description:
-      "จองง่ายผ่าน LINE OA, เว็บไซต์ หรือ QR Code พร้อมปุ่ม Rich Menu ใน LINE ที่เข้าสู่ระบบจองได้ทันที",
+    index: 1,
     image: "/features/online-booking.webp",
     alt: "Online booking system interface showing LINE OA integration with QR code and Rich Menu for instant customer booking",
   },
   {
     eyebrow: "SCHEDULING",
-    title: "จัดการคิวอัจฉริยะ",
-    description:
-      "ไม่ว่าจะเยอะแค่ไหน ระบบช่วยจัดตารางคิวให้อัตโนมัติ ป้องกันการนัดคิวซ้อนหรือตกหล่น จัดการครบ มั่นใจทุกการนัดหมาย",
+    index: 2,
     image: "/features/queue-scheduling.webp",
     alt: "Smart queue management dashboard showing automated scheduling system that prevents double bookings and manages appointments efficiently",
   },
   {
     eyebrow: "NOTIFICATIONS",
-    title: "แจ้งเตือนทุกนัด กระตุ้นการจองซ้ำ",
-    description:
-      "แจ้งเตือนล่วงหน้าผ่าน LINE ลด No-Show พร้อมกติกาการยกเลิก และข้อความชวนจองซ้ำอัตโนมัติหลังใช้บริการ เพื่อการใช้บริการที่ต่อเนื่อง",
+    index: 3,
     image: "/features/booking-reminders.webp",
     alt: "LINE notification system showing appointment reminders, no-show prevention, and automated rebooking messages for customer retention",
   },
   {
     eyebrow: "DATA",
-    title: "เก็บข้อมูลการจองครบถ้วน",
-    description:
-      "บันทึกข้อมูลทุกการจองพร้อมประวัติย้อนหลัง เพื่อนำไปวิเคราะห์ต่อยอดเพิ่มโอกาสการขาย พร้อมฟีเจอร์พิเศษ ลายเซ็นดิจิทัล เพื่อยืนยันการใช้บริการจริง",
+    index: 4,
     image: "/features/booking-secure-data.webp",
     alt: "Comprehensive booking data management system with customer history, analytics dashboard, and digital signature verification feature",
   },
   {
     eyebrow: "ANALYTICS",
-    title: "ติดตามผลธุรกิจแบบเรียลไทม์",
-    description:
-      "สรุปข้อมูลการจองแบบเรียลไทม์ ช่วยให้คุณมองเห็นภาพรวมของธุรกิจได้อย่างชัดเจน และวางแผนได้แม่นยำ",
+    index: 5,
     image: "/features/real-time-tracking.webp",
     alt: "Real-time business analytics dashboard showing booking statistics, revenue tracking, and business performance metrics for strategic planning",
   },
@@ -58,21 +56,21 @@ const features = [
           id="features-heading"
           class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em]"
         >
-          <span data-translate="whyChoose">ฟีเจอร์ของเรา</span>
+          <span data-translate="whyChoose">{t("whyChoose", lang)}</span>
         </h2>
         <p
           data-translate="featuresDescription"
           class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium"
         >
-          ระบบจองที่ครบครันด้วยฟีเจอร์ที่ออกแบบมาเพื่อตอบสนองความต้องการของธุรกิจสมัยใหม่
+          {t("featuresDescription", lang)}
         </p>
       </div>
     </ScrollReveal>
 
     <div class="space-y-12 lg:space-y-16">
       {
-        features.map((feature, index) => {
-          const isEven = index % 2 === 0;
+        features.map((feature) => {
+          const isEven = feature.index % 2 !== 0;
           const textDir = isEven ? "left" : "right";
           const imgDir = isEven ? "right" : "left";
           return (
@@ -84,16 +82,16 @@ const features = [
                   {feature.eyebrow}
                 </span>
                 <h3
-                  data-translate={`feature${index + 1}Title`}
+                  data-translate={`feature${feature.index}Title`}
                   class="text-xl sm:text-2xl lg:text-[1.75rem] font-black text-gray-900 mb-4"
                 >
-                  {feature.title}
+                  {t(`feature${feature.index}Title`, lang)}
                 </h3>
                 <p
-                  data-translate={`feature${index + 1}Desc`}
+                  data-translate={`feature${feature.index}Desc`}
                   class="text-gray-600 leading-relaxed text-xl"
                 >
-                  {feature.description}
+                  {t(`feature${feature.index}Desc`, lang)}
                 </p>
               </SlideReveal>
 
