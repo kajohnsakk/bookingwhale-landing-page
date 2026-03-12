@@ -1,4 +1,4 @@
-// Sitemap Generator Utility for BookingWhale
+// Sitemap Generator Utility for Booking Whale
 // This can be used to programmatically generate/update the sitemap
 
 export const siteConfig = {
@@ -170,7 +170,7 @@ export function generateSitemapXML() {
 export function generateRobotsTxt() {
   const { baseUrl } = siteConfig;
 
-  return `# BookingWhale - Robots.txt
+  return `# Booking Whale - Robots.txt
 # LINE OA booking system for Thai businesses
 # ${baseUrl}
 

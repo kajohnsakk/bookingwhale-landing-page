@@ -557,7 +557,7 @@ Every minute your customers spend waiting unnecessarily is a minute of opportuni
 
 ## Ready to Eliminate Customer Wait Times?
 
-**BookingWhale Smart Queue Management** transforms waiting from frustration to satisfaction:
+**Booking Whale Smart Queue Management** transforms waiting from frustration to satisfaction:
 
 ✅ **70% Wait Time Reduction** - Proven results across industries
 ✅ **AI-Powered Optimization** - Intelligent queue management

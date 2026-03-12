@@ -483,7 +483,7 @@ The future of service business bookings is here, and it fits in a simple QR code
 
 ## Ready to Eliminate Phone Booking Frustrations?
 
-**BookingWhale QR Code Solutions** deliver complete digital transformation:
+**Booking Whale QR Code Solutions** deliver complete digital transformation:
 
 ✅ **Instant QR Code Setup** - Generate and deploy codes in minutes
 ✅ **85% Faster Bookings** - Customer booking in under 3 minutes

@@ -463,7 +463,7 @@ The revolution has begun. The question isn't whether to join—it's whether you'
 
 ## Ready to Revolutionize Your Asian Business?
 
-**BookingWhale** specializes in LINE Official Account integration for Asian markets:
+**Booking Whale** specializes in LINE Official Account integration for Asian markets:
 
 ✅ **Native LINE OA Integration** - Seamless connection to Asia's favorite platform
 ✅ **Multi-Language Support** - Native communication in 15+ Asian languages

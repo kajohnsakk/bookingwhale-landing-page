@@ -517,7 +517,7 @@ The technology exists today to transform large event management from a stressful
 
 ## Ready to Master Large Event Management?
 
-**BookingWhale Event Management Platform** handles events of any size with enterprise-grade reliability:
+**Booking Whale Event Management Platform** handles events of any size with enterprise-grade reliability:
 
 ✅ **Unlimited Scalability** - From 100 to 10,000+ attendees on one platform
 ✅ **90% Faster Check-In** - QR code and mobile-first registration experience

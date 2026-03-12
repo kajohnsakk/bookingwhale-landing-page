@@ -529,7 +529,7 @@ The strategies exist today to dramatically reduce no-shows and transform your bu
 
 ## Ready to Eliminate No-Shows and Recover Lost Revenue?
 
-**BookingWhale No-Show Prevention Suite** delivers proven 80% reduction in no-shows:
+**Booking Whale No-Show Prevention Suite** delivers proven 80% reduction in no-shows:
 
 ✅ **Automated Multi-Touch Reminders** - Perfectly timed message sequences
 ✅ **Smart Confirmation Systems** - Two-way confirmation with behavioral triggers
