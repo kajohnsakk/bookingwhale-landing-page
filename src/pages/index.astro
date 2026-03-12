@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
+import BusinessesWeServe from '../components/BusinessesWeServe.astro';
 import Features from '../components/Features.astro';
 import Integrations from '../components/Integrations.astro';
 import FAQ from '../components/FAQ.astro';
@@ -25,12 +26,15 @@ import Footer from '../components/Footer.astro';
     <Services />
   </div>
   <div class="sticky-section" data-sticky="3">
-    <Features />
+    <BusinessesWeServe />
   </div>
   <div class="sticky-section" data-sticky="4">
-    <Integrations />
+    <Features />
   </div>
   <div class="sticky-section" data-sticky="5">
+    <Integrations />
+  </div>
+  <div class="sticky-section" data-sticky="6">
     <FAQ />
   </div>
   <div class="relative z-20">
@@ -161,7 +165,7 @@ import Footer from '../components/Footer.astro';
     .sticky-section[data-sticky="2"] { z-index: 12; }
     .sticky-section[data-sticky="3"] { z-index: 13; }
     .sticky-section[data-sticky="4"] { z-index: 14; }
-    .sticky-section[data-sticky="5"] { z-index: 15; overflow: visible; }
-    .sticky-section[data-sticky="6"] { z-index: 16; }
+    .sticky-section[data-sticky="5"] { z-index: 15; }
+    .sticky-section[data-sticky="6"] { z-index: 16; overflow: visible; }
   </style>
 </Layout>
