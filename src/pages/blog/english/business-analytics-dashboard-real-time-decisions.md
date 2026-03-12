@@ -531,7 +531,7 @@ The future belongs to businesses that can turn data into action instantly. The q
 
 ## Ready to Transform Your Business with Real-Time Analytics?
 
-**BookingWhale Business Intelligence Platform** delivers instant visibility and data-driven decision making:
+**Booking Whale Business Intelligence Platform** delivers instant visibility and data-driven decision making:
 
 ✅ **Real-Time Dashboards** - Live visibility into all business metrics
 ✅ **Predictive Analytics** - AI-powered forecasting and opportunity identification

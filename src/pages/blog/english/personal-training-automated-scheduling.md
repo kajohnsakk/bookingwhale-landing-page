@@ -472,7 +472,7 @@ The technology exists today to scale your personal training business beyond what
 
 ## Ready to Scale Your Personal Training Business?
 
-**BookingWhale for Personal Trainers** transforms individual trainers into scalable fitness businesses:
+**Booking Whale for Personal Trainers** transforms individual trainers into scalable fitness businesses:
 
 ✅ **Manage 100+ Clients** - Scale beyond traditional limitations
 ✅ **80% Time Savings** - Eliminate manual scheduling and admin work

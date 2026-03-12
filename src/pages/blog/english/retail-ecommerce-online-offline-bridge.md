@@ -509,7 +509,7 @@ The question isn't whether omnichannel retail will become standard—it's whethe
 
 ## Ready to Bridge Your Online and Offline Experiences?
 
-**BookingWhale Omnichannel Solution** unifies your entire customer experience:
+**Booking Whale Omnichannel Solution** unifies your entire customer experience:
 
 ✅ **Unified Customer Profiles** - Single view of customers across all touchpoints
 ✅ **Real-Time Inventory Sync** - Live inventory visibility across all channels

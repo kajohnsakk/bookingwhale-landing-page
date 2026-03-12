@@ -16,7 +16,7 @@ export const translations = {
 
     // Hero Section
     heroTitle: "Booking System via",
-    heroSubtitle: "Easy booking, fast sales, instant customer connection",
+    heroSubtitle: "Easy booking, instant customer connection",
     heroDescription:
       "Appointment booking system, queue management, customer database collection. Create your own booking system connected to LINE Official Account. Easy to use, ready to start immediately.",
     heroTagline: "",
@@ -89,6 +89,10 @@ export const translations = {
     rebookingTitle: "Build Customer Relationships, Increase Repeat Bookings",
     rebookingDesc:
       "After service completion, the system automatically sends LINE messages inviting customers to book their next appointment. Simplify decision-making and maintain continuous queue fulfillment.",
+    bookingLink: "Learn more",
+    scheduleLink: "Learn more",
+    noshowLink: "Learn more",
+    rebookingLink: "Learn more",
 
     // Feature translations
     feature1Title: "Instant Online Booking",
@@ -199,21 +203,21 @@ export const translations = {
     // FAQ Section
     faqTitle: "Frequently Asked Questions",
     faqDescription:
-      "Have questions about BookingWhale? We've compiled the most common questions here.",
+      "Have questions about Booking Whale? We've compiled the most common questions here.",
     stillHaveQuestions: "Still have questions?",
     contactUs: "Contact us anytime 24/7",
     callNow: "Call Now",
 
     // FAQ Items
-    "what-isQuestion": "What is BookingWhale?",
+    "what-isQuestion": "What is Booking Whale?",
     "what-isAnswer":
-      "BookingWhale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We're currently in beta development.",
+      "Booking Whale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We're currently in beta development.",
     "when-launchQuestion": "When will it be available?",
     "when-launchAnswer":
       "We're launching our beta version soon! Join our early access list to be among the first 1,000 users to try the platform.",
     costQuestion: "How much does it cost?",
     costAnswer:
-      "BookingWhale will be free during our beta period. Early adopters will get special pricing when we launch our full platform.",
+      "Booking Whale will be free during our beta period. Early adopters will get special pricing when we launch our full platform.",
     featuresQuestion: "What features will be included?",
     featuresAnswer:
       "Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools.",
@@ -226,14 +230,14 @@ export const translations = {
 
     // Team Section
     teamTitle: "Meet Our Team",
-    teamDescription: "Meet the experienced team behind BookingWhale",
+    teamDescription: "Meet the experienced team behind Booking Whale",
     founderBadge: "Founder",
     founderName: "Alex Thompson",
     founderTitle: "CEO & Founder",
     founderStory1:
       "After 8 years in the tech industry, I saw the same problems over and over - complex, time-consuming, and non-transparent service booking.",
     founderStory2:
-      "BookingWhale was born from the need to solve this problem for businesses and customers worldwide, with modern technology and user-centered design.",
+      "Booking Whale was born from the need to solve this problem for businesses and customers worldwide, with modern technology and user-centered design.",
     credential1: "8+ Years Tech Experience",
     credential2: "3 Successful Startups",
     credential3: "Stanford MBA",
@@ -250,7 +254,7 @@ export const translations = {
     // Newsletter Section
     newsletterTitle: "Join",
     newsletterDescription:
-      "Be the first to get updates and try BookingWhale before anyone else. Get Early Bird special pricing.",
+      "Be the first to get updates and try Booking Whale before anyone else. Get Early Bird special pricing.",
     emailPlaceholder: "your.email@example.com",
     joinWaitlist: "Join Waitlist",
     subscriptionSuccess: "Thank you! We'll be in touch soon.",
@@ -259,6 +263,25 @@ export const translations = {
     unsubscribeAnytime: "Unsubscribe anytime",
     earlyUsers: "1,000",
     earlyUsersText: "early users",
+
+    businessesTitle: "Businesses We Serve",
+    businessesDescription: "Booking Whale is designed for a wide range of service businesses",
+    bizFoodTitle: "Food & Beverage",
+    bizFoodDesc: "Restaurants, cafes, and bars with table or queue reservations",
+    bizFitnessTitle: "Fitness & Sports",
+    bizFitnessDesc: "Gyms, studios, courts, and personal training sessions",
+    bizBeautyTitle: "Beauty & Wellness",
+    bizBeautyDesc: "Salons, spas, clinics, and wellness centers",
+    bizEventTitle: "Event & Ticket",
+    bizEventDesc: "Concerts, workshops, and ticketed experiences",
+    bizRentalTitle: "Rental Business",
+    bizRentalDesc: "Equipment, vehicle, and space rental bookings",
+    bizEducationTitle: "Education & Tutoring",
+    bizEducationDesc: "Schools, tutors, and class scheduling",
+    bizGeneralTitle: "General Services",
+    bizGeneralDesc: "Any service-based business that takes appointments",
+    bizHospitalityTitle: "Hospitality & Travel",
+    bizHospitalityDesc: "Hotels, tours, and travel experience bookings",
   },
   th: {
     // Navigation
@@ -271,7 +294,7 @@ export const translations = {
 
     // Hero Section
     heroTitle: "ระบบจองผ่าน",
-    heroSubtitle: "จองง่าย ขายไว เชื่อมต่อลูกค้าได้ทันที",
+    heroSubtitle: "จองง่าย เชื่อมต่อลูกค้าได้ทันที",
     heroDescription:
       "ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที",
     heroTagline: "",
@@ -312,7 +335,7 @@ export const translations = {
     wideSelection: "บริการหลากหลาย",
     easyBooking: "จองง่าย",
     flexibleScheduling: "ยืดหยุ่นเรื่องเวลา",
-    notSureService: "เริ่มใช้ BookingWhale ฟรี",
+    notSureService: "เริ่มใช้ Booking Whale ฟรี",
     expertConsultants:
       "ทีมผู้เชี่ยวชาญของเราพร้อมช่วยเหลือคุณค้นหาโซลูชั่นที่เหมาะสมที่สุด",
     getFreeConsultation: "ปรึกษาฟรี",
@@ -343,6 +366,10 @@ export const translations = {
     rebookingTitle: "สร้างความสัมพันธ์กับลูกค้า เพิ่มการจองซ้ำ",
     rebookingDesc:
       "หลังการใช้บริการ ระบบจะส่งข้อความผ่าน LINE เพื่อชวนลูกค้าจองรอบถัดไปทันที ลดขั้นตอนการตัดสินใจ ช่วยให้คิวเต็มต่อเนื่อง",
+    bookingLink: "ดูเพิ่มเติม",
+    scheduleLink: "ดูเพิ่มเติม",
+    noshowLink: "ดูเพิ่มเติม",
+    rebookingLink: "ดูเพิ่มเติม",
 
     // Feature translations
     feature1Title: "จองออนไลน์ได้ทันที",
@@ -448,21 +475,21 @@ export const translations = {
     // FAQ Section
     faqTitle: "คำถามที่พบบ่อย",
     faqDescription:
-      "มีคำถามเกี่ยวกับ BookingWhale? เราได้รวบรวมคำถามที่พบบ่อยไว้ที่นี่",
+      "มีคำถามเกี่ยวกับ Booking Whale? เราได้รวบรวมคำถามที่พบบ่อยไว้ที่นี่",
     stillHaveQuestions: "ยังมีคำถามอื่นๆ?",
     contactUs: "ติดต่อเราได้ตลอด 24/7",
     callNow: "โทรเลย",
 
     // FAQ Items
-    "what-isQuestion": "BookingWhale คืออะไร?",
+    "what-isQuestion": "Booking Whale คืออะไร?",
     "what-isAnswer":
-      "BookingWhale คือแพลตฟอร์มการจองรุ่นใหม่ที่ออกแบบมาเพื่อทำให้การจองบริการง่ายขึ้นสำหรับธุรกิจและลูกค้า ขณะนี้เรากำลังพัฒนาเวอร์ชัน beta",
+      "Booking Whale คือแพลตฟอร์มการจองรุ่นใหม่ที่ออกแบบมาเพื่อทำให้การจองบริการง่ายขึ้นสำหรับธุรกิจและลูกค้า ขณะนี้เรากำลังพัฒนาเวอร์ชัน beta",
     "when-launchQuestion": "เมื่อไหร่จะใช้ได้?",
     "when-launchAnswer":
       "เรากำลังเปิดตัวเวอร์ชัน beta เร็วๆ นี้! เข้าร่วมรายชื่อ early access เพื่อเป็น 1,000 คนแรกที่ได้ทดลองใช้แพลตฟอร์ม",
     costQuestion: "ราคาเท่าไหร่?",
     costAnswer:
-      "BookingWhale จะฟรีในช่วง beta ผู้ใช้งานแรกจะได้ราคาพิเศษเมื่อเราเปิดตัวแพลตฟอร์มเต็มรูปแบบ",
+      "Booking Whale จะฟรีในช่วง beta ผู้ใช้งานแรกจะได้ราคาพิเศษเมื่อเราเปิดตัวแพลตฟอร์มเต็มรูปแบบ",
     featuresQuestion: "จะมีฟีเจอร์อะไรบ้าง?",
     featuresAnswer:
       "แพลตฟอร์มของเราจะรวมการจองอัตโนมัติ การชำระเงินปลอดภัย วิเคราะห์ธุรกิจ การสนับสนุน 24/7 และการเชื่อมต่อกับเครื่องมือที่มีอยู่",
@@ -475,14 +502,14 @@ export const translations = {
 
     // Team Section
     teamTitle: "ทีมผู้สร้าง",
-    teamDescription: "พบกับทีมที่มีประสบการณ์ที่อยู่เบื้องหลัง BookingWhale",
+    teamDescription: "พบกับทีมที่มีประสบการณ์ที่อยู่เบื้องหลัง Booking Whale",
     founderBadge: "ผู้ก่อตั้ง",
     founderName: "อเล็กซ์ ธอมป์สัน",
     founderTitle: "CEO & ผู้ก่อตั้ง",
     founderStory1:
       "หลังจากประสบการณ์ 8 ปีในอุตสาหกรรมเทคโนโลยี ผมเห็นปัญหาเดิมๆ ซ้ำแล้วซ้ำเล่า - การจองบริการที่ซับซ้อน เสียเวลา และไม่โปร่งใส",
     founderStory2:
-      "BookingWhale เกิดขึ้นจากความต้องการที่จะแก้ไขปัญหานี้ให้กับธุรกิจและลูกค้าทั่วโลก ด้วยเทคโนโลยีที่ทันสมัยและการออกแบบที่เน้นผู้ใช้เป็นหลัก",
+      "Booking Whale เกิดขึ้นจากความต้องการที่จะแก้ไขปัญหานี้ให้กับธุรกิจและลูกค้าทั่วโลก ด้วยเทคโนโลยีที่ทันสมัยและการออกแบบที่เน้นผู้ใช้เป็นหลัก",
     credential1: "ประสบการณ์เทค 8+ ปี",
     credential2: "สตาร์ทอัพสำเร็จ 3 แห่ง",
     credential3: "Stanford MBA",
@@ -499,7 +526,7 @@ export const translations = {
     // Newsletter Section
     newsletterTitle: "เข้าร่วม",
     newsletterDescription:
-      "เป็นคนแรกที่ได้รับข่าวสารและได้ทดลองใช้ BookingWhale ก่อนใคร รับ Early Bird ราคาพิเศษ",
+      "เป็นคนแรกที่ได้รับข่าวสารและได้ทดลองใช้ Booking Whale ก่อนใคร รับ Early Bird ราคาพิเศษ",
     emailPlaceholder: "your.email@example.com",
     joinWaitlist: "เข้าร่วมรายชื่อรอ",
     subscriptionSuccess: "ขอบคุณ! เราจะติดต่อกลับเร็วๆ นี้",
@@ -508,6 +535,25 @@ export const translations = {
     unsubscribeAnytime: "ยกเลิกได้ตลอดเวลา",
     earlyUsers: "1,000",
     earlyUsersText: "คนแรก",
+
+    businessesTitle: "ธุรกิจที่เราให้บริการ",
+    businessesDescription: "Booking Whale ออกแบบมาเพื่อธุรกิจบริการทุกประเภท",
+    bizFoodTitle: "ร้านอาหาร & เครื่องดื่ม",
+    bizFoodDesc: "ร้านอาหาร คาเฟ่ และบาร์ ที่ต้องการระบบจองโต๊ะหรือคิว",
+    bizFitnessTitle: "ฟิตเนส & กีฬา",
+    bizFitnessDesc: "ยิม สตูดิโอ สนามกีฬา และเทรนเนอร์ส่วนตัว",
+    bizBeautyTitle: "ความงาม & เวลเนส",
+    bizBeautyDesc: "ร้านทำผม สปา คลินิก และศูนย์สุขภาพ",
+    bizEventTitle: "อีเวนต์ & บัตรเข้างาน",
+    bizEventDesc: "คอนเสิร์ต เวิร์คช็อป และกิจกรรมที่ต้องใช้บัตร",
+    bizRentalTitle: "ธุรกิจให้เช่า",
+    bizRentalDesc: "เช่าอุปกรณ์ ยานพาหนะ และพื้นที่",
+    bizEducationTitle: "การศึกษา & การสอน",
+    bizEducationDesc: "โรงเรียน ติวเตอร์ และการจัดตารางเรียน",
+    bizGeneralTitle: "บริการทั่วไป",
+    bizGeneralDesc: "ธุรกิจบริการทุกประเภทที่รับนัดหมาย",
+    bizHospitalityTitle: "การท่องเที่ยว & ที่พัก",
+    bizHospitalityDesc: "โรงแรม ทัวร์ และประสบการณ์การท่องเที่ยว",
   },
 };
 

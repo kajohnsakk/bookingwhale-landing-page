@@ -1,0 +1,191 @@
+---
+import ScrollReveal from "./motion/ScrollReveal.tsx";
+import { t, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "th" } = Astro.props;
+
+const businesses = [
+  { id: "bizFood", video: "/bussineses-we-serve/food-beverage.mp4" },
+  { id: "bizFitness", video: "/bussineses-we-serve/fitness-sports.mp4" },
+  { id: "bizBeauty", video: "/bussineses-we-serve/beauty-wellness.mp4" },
+  { id: "bizEvent", video: "/bussineses-we-serve/event-ticket.mp4" },
+  { id: "bizRental", video: "/bussineses-we-serve/rental-business.mp4" },
+  { id: "bizEducation", video: "/bussineses-we-serve/education-tutoring.mp4" },
+  { id: "bizHospitality", video: "/bussineses-we-serve/hospitality-travel.mp4" },
+  { id: "bizGeneral", video: "/bussineses-we-serve/general-services.mp4" },
+];
+---
+
+<section
+  id="businesses"
+  class="section-padding bg-white"
+  aria-labelledby="businesses-heading"
+>
+  <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
+    <ScrollReveal client:visible>
+      <div class="mb-12 lg:mb-16 text-center lg:text-left">
+        <h2
+          id="businesses-heading"
+          class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em]"
+        >
+          <span data-translate="businessesTitle">{t("businessesTitle", lang)}</span>
+        </h2>
+        <p
+          data-translate="businessesDescription"
+          class="text-lg text-gray-600 mt-3 font-medium max-w-lg mx-auto lg:mx-0"
+        >
+          {t("businessesDescription", lang)}
+        </p>
+      </div>
+    </ScrollReveal>
+
+    <div class="flex flex-col lg:flex-row gap-6 lg:gap-16 items-stretch">
+      <div class="w-full lg:w-[42%] order-2 lg:order-1">
+        <div class="biz-cards flex flex-row lg:flex-col gap-3 sm:gap-4 lg:gap-5 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory pb-2 lg:pb-0 -mx-6 px-6 sm:-mx-10 sm:px-10 md:-mx-14 md:px-14 lg:mx-0 lg:px-0" data-videos={JSON.stringify(businesses.map(b => b.video))}>
+          {
+            businesses.map((biz, i) => (
+              <button
+                class:list={[
+                  "biz-card group text-left rounded-md p-4 lg:p-5 transition-all duration-300 relative overflow-hidden snap-start shrink-0 w-[75vw] sm:w-[50vw] lg:w-auto lg:shrink",
+                  i === 0
+                    ? "bg-gray-900 text-white"
+                    : "bg-white border border-gray-200 hover:border-gray-400",
+                ]}
+              >
+                <div class="flex items-center mb-1">
+                    <div class:list={["flex-shrink-0 transition-all duration-300 overflow-hidden", i === 0 ? "text-white w-5 mr-2 opacity-100" : "text-gray-400 w-0 mr-0 opacity-0 group-hover:w-5 group-hover:mr-2 group-hover:opacity-100"]}>
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </div>
+                    <h3
+                      data-translate={`${biz.id}Title`}
+                      class="text-sm lg:text-base font-bold"
+                    >
+                      {t(`${biz.id}Title`, lang)}
+                    </h3>
+                  </div>
+                  <p
+                    data-translate={`${biz.id}Desc`}
+                    class:list={[
+                      "text-sm leading-relaxed transition-colors duration-300",
+                      i === 0 ? "text-gray-300" : "text-gray-500",
+                    ]}
+                  >
+                    {t(`${biz.id}Desc`, lang)}
+                </p>
+                <div class:list={[
+                  "biz-progress absolute bottom-0 left-0 h-[3px] bg-white/40 transition-all",
+                  i === 0 ? "block" : "hidden",
+                ]} style="width: 0%;" />
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="w-full lg:w-[58%] order-1 lg:order-2 lg:sticky lg:top-24">
+        <div class="relative rounded-md overflow-hidden bg-black aspect-[3/4] lg:aspect-auto lg:h-full lg:min-h-0">
+          <video
+            class="biz-video absolute inset-0 w-full h-full object-cover"
+            muted
+            autoplay
+            playsinline
+            preload="auto"
+          >
+            <source src={businesses[0].video} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const container = document.querySelector('.biz-cards');
+    const cards = Array.from(document.querySelectorAll('.biz-card'));
+    const video = document.querySelector('.biz-video') as HTMLVideoElement;
+
+    if (!container || !video || cards.length === 0) return;
+
+    const videos: string[] = JSON.parse(container.getAttribute('data-videos') || '[]');
+    let activeIndex = 0;
+    let activeProgress: HTMLElement | null = cards[0]?.querySelector('.biz-progress');
+
+    const ACTIVE = {
+      card: ['bg-gray-900', 'text-white'],
+      icon: ['text-white', 'w-5', 'mr-2', 'opacity-100'],
+      desc: ['text-gray-300'],
+    };
+    const INACTIVE = {
+      card: ['bg-white', 'border', 'border-gray-200', 'hover:border-gray-400'],
+      icon: ['text-gray-400', 'w-0', 'mr-0', 'opacity-0', 'group-hover:w-5', 'group-hover:mr-2', 'group-hover:opacity-100'],
+      desc: ['text-gray-500'],
+    };
+
+    function toggle(el: Element | null | undefined, active: boolean, key: keyof typeof ACTIVE) {
+      if (!el) return;
+      const [add, remove] = active ? [ACTIVE[key], INACTIVE[key]] : [INACTIVE[key], ACTIVE[key]];
+      el.classList.remove(...remove);
+      el.classList.add(...add);
+    }
+
+    function setActive(index: number) {
+      activeIndex = index;
+
+      cards.forEach((card, i) => {
+        const isActive = i === index;
+        const progress = card.querySelector('.biz-progress') as HTMLElement;
+
+        toggle(card, isActive, 'card');
+        toggle(card.querySelector('svg')?.parentElement, isActive, 'icon');
+        toggle(card.querySelector('p'), isActive, 'desc');
+
+        if (progress) {
+          progress.classList.toggle('hidden', !isActive);
+          progress.style.width = '0%';
+        }
+      });
+
+      activeProgress = cards[index]?.querySelector('.biz-progress');
+
+      if (window.innerWidth < 1024) {
+        cards[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+
+      video.src = videos[index];
+      video.load();
+      video.play().catch(() => {});
+    }
+
+    video.addEventListener('timeupdate', () => {
+      if (!activeProgress || !video.duration) return;
+      activeProgress.style.width = `${(video.currentTime / video.duration) * 100}%`;
+    });
+
+    video.addEventListener('ended', () => {
+      setActive((activeIndex + 1) % videos.length);
+    });
+
+    cards.forEach((card, i) => {
+      card.addEventListener('click', () => {
+        if (i !== activeIndex) setActive(i);
+      });
+    });
+  })();
+</script>
+
+<style>
+  .biz-cards {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .biz-cards::-webkit-scrollbar {
+    display: none;
+  }
+</style>

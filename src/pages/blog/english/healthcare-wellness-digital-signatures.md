@@ -452,7 +452,7 @@ The technology exists today to eliminate the administrative burden that has long
 
 ## Ready to Transform Your Healthcare Operations?
 
-**BookingWhale Healthcare Digital Signatures** deliver HIPAA-compliant transformation:
+**Booking Whale Healthcare Digital Signatures** deliver HIPAA-compliant transformation:
 
 ✅ **HIPAA-Compliant Security** - Bank-level encryption with healthcare-specific protections
 ✅ **EHR Integration** - Seamless integration with Epic, Cerner, Allscripts, and more

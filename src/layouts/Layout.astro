@@ -21,12 +21,12 @@ const currentLang = lang;
 const currentLocale = lang === "en" ? "en_US" : "th_TH";
 
 const localizedDescription = lang === "en"
-  ? "BookingWhale - Thailand's best LINE OA booking system for businesses. Smart queue management, automated reminders, reduced no-shows, and increased revenue. Free during beta."
-  : "BookingWhale - ระบบจองออนไลน์ที่ดีที่สุดสำหรับธุรกิจไทย เชื่อมต่อ LINE OA, จัดการคิว, ลดการไม่มาตามนัด และเพิ่มรายได้ ใช้งานฟรีในช่วงเบต้า";
+  ? "Booking Whale - Thailand's best LINE OA booking system for businesses. Smart queue management, automated reminders, reduced no-shows, and increased revenue. Free during beta."
+  : "Booking Whale - ระบบจองออนไลน์ที่ดีที่สุดสำหรับธุรกิจไทย เชื่อมต่อ LINE OA, จัดการคิว, ลดการไม่มาตามนัด และเพิ่มรายได้ ใช้งานฟรีในช่วงเบต้า";
 
 const localizedKeywords = lang === "en"
   ? "LINE OA booking system, Thailand booking platform, online appointment booking, queue management system, booking software Thailand, no-show reduction, Thai business solutions, beauty salon booking, clinic booking system, restaurant reservation, booking system Bangkok, booking system Chiang Mai, booking system Phuket, booking system Pattaya, spa booking Thailand, dental clinic booking, Thai massage booking, hair salon booking, fitness booking Thailand"
-  : "ระบบจองออนไลน์, จองผ่าน LINE OA, จัดการคิว, ระบบนัดหมาย, BookingWhale, จองออนไลน์ไทย, ลดการไม่มาตามนัด, ธุรกิจไทย, ระบบจองร้านเสริมสวย, ระบบจองคลินิก, ระบบจองร้านอาหาร, จองออนไลน์กรุงเทพ, จองออนไลน์เชียงใหม่, จองออนไลน์ภูเก็ต, จองออนไลน์พัทยา, ระบบจองสปา, ระบบจองทันตกรรม, ระบบจองนวดแผนไทย, จองออนไลน์ร้านตัดผม, ระบบจองฟิตเนส";
+  : "ระบบจองออนไลน์, จองผ่าน LINE OA, จัดการคิว, ระบบนัดหมาย, Booking Whale, จองออนไลน์ไทย, ลดการไม่มาตามนัด, ธุรกิจไทย, ระบบจองร้านเสริมสวย, ระบบจองคลินิก, ระบบจองร้านอาหาร, จองออนไลน์กรุงเทพ, จองออนไลน์เชียงใหม่, จองออนไลน์ภูเก็ต, จองออนไลน์พัทยา, ระบบจองสปา, ระบบจองทันตกรรม, ระบบจองนวดแผนไทย, จองออนไลน์ร้านตัดผม, ระบบจองฟิตเนส";
 
 const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || '/'}` : currentPath;
 ---
@@ -63,13 +63,13 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
     <meta name="description" content={description || localizedDescription} />
     <meta name="keywords" content={keywords || localizedKeywords} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="BookingWhale" />
+    <meta name="author" content="Booking Whale" />
     <RobotsMeta />
     <meta name="theme-color" content="#2563eb" />
     <meta name="msapplication-TileColor" content="#2563eb" />
-    <meta name="application-name" content="BookingWhale" />
-    <meta name="apple-mobile-web-app-title" content="BookingWhale" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Booking Whale" />
+    <meta name="apple-mobile-web-app-title" content="Booking Whale" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
     <!-- Open Graph -->
@@ -80,7 +80,7 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
     <meta property="og:image" content="https://bookingwhale.co/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="BookingWhale" />
+    <meta property="og:site_name" content="Booking Whale" />
     <meta property="og:locale" content={currentLocale} />
 
     <!-- Twitter Card -->
@@ -135,8 +135,8 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "BookingWhale",
-        "alternateName": "BookingWhale Platform",
+        "name": "Booking Whale",
+        "alternateName": "Booking Whale Platform",
         "description": "Advanced booking platform that simplifies service reservations for businesses and customers with automated booking, secure payments, and business analytics.",
         "url": "https://bookingwhale.co",
         "applicationCategory": "BusinessApplication",
@@ -148,12 +148,12 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
         "dateModified": "2026-03-11",
         "author": {
           "@type": "Organization",
-          "name": "BookingWhale",
+          "name": "Booking Whale",
           "url": "https://bookingwhale.co"
         },
         "publisher": {
           "@type": "Organization",
-          "name": "BookingWhale",
+          "name": "Booking Whale",
           "url": "https://bookingwhale.co"
         },
         "offers": {
@@ -194,8 +194,8 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "BookingWhale",
-        "alternateName": "BookingWhale - ระบบจองออนไลน์",
+        "name": "Booking Whale",
+        "alternateName": "Booking Whale - ระบบจองออนไลน์",
         "url": "https://bookingwhale.co",
         "logo": "https://bookingwhale.co/logo.webp",
         "description": "ระบบจองออนไลน์ผ่าน LINE OA สำหรับธุรกิจไทย - จัดการคิว ลดการไม่มาตามนัด เพิ่มรายได้",
@@ -262,7 +262,7 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "BookingWhale Services",
+          "name": "Booking Whale Services",
           "itemListElement": [
             {
               "@type": "Offer",
@@ -299,8 +299,8 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "BookingWhale",
-        "alternateName": "BookingWhale Platform",
+        "name": "Booking Whale",
+        "alternateName": "Booking Whale Platform",
         "url": "https://bookingwhale.co",
         "logo": "https://bookingwhale.co/logo.webp",
         "description": "Leading provider of booking platform solutions for businesses worldwide",
@@ -335,12 +335,12 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "BookingWhale",
+        "name": "Booking Whale",
         "url": "https://bookingwhale.co",
         "description": "Advanced booking platform for businesses and customers",
         "publisher": {
           "@type": "Organization",
-          "name": "BookingWhale"
+          "name": "Booking Whale"
         },
         "potentialAction": {
           "@type": "SearchAction",
@@ -351,7 +351,7 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
         "copyrightYear": "2025",
         "copyrightHolder": {
           "@type": "Organization",
-          "name": "BookingWhale"
+          "name": "Booking Whale"
         }
       }
     </script>
