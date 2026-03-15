@@ -15,6 +15,7 @@ export const translations = {
     bookNow: "Book Now",
 
     // Hero Section
+    heroEyebrow: "LINE OA BOOKING PLATFORM",
     heroTitle: "Booking System via",
     heroSubtitle: "Easy booking, instant customer connection",
     heroDescription:
@@ -161,9 +162,8 @@ export const translations = {
     startFreeToday: "Start Free Today",
 
     // Booking Modal
-    chooseService: "Choose Your Service",
-    modalDescription:
-      "Start your seamless booking experience in just a few clicks",
+    chooseService: "Choose Your Business",
+    modalDescription: "Select your business type to get started",
     personalTrainingModal: "Personal Training",
     personalTrainingModalDesc:
       "Professional fitness coaching and personalized workout programs",
@@ -264,6 +264,15 @@ export const translations = {
     earlyUsers: "1,000",
     earlyUsersText: "early users",
 
+    heroNotif1Title: "New Booking!",
+    heroNotif1Subtitle: "Thanaporn booked at 14:00",
+    heroNotif2Title: "Booking Confirmed",
+    heroNotif2Subtitle: "Wipa — Tomorrow 10:30",
+    heroNotif3Title: "+24 New Customers",
+    heroNotif3Subtitle: "This month",
+    heroNotif4Title: "Auto Reminder Sent",
+    heroNotif4Subtitle: "Sent to 3 customers",
+
     businessesTitle: "Businesses We Serve",
     businessesDescription: "Booking Whale is designed for a wide range of service businesses",
     bizFoodTitle: "Food & Beverage",
@@ -282,6 +291,8 @@ export const translations = {
     bizGeneralDesc: "Any service-based business that takes appointments",
     bizHospitalityTitle: "Hospitality & Travel",
     bizHospitalityDesc: "Hotels, tours, and travel experience bookings",
+    bizOtherTitle: "Others",
+    bizOtherDesc: "Other business types not listed above",
   },
   th: {
     // Navigation
@@ -293,6 +304,7 @@ export const translations = {
     bookNow: "จองเลย",
 
     // Hero Section
+    heroEyebrow: "LINE OA BOOKING PLATFORM",
     heroTitle: "ระบบจองผ่าน",
     heroSubtitle: "จองง่าย เชื่อมต่อลูกค้าได้ทันที",
     heroDescription:
@@ -438,8 +450,8 @@ export const translations = {
     startFreeToday: "เริ่มฟรีวันนี้",
 
     // Booking Modal
-    chooseService: "เลือกบริการของคุณ",
-    modalDescription: "เริ่มการจองที่ราบรื่นในไม่กี่คลิก",
+    chooseService: "เลือกธุรกิจของคุณ",
+    modalDescription: "เลือกประเภทธุรกิจของคุณเพื่อเริ่มต้น",
     personalTrainingModal: "เทรนเนอร์ส่วนตัว",
     personalTrainingModalDesc:
       "โค้ชฟิตเนสมืออาชีพและโปรแกรมออกกำลังกายเฉพาะบุคคล",
@@ -536,6 +548,15 @@ export const translations = {
     earlyUsers: "1,000",
     earlyUsersText: "คนแรก",
 
+    heroNotif1Title: "การจองใหม่!",
+    heroNotif1Subtitle: "คุณธนพร จองคิว 14:00",
+    heroNotif2Title: "ยืนยันการจองแล้ว",
+    heroNotif2Subtitle: "คุณวิภา — พรุ่งนี้ 10:30",
+    heroNotif3Title: "+24 ลูกค้าใหม่",
+    heroNotif3Subtitle: "เดือนนี้",
+    heroNotif4Title: "แจ้งเตือนอัตโนมัติ",
+    heroNotif4Subtitle: "ส่งถึงลูกค้าแล้ว 3 คน",
+
     businessesTitle: "ธุรกิจที่เราให้บริการ",
     businessesDescription: "Booking Whale ออกแบบมาเพื่อธุรกิจบริการทุกประเภท",
     bizFoodTitle: "ร้านอาหาร & เครื่องดื่ม",
@@ -554,6 +575,8 @@ export const translations = {
     bizGeneralDesc: "ธุรกิจบริการทุกประเภทที่รับนัดหมาย",
     bizHospitalityTitle: "การท่องเที่ยว & ที่พัก",
     bizHospitalityDesc: "โรงแรม ทัวร์ และประสบการณ์การท่องเที่ยว",
+    bizOtherTitle: "อื่นๆ",
+    bizOtherDesc: "ธุรกิจประเภทอื่นที่ไม่อยู่ในรายการ",
   },
 };
 

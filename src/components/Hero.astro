@@ -2,6 +2,7 @@
 import ScrollReveal from "./motion/ScrollReveal.tsx";
 import FadeIn from "./motion/FadeIn.tsx";
 import ScaleReveal from "./motion/ScaleReveal.tsx";
+import HeroNotifications from "./motion/HeroNotifications.tsx";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
 
@@ -11,8 +12,8 @@ const { lang = "th" } = Astro.props;
 
 <section class="bg-white pt-24 pb-20 lg:pt-32 lg:pb-32">
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
-    <div class="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
-      <div class="text-center lg:text-left">
+    <div class="grid md:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
+      <div class="text-center md:text-left">
         <FadeIn client:load>
           <p class="text-[13px] sm:text-sm font-black uppercase tracking-[0.25em] text-gray-900 mb-6" data-translate="heroEyebrow">{t("heroEyebrow", lang)}</p>
         </FadeIn>
@@ -20,7 +21,7 @@ const { lang = "th" } = Astro.props;
         <ScrollReveal client:load delay={0.1}>
           <h1
             class="text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] font-black text-black tracking-[-0.03em] leading-[1.08]"
-            itemProp="headline"
+            itemprop="headline"
           >
             <span data-translate="heroTitle">{t("heroTitle", lang)}</span><span class="whitespace-nowrap" style="color: #2dab18"> LINE OA</span>
           </h1>
@@ -29,7 +30,7 @@ const { lang = "th" } = Astro.props;
         <ScrollReveal client:load delay={0.2}>
           <p
             data-translate="heroSubtitle"
-            class="text-lg sm:text-xl lg:text-[22px] text-gray-700 mt-6 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium"
+            class="text-lg sm:text-xl lg:text-[22px] text-gray-700 mt-6 leading-relaxed max-w-lg mx-auto md:mx-0 font-medium"
           >
             {t("heroSubtitle", lang)}
           </p>
@@ -38,25 +39,25 @@ const { lang = "th" } = Astro.props;
         <ScrollReveal client:load delay={0.25}>
           <p
             data-translate="heroDescription"
-            class="text-base sm:text-lg lg:text-xl text-gray-600 mt-4 leading-relaxed max-w-lg mx-auto lg:mx-0 font-normal"
+            class="text-base sm:text-lg lg:text-xl text-gray-600 mt-4 leading-relaxed max-w-lg mx-auto md:mx-0 font-normal"
           >
             {t("heroDescription", lang)}
           </p>
         </ScrollReveal>
 
         <ScrollReveal client:load delay={0.3}>
-          <div class="flex flex-col sm:flex-row gap-4 items-center sm:justify-center lg:justify-start mt-10 max-w-sm mx-auto sm:max-w-none lg:mx-0">
+          <div class="flex flex-col sm:flex-row gap-4 items-center sm:justify-center md:justify-start mt-10 max-w-sm mx-auto sm:max-w-none md:mx-0">
             <button
               onclick="openBookingModal()"
               data-translate="startBookingNow"
-              class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-3.5 sm:px-12 sm:py-4 lg:px-14 lg:py-[18px] rounded-full font-bold text-base sm:text-lg transition-colors duration-200 w-full sm:w-auto min-w-[200px] sm:min-w-[220px]"
+              class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 sm:px-10 sm:py-3.5 lg:px-14 lg:py-[18px] rounded-full font-bold text-sm sm:text-base lg:text-lg transition-colors duration-200 w-full sm:w-auto whitespace-nowrap"
             >
               {t("startBookingNow", lang)}
             </button>
             <a
               href="#features"
               data-translate="learnMore"
-              class="text-blue-600 px-10 py-3.5 sm:px-12 sm:py-4 lg:px-14 lg:py-[18px] rounded-full font-bold text-base sm:text-lg border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 text-center w-full sm:w-auto min-w-[200px] sm:min-w-[220px]"
+              class="text-blue-600 px-8 py-3 sm:px-10 sm:py-3.5 lg:px-14 lg:py-[18px] rounded-full font-bold text-sm sm:text-base lg:text-lg border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 text-center w-full sm:w-auto whitespace-nowrap"
             >
               {t("learnMore", lang)}
             </a>
@@ -65,17 +66,19 @@ const { lang = "th" } = Astro.props;
       </div>
 
       <ScaleReveal client:load delay={0.15}>
-        <div class="flex justify-center lg:justify-end">
-          <img
-            src="/features/online-booking.webp"
-            alt="Booking Whale dashboard - LINE OA booking management system for Thai businesses"
-            class="rounded-2xl w-full max-w-xl"
-            width="700"
-            height="525"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
+        <div class="relative flex justify-center md:justify-end w-full">
+          <HeroNotifications client:load lang={lang} />
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto"
+            class="w-full max-w-sm sm:max-w-md md:max-w-none md:w-full"
+          >
+            <source src="/hero/product-hero.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </ScaleReveal>
     </div>
