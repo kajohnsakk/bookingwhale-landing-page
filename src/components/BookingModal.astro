@@ -4,131 +4,151 @@ import type { Lang } from "../i18n/utils";
 
 interface Props { lang?: Lang; }
 const { lang = "th" } = Astro.props;
+
+const businesses = [
+  { key: "food", icon: `<path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>` },
+  { key: "fitness", icon: `<path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/>` },
+  { key: "beauty", icon: `<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>` },
+  { key: "event", icon: `<path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>` },
+  { key: "rental", icon: `<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>` },
+  { key: "education", icon: `<path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>` },
+  { key: "general", icon: `<path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>` },
+  { key: "hospitality", icon: `<path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/>` },
+  { key: "other", icon: `<circle cx="12" cy="12" r="1.5"/><circle cx="6" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/>` },
+];
 ---
 
-<div id="bookingModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50 items-center justify-center p-4">
-  <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 shadow-xl border border-gray-200" id="modalContent">
-    <div class="p-8 border-b border-gray-100">
+<div id="bookingModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden z-50 items-center justify-center p-4">
+  <div class="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 shadow-2xl" id="modalContent">
+
+    <div class="px-7 pt-7 pb-3">
       <div class="flex items-center justify-between">
-        <div>
-          <h2 data-translate="chooseService" class="text-2xl font-semibold text-gray-900 mb-1">{t("chooseService", lang)}</h2>
-          <p data-translate="modalDescription" class="text-sm text-gray-500">{t("modalDescription", lang)}</p>
-        </div>
+        <h2 id="modalTitle" data-translate="chooseService" class="text-lg font-bold text-gray-900">{t("chooseService", lang)}</h2>
         <button
           onclick="closeBookingModal()"
-          class="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded-lg transition-all duration-200"
+          class="w-7 h-7 flex items-center justify-center text-gray-300 hover:text-gray-500 rounded-full hover:bg-gray-50 transition-all duration-150"
           aria-label="Close modal"
         >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
+      <p id="modalDesc" data-translate="modalDescription" class="text-[13px] text-gray-400 mt-1">{t("modalDescription", lang)}</p>
+
+      <div class="flex items-center justify-center gap-2 mt-4">
+        <div id="dot1" class="w-6 h-1 rounded-full bg-blue-600 transition-all duration-300"></div>
+        <div id="dot2" class="w-6 h-1 rounded-full bg-gray-200 transition-all duration-300"></div>
+      </div>
     </div>
 
-    <div class="p-6 space-y-3">
-      <button
-        onclick="selectService('trainer')"
-        class="w-full p-5 text-left border border-gray-200 rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 group flex items-center space-x-4"
-      >
-        <div class="w-12 h-12 bg-gray-100 text-gray-900 rounded-xl flex items-center justify-center flex-shrink-0">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm8 7h-2v7c0 1.1-.9 2-2 2h-1v-6c0-1.66-1.34-3-3-3s-3 1.34-3 3v6H8c-1.1 0-2-.9-2-2V9H4c-.55 0-1-.45-1-1s.45-1 1-1h16c.55 0 1 .45 1 1s-.45 1-1 1z"/>
-          </svg>
-        </div>
-        <div class="flex-1 min-w-0">
-          <h3 data-translate="personalTrainingModal" class="text-base font-semibold text-gray-900 mb-0.5">{t("personalTrainingModal", lang)}</h3>
-          <p data-translate="personalTrainingModalDesc" class="text-sm text-gray-500">{t("personalTrainingModalDesc", lang)}</p>
-        </div>
-        <svg class="w-5 h-5 text-gray-300 group-hover:text-gray-500 flex-shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-      </button>
-
-      <button
-        onclick="selectService('retail')"
-        class="w-full p-5 text-left border border-gray-200 rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 group flex items-center space-x-4"
-      >
-        <div class="w-12 h-12 bg-gray-100 text-gray-900 rounded-xl flex items-center justify-center flex-shrink-0">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-        </div>
-        <div class="flex-1 min-w-0">
-          <h3 data-translate="retailServicesModal" class="text-base font-semibold text-gray-900 mb-0.5">{t("retailServicesModal", lang)}</h3>
-          <p data-translate="retailServicesModalDesc" class="text-sm text-gray-500">{t("retailServicesModalDesc", lang)}</p>
-        </div>
-        <svg class="w-5 h-5 text-gray-300 group-hover:text-gray-500 flex-shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-      </button>
-
-      <button
-        onclick="selectService('ticket')"
-        class="w-full p-5 text-left border border-gray-200 rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 group flex items-center space-x-4"
-      >
-        <div class="w-12 h-12 bg-gray-100 text-gray-900 rounded-xl flex items-center justify-center flex-shrink-0">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M22 10v8c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-8c.83 0 1.5-.67 1.5-1.5S2.83 7 2 7V6c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v1c-.83 0-1.5.67-1.5 1.5S21.17 10 22 10z"/>
-          </svg>
-        </div>
-        <div class="flex-1 min-w-0">
-          <h3 data-translate="eventTicketsModal" class="text-base font-semibold text-gray-900 mb-0.5">{t("eventTicketsModal", lang)}</h3>
-          <p data-translate="eventTicketsModalDesc" class="text-sm text-gray-500">{t("eventTicketsModalDesc", lang)}</p>
-        </div>
-        <svg class="w-5 h-5 text-gray-300 group-hover:text-gray-500 flex-shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-      </button>
-
-      <button
-        onclick="selectService('other')"
-        class="w-full p-5 text-left border border-gray-200 rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 group flex items-center space-x-4"
-      >
-        <div class="w-12 h-12 bg-gray-100 text-gray-900 rounded-xl flex items-center justify-center flex-shrink-0">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-          </svg>
-        </div>
-        <div class="flex-1 min-w-0">
-          <h3 data-translate="professionalServicesModal" class="text-base font-semibold text-gray-900 mb-0.5">{t("professionalServicesModal", lang)}</h3>
-          <p data-translate="professionalServicesModalDesc" class="text-sm text-gray-500">{t("professionalServicesModalDesc", lang)}</p>
-        </div>
-        <svg class="w-5 h-5 text-gray-300 group-hover:text-gray-500 flex-shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-      </button>
-    </div>
-
-    <div class="p-6 border-t border-gray-100">
-      <div class="text-center">
-        <p data-translate="expertConsultantsAvailable" class="text-sm text-gray-500 mb-3">{t("expertConsultantsAvailable", lang)}</p>
-        <a
-          href="tel:+1-800-BOOKING"
-          class="inline-flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium text-sm"
+    <div id="wizardStep1" class="px-5 pb-5 pt-3 grid grid-cols-2 gap-2">
+      {businesses.map((biz, i) => (
+        <button
+          onclick={`selectBusiness('${biz.key}')`}
+          class="biz-card group relative flex flex-col items-center text-center p-5 rounded-2xl hover:bg-gray-50/80 transition-all duration-150"
+          style={`animation-delay: ${i * 40}ms`}
         >
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
-          </svg>
-          <span data-translate="callBooking">{t("callBooking", lang)}</span>
-        </a>
+          <div class="w-10 h-10 flex items-center justify-center mb-3 text-gray-600 group-hover:text-blue-600 transition-colors duration-150">
+            <Fragment set:html={`<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">${biz.icon}</svg>`} />
+          </div>
+          <span data-translate={`biz${biz.key.charAt(0).toUpperCase() + biz.key.slice(1)}Title`} class="text-[12px] font-medium text-gray-500 group-hover:text-gray-900 transition-colors duration-150 leading-tight">{t(`biz${biz.key.charAt(0).toUpperCase() + biz.key.slice(1)}Title` as any, lang)}</span>
+        </button>
+      ))}
+    </div>
+
+    <div id="wizardStep2" class="hidden px-5 pb-5 pt-3">
+      <button onclick="goBackToStep1()" class="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors mb-4 px-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        <span id="backLabel"></span>
+      </button>
+      <div id="subCategoryList" class="space-y-1.5 overflow-y-auto max-h-[50vh] px-1"></div>
+    </div>
+
+    <div class="px-7 pb-6 pt-2">
+      <div class="h-px bg-gray-100 mb-4"></div>
+      <div class="flex items-center justify-center gap-1.5 text-[12px] text-gray-400">
+        <span data-translate="expertConsultantsAvailable">{t("expertConsultantsAvailable", lang)}</span>
+        <a href="tel:+66805956458" class="text-blue-600 hover:text-blue-700 font-medium transition-colors" data-translate="callBooking">{t("callBooking", lang)}</a>
       </div>
     </div>
   </div>
 </div>
 
 <script>
+  const subCategories = {
+    food: {
+      th: ['ร้านอาหาร', 'คาเฟ่', 'บาร์ & ผับ', 'เบเกอรี่'],
+      en: ['Restaurant', 'Cafe', 'Bar & Pub', 'Bakery']
+    },
+    fitness: {
+      th: ['ยิม & ฟิตเนส', 'สตูดิโอโยคะ', 'สนามกีฬา', 'เทรนเนอร์ส่วนตัว'],
+      en: ['Gym & Fitness', 'Yoga Studio', 'Sports Court', 'Personal Trainer']
+    },
+    beauty: {
+      th: ['ร้านทำผม', 'สปา & นวด', 'คลินิกความงาม', 'ร้านเล็บ'],
+      en: ['Hair Salon', 'Spa & Massage', 'Beauty Clinic', 'Nail Salon']
+    },
+    event: {
+      th: ['คอนเสิร์ต', 'เวิร์คช็อป', 'สัมมนา & อบรม', 'งานแสดง & นิทรรศการ'],
+      en: ['Concert', 'Workshop', 'Seminar & Training', 'Exhibition & Show']
+    },
+    rental: {
+      th: ['เช่ารถ', 'เช่าพื้นที่ & ห้องประชุม', 'เช่าอุปกรณ์', 'เช่าชุด & เครื่องแต่งกาย'],
+      en: ['Car Rental', 'Space & Meeting Room', 'Equipment Rental', 'Costume & Apparel']
+    },
+    education: {
+      th: ['ติวเตอร์', 'โรงเรียนสอนภาษา', 'คอร์สออนไลน์', 'ดนตรี & ศิลปะ'],
+      en: ['Tutor', 'Language School', 'Online Course', 'Music & Art']
+    },
+    general: {
+      th: ['ช่างซ่อม & บริการ', 'ทำความสะอาด', 'ช่างภาพ', 'ที่ปรึกษา'],
+      en: ['Repair & Services', 'Cleaning', 'Photography', 'Consulting']
+    },
+    hospitality: {
+      th: ['โรงแรม', 'รีสอร์ท', 'ทัวร์ & ทริป', 'แพ็คเกจท่องเที่ยว'],
+      en: ['Hotel', 'Resort', 'Tour & Trip', 'Travel Package']
+    },
+    other: null
+  };
+
+  const bizTitles = {
+    food: { th: 'ร้านอาหาร & เครื่องดื่ม', en: 'Food & Beverage' },
+    fitness: { th: 'ฟิตเนส & กีฬา', en: 'Fitness & Sports' },
+    beauty: { th: 'ความงาม & เวลเนส', en: 'Beauty & Wellness' },
+    event: { th: 'อีเวนต์ & บัตรเข้างาน', en: 'Event & Ticket' },
+    rental: { th: 'ธุรกิจให้เช่า', en: 'Rental Business' },
+    education: { th: 'การศึกษา & การสอน', en: 'Education & Tutoring' },
+    general: { th: 'บริการทั่วไป', en: 'General Services' },
+    hospitality: { th: 'การท่องเที่ยว & ที่พัก', en: 'Hospitality & Travel' },
+    other: { th: 'อื่นๆ', en: 'Others' }
+  };
+
+  function getLang() {
+    const path = window.location.pathname;
+    if (path.startsWith('/en')) return 'en';
+    return 'th';
+  }
+
   function openBookingModal() {
     const modal = document.getElementById('bookingModal');
     const content = document.getElementById('modalContent');
+    const cards = document.querySelectorAll('.biz-card');
+
+    showStep(1);
 
     if (modal && content) {
       modal.classList.remove('hidden');
       modal.classList.add('flex');
 
+      cards.forEach(card => card.classList.remove('biz-animate'));
+
       setTimeout(() => {
         content.classList.remove('scale-95', 'opacity-0');
         content.classList.add('scale-100', 'opacity-100');
+        cards.forEach(card => card.classList.add('biz-animate'));
       }, 10);
     }
   }
@@ -144,36 +164,152 @@ const { lang = "th" } = Astro.props;
       setTimeout(() => {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
-      }, 300);
+      }, 250);
     }
   }
 
-  function selectService(service) {
-    const serviceNames = {
-      'trainer': 'Personal Training',
-      'retail': 'Retail Services',
-      'ticket': 'Event Tickets',
-      'other': 'Professional Services'
-    };
+  function showStep(step) {
+    const step1 = document.getElementById('wizardStep1');
+    const step2 = document.getElementById('wizardStep2');
+    const dot1 = document.getElementById('dot1');
+    const dot2 = document.getElementById('dot2');
 
-    alert(`You selected: ${serviceNames[service]}\n\nRedirecting you to the booking page...`);
-    closeBookingModal();
+    if (step === 1) {
+      step1?.classList.remove('hidden');
+      step2?.classList.add('hidden');
+      dot1?.classList.replace('bg-gray-200', 'bg-blue-600');
+      dot2?.classList.replace('bg-blue-600', 'bg-gray-200');
+    } else {
+      step1?.classList.add('hidden');
+      step2?.classList.remove('hidden');
+      dot1?.classList.replace('bg-blue-600', 'bg-gray-200');
+      dot2?.classList.replace('bg-gray-200', 'bg-blue-600');
+    }
+  }
+
+  function selectBusiness(business) {
+    const lang = getLang();
+    const subs = subCategories[business];
+    const backLabel = document.getElementById('backLabel');
+    const subList = document.getElementById('subCategoryList');
+
+    if (backLabel) backLabel.textContent = bizTitles[business]?.[lang] || business;
+
+    if (!subs) {
+      const placeholder = lang === 'th' ? 'ระบุประเภทธุรกิจของคุณ...' : 'Describe your business type...';
+      const btnText = lang === 'th' ? 'ถัดไป' : 'Next';
+      if (subList) {
+        subList.innerHTML = `
+          <div class="px-2 sub-card opacity-0" style="animation-delay: 60ms">
+            <input id="otherInput" type="text" placeholder="${placeholder}" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all" />
+            <button onclick="submitOther()" class="w-full mt-3 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-colors">${btnText}</button>
+          </div>
+        `;
+      }
+      showStep(2);
+      setTimeout(() => {
+        document.querySelectorAll('.sub-card').forEach(c => c.classList.add('sub-animate'));
+        document.getElementById('otherInput')?.focus();
+      }, 50);
+      return;
+    }
+
+    if (subList) {
+      const items = subs[lang] || subs.th;
+      subList.innerHTML = '';
+      items.forEach((item, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'sub-card w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left hover:bg-gray-50 transition-all duration-150 opacity-0';
+        btn.style.animationDelay = `${i * 60}ms`;
+        btn.addEventListener('click', (e) => selectSubCategory(item, e));
+
+        const span = document.createElement('span');
+        span.className = 'text-[13px] font-medium text-gray-700';
+        span.textContent = item;
+
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'w-4 h-4 text-gray-300');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '2');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>';
+
+        btn.appendChild(span);
+        btn.appendChild(svg);
+        subList.appendChild(btn);
+      });
+    }
+
+    showStep(2);
+    setTimeout(() => {
+      document.querySelectorAll('.sub-card').forEach(c => c.classList.add('sub-animate'));
+    }, 50);
+  }
+
+  function goBackToStep1() {
+    showStep(1);
+  }
+
+  function selectSubCategory(sub, e) {
+    const btn = e?.target?.closest('.sub-card');
+    if (btn) {
+      btn.classList.add('!bg-blue-50');
+      const label = btn.querySelector('span');
+      if (label) label.classList.add('!text-blue-600');
+      const chevron = btn.querySelector('svg');
+      if (chevron) {
+        chevron.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>';
+        chevron.classList.add('!text-blue-600');
+      }
+    }
+
+    setTimeout(() => closeBookingModal(), 500);
+  }
+
+  function submitOther() {
+    const input = document.getElementById('otherInput');
+    if (input && input.value.trim()) {
+      closeBookingModal();
+    } else {
+      input?.focus();
+    }
   }
 
   document.addEventListener('click', (e) => {
     const modal = document.getElementById('bookingModal');
-    if (e.target === modal) {
-      closeBookingModal();
-    }
+    if (e.target === modal) closeBookingModal();
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeBookingModal();
-    }
+    if (e.key === 'Escape') closeBookingModal();
   });
 
   window.openBookingModal = openBookingModal;
   window.closeBookingModal = closeBookingModal;
-  window.selectService = selectService;
+  window.selectBusiness = selectBusiness;
+  window.goBackToStep1 = goBackToStep1;
+  window.selectSubCategory = selectSubCategory;
+  window.submitOther = submitOther;
 </script>
+
+<style>
+  @keyframes slideUp {
+    from { transform: translateY(6px); opacity: 0.5; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .biz-card.biz-animate {
+    animation: slideUp 0.2s ease-out both;
+  }
+
+  .sub-card.sub-animate {
+    animation: fadeIn 0.25s ease-out forwards;
+  }
+
+</style>
