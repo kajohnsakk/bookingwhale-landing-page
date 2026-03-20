@@ -1,0 +1,29 @@
+---
+import ScrollReveal from "./motion/ScrollReveal.tsx";
+import PricingToggle from "./PricingToggle.tsx";
+import { t } from "../i18n/utils";
+import type { Lang } from "../i18n/utils";
+
+interface Props { lang?: Lang; }
+const { lang = "th" } = Astro.props;
+---
+
+<section id="pricing" class="section-padding bg-gray-50" aria-labelledby="pricing-heading">
+  <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
+    <ScrollReveal client:visible>
+      <div class="text-center mb-12">
+        <h2
+          id="pricing-heading"
+          class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em]"
+        >
+          <span data-translate="pricingTitle">{t("pricingTitle", lang)}</span>
+        </h2>
+        <p data-translate="pricingDescription" class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium">
+          {t("pricingDescription", lang)}
+        </p>
+      </div>
+    </ScrollReveal>
+
+    <PricingToggle client:visible lang={lang} />
+  </div>
+</section>

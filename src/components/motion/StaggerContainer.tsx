@@ -47,19 +47,19 @@ export function StaggerContainer({
 const variantMap = {
   "fade-up": {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
   },
   "scale-up": {
     hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" as const } },
   },
   "slide-left": {
     hidden: { opacity: 0, x: -30 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
   },
   "slide-right": {
     hidden: { opacity: 0, x: 30 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
   },
 };
 

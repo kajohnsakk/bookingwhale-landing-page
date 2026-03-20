@@ -12,25 +12,25 @@ const notifications: {
   position: "top-left" | "top-right" | "bottom-right" | "bottom-left";
 }[] = [
   {
-    icon: "/icons/calendar.gif",
+    icon: "/images/icons/calendar.gif",
     titleKey: "heroNotif1Title",
     subtitleKey: "heroNotif1Subtitle",
     position: "top-left",
   },
   {
-    icon: "/icons/check.gif",
+    icon: "/images/icons/check.gif",
     titleKey: "heroNotif2Title",
     subtitleKey: "heroNotif2Subtitle",
     position: "bottom-right",
   },
   {
-    icon: "/icons/customers.gif",
+    icon: "/images/icons/customers.gif",
     titleKey: "heroNotif3Title",
     subtitleKey: "heroNotif3Subtitle",
     position: "top-right",
   },
   {
-    icon: "/icons/notification.gif",
+    icon: "/images/icons/notification.gif",
     titleKey: "heroNotif4Title",
     subtitleKey: "heroNotif4Subtitle",
     position: "bottom-left",

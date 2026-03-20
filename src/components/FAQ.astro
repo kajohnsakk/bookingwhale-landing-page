@@ -143,7 +143,7 @@ const faqs = [
                 style="height: 0;"
               >
                 <div class="px-4 pb-3 sm:px-5 sm:pb-4">
-                  <p data-translate={`${faq.id}Answer`} class="text-base text-gray-600 leading-relaxed">
+                  <p data-translate={`${faq.id}Answer`} class="text-base text-gray-600 leading-relaxed whitespace-pre-line">
                     {t(`${faq.id}Answer`, lang)}
                   </p>
                 </div>
@@ -157,19 +157,27 @@ const faqs = [
 </section>
 
 <script>
-  function toggleFAQ(faqId) {
-    const faqAnswer = document.getElementById(faqId);
-    const button = faqAnswer?.previousElementSibling as HTMLElement;
-    const faqIcon = button?.querySelector('.faq-icon');
-    const isOpen = faqAnswer?.dataset.open === 'true';
+  declare global {
+    interface Window {
+      toggleFAQ: (faqId: string) => void;
+    }
+  }
 
-    document.querySelectorAll('.faq-answer[data-open="true"]').forEach((el) => {
+  function toggleFAQ(faqId: string) {
+    const faqAnswer = document.getElementById(faqId);
+    if (!faqAnswer) return;
+
+    const button = faqAnswer.previousElementSibling as HTMLElement | null;
+    const faqIcon = button?.querySelector('.faq-icon');
+    const isOpen = faqAnswer.dataset.open === 'true';
+
+    document.querySelectorAll<HTMLElement>('.faq-answer[data-open="true"]').forEach((el) => {
       if (el.id === faqId) return;
       el.dataset.open = 'false';
-      (el as HTMLElement).style.height = el.scrollHeight + 'px';
+      el.style.height = el.scrollHeight + 'px';
       el.previousElementSibling?.setAttribute('aria-expanded', 'false');
       requestAnimationFrame(() => {
-        (el as HTMLElement).style.height = '0';
+        el.style.height = '0';
       });
       el.previousElementSibling?.querySelector('.faq-icon')?.classList.remove('rotate-180');
     });
