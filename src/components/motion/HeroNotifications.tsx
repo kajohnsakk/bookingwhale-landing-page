@@ -12,25 +12,25 @@ const notifications: {
   position: "top-left" | "top-right" | "bottom-right" | "bottom-left";
 }[] = [
   {
-    icon: "/icons/calendar.gif",
+    icon: "/images/icons/calendar.webp",
     titleKey: "heroNotif1Title",
     subtitleKey: "heroNotif1Subtitle",
     position: "top-left",
   },
   {
-    icon: "/icons/check.gif",
+    icon: "/images/icons/check.webp",
     titleKey: "heroNotif2Title",
     subtitleKey: "heroNotif2Subtitle",
     position: "bottom-right",
   },
   {
-    icon: "/icons/customers.gif",
+    icon: "/images/icons/customers.webp",
     titleKey: "heroNotif3Title",
     subtitleKey: "heroNotif3Subtitle",
     position: "top-right",
   },
   {
-    icon: "/icons/notification.gif",
+    icon: "/images/icons/notification.webp",
     titleKey: "heroNotif4Title",
     subtitleKey: "heroNotif4Subtitle",
     position: "bottom-left",
@@ -99,8 +99,8 @@ export default function HeroNotifications({ lang = "th" }: { lang?: Lang }) {
               exit={{ opacity: 0, scale: 0.95, y: -8, transition: { duration: 0.35, ease: "easeIn" } }}
               transition={{
                 type: "spring",
-                stiffness: 200,
-                damping: 24,
+                stiffness: 150,
+                damping: 20,
                 mass: 0.8,
               }}
               className={`absolute ${positionClasses[notif.position]} z-10 flex items-center gap-2 sm:gap-2.5 bg-white rounded-xl shadow-lg shadow-black/8 px-2.5 py-2 sm:px-3.5 sm:py-2.5 border border-gray-100 max-w-[180px] sm:max-w-[220px]`}
