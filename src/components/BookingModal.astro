@@ -50,7 +50,7 @@ const businesses = [
           style={`animation-delay: ${i * 40}ms`}
         >
           <div class="w-14 h-14 flex items-center justify-center mb-2">
-            <img src={biz.webp} alt="" class="w-12 h-12 object-contain" loading="lazy" />
+            <img src={biz.gif} alt="" class="w-12 h-12 object-contain" loading="lazy" />
           </div>
           <span data-translate={`biz${biz.key.charAt(0).toUpperCase() + biz.key.slice(1)}Title`} class="text-[12px] font-medium text-gray-500 group-hover:text-gray-900 transition-colors duration-150 leading-tight">{t(`biz${biz.key.charAt(0).toUpperCase() + biz.key.slice(1)}Title` as any, lang)}</span>
         </button>
