@@ -6,15 +6,15 @@ interface Props { lang?: Lang; }
 const { lang = "th" } = Astro.props;
 
 const businesses = [
-  { key: "beauty", gif: "/images/icons/beauty.gif" },
-  { key: "food", gif: "/images/icons/food.gif" },
-  { key: "fitness", gif: "/images/icons/fitness.gif" },
-  { key: "education", gif: "/images/icons/education.gif" },
-  { key: "event", gif: "/images/icons/event.gif" },
-  { key: "hospitality", gif: "/images/icons/hospitality.gif" },
-  { key: "rental", gif: "/images/icons/rental.gif" },
-  { key: "general", gif: "/images/icons/general.gif" },
-  { key: "other", gif: "/images/icons/other.gif" },
+  { key: "beauty", gif: "/images/icons/beauty.webp" },
+  { key: "food", gif: "/images/icons/food.webp" },
+  { key: "fitness", gif: "/images/icons/fitness.webp" },
+  { key: "education", gif: "/images/icons/education.webp" },
+  { key: "event", gif: "/images/icons/event.webp" },
+  { key: "hospitality", gif: "/images/icons/hospitality.webp" },
+  { key: "rental", gif: "/images/icons/rental.webp" },
+  { key: "general", gif: "/images/icons/general.webp" },
+  { key: "other", gif: "/images/icons/other.webp" },
 ];
 ---
 
@@ -50,7 +50,7 @@ const businesses = [
           style={`animation-delay: ${i * 40}ms`}
         >
           <div class="w-14 h-14 flex items-center justify-center mb-2">
-            <img src={biz.gif} alt="" class="w-12 h-12 object-contain" loading="lazy" />
+            <img src={biz.webp} alt="" class="w-12 h-12 object-contain" loading="lazy" />
           </div>
           <span data-translate={`biz${biz.key.charAt(0).toUpperCase() + biz.key.slice(1)}Title`} class="text-[12px] font-medium text-gray-500 group-hover:text-gray-900 transition-colors duration-150 leading-tight">{t(`biz${biz.key.charAt(0).toUpperCase() + biz.key.slice(1)}Title` as any, lang)}</span>
         </button>

@@ -9,6 +9,8 @@ interface Props {
   className?: string;
 }
 
+const smoothEase = [0.25, 0.1, 0.25, 1] as const;
+
 export default function SlideReveal({
   children,
   direction = "left",
@@ -19,14 +21,14 @@ export default function SlideReveal({
   const isInView = useInView(ref, { margin: "-60px" });
   const controls = useAnimation();
   const hasAnimated = useRef(false);
-  const xOffset = direction === "left" ? -40 : 40;
+  const xOffset = direction === "left" ? -60 : 60;
 
   useEffect(() => {
     if (isInView) {
       if (hasAnimated.current) {
         controls.set({ opacity: 0, x: xOffset });
       }
-      controls.start({ opacity: 1, x: 0, transition: { duration: 0.45, delay, ease: "easeOut" } });
+      controls.start({ opacity: 1, x: 0, transition: { duration: 0.6, delay, ease: smoothEase } });
       hasAnimated.current = true;
     }
   }, [isInView, controls, delay, xOffset]);

@@ -9,10 +9,12 @@ interface Props {
   className?: string;
 }
 
+const smoothEase = [0.25, 0.1, 0.25, 1] as const;
+
 export default function FadeIn({
   children,
   delay = 0,
-  duration = 0.5,
+  duration = 0.8,
   className,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
@@ -25,7 +27,7 @@ export default function FadeIn({
       if (hasAnimated.current) {
         controls.set({ opacity: 0 });
       }
-      controls.start({ opacity: 1, transition: { duration, delay, ease: "easeOut" } });
+      controls.start({ opacity: 1, transition: { duration, delay, ease: smoothEase } });
       hasAnimated.current = true;
     }
   }, [isInView, controls, delay, duration]);

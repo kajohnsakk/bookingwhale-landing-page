@@ -10,15 +10,15 @@ interface Props { lang?: Lang; }
 const { lang = "th" } = Astro.props;
 ---
 
-<section class="bg-white pt-24 pb-20 lg:pt-32 lg:pb-32">
+<section class="bg-white pt-24 pb-12 lg:pt-32 lg:pb-20">
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
     <div class="grid md:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
       <div class="text-center md:text-left">
-        <FadeIn client:load>
+        <FadeIn client:visible>
           <p class="text-[13px] sm:text-sm font-black uppercase tracking-[0.25em] text-gray-900 mb-6" data-translate="heroEyebrow">{t("heroEyebrow", lang)}</p>
         </FadeIn>
 
-        <ScrollReveal client:load delay={0.1}>
+        <ScrollReveal client:visible delay={0.1}>
           <h1
             class="text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] font-black text-black tracking-[-0.03em] leading-[1.08]"
             itemprop="headline"
@@ -27,7 +27,7 @@ const { lang = "th" } = Astro.props;
           </h1>
         </ScrollReveal>
 
-        <ScrollReveal client:load delay={0.2}>
+        <ScrollReveal client:visible delay={0.2}>
           <p
             data-translate="heroSubtitle"
             class="text-lg sm:text-xl lg:text-[22px] text-gray-700 mt-6 leading-relaxed max-w-lg mx-auto md:mx-0 font-medium"
@@ -36,7 +36,7 @@ const { lang = "th" } = Astro.props;
           </p>
         </ScrollReveal>
 
-        <ScrollReveal client:load delay={0.25}>
+        <ScrollReveal client:visible delay={0.25}>
           <p
             data-translate="heroDescription"
             class="text-base sm:text-lg lg:text-xl text-gray-600 mt-4 leading-relaxed max-w-lg mx-auto md:mx-0 font-normal"
@@ -45,7 +45,7 @@ const { lang = "th" } = Astro.props;
           </p>
         </ScrollReveal>
 
-        <ScrollReveal client:load delay={0.3}>
+        <ScrollReveal client:visible delay={0.3}>
           <div class="flex flex-col sm:flex-row gap-4 items-center sm:justify-center md:justify-start mt-10 max-w-sm mx-auto sm:max-w-none md:mx-0">
             <button
               onclick="openBookingModal()"
@@ -65,7 +65,7 @@ const { lang = "th" } = Astro.props;
         </ScrollReveal>
       </div>
 
-      <ScaleReveal client:load delay={0.15}>
+      <ScaleReveal client:visible delay={0.15}>
         <div class="relative flex justify-center md:justify-end w-full">
           <HeroNotifications client:load lang={lang} />
           <video
@@ -73,7 +73,7 @@ const { lang = "th" } = Astro.props;
             loop
             muted
             playsinline
-            preload="auto"
+            preload="metadata"
             class="w-full max-w-sm sm:max-w-md md:max-w-none md:w-full mix-blend-multiply"
           >
             <source src="/images/hero/product-hero.webm" type="video/webm" />

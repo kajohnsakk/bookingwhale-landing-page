@@ -21,9 +21,13 @@ export default function ScaleReveal({
   useEffect(() => {
     if (isInView) {
       if (hasAnimated.current) {
-        controls.set({ opacity: 0, scale: 0.96 });
+        controls.set({ opacity: 0, scale: 0.92 });
       }
-      controls.start({ opacity: 1, scale: 1, transition: { duration: 0.5, delay, ease: "easeOut" } });
+      controls.start({
+        opacity: 1,
+        scale: 1,
+        transition: { type: "spring", stiffness: 100, damping: 20, delay },
+      });
       hasAnimated.current = true;
     }
   }, [isInView, controls, delay]);
@@ -31,7 +35,7 @@ export default function ScaleReveal({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, scale: 0.96 }}
+      initial={{ opacity: 0, scale: 0.92 }}
       animate={controls}
       className={className}
     >
