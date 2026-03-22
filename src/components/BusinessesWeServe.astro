@@ -136,7 +136,7 @@ const businesses = [
       el.classList.add(...add);
     }
 
-    function setActive(index: number, scrollToCard = false) {
+    function setActive(index: number) {
       activeIndex = index;
 
       cards.forEach((card, i) => {
@@ -155,8 +155,13 @@ const businesses = [
 
       activeProgress = cards[index]?.querySelector('.biz-progress');
 
-      if (scrollToCard && window.innerWidth < 1024) {
-        cards[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if (window.innerWidth < 1024) {
+        const container = cards[0]?.parentElement;
+        const card = cards[index];
+        if (container && card) {
+          const scrollLeft = card.offsetLeft - container.offsetLeft - (container.clientWidth - card.offsetWidth) / 2;
+          container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        }
       }
 
       video.src = videos[index];
@@ -175,7 +180,7 @@ const businesses = [
 
     cards.forEach((card, i) => {
       card.addEventListener('click', () => {
-        if (i !== activeIndex) setActive(i, true);
+        if (i !== activeIndex) setActive(i);
       });
     });
   })();
