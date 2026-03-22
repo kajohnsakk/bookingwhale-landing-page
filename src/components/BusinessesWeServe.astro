@@ -136,7 +136,7 @@ const businesses = [
       el.classList.add(...add);
     }
 
-    function setActive(index: number) {
+    function setActive(index: number, scrollToCard = false) {
       activeIndex = index;
 
       cards.forEach((card, i) => {
@@ -155,7 +155,7 @@ const businesses = [
 
       activeProgress = cards[index]?.querySelector('.biz-progress');
 
-      if (window.innerWidth < 1024) {
+      if (scrollToCard && window.innerWidth < 1024) {
         cards[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
 
@@ -175,7 +175,7 @@ const businesses = [
 
     cards.forEach((card, i) => {
       card.addEventListener('click', () => {
-        if (i !== activeIndex) setActive(i);
+        if (i !== activeIndex) setActive(i, true);
       });
     });
   })();
