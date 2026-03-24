@@ -50,7 +50,7 @@ const positionClasses: Record<string, string> = {
     class={`hero-notif absolute ${positionClasses[notif.position]} z-10 flex items-center gap-2 sm:gap-2.5 bg-white rounded-xl shadow-lg shadow-black/8 px-2.5 py-2 sm:px-3.5 sm:py-2.5 border border-gray-100 max-w-[180px] sm:max-w-[220px]`}
     data-notif-index={i}
   >
-    <Image src={notif.icon} alt="" width={28} height={28} class="shrink-0 w-6 h-6 sm:w-7 sm:h-7" loading="lazy" />
+    <Image src={notif.icon} alt="" width={56} height={56} class="shrink-0 w-6 h-6 sm:w-7 sm:h-7" loading="lazy" />
     <div class="min-w-0">
       <p class="text-[10px] sm:text-xs font-semibold text-gray-900 truncate">
         {t(notif.titleKey as any, lang)}
