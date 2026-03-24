@@ -1,31 +1,36 @@
 ---
+import { Image } from "astro:assets";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
+import calendarIcon from "../assets/images/icons/calendar.webp";
+import checkIcon from "../assets/images/icons/check.webp";
+import customersIcon from "../assets/images/icons/customers.webp";
+import notificationIcon from "../assets/images/icons/notification.webp";
 
 interface Props { lang?: Lang; }
 const { lang = "th" } = Astro.props;
 
 const notifications = [
   {
-    icon: "/images/icons/calendar.webp",
+    icon: calendarIcon,
     titleKey: "heroNotif1Title",
     subtitleKey: "heroNotif1Subtitle",
     position: "top-left",
   },
   {
-    icon: "/images/icons/check.webp",
+    icon: checkIcon,
     titleKey: "heroNotif2Title",
     subtitleKey: "heroNotif2Subtitle",
     position: "bottom-right",
   },
   {
-    icon: "/images/icons/customers.webp",
+    icon: customersIcon,
     titleKey: "heroNotif3Title",
     subtitleKey: "heroNotif3Subtitle",
     position: "top-right",
   },
   {
-    icon: "/images/icons/notification.webp",
+    icon: notificationIcon,
     titleKey: "heroNotif4Title",
     subtitleKey: "heroNotif4Subtitle",
     position: "bottom-left",
@@ -45,7 +50,7 @@ const positionClasses: Record<string, string> = {
     class={`hero-notif absolute ${positionClasses[notif.position]} z-10 flex items-center gap-2 sm:gap-2.5 bg-white rounded-xl shadow-lg shadow-black/8 px-2.5 py-2 sm:px-3.5 sm:py-2.5 border border-gray-100 max-w-[180px] sm:max-w-[220px]`}
     data-notif-index={i}
   >
-    <img src={notif.icon} alt="" loading="lazy" class="shrink-0 w-6 h-6 sm:w-7 sm:h-7" />
+    <Image src={notif.icon} alt="" width={28} height={28} class="shrink-0 w-6 h-6 sm:w-7 sm:h-7" loading="lazy" />
     <div class="min-w-0">
       <p class="text-[10px] sm:text-xs font-semibold text-gray-900 truncate">
         {t(notif.titleKey as any, lang)}

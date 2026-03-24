@@ -20,9 +20,11 @@ const { lang = "th" } = Astro.props;
           <Image
             src={logoImg}
             alt="Booking Whale logo - LINE OA booking system for businesses in Thailand"
-            width={40}
-            height={40}
+            width={80}
+            height={80}
             class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg"
+            loading="eager"
+            fetchpriority="high"
           />
         </a>
         <div class="hidden xl:flex items-center space-x-8">
