@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import LanguageSwitcher from "./LanguageSwitcher.astro";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
+import logoImg from "../assets/images/logo.webp";
 
 interface Props { lang?: Lang; }
 const { lang = "th" } = Astro.props;
@@ -15,13 +17,12 @@ const { lang = "th" } = Astro.props;
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-8">
         <a href="/" class="flex items-center">
-          <img
-            src="/logo.webp"
+          <Image
+            src={logoImg}
             alt="Booking Whale logo - LINE OA booking system for businesses in Thailand"
+            width={40}
+            height={40}
             class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg"
-            width="40"
-            height="40"
-            fetchpriority="high"
           />
         </a>
         <div class="hidden xl:flex items-center space-x-8">

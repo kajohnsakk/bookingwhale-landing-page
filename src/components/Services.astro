@@ -1,12 +1,24 @@
 ---
+import { Image } from "astro:assets";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
+import socialImg from "../assets/images/services/social.webp";
+import schedulePlanImg from "../assets/images/services/schedule-plan.webp";
+import cancelImg from "../assets/images/services/cancel.webp";
+import loyaltyImg from "../assets/images/services/loyalty.webp";
 
 interface Props {
   lang?: Lang;
 }
 
 const { lang = "th" } = Astro.props;
+
+const serviceImages: Record<string, typeof socialImg> = {
+  "/images/services/social.webp": socialImg,
+  "/images/services/schedule-plan.webp": schedulePlanImg,
+  "/images/services/cancel.webp": cancelImg,
+  "/images/services/loyalty.webp": loyaltyImg,
+};
 
 const services = [
   {
@@ -130,14 +142,14 @@ const services = [
           <div data-animate-child="fade-up" class="h-full">
             <div class="group">
               <div class="mb-4 overflow-hidden rounded-lg flex items-center justify-center">
-                <img
-                  src={service.image}
+                <Image
+                  src={serviceImages[service.image]}
                   alt={service.alt}
+                  width={440}
+                  height={330}
                   class="max-h-[220px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                   decoding="async"
-                  width="700"
-                  height="525"
                 />
               </div>
 
