@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-blue-600: #0447ff;
@@ -189,4 +190,83 @@ a {
 
 [data-header] {
   transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+@keyframes animate-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes animate-scroll-reveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes animate-slide-reveal-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes animate-slide-reveal-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes animate-scale-reveal {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes animate-stagger-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes animate-stagger-scale-up {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+[data-animate] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+[data-animate].visible {
+  animation-delay: var(--delay, 0s);
+}
+
+[data-animate="fade-in"].visible {
+  animation: animate-fade-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-animate="scroll-reveal"].visible {
+  animation: animate-scroll-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-animate="slide-reveal-left"].visible {
+  animation: animate-slide-reveal-left 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-animate="slide-reveal-right"].visible {
+  animation: animate-slide-reveal-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-animate="scale-reveal"].visible {
+  animation: animate-scale-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-animate-child] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+[data-animate-child="fade-up"].visible {
+  animation: animate-stagger-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--delay, 0s);
+}
+
+[data-animate-child="scale-up"].visible {
+  animation: animate-stagger-scale-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--delay, 0s);
 }

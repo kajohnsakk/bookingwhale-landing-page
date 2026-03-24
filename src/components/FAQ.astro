@@ -1,6 +1,4 @@
 ---
-import ScrollReveal from "./motion/ScrollReveal.tsx";
-import { StaggerContainer, StaggerItem } from "./motion/StaggerContainer.tsx";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
 
@@ -100,7 +98,7 @@ const faqs = [
 
 <section id="faq" class="section-padding bg-white" aria-labelledby="faq-heading">
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
-    <ScrollReveal client:visible>
+    <div data-animate="scroll-reveal">
       <div class="text-center mb-12">
         <h2
           id="faq-heading"
@@ -112,12 +110,12 @@ const faqs = [
           {t("faqDescription", lang)}
         </p>
       </div>
-    </ScrollReveal>
+    </div>
 
     <div class="max-w-4xl mx-auto">
-      <StaggerContainer client:visible staggerDelay={0.06} className="flex flex-col gap-3">
+      <div data-animate="scroll-reveal" data-stagger-delay="0.06" class="flex flex-col gap-3">
         {faqs.map((faq, index) => (
-          <StaggerItem variant="fade-up">
+          <div data-animate-child="fade-up">
             <div class="bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors duration-200 overflow-hidden">
               <button
                 class="faq-toggle w-full px-4 py-3 sm:px-5 sm:py-4 text-left flex items-center justify-between focus:outline-none"
@@ -149,9 +147,9 @@ const faqs = [
                 </div>
               </div>
             </div>
-          </StaggerItem>
+          </div>
         ))}
-      </StaggerContainer>
+      </div>
     </div>
   </div>
 </section>

@@ -109,7 +109,7 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
     <link rel="preconnect" href="https://images.unsplash.com" />
 
     <!-- Preload critical LCP video -->
-    <link rel="preload" as="video" href="/images/hero/product-hero.mp4" />
+    <link rel="preload" as="video" href="/images/hero/product-hero.mp4" fetchpriority="high" />
 
     <!-- Google Fonts - Noto Sans Thai for Thai characters -->
     <link
@@ -375,7 +375,29 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
     </button>
 
     <script>
-      const btn = document.getElementById('back-to-top')!;
+      document.querySelectorAll<HTMLElement>('[data-animate]').forEach((el) => {
+        const type = el.getAttribute('data-animate');
+        const margin = '-40px';
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              el.classList.add('visible');
+              observer.unobserve(el);
+
+              const staggerDelay = parseFloat(el.getAttribute('data-stagger-delay') || '0');
+              if (staggerDelay > 0) {
+                el.querySelectorAll<HTMLElement>('[data-animate-child]').forEach((child, i) => {
+                  child.style.setProperty('--delay', `${i * staggerDelay}s`);
+                  child.classList.add('visible');
+                });
+              }
+            }
+          });
+        }, { rootMargin: `${margin} 0px ${margin} 0px` });
+        observer.observe(el);
+      });
+
+      const btn = document.getElementById('back-to-top')!
       window.addEventListener('scroll', () => {
         if (window.scrollY > 500) {
           btn.classList.remove('opacity-0', 'pointer-events-none');

@@ -1,7 +1,4 @@
 ---
-import ScrollReveal from "./motion/ScrollReveal.tsx";
-import FadeIn from "./motion/FadeIn.tsx";
-import ScaleReveal from "./motion/ScaleReveal.tsx";
 import HeroNotifications from "./motion/HeroNotifications.tsx";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
@@ -14,72 +11,73 @@ const { lang = "th" } = Astro.props;
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
     <div class="grid md:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
       <div class="text-center md:text-left">
-        <FadeIn client:visible>
+        <div data-animate="fade-in">
           <p class="text-[13px] sm:text-sm font-black uppercase tracking-[0.25em] text-gray-900 mb-6" data-translate="heroEyebrow">{t("heroEyebrow", lang)}</p>
-        </FadeIn>
+        </div>
 
-        <ScrollReveal client:visible delay={0.1}>
+        <div data-animate="scroll-reveal" style="--delay: 0.1s">
           <h1
             class="text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] font-black text-black tracking-[-0.03em] leading-[1.08]"
             itemprop="headline"
           >
             <span data-translate="heroTitle">{t("heroTitle", lang)}</span><span class="whitespace-nowrap" style="color: #2dab18"> LINE OA</span>
           </h1>
-        </ScrollReveal>
+        </div>
 
-        <ScrollReveal client:visible delay={0.2}>
+        <div data-animate="scroll-reveal" style="--delay: 0.2s">
           <p
             data-translate="heroSubtitle"
             class="text-lg sm:text-xl lg:text-[22px] text-gray-700 mt-6 leading-relaxed max-w-lg mx-auto md:mx-0 font-medium"
           >
             {t("heroSubtitle", lang)}
           </p>
-        </ScrollReveal>
+        </div>
 
-        <ScrollReveal client:visible delay={0.25}>
+        <div data-animate="scroll-reveal" style="--delay: 0.25s">
           <p
             data-translate="heroDescription"
             class="text-base sm:text-lg lg:text-xl text-gray-600 mt-4 leading-relaxed max-w-lg mx-auto md:mx-0 font-normal"
           >
             {t("heroDescription", lang)}
           </p>
-        </ScrollReveal>
+        </div>
 
-        <ScrollReveal client:visible delay={0.3}>
+        <div data-animate="scroll-reveal" style="--delay: 0.3s">
           <div class="flex flex-col sm:flex-row gap-4 items-center sm:justify-center md:justify-start mt-10 max-w-sm mx-auto sm:max-w-none md:mx-0">
             <button
               onclick="openBookingModal()"
               data-translate="startBookingNow"
-              class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 sm:px-10 sm:py-3.5 lg:px-14 lg:py-[18px] rounded-full font-bold text-sm sm:text-base lg:text-lg transition-colors duration-200 w-full sm:w-auto whitespace-nowrap"
+              class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 sm:px-10 sm:py-3.5 lg:px-14 lg:py-[18px] rounded-full font-bold text-sm sm:text-base lg:text-lg border-2 border-blue-600 hover:border-blue-700 transition-colors duration-200 w-full sm:w-auto sm:min-w-[220px] whitespace-nowrap"
             >
               {t("startBookingNow", lang)}
             </button>
             <a
               href="#features"
               data-translate="learnMore"
-              class="text-blue-600 px-8 py-3 sm:px-10 sm:py-3.5 lg:px-14 lg:py-[18px] rounded-full font-bold text-sm sm:text-base lg:text-lg border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 text-center w-full sm:w-auto whitespace-nowrap"
+              class="text-blue-600 px-8 py-3 sm:px-10 sm:py-3.5 lg:px-14 lg:py-[18px] rounded-full font-bold text-sm sm:text-base lg:text-lg border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 text-center w-full sm:w-auto sm:min-w-[220px] whitespace-nowrap"
             >
               {t("learnMore", lang)}
             </a>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
 
-      <ScaleReveal client:visible delay={0.15}>
+      <div data-animate="scale-reveal" style="--delay: 0.15s">
         <div class="relative flex justify-center md:justify-end w-full">
-          <HeroNotifications client:load lang={lang} />
+          <HeroNotifications client:idle lang={lang} />
           <video
             autoplay
             loop
             muted
             playsinline
             preload="metadata"
+            fetchpriority="high"
             class="w-full max-w-sm sm:max-w-md md:max-w-none md:w-full mix-blend-multiply"
           >
             <source src="/images/hero/product-hero.mp4" type="video/mp4" />
           </video>
         </div>
-      </ScaleReveal>
+      </div>
     </div>
   </div>
 </section>

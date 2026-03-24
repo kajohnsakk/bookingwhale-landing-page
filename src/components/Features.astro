@@ -1,6 +1,4 @@
 ---
-import ScrollReveal from "./motion/ScrollReveal.tsx";
-import SlideReveal from "./motion/SlideReveal.tsx";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
 
@@ -50,7 +48,7 @@ const features = [
   aria-labelledby="features-heading"
 >
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
-    <ScrollReveal client:visible>
+    <div data-animate="scroll-reveal">
       <div class="text-center mb-16">
         <h2
           id="features-heading"
@@ -65,7 +63,7 @@ const features = [
           {t("featuresDescription", lang)}
         </p>
       </div>
-    </ScrollReveal>
+    </div>
 
     <div class="space-y-12 lg:space-y-16">
       {
@@ -77,7 +75,7 @@ const features = [
             <div
               class={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-8 sm:gap-10 lg:gap-14`}
             >
-              <SlideReveal client:visible direction={textDir} className="flex-1">
+              <div data-animate={`slide-reveal-${textDir}`} class="flex-1">
                 <span class="text-blue-600 text-[13px] font-semibold uppercase tracking-wide mb-3 block">
                   {feature.eyebrow}
                 </span>
@@ -93,9 +91,9 @@ const features = [
                 >
                   {t(`feature${feature.index}Desc`, lang)}
                 </p>
-              </SlideReveal>
+              </div>
 
-              <SlideReveal client:visible direction={imgDir} delay={0.1} className="flex-1 flex justify-center">
+              <div data-animate={`slide-reveal-${imgDir}`} style="--delay: 0.1s" class="flex-1 flex justify-center">
                 <div class="w-full max-w-[340px] sm:max-w-[420px]">
                   <img
                     src={feature.image}
@@ -107,7 +105,7 @@ const features = [
                     height="525"
                   />
                 </div>
-              </SlideReveal>
+              </div>
             </div>
           );
         })
