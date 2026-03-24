@@ -77,19 +77,8 @@ const businesses = [
   </div>
 </div>
 
-<script>
-  declare global {
-    interface Window {
-      openBookingModal: () => void;
-      closeBookingModal: () => void;
-      selectBusiness: (business: string) => void;
-      goBackToStep1: () => void;
-      selectSubCategory: (sub: string, e: Event) => void;
-      submitOther: () => void;
-    }
-  }
-
-  const subCategories: Record<string, { th: string[]; en: string[] } | null> = {
+<script is:inline>
+  var subCategories = {
     food: {
       th: ['ร้านอาหาร', 'คาเฟ่', 'บาร์ & ผับ', 'เบเกอรี่'],
       en: ['Restaurant', 'Cafe', 'Bar & Pub', 'Bakery']
@@ -125,7 +114,7 @@ const businesses = [
     other: null
   };
 
-  const bizTitles: Record<string, { th: string; en: string }> = {
+  var bizTitles = {
     food: { th: 'ร้านอาหาร & เครื่องดื่ม', en: 'Food & Beverage' },
     fitness: { th: 'ฟิตเนส & กีฬา', en: 'Fitness & Sports' },
     beauty: { th: 'ความงาม & เวลเนส', en: 'Beauty & Wellness' },
@@ -179,7 +168,7 @@ const businesses = [
     }
   }
 
-  function showStep(step: number) {
+  function showStep(step) {
     const step1 = document.getElementById('wizardStep1');
     const step2 = document.getElementById('wizardStep2');
     const dot1 = document.getElementById('dot1');
@@ -198,7 +187,7 @@ const businesses = [
     }
   }
 
-  function selectBusiness(business: string) {
+  function selectBusiness(business) {
     const lang = getLang();
     const subs = subCategories[business];
     const backLabel = document.getElementById('backLabel');
@@ -241,7 +230,7 @@ const businesses = [
     if (subList) {
       const items = subs[lang] || subs.th;
       subList.innerHTML = '';
-      items.forEach((item: string, i: number) => {
+      items.forEach(function(item, i) {
         const btn = document.createElement('button');
         btn.className = 'sub-card w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left hover:bg-gray-50 transition-all duration-150 opacity-0';
         btn.style.animationDelay = `${i * 60}ms`;
@@ -275,8 +264,8 @@ const businesses = [
     showStep(1);
   }
 
-  function selectSubCategory(_sub: string, e: Event) {
-    const btn = (e?.target as HTMLElement)?.closest('.sub-card');
+  function selectSubCategory(_sub, e) {
+    var btn = e && e.target ? e.target.closest('.sub-card') : null;
     if (btn) {
       btn.classList.add('!bg-blue-50');
       const label = btn.querySelector('span');
@@ -292,7 +281,7 @@ const businesses = [
   }
 
   function submitOther() {
-    const input = document.getElementById('otherInput') as HTMLInputElement | null;
+    var input = document.getElementById('otherInput');
     if (input && input.value.trim()) {
       closeBookingModal();
     } else {
@@ -300,7 +289,7 @@ const businesses = [
     }
   }
 
-  document.addEventListener('click', (e: MouseEvent) => {
+  document.addEventListener('click', function(e) {
     const modal = document.getElementById('bookingModal');
     if (e.target === modal) closeBookingModal();
   });
