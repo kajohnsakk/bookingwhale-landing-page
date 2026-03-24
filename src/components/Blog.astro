@@ -1,143 +1,86 @@
 ---
-import ScrollReveal from "./motion/ScrollReveal.tsx";
-import { StaggerContainer, StaggerItem } from "./motion/StaggerContainer.tsx";
-import FadeIn from "./motion/FadeIn.tsx";
+import { getCollection } from 'astro:content';
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
 
 interface Props { lang?: Lang; }
 const { lang = "th" } = Astro.props;
+
+const allPosts = await getCollection('blog', ({ data }) => data.lang === lang);
+const posts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+function getSlug(id: string) {
+  return id.replace(/^(th|en)\//, '').replace(/\.md$/, '');
+}
 ---
 
 <section id="blog" class="section-padding bg-white" aria-labelledby="blog-heading">
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
-    <ScrollReveal client:visible>
+    <div data-animate="scroll-reveal">
       <div class="text-center mb-16">
-      <h2
-        id="blog-heading"
-        class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em]"
-      >
-        <span data-translate="blogTitle">{t("blogTitle", lang)}</span>
-      </h2>
-      <p data-translate="blogDescription" class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium">
-        {t("blogDescription", lang)}
-      </p>
+        <h2
+          id="blog-heading"
+          class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em]"
+        >
+          <span data-translate="blogTitle">{t("blogTitle", lang)}</span>
+        </h2>
+        <p data-translate="blogDescription" class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium">
+          {t("blogDescription", lang)}
+        </p>
       </div>
-    </ScrollReveal>
+    </div>
 
-    <StaggerContainer client:visible staggerDelay={0.12} className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 sm:p-6 lg:gap-8 mb-10 lg:mb-12">
-      <StaggerItem variant="fade-up">
-      <article class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all duration-200 overflow-hidden h-full">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=75"
-            alt="Smart queue management dashboard reducing no-show appointments by 80% through automated scheduling and LINE notifications"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 saturate-[0.85]"
-            width="800"
-            height="450"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="p-5 sm:p-6">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="bg-gray-100 text-gray-500 text-[13px] font-medium px-2.5 py-0.5 rounded">การจัดการคิว</span>
-            <span class="text-[13px] text-gray-400">15 มกราคม 2025</span>
+    <div data-animate="scroll-reveal" data-stagger-delay="0.12" class="grid md:grid-cols-2 xl:grid-cols-3 gap-5 sm:p-6 lg:gap-8 mb-10 lg:mb-12">
+      {posts.map((post) => {
+        const formattedDate = post.data.pubDate.toLocaleDateString(lang === 'th' ? 'th-TH' : 'en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        });
+
+        return (
+          <div data-animate-child="fade-up">
+            <article class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all duration-200 overflow-hidden h-full">
+              <div class="p-5 sm:p-6 flex flex-col h-full">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="bg-blue-50 text-blue-600 text-[13px] font-semibold px-2.5 py-0.5 rounded-full">
+                    {post.data.category}
+                  </span>
+                  <span class="text-[13px] text-gray-400">{formattedDate}</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  {post.data.title}
+                </h3>
+                <p class="text-base text-gray-600 mb-4 leading-relaxed flex-1">
+                  {post.data.description}
+                </p>
+                <a
+                  href={`/blog/${getSlug(post.id)}`}
+                  class="text-blue-600 hover:text-blue-700 text-[13px] font-medium flex items-center"
+                >
+                  {lang === 'th' ? 'อ่านต่อ' : 'Read more'}
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-            วิธีลดลูกค้าไม่มาตามนัด 80% ด้วยระบบจองคิวอัจฉริยะ
-          </h3>
-          <p class="text-base text-gray-600 mb-4 leading-relaxed">
-            เรียนรู้กลยุทธ์ที่พิสูจน์แล้วในการลดปัญหา No-Show และเพิ่มประสิทธิภาพการจัดการคิวของธุรกิจ
-          </p>
-          <a href="/blog/reduce-no-show-80-percent-smart-queue-system" class="text-blue-600 hover:text-blue-700 text-[13px] font-medium flex items-center" aria-label="อ่านบทความ: วิธีลดลูกค้าไม่มาตามนัด 80%">
-            อ่านต่อ
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-      </article>
-      </StaggerItem>
+        );
+      })}
+    </div>
 
-      <StaggerItem variant="fade-up">
-      <article class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all duration-200 overflow-hidden h-full">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=75"
-            alt="LINE Official Account booking system for Thai businesses replacing traditional phone booking methods"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 saturate-[0.85]"
-            width="800"
-            height="450"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="p-5 sm:p-6">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="bg-gray-100 text-gray-500 text-[13px] font-medium px-2.5 py-0.5 rounded">LINE OA</span>
-            <span class="text-[13px] text-gray-400">12 มกราคม 2025</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-            ทำไมธุรกิจไทยต้องเปลี่ยนจากการจองโทรศัพท์มาเป็นระบบ LINE
-          </h3>
-          <p class="text-base text-gray-600 mb-4 leading-relaxed">
-            ค้นพบเหตุผลที่ธุรกิจไทยกำลังเปลี่ยนไปใช้ LINE OA และวิธีการเปลี่ยนแปลงที่เหมาะสม
-          </p>
-          <a href="/blog/why-thai-business-switch-phone-to-line-booking" class="text-blue-600 hover:text-blue-700 text-[13px] font-medium flex items-center" aria-label="อ่านบทความ: ทำไมธุรกิจไทยต้องเปลี่ยนมาใช้ LINE">
-            อ่านต่อ
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-      </article>
-      </StaggerItem>
-
-      <StaggerItem variant="fade-up">
-      <article class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all duration-200 overflow-hidden h-full">
-        <div class="aspect-video overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=75"
-            alt="Smart queue management analytics dashboard showing 70% reduction in customer waiting time through intelligent scheduling"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 saturate-[0.85]"
-            width="800"
-            height="450"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="p-5 sm:p-6">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="bg-gray-100 text-gray-500 text-[13px] font-medium px-2.5 py-0.5 rounded">การจัดการคิว</span>
-            <span class="text-[13px] text-gray-400">10 มกราคม 2025</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-            การจัดการคิวอัจฉริยะ: ลดเวลารอของลูกค้า 70%
-          </h3>
-          <p class="text-base text-gray-600 mb-4 leading-relaxed">
-            ค้นพบกลยุทธ์ที่พิสูจน์แล้วในการปรับปรุงการไหลของลูกค้าและลดเวลารออย่างมีนัยสำคัญด้วยระบบคิวอัจฉริยะ
-          </p>
-          <a href="/blog/smart-queue-management-reduce-wait-time-70-percent" class="text-blue-600 hover:text-blue-700 text-[13px] font-medium flex items-center" aria-label="อ่านบทความ: การจัดการคิวอัจฉริยะลดเวลารอ 70%">
-            อ่านต่อ
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-      </article>
-      </StaggerItem>
-    </StaggerContainer>
-
-    <FadeIn client:visible delay={0.15}>
+    <div data-animate="fade-in" style="--delay: 0.15s">
       <div class="text-center mt-10 lg:mt-12">
-      <a href="/blog" class="inline-flex items-center text-gray-600 hover:text-gray-900 font-medium py-3 px-6 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200">
-        <span data-translate="viewAllBlogs">{t("viewAllBlogs", lang)}</span>
-        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-        </svg>
-      </a>
+        <a href="/blog" class="inline-flex items-center text-gray-600 hover:text-gray-900 font-medium py-3 px-6 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200">
+          <span data-translate="viewAllBlogs">{t("viewAllBlogs", lang)}</span>
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
       </div>
-    </FadeIn>
+    </div>
   </div>
 </section>

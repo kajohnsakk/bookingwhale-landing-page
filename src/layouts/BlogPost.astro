@@ -1,0 +1,196 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  category: string;
+  tags: string[];
+  lang: 'th' | 'en';
+  readingTime?: string;
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { title, description, pubDate, updatedDate, heroImage, category, tags, lang, readingTime, headings } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString(lang === 'th' ? 'th-TH' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const formattedUpdatedDate = updatedDate?.toLocaleDateString(lang === 'th' ? 'th-TH' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const tocHeadings = headings.filter(h => h.depth === 2);
+---
+
+<Layout title={`${title} | Booking Whale Blog`} description={description} lang={lang}>
+  <Header lang={lang} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": description,
+    "datePublished": pubDate.toISOString(),
+    "dateModified": (updatedDate || pubDate).toISOString(),
+    "author": {
+      "@type": "Organization",
+      "name": "Booking Whale",
+      "url": "https://bookingwhale.co"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Booking Whale",
+      "url": "https://bookingwhale.co",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bookingwhale.co/logo.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://bookingwhale.co${Astro.url.pathname}`
+    },
+    "inLanguage": lang === 'th' ? 'th-TH' : 'en-US',
+    "keywords": tags.join(', ')
+  })} />
+
+  <article class="pt-24 lg:pt-32 pb-16 lg:pb-24">
+    <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
+      <div class="max-w-3xl mx-auto">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
+          <a href="/" class="hover:text-gray-900 transition-colors">
+            {lang === 'th' ? 'หน้าหลัก' : 'Home'}
+          </a>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <a href="/blog" class="hover:text-gray-900 transition-colors">
+            {lang === 'th' ? 'บทความ' : 'Blog'}
+          </a>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <span class="text-gray-400 truncate max-w-[200px]">{title}</span>
+        </nav>
+
+        <div class="mb-8">
+          <span class="inline-block bg-blue-50 text-blue-600 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+            {category}
+          </span>
+          <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em] leading-tight mb-4">
+            {title}
+          </h1>
+          <p class="text-lg text-gray-600 leading-relaxed mb-6">{description}</p>
+          <div class="flex items-center gap-4 text-sm text-gray-500">
+            <div class="flex items-center gap-2">
+              <img src="/logo.webp" alt="Booking Whale" class="w-8 h-8 rounded-full" width="32" height="32" />
+              <span class="font-medium text-gray-700">Booking Whale</span>
+            </div>
+            <span>·</span>
+            <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+            {readingTime && (
+              <>
+                <span>·</span>
+                <span>{readingTime}</span>
+              </>
+            )}
+          </div>
+          {updatedDate && (
+            <p class="text-sm text-gray-400 mt-2">
+              {lang === 'th' ? 'อัปเดตล่าสุด: ' : 'Updated: '}{formattedUpdatedDate}
+            </p>
+          )}
+        </div>
+
+        {tocHeadings.length > 2 && (
+          <nav class="bg-gray-50 rounded-xl p-6 mb-10 border border-gray-100">
+            <h2 class="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">
+              {lang === 'th' ? 'สารบัญ' : 'Table of Contents'}
+            </h2>
+            <ul class="space-y-2">
+              {tocHeadings.map((heading) => (
+                <li>
+                  <a
+                    href={`#${heading.slug}`}
+                    class="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                  >
+                    {heading.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+
+        <div class="prose prose-lg max-w-none
+          prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900
+          prose-h2:text-2xl prose-h2:mt-14 prose-h2:mb-5
+          prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
+          prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-5
+          prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+          prose-strong:text-gray-900
+          prose-ul:text-gray-600 prose-ul:my-5 prose-ol:text-gray-600 prose-ol:my-5
+          prose-li:leading-relaxed prose-li:my-1
+          prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:rounded-r-lg prose-blockquote:py-1
+          prose-img:rounded-xl
+          prose-table:my-8
+          prose-hr:my-10
+        ">
+          <slot />
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <div class="flex flex-wrap gap-2 mb-8">
+            {tags.map((tag) => (
+              <span class="bg-gray-100 text-gray-600 text-sm px-3 py-1 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div class="bg-blue-50 rounded-xl p-8 text-center">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              {lang === 'th' ? 'พร้อมเริ่มใช้ระบบจองออนไลน์?' : 'Ready to start with online booking?'}
+            </h3>
+            <p class="text-gray-600 mb-6">
+              {lang === 'th'
+                ? 'ทดลองใช้ Booking Whale ฟรี ระบบจองคิวผ่าน LINE OA ที่ธุรกิจไทยเลือกใช้'
+                : 'Try Booking Whale free — the LINE OA booking system trusted by Thai businesses'}
+            </p>
+            <a
+              href="/#services"
+              class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold text-sm transition-colors"
+            >
+              {lang === 'th' ? 'เริ่มใช้งานฟรี' : 'Get Started Free'}
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a
+            href="/blog"
+            class="inline-flex items-center text-gray-600 hover:text-gray-900 font-medium transition-colors"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            {lang === 'th' ? 'กลับไปบทความทั้งหมด' : 'Back to all articles'}
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <Footer lang={lang} />
+</Layout>

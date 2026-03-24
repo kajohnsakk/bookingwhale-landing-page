@@ -1,6 +1,4 @@
 ---
-import ScrollReveal from "./motion/ScrollReveal.tsx";
-import { StaggerContainer, StaggerItem } from "./motion/StaggerContainer.tsx";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
 
@@ -10,8 +8,8 @@ const { lang = "th" } = Astro.props;
 const visible = [
   { name: "LINE OA", color: "#06C755", icon: "line" },
   { name: "LINE Login", color: "#06C755", icon: "line-login" },
-  { name: "Notifications", color: "#FFCA28", icon: "bell" },
-  { name: "Cloud Storage", color: "#FF9900", icon: "cloud" },
+  { name: "Notifications", color: "#F59E0B", icon: "bell" },
+  { name: "Cloud Storage", color: "#EA580C", icon: "cloud" },
   { name: "Gmail", color: "#EA4335", icon: "gmail" },
   { name: "QR Code", color: "#1A1A1A", icon: "qr" },
   { name: "Real-time", color: "#10B981", icon: "zap" },
@@ -32,7 +30,7 @@ const reserve = [
 <section id="integrations" class="bg-white">
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px] w-full py-20 lg:py-32">
     <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-      <ScrollReveal client:visible>
+      <div data-animate="scroll-reveal">
         <div class="text-center lg:text-left lg:max-w-md flex-shrink-0">
           <h2
             class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-black tracking-[-0.03em] leading-[1.1]"
@@ -56,11 +54,11 @@ const reserve = [
             </svg>
           </a>
         </div>
-      </ScrollReveal>
+      </div>
 
-      <StaggerContainer client:visible staggerDelay={0.04} className="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-5 md:gap-6 lg:gap-7 flex-1 w-full max-w-[260px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[560px] mx-auto lg:ml-auto">
+      <div data-animate="scroll-reveal" data-stagger-delay="0.04" class="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-5 md:gap-6 lg:gap-7 flex-1 w-full max-w-[260px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[560px] mx-auto lg:ml-auto">
         {visible.map((item, i) => (
-          <StaggerItem variant="scale-up">
+          <div data-animate-child="scale-up">
             <div class="flip-card" data-index={i}>
               <div class="flip-card-inner">
                 <div class="flip-face flip-front" style={`background:${item.color}`} data-icon={item.icon} data-color={item.color} data-name={item.name}>
@@ -73,9 +71,9 @@ const reserve = [
                 </div>
               </div>
             </div>
-          </StaggerItem>
+          </div>
         ))}
-      </StaggerContainer>
+      </div>
     </div>
   </div>
 </section>
@@ -244,6 +242,7 @@ const reserve = [
     font-size: 9px;
     font-weight: 600;
     color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     text-align: center;
     line-height: 1.2;
     max-width: 100%;

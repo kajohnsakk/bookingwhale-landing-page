@@ -1,5 +1,4 @@
 ---
-import ScrollReveal from "./motion/ScrollReveal.tsx";
 import PricingToggle from "./PricingToggle.tsx";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
@@ -10,7 +9,7 @@ const { lang = "th" } = Astro.props;
 
 <section id="pricing" class="section-padding bg-gray-50" aria-labelledby="pricing-heading">
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
-    <ScrollReveal client:visible>
+    <div data-animate="scroll-reveal">
       <div class="text-center mb-12">
         <h2
           id="pricing-heading"
@@ -22,7 +21,7 @@ const { lang = "th" } = Astro.props;
           {t("pricingDescription", lang)}
         </p>
       </div>
-    </ScrollReveal>
+    </div>
 
     <PricingToggle client:visible lang={lang} />
   </div>
