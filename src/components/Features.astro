@@ -1,6 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
+import onlineBooking from "../assets/images/features/online-booking.webp";
+import queueScheduling from "../assets/images/features/queue-scheduling.webp";
+import bookingReminders from "../assets/images/features/booking-reminders.webp";
+import bookingSecureData from "../assets/images/features/booking-secure-data.webp";
+import realTimeTracking from "../assets/images/features/real-time-tracking.webp";
 
 interface Props {
   lang?: Lang;
@@ -8,35 +14,32 @@ interface Props {
 
 const { lang = "th" } = Astro.props;
 
+const featureImages = [onlineBooking, queueScheduling, bookingReminders, bookingSecureData, realTimeTracking];
+
 const features = [
   {
     eyebrow: "BOOKING",
     index: 1,
-    image: "/images/features/online-booking.webp",
     alt: "Online booking system interface showing LINE OA integration with QR code and Rich Menu for instant customer booking",
   },
   {
     eyebrow: "SCHEDULING",
     index: 2,
-    image: "/images/features/queue-scheduling.webp",
     alt: "Smart queue management dashboard showing automated scheduling system that prevents double bookings and manages appointments efficiently",
   },
   {
     eyebrow: "NOTIFICATIONS",
     index: 3,
-    image: "/images/features/booking-reminders.webp",
     alt: "LINE notification system showing appointment reminders, no-show prevention, and automated rebooking messages for customer retention",
   },
   {
     eyebrow: "DATA",
     index: 4,
-    image: "/images/features/booking-secure-data.webp",
     alt: "Comprehensive booking data management system with customer history, analytics dashboard, and digital signature verification feature",
   },
   {
     eyebrow: "ANALYTICS",
     index: 5,
-    image: "/images/features/real-time-tracking.webp",
     alt: "Real-time business analytics dashboard showing booking statistics, revenue tracking, and business performance metrics for strategic planning",
   },
 ];
@@ -95,14 +98,14 @@ const features = [
 
               <div data-animate={`slide-reveal-${imgDir}`} style="--delay: 0.1s" class="flex-1 flex justify-center">
                 <div class="w-full max-w-[340px] sm:max-w-[420px]">
-                  <img
-                    src={feature.image}
+                  <Image
+                    src={featureImages[feature.index - 1]}
                     alt={feature.alt}
+                    width={420}
+                    height={315}
                     class="w-full h-auto rounded-xl"
                     loading="lazy"
                     decoding="async"
-                    width="700"
-                    height="525"
                   />
                 </div>
               </div>

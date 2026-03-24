@@ -1,5 +1,5 @@
 ---
-import HeroNotifications from "./motion/HeroNotifications.tsx";
+import HeroNotifications from "./HeroNotifications.astro";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
 
@@ -64,7 +64,7 @@ const { lang = "th" } = Astro.props;
 
       <div data-animate="scale-reveal" style="--delay: 0.15s">
         <div class="relative flex justify-center md:justify-end w-full">
-          <HeroNotifications client:idle lang={lang} />
+          <HeroNotifications lang={lang} />
           <video
             autoplay
             loop
