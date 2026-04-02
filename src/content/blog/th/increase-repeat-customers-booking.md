@@ -6,6 +6,7 @@ category: "กลยุทธ์ธุรกิจ"
 tags: ["ลูกค้ากลับมาซ้ำ", "Customer Retention", "ระบบจองคิว", "การตลาด", "ธุรกิจบริการ"]
 lang: "th"
 readingTime: "11 นาที"
+heroImage: "/images/blog/increase-repeat-customers-booking.webp"
 ---
 
 ธุรกิจบริการส่วนใหญ่ใช้เงินไปกับการหาลูกค้าใหม่มากกว่าการรักษาลูกค้าเก่า ทั้งที่ข้อมูลจาก Harvard Business Review ระบุว่า **การเพิ่มอัตราลูกค้ากลับมาซ้ำเพียง 5% สามารถเพิ่มกำไรได้ 25-95%**

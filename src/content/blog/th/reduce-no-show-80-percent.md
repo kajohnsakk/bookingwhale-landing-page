@@ -6,6 +6,7 @@ category: "กลยุทธ์ธุรกิจ"
 tags: ["No-Show", "ลดการไม่มาตามนัด", "ระบบแจ้งเตือน", "LINE OA"]
 lang: "th"
 readingTime: "10 นาที"
+heroImage: "/images/blog/reduce-no-show-80-percent.webp"
 ---
 
 ทุกครั้งที่ลูกค้าไม่มาตามนัดโดยไม่แจ้งล่วงหน้า คุณสูญเสียเงินจริงๆ ไม่ใช่แค่เวลาเปล่า

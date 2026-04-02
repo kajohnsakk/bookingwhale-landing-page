@@ -18,6 +18,8 @@ const categoryColors: Record<string, string> = {
   'เทรนด์': 'bg-cyan-100 text-cyan-700',
 };
 
+const categories = [...new Set(posts.map((p) => p.data.category))];
+
 function getSlug(id: string) {
   return id.replace(/^(th|en)\//, '').replace(/\.md$/, '');
 }
@@ -27,6 +29,26 @@ function getSlug(id: string) {
   title="บทความและเคล็ดลับ | Booking Whale Blog"
   description="อ่านบทความเกี่ยวกับระบบจองออนไลน์ การจัดการคิว LINE OA และเคล็ดลับเพิ่มรายได้สำหรับธุรกิจไทย"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "บทความและเคล็ดลับ | Booking Whale Blog",
+      "description": "อ่านบทความเกี่ยวกับระบบจองออนไลน์ การจัดการคิว LINE OA และเคล็ดลับเพิ่มรายได้สำหรับธุรกิจไทย",
+      "url": "https://bookingwhale.co/blog/",
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": posts.length,
+        "itemListElement": posts.map((post, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "url": `https://bookingwhale.co/blog/${getSlug(post.id)}/`,
+          "name": post.data.title,
+        }))
+      }
+    })} />
+  </Fragment>
+
   <Header />
 
   <section class="pt-24 lg:pt-32 pb-10 lg:pb-14 bg-white">
@@ -42,7 +64,20 @@ function getSlug(id: string) {
 
   <section class="pb-16 lg:pb-24 bg-white">
     <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      <div class="flex flex-wrap gap-2 mb-8 justify-center" id="category-filter">
+        <button data-category="all" class="filter-btn active text-sm font-semibold px-4 py-2 rounded-full border border-gray-300 bg-gray-900 text-white transition-colors">
+          ทั้งหมด
+        </button>
+        {categories.map((cat) => {
+          return (
+            <button data-category={cat} class="filter-btn text-sm font-semibold px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition-colors">
+              {cat}
+            </button>
+          );
+        })}
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="posts-grid">
         {posts.map((post) => {
           const colorClass = categoryColors[post.data.category] || 'bg-gray-100 text-gray-700';
           const formattedDate = post.data.pubDate.toLocaleDateString('th-TH', {
@@ -52,7 +87,19 @@ function getSlug(id: string) {
           });
 
           return (
-            <article class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200 overflow-hidden">
+            <article class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200 overflow-hidden" data-category={post.data.category}>
+              {post.data.heroImage && (
+                <a href={`/blog/${getSlug(post.id)}`} class="block overflow-hidden">
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    width="600"
+                    height="315"
+                    class="w-full aspect-[1200/630] object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </a>
+              )}
               <div class="p-6">
                 <div class="flex items-center gap-3 mb-4">
                   <span class={`text-xs font-semibold px-2.5 py-1 rounded-full ${colorClass}`}>
@@ -103,3 +150,25 @@ function getSlug(id: string) {
     overflow: hidden;
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach((b) => {
+        b.classList.remove('active', 'bg-gray-900', 'text-white');
+        b.classList.add('bg-white', 'text-gray-600');
+      });
+      btn.classList.add('active', 'bg-gray-900', 'text-white');
+      btn.classList.remove('bg-white', 'text-gray-600');
+
+      const cat = btn.getAttribute('data-category');
+      document.querySelectorAll<HTMLElement>('#posts-grid article').forEach((article) => {
+        if (cat === 'all' || article.getAttribute('data-category') === cat) {
+          article.style.display = '';
+        } else {
+          article.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

@@ -3,10 +3,6 @@
 
 User-agent: *
 Allow: /
-Crawl-delay: 1
-
-Sitemap: https://bookingwhale.co/sitemap.xml
-
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_astro/
@@ -20,20 +16,24 @@ Disallow: /package.json
 Disallow: /.env
 Disallow: /.gitignore
 
-Allow: /
-Allow: /blog
-Allow: /blog/*
-Allow: /privacy-policy
-Allow: /terms
-Allow: /favicon.ico
-Allow: /logo.webp
-Allow: /assets/
-Allow: /images/
+Sitemap: https://bookingwhale.co/sitemap-index.xml
 
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Line
 Allow: /
 
 User-agent: Slurp

@@ -6,6 +6,7 @@ category: "LINE OA"
 tags: ["Rich Menu", "LINE OA", "ออกแบบ", "UX"]
 lang: "th"
 readingTime: "8 นาที"
+heroImage: "/images/blog/rich-menu-line-oa-booking.webp"
 ---
 
 คุณเปิด LINE OA ของร้านที่ชอบ แล้วเห็นแถบเมนูด้านล่างที่กดแล้วไม่รู้ว่ามันจะพาไปทำอะไร ปุ่มข้อความเล็กมาก ดีไซน์ดูเก่า หรือแย่ที่สุดคือกดจองแล้วพบว่าลิงก์ไม่ทำงาน

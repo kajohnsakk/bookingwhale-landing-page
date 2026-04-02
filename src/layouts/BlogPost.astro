@@ -3,6 +3,18 @@ import Layout from './Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
+interface RelatedPost {
+  id: string;
+  data: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    category: string;
+    heroImage?: string;
+    readingTime?: string;
+  };
+}
+
 interface Props {
   title: string;
   description: string;
@@ -14,9 +26,14 @@ interface Props {
   lang: 'th' | 'en';
   readingTime?: string;
   headings: { depth: number; slug: string; text: string }[];
+  relatedPosts?: RelatedPost[];
 }
 
-const { title, description, pubDate, updatedDate, heroImage, category, tags, lang, readingTime, headings } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, category, tags, lang, readingTime, headings, relatedPosts = [] } = Astro.props;
+
+function getSlug(id: string) {
+  return id.replace(/^(th|en)\//, '').replace(/\.md$/, '');
+}
 
 const formattedDate = pubDate.toLocaleDateString(lang === 'th' ? 'th-TH' : 'en-US', {
   year: 'numeric',
@@ -36,7 +53,16 @@ const encodedUrl = encodeURIComponent(pageUrl);
 const encodedTitle = encodeURIComponent(title);
 ---
 
-<Layout title={`${title} | Booking Whale Blog`} description={description} lang={lang}>
+<Layout title={`${title} | Booking Whale Blog`} description={description} lang={lang} ogImage={heroImage} ogType="article">
+  <Fragment slot="head">
+    <meta property="article:published_time" content={pubDate.toISOString()} />
+    {updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
+    <meta property="article:author" content="Booking Whale" />
+    <meta property="article:section" content={category} />
+    {tags.map((tag) => <meta property="article:tag" content={tag} />)}
+    {heroImage && <link rel="preload" as="image" href={heroImage} fetchpriority="high" />}
+  </Fragment>
+
   <Header lang={lang} />
 
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -44,6 +70,7 @@ const encodedTitle = encodeURIComponent(title);
     "@type": "BlogPosting",
     "headline": title,
     "description": description,
+    ...(heroImage ? { "image": `https://bookingwhale.co${heroImage}` } : {}),
     "datePublished": pubDate.toISOString(),
     "dateModified": (updatedDate || pubDate).toISOString(),
     "author": {
@@ -68,6 +95,30 @@ const encodedTitle = encodeURIComponent(title);
     "keywords": tags.join(', ')
   })} />
 
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": lang === 'th' ? 'หน้าหลัก' : 'Home',
+        "item": "https://bookingwhale.co/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": lang === 'th' ? 'บทความ' : 'Blog',
+        "item": "https://bookingwhale.co/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": title
+      }
+    ]
+  })} />
+
   <article class="pt-24 lg:pt-32 pb-16 lg:pb-24">
     <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
       <div class="max-w-none">
@@ -86,6 +137,19 @@ const encodedTitle = encodeURIComponent(title);
           </svg>
           <span class="text-gray-400 truncate max-w-[200px]">{title}</span>
         </nav>
+
+        {heroImage && (
+          <div class="mb-8 -mx-6 sm:mx-0">
+            <img
+              src={heroImage}
+              alt={title}
+              width="1200"
+              height="630"
+              class="w-full rounded-none sm:rounded-2xl object-cover aspect-[1200/630]"
+              loading="eager"
+            />
+          </div>
+        )}
 
         <div class="mb-8">
           <span class="inline-block bg-blue-50 text-blue-600 text-sm font-semibold px-3 py-1 rounded-full mb-4">
@@ -220,6 +284,36 @@ const encodedTitle = encodeURIComponent(title);
             </a>
           </div>
         </div>
+
+        {relatedPosts.length > 0 && (
+          <div class="mt-12 pt-10 border-t border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">
+              {lang === 'th' ? 'บทความที่เกี่ยวข้อง' : 'Related Articles'}
+            </h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {relatedPosts.map((rp) => (
+                <a href={`/blog/${getSlug(rp.id)}`} class="group block bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200 overflow-hidden">
+                  {rp.data.heroImage && (
+                    <img
+                      src={rp.data.heroImage}
+                      alt={rp.data.title}
+                      width="1200"
+                      height="630"
+                      class="w-full aspect-[1200/630] object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  )}
+                  <div class="p-4">
+                    <span class="text-xs font-semibold text-blue-600">{rp.data.category}</span>
+                    <h3 class="text-sm font-bold text-gray-900 mt-1 group-hover:text-blue-600 transition-colors leading-snug line-clamp-2">
+                      {rp.data.title}
+                    </h3>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div class="mt-8">
           <a

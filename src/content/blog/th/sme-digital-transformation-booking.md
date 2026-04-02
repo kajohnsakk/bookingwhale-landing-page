@@ -6,6 +6,7 @@ category: "Digital Transformation"
 tags: ["SME", "Digital Transformation", "ระบบจองคิว", "ธุรกิจขนาดเล็ก", "เทคโนโลยี"]
 lang: "th"
 readingTime: "14 นาที"
+heroImage: "/images/blog/sme-digital-transformation-booking.webp"
 ---
 
 คำว่า **Digital Transformation** อาจฟังดูใหญ่โตและเป็นเรื่องของบริษัทขนาดใหญ่ แต่ความจริงแล้ว SME ไทยสามารถเริ่มต้นได้ง่ายมาก และจุดเริ่มต้นที่ดีที่สุดคือการเปลี่ยนจาก **การจองคิวแบบเดิม ๆ** มาเป็น **ระบบจองคิวออนไลน์**

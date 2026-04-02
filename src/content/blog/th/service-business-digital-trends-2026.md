@@ -6,6 +6,7 @@ category: "เทรนด์"
 tags: ["เทรนด์ 2026", "ดิจิทัล", "ธุรกิจบริการ", "AI"]
 lang: "th"
 readingTime: "9 นาที"
+heroImage: "/images/blog/service-business-digital-trends-2026.webp"
 ---
 
 # ธุรกิจบริการ 2026: 5 เทรนด์ดิจิทัลที่เจ้าของกิจการต้องรู้
