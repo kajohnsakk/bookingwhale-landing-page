@@ -6,14 +6,28 @@ export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
     params: { slug: post.id.replace(/^(th|en)\//, '').replace(/\.md$/, '') },
-    props: post,
+    props: { post, allPosts: posts },
   }));
 }
 
-const post = Astro.props;
+const { post, allPosts } = Astro.props;
 const { Content, headings } = await render(post);
+
+const currentSlug = post.id.replace(/^(th|en)\//, '').replace(/\.md$/, '');
+const related = allPosts
+  .filter((p) => {
+    const slug = p.id.replace(/^(th|en)\//, '').replace(/\.md$/, '');
+    return slug !== currentSlug && p.data.lang === post.data.lang;
+  })
+  .map((p) => {
+    const sharedTags = p.data.tags.filter((t) => post.data.tags.includes(t)).length;
+    const sameCategory = p.data.category === post.data.category ? 2 : 0;
+    return { ...p, score: sharedTags + sameCategory };
+  })
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3);
 ---
 
-<BlogPost {...post.data} headings={headings}>
+<BlogPost {...post.data} headings={headings} relatedPosts={related}>
   <Content />
 </BlogPost>

@@ -150,7 +150,7 @@ const { lang = "th" } = Astro.props;
   function toggleMobileMenu() {
     const mobileMenu = document.getElementById("mobileMenu");
     const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-    const hamburgerLines = mobileMenuToggle?.querySelectorAll(".hamburger-line");
+    const hamburgerLines = mobileMenuToggle?.querySelectorAll<HTMLElement>(".hamburger-line");
 
     isMobileMenuOpen = !isMobileMenuOpen;
     mobileMenuToggle?.setAttribute('aria-expanded', String(isMobileMenuOpen));
@@ -184,7 +184,7 @@ const { lang = "th" } = Astro.props;
 
   document.addEventListener("click", (e) => {
     const header = document.querySelector("header");
-    if (!header?.contains(e.target) && isMobileMenuOpen) {
+    if (!header?.contains(e.target as Node) && isMobileMenuOpen) {
       closeMobileMenu();
     }
   });
@@ -195,8 +195,8 @@ const { lang = "th" } = Astro.props;
     }
   });
 
-  window.toggleMobileMenu = toggleMobileMenu;
-  window.closeMobileMenu = closeMobileMenu;
+  (window as any).toggleMobileMenu = toggleMobileMenu;
+  (window as any).closeMobileMenu = closeMobileMenu;
 </script>
 
 <style>

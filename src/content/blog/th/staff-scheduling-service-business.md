@@ -6,6 +6,7 @@ category: "การจัดการธุรกิจ"
 tags: ["จัดตารางพนักงาน", "จัดเวรพนักงาน", "ธุรกิจบริการ", "ระบบจองคิว", "บริหารทีม"]
 lang: "th"
 readingTime: "12 นาที"
+heroImage: "/images/blog/staff-scheduling-service-business.webp"
 ---
 
 ## ทำไมการจัดตารางพนักงานถึงเป็นปัญหาใหญ่ของธุรกิจบริการ?

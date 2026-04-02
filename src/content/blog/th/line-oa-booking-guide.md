@@ -6,6 +6,7 @@ category: "LINE OA"
 tags: ["LINE OA", "Rich Menu", "ระบบจองคิว", "LINE Official Account"]
 lang: "th"
 readingTime: "15 นาที"
+heroImage: "/images/blog/line-oa-booking-guide.webp"
 ---
 
 คนไทย **54 ล้านคน** ใช้ LINE ทุกวัน และ 93% ของผู้ใช้สมาร์ทโฟนในไทยมีแอป LINE ติดตั้งอยู่ในเครื่อง (LINE Thailand Official, 2025)

@@ -7,6 +7,8 @@ export interface Props {
   description?: string;
   keywords?: string;
   lang?: "th" | "en";
+  ogImage?: string;
+  ogType?: string;
 }
 
 const {
@@ -14,6 +16,8 @@ const {
   description,
   keywords,
   lang = "th",
+  ogImage,
+  ogType = "website",
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -75,9 +79,9 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description || localizedDescription} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={`https://bookingwhale.co${currentPath}`} />
-    <meta property="og:image" content="https://bookingwhale.co/og-image.png" />
+    <meta property="og:image" content={ogImage ? `https://bookingwhale.co${ogImage}` : "https://bookingwhale.co/og-image.png"} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Booking Whale" />
@@ -89,7 +93,7 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
     <meta name="twitter:creator" content="@bookingwhale" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description || localizedDescription} />
-    <meta name="twitter:image" content="https://bookingwhale.co/og-image.png" />
+    <meta name="twitter:image" content={ogImage ? `https://bookingwhale.co${ogImage}` : "https://bookingwhale.co/og-image.png"} />
 
     <!-- Favicon - Multiple sizes for Google Search & browsers -->
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
@@ -98,9 +102,19 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="canonical" href={`https://bookingwhale.co${canonicalPath}`} />
-    <link rel="alternate" hreflang="th" href="https://bookingwhale.co/" />
-    <link rel="alternate" hreflang="en" href="https://bookingwhale.co/en" />
-    <link rel="alternate" hreflang="x-default" href="https://bookingwhale.co/" />
+    <link rel="alternate" type="application/rss+xml" title="Booking Whale Blog" href="/rss.xml" />
+    {lang === 'en' ? (
+      <>
+        <link rel="alternate" hreflang="th" href={`https://bookingwhale.co${currentPath.replace(/^\/en/, '') || '/'}`} />
+        <link rel="alternate" hreflang="en" href={`https://bookingwhale.co${currentPath}`} />
+        <link rel="alternate" hreflang="x-default" href={`https://bookingwhale.co${currentPath.replace(/^\/en/, '') || '/'}`} />
+      </>
+    ) : (
+      <>
+        <link rel="alternate" hreflang="th" href={`https://bookingwhale.co${currentPath}`} />
+        <link rel="alternate" hreflang="x-default" href={`https://bookingwhale.co${currentPath}`} />
+      </>
+    )}
 
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -355,6 +369,7 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
     </script>
 
     <title>{title}</title>
+    <slot name="head" />
   </head>
   <body>
     <main id="main-content">
@@ -374,7 +389,6 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
 
     <script>
       document.querySelectorAll<HTMLElement>('[data-animate]').forEach((el) => {
-        const type = el.getAttribute('data-animate');
         const margin = '-40px';
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {

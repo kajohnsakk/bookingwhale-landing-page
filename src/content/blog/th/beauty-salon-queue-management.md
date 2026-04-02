@@ -6,6 +6,7 @@ category: "กรณีศึกษา"
 tags: ["ร้านเสริมสวย", "ระบบจัดการคิว", "เพิ่มรายได้", "กรณีศึกษา"]
 lang: "th"
 readingTime: "8 นาที"
+heroImage: "/images/blog/beauty-salon-queue-management.webp"
 ---
 
 # เพิ่มรายได้ร้านเสริมสวย 40% ด้วยระบบจัดการคิวอัจฉริยะ

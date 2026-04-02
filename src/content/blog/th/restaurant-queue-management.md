@@ -6,6 +6,7 @@ category: "อุตสาหกรรม"
 tags: ["ร้านอาหาร", "จัดการคิว", "จองโต๊ะ", "ลดเวลารอ"]
 lang: "th"
 readingTime: "7 นาที"
+heroImage: "/images/blog/restaurant-queue-management.webp"
 ---
 
 เสาร์อาทิตย์ เวลา 6 โมงเย็น ร้านอาหารที่คุณชอบ คิวยาว 45 นาที คุณรู้สึกยังไง?

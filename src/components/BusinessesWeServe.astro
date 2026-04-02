@@ -155,8 +155,8 @@ const businesses = [
       activeProgress = cards[index]?.querySelector('.biz-progress');
 
       if (window.innerWidth < 1024) {
-        const container = cards[0]?.parentElement;
-        const card = cards[index];
+        const container = cards[0]?.parentElement as HTMLElement | null;
+        const card = cards[index] as HTMLElement | undefined;
         if (container && card) {
           const scrollLeft = card.offsetLeft - container.offsetLeft - (container.clientWidth - card.offsetWidth) / 2;
           container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
