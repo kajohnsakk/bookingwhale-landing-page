@@ -59,6 +59,7 @@ function getSlug(id: string) {
                 <a
                   href={`/blog/${getSlug(post.id)}`}
                   class="text-blue-600 hover:text-blue-700 text-[13px] font-medium flex items-center"
+                  aria-label={`${lang === 'th' ? 'อ่านต่อ' : 'Read more'}: ${post.data.title}`}
                 >
                   {lang === 'th' ? 'อ่านต่อ' : 'Read more'}
                   <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Disallow: /_astro/
+Allow: /_astro/
 Disallow: /dist/
 Disallow: /node_modules/
 Disallow: /.git/
