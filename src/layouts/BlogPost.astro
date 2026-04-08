@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getSlug } from '../utils/slug';
 
 interface RelatedPost {
   id: string;
@@ -31,9 +32,6 @@ interface Props {
 
 const { title, description, pubDate, updatedDate, heroImage, category, tags, lang, readingTime, headings, relatedPosts = [] } = Astro.props;
 
-function getSlug(id: string) {
-  return id.replace(/^(th|en)\//, '').replace(/\.md$/, '');
-}
 
 const formattedDate = pubDate.toLocaleDateString(lang === 'th' ? 'th-TH' : 'en-US', {
   year: 'numeric',
