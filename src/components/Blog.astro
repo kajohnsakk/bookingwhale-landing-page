@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
+import { getSlug } from "../utils/slug";
 
 interface Props { lang?: Lang; }
 const { lang = "th" } = Astro.props;
@@ -10,10 +11,6 @@ const allPosts = await getCollection('blog', ({ data }) => data.lang === lang);
 const posts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
-
-function getSlug(id: string) {
-  return id.replace(/^(th|en)\//, '').replace(/\.md$/, '');
-}
 ---
 
 <section id="blog" class="section-padding bg-white" aria-labelledby="blog-heading">
@@ -42,8 +39,20 @@ function getSlug(id: string) {
 
         return (
           <div data-animate-child="fade-up">
-            <article class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all duration-200 overflow-hidden h-full">
-              <div class="p-5 sm:p-6 flex flex-col h-full">
+            <article class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all duration-200 overflow-hidden h-full flex flex-col">
+              {post.data.heroImage && (
+                <a href={`/blog/${getSlug(post.id)}`} class="block overflow-hidden">
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    width="600"
+                    height="315"
+                    class="w-full aspect-[1200/630] object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </a>
+              )}
+              <div class="p-5 sm:p-6 flex flex-col flex-1">
                 <div class="flex items-center gap-2 mb-3">
                   <span class="bg-blue-50 text-blue-600 text-[13px] font-semibold px-2.5 py-0.5 rounded-full">
                     {post.data.category}
