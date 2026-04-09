@@ -38,7 +38,6 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
 <!doctype html>
 <html lang={currentLang}>
   <head>
-    <!-- Google tag (gtag.js) - Load during idle time to not affect LCP/FCP -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -52,13 +51,6 @@ const canonicalPath = lang === "en" ? `/en${currentPath.replace(/^\/en/, '') || 
         s.async = true;
         document.head.appendChild(s);
       }
-      // Load GA after 3 seconds or on user interaction (whichever comes first)
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(function() { setTimeout(loadGA, 2000); });
-      } else {
-        setTimeout(loadGA, 3000);
-      }
-      // Also load on first user interaction
       ['scroll', 'click', 'touchstart', 'keydown'].forEach(function(e) {
         window.addEventListener(e, loadGA, { once: true, passive: true });
       });

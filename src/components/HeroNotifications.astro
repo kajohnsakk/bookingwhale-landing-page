@@ -59,6 +59,7 @@ const positionClasses: Record<string, string> = {
 
 <script>
   const notifs = document.querySelectorAll<HTMLElement>('.hero-notif');
+  let intervalId: ReturnType<typeof setInterval> | null = null;
 
   function showAll(delay: number) {
     notifs.forEach((el, i) => {
@@ -78,12 +79,29 @@ const positionClasses: Record<string, string> = {
     });
   }
 
+  function startLoop() {
+    if (intervalId) return;
+    intervalId = setInterval(() => {
+      hideAll();
+      setTimeout(() => showAll(400), notifs.length * 300 + 600);
+    }, 10000);
+  }
+
+  function stopLoop() {
+    if (intervalId) { clearInterval(intervalId); intervalId = null; }
+  }
+
   showAll(1200);
 
-  setInterval(() => {
-    hideAll();
-    setTimeout(() => showAll(400), notifs.length * 300 + 600);
-  }, 10000);
+  const heroSection = notifs[0]?.closest('section') || notifs[0]?.parentElement;
+  if (heroSection) {
+    const obs = new IntersectionObserver(([entry]) => {
+      entry.isIntersecting ? startLoop() : stopLoop();
+    }, { threshold: 0.1 });
+    obs.observe(heroSection);
+  } else {
+    startLoop();
+  }
 </script>
 
 <style>

@@ -175,13 +175,30 @@ const reserve = [
     return window.innerWidth >= 640 ? 5 : 3;
   }
 
-  setInterval(() => {
-    const cols = getColumns();
-    cards.forEach((card, i) => {
-      const col = i % cols;
-      setTimeout(() => flipCard(card), col * 120);
-    });
-  }, 5000);
+  let flipInterval = null;
+  function startFlipping() {
+    if (flipInterval) return;
+    flipInterval = setInterval(() => {
+      const cols = getColumns();
+      cards.forEach((card, i) => {
+        const col = i % cols;
+        setTimeout(() => flipCard(card), col * 120);
+      });
+    }, 5000);
+  }
+  function stopFlipping() {
+    if (flipInterval) { clearInterval(flipInterval); flipInterval = null; }
+  }
+
+  const section = document.querySelector('.flip-card')?.closest('section');
+  if (section) {
+    const obs = new IntersectionObserver(([entry]) => {
+      entry.isIntersecting ? startFlipping() : stopFlipping();
+    }, { threshold: 0.1 });
+    obs.observe(section);
+  } else {
+    startFlipping();
+  }
 </script>
 
 <style is:global>

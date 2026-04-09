@@ -69,9 +69,9 @@ const businesses = [
                   </h3>
                 </div>
                 <div class:list={[
-                  "biz-progress absolute bottom-0 left-0 h-[2px] bg-blue-600 rounded-full",
+                  "biz-progress absolute bottom-0 left-0 h-[2px] w-full bg-blue-600 rounded-full origin-left",
                   i === 0 ? "block" : "hidden",
-                ]} style="width: 0%;" />
+                ]} style="transform: scaleX(0);" />
               </button>
             ))
           }
@@ -136,10 +136,10 @@ const businesses = [
       if (!progress) return;
       progress.classList.remove('hidden');
       progress.style.transition = 'none';
-      progress.style.width = '0%';
+      progress.style.transform = 'scaleX(0)';
       void progress.offsetWidth;
-      progress.style.transition = `width ${DURATION}ms linear`;
-      progress.style.width = '100%';
+      progress.style.transition = `transform ${DURATION}ms linear`;
+      progress.style.transform = 'scaleX(1)';
 
       if (autoTimer) clearTimeout(autoTimer);
       autoTimer = setTimeout(() => {
@@ -178,7 +178,7 @@ const businesses = [
         if (progress) {
           progress.classList.toggle('hidden', !isActive);
           progress.style.transition = 'none';
-          progress.style.width = '0%';
+          progress.style.transform = 'scaleX(0)';
         }
       });
 
