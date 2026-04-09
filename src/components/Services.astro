@@ -121,12 +121,17 @@ const services = [
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
     <div data-animate="scroll-reveal">
       <div class="text-center mb-16">
-        <h2
-          id="services-heading"
-          class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em]"
-        >
-          <span data-translate="ourServices">{t("ourServices", lang)}</span>
-        </h2>
+        <div class="relative inline-block">
+          <span class="section-badge-wobble absolute -top-5 right-0 sm:-top-6 sm:-right-4 px-3 sm:px-4 py-0.5 sm:py-1 rounded-lg bg-amber-200/80 text-gray-900 text-xs sm:text-sm font-bold tracking-wide rotate-3 z-10">
+            {t("badgeServices", lang)}
+          </span>
+          <h2
+            id="services-heading"
+            class="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em]"
+          >
+            <span data-translate="ourServices">{t("ourServices", lang)}</span>
+          </h2>
+        </div>
         <p
           data-translate="servicesDescription"
           class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium"
