@@ -5,7 +5,9 @@ import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
 import logoImg from "../assets/images/logo.webp";
 
-interface Props { lang?: Lang; }
+interface Props {
+  lang?: Lang;
+}
 const { lang = "th" } = Astro.props;
 ---
 
@@ -98,9 +100,15 @@ const { lang = "th" } = Astro.props;
           aria-label="Toggle menu"
           aria-expanded="false"
         >
-          <span class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-out"></span>
-          <span class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-out mt-1"></span>
-          <span class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-out mt-1"></span>
+          <span
+            class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-out"
+          ></span>
+          <span
+            class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-out mt-1"
+          ></span>
+          <span
+            class="hamburger-line block w-5 h-0.5 bg-current transition-all duration-300 ease-out mt-1"
+          ></span>
         </button>
       </div>
     </div>
@@ -111,19 +119,44 @@ const { lang = "th" } = Astro.props;
     >
       <div class="pt-4 pb-6 border-t border-gray-100 mt-4">
         <div class="flex flex-col space-y-1">
-          <a href="#services" data-translate="ourServices" class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50" onclick="closeMobileMenu()">
+          <a
+            href="#services"
+            data-translate="ourServices"
+            class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50"
+            onclick="closeMobileMenu()"
+          >
             {t("ourServices", lang)}
           </a>
-          <a href="#features" data-translate="whyChoose" class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50" onclick="closeMobileMenu()">
+          <a
+            href="#features"
+            data-translate="whyChoose"
+            class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50"
+            onclick="closeMobileMenu()"
+          >
             {t("whyChoose", lang)}
           </a>
-          <a href="#faq" data-translate="faq" class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50" onclick="closeMobileMenu()">
+          <a
+            href="#faq"
+            data-translate="faq"
+            class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50"
+            onclick="closeMobileMenu()"
+          >
             {t("faq", lang)}
           </a>
-          <a href="#blog" data-translate="blog" class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50" onclick="closeMobileMenu()">
+          <a
+            href="#blog"
+            data-translate="blog"
+            class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50"
+            onclick="closeMobileMenu()"
+          >
             {t("blog", lang)}
           </a>
-          <a href="#contact" data-translate="contact" class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50" onclick="closeMobileMenu()">
+          <a
+            href="#contact"
+            data-translate="contact"
+            class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50"
+            onclick="closeMobileMenu()"
+          >
             {t("contact", lang)}
           </a>
         </div>
@@ -134,26 +167,32 @@ const { lang = "th" } = Astro.props;
 
 <script>
   let lastY = 0;
-  window.addEventListener('scroll', () => {
-    const current = window.scrollY;
-    const header = document.querySelector('[data-header]') as HTMLElement;
-    if (!header) return;
-    if (current > 50) header.classList.add('header-scrolled');
-    else header.classList.remove('header-scrolled');
-    if (current > 200 && current > lastY) header.classList.add('header-hidden');
-    else header.classList.remove('header-hidden');
-    lastY = current;
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      const current = window.scrollY;
+      const header = document.querySelector("[data-header]") as HTMLElement;
+      if (!header) return;
+      if (current > 50) header.classList.add("header-scrolled");
+      else header.classList.remove("header-scrolled");
+      if (current > 200 && current > lastY)
+        header.classList.add("header-hidden");
+      else header.classList.remove("header-hidden");
+      lastY = current;
+    },
+    { passive: true },
+  );
 
   let isMobileMenuOpen = false;
 
   function toggleMobileMenu() {
     const mobileMenu = document.getElementById("mobileMenu");
     const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-    const hamburgerLines = mobileMenuToggle?.querySelectorAll<HTMLElement>(".hamburger-line");
+    const hamburgerLines =
+      mobileMenuToggle?.querySelectorAll<HTMLElement>(".hamburger-line");
 
     isMobileMenuOpen = !isMobileMenuOpen;
-    mobileMenuToggle?.setAttribute('aria-expanded', String(isMobileMenuOpen));
+    mobileMenuToggle?.setAttribute("aria-expanded", String(isMobileMenuOpen));
 
     if (isMobileMenuOpen) {
       mobileMenu?.classList.remove("max-h-0", "opacity-0");
@@ -161,7 +200,8 @@ const { lang = "th" } = Astro.props;
       if (hamburgerLines) {
         hamburgerLines[0].style.transform = "rotate(45deg) translate(5px, 5px)";
         hamburgerLines[1].style.opacity = "0";
-        hamburgerLines[2].style.transform = "rotate(-45deg) translate(7px, -6px)";
+        hamburgerLines[2].style.transform =
+          "rotate(-45deg) translate(7px, -6px)";
       }
     } else {
       mobileMenu?.classList.add("max-h-0", "opacity-0");
@@ -180,7 +220,9 @@ const { lang = "th" } = Astro.props;
     }
   }
 
-  document.getElementById("mobileMenuToggle")?.addEventListener("click", toggleMobileMenu);
+  document
+    .getElementById("mobileMenuToggle")
+    ?.addEventListener("click", toggleMobileMenu);
 
   document.addEventListener("click", (e) => {
     const header = document.querySelector("header");
@@ -205,7 +247,8 @@ const { lang = "th" } = Astro.props;
   }
 
   #mobileMenu {
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    transition:
+      max-height 0.3s ease-out,
+      opacity 0.3s ease-out;
   }
-
 </style>

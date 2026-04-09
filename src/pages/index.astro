@@ -1,15 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro';
-import BusinessesWeServe from '../components/BusinessesWeServe.astro';
-import Features from '../components/Features.astro';
-import Integrations from '../components/Integrations.astro';
-import FAQ from '../components/FAQ.astro';
-import Blog from '../components/Blog.astro';
-import BookingModal from '../components/BookingModal.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import BusinessesWeServe from "../components/BusinessesWeServe.astro";
+import Features from "../components/Features.astro";
+import Integrations from "../components/Integrations.astro";
+import FAQ from "../components/FAQ.astro";
+import Blog from "../components/Blog.astro";
+import BookingModal from "../components/BookingModal.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout
@@ -30,18 +30,19 @@ import Footer from '../components/Footer.astro';
   <BookingModal />
 
   <script>
-    document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const href = anchor.getAttribute('href');
-        if (href) {
-          const target = document.querySelector(href);
-          target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+    document
+      .querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
+      .forEach((anchor) => {
+        anchor.addEventListener("click", (e) => {
+          e.preventDefault();
+          const href = anchor.getAttribute("href");
+          if (href) {
+            const target = document.querySelector(href);
+            target?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
       });
-    });
   </script>
-
 
   <style>
     html {
@@ -68,7 +69,5 @@ import Footer from '../components/Footer.astro';
     ::-webkit-scrollbar-thumb:hover {
       background: #94a3b8;
     }
-
   </style>
-
 </Layout>

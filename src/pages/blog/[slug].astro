@@ -1,11 +1,11 @@
 ---
-import { getCollection, render } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import { getCollection, render } from "astro:content";
+import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getCollection("blog");
   return posts.map((post) => ({
-    params: { slug: post.id.replace(/^(th|en)\//, '').replace(/\.md$/, '') },
+    params: { slug: post.id.replace(/^(th|en)\//, "").replace(/\.md$/, "") },
     props: { post, allPosts: posts },
   }));
 }
@@ -13,14 +13,16 @@ export async function getStaticPaths() {
 const { post, allPosts } = Astro.props;
 const { Content, headings } = await render(post);
 
-const currentSlug = post.id.replace(/^(th|en)\//, '').replace(/\.md$/, '');
+const currentSlug = post.id.replace(/^(th|en)\//, "").replace(/\.md$/, "");
 const related = allPosts
   .filter((p) => {
-    const slug = p.id.replace(/^(th|en)\//, '').replace(/\.md$/, '');
+    const slug = p.id.replace(/^(th|en)\//, "").replace(/\.md$/, "");
     return slug !== currentSlug && p.data.lang === post.data.lang;
   })
   .map((p) => {
-    const sharedTags = p.data.tags.filter((t) => post.data.tags.includes(t)).length;
+    const sharedTags = p.data.tags.filter((t) =>
+      post.data.tags.includes(t),
+    ).length;
     const sameCategory = p.data.category === post.data.category ? 2 : 0;
     return { ...p, score: sharedTags + sameCategory };
   })

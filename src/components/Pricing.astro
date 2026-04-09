@@ -3,11 +3,17 @@ import PricingToggle from "./PricingToggle.tsx";
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
 
-interface Props { lang?: Lang; }
+interface Props {
+  lang?: Lang;
+}
 const { lang = "th" } = Astro.props;
 ---
 
-<section id="pricing" class="section-padding bg-gray-50" aria-labelledby="pricing-heading">
+<section
+  id="pricing"
+  class="section-padding bg-gray-50"
+  aria-labelledby="pricing-heading"
+>
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
     <div data-animate="scroll-reveal">
       <div class="text-center mb-12">
@@ -17,7 +23,10 @@ const { lang = "th" } = Astro.props;
         >
           <span data-translate="pricingTitle">{t("pricingTitle", lang)}</span>
         </h2>
-        <p data-translate="pricingDescription" class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium">
+        <p
+          data-translate="pricingDescription"
+          class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium"
+        >
           {t("pricingDescription", lang)}
         </p>
       </div>

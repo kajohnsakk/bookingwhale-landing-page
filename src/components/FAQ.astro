@@ -2,101 +2,113 @@
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
 
-interface Props { lang?: Lang; }
+interface Props {
+  lang?: Lang;
+}
 const { lang = "th" } = Astro.props;
 
 const faqs = [
   {
-    id: 'what-is',
-    question: 'What is Booking Whale?',
-    answer: 'Booking Whale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We\'re currently in beta development.'
+    id: "what-is",
+    question: "What is Booking Whale?",
+    answer:
+      "Booking Whale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We're currently in beta development.",
   },
   {
-    id: 'when-launch',
-    question: 'When will it be available?',
-    answer: 'We\'re launching our beta version soon! Join our early access list to be among the first customers to try the platform and receive exclusive benefits from us.'
+    id: "when-launch",
+    question: "When will it be available?",
+    answer:
+      "We're launching our beta version soon! Join our early access list to be among the first customers to try the platform and receive exclusive benefits from us.",
   },
   {
-    id: 'cost',
-    question: 'How much does it cost?',
-    answer: 'Booking Whale will be free during our beta period. Early adopters will get special pricing when we launch our full platform.'
+    id: "cost",
+    question: "How much does it cost?",
+    answer:
+      "Booking Whale will be free during our beta period. Early adopters will get special pricing when we launch our full platform.",
   },
   {
-    id: 'features',
-    question: 'What features will be included?',
-    answer: 'Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools.'
+    id: "features",
+    question: "What features will be included?",
+    answer:
+      "Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools.",
   },
   {
-    id: 'support',
-    question: 'Do you provide support?',
-    answer: 'Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions.'
+    id: "support",
+    question: "Do you provide support?",
+    answer:
+      "Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions.",
   },
   {
-    id: 'security',
-    question: 'Is my data secure?',
-    answer: 'Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us.'
-  }
+    id: "security",
+    question: "Is my data secure?",
+    answer:
+      "Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us.",
+  },
 ];
 ---
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is Booking Whale?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Booking Whale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We're currently in beta development."
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Booking Whale?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Booking Whale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We're currently in beta development."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When will it be available?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We're launching our beta version soon! Join our early access list to be among the first customers to try the platform and receive exclusive benefits from us."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does it cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Booking Whale will be free during our beta period. Early adopters will get special pricing when we launch our full platform."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What features will be included?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "When will it be available?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We're launching our beta version soon! Join our early access list to be among the first customers to try the platform and receive exclusive benefits from us."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does it cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Booking Whale will be free during our beta period. Early adopters will get special pricing when we launch our full platform."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What features will be included?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you provide support?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data secure?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us."
-      }
-    }
-  ]
-}
+    ]
+  }
 </script>
 
-<section id="faq" class="section-padding bg-white" aria-labelledby="faq-heading">
+<section
+  id="faq"
+  class="section-padding bg-white"
+  aria-labelledby="faq-heading"
+>
   <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
     <div data-animate="scroll-reveal">
       <div class="text-center mb-12">
@@ -106,49 +118,69 @@ const faqs = [
         >
           <span data-translate="faqTitle">{t("faqTitle", lang)}</span>
         </h2>
-        <p data-translate="faqDescription" class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium">
+        <p
+          data-translate="faqDescription"
+          class="text-xl text-gray-600 max-w-xl mx-auto mt-4 font-medium"
+        >
           {t("faqDescription", lang)}
         </p>
       </div>
     </div>
 
     <div class="max-w-4xl mx-auto">
-      <div data-animate="scroll-reveal" data-stagger-delay="0.06" class="flex flex-col gap-3">
-        {faqs.map((faq, index) => (
-          <div data-animate-child="fade-up">
-            <div class="bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors duration-200 overflow-hidden">
-              <button
-                class="faq-toggle w-full px-4 py-3 sm:px-5 sm:py-4 text-left flex items-center justify-between focus:outline-none"
-                aria-expanded="false"
-                aria-controls={`faq-${index}`}
-                onclick={`toggleFAQ('faq-${index}')`}
-              >
-                <h3 data-translate={`${faq.id}Question`} class="text-lg font-semibold text-gray-900">
-                  {t(`${faq.id}Question`, lang)}
-                </h3>
-                <svg
-                  class="faq-icon w-5 h-5 text-gray-400 transform transition-transform duration-200 flex-shrink-0 ml-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+      <div
+        data-animate="scroll-reveal"
+        data-stagger-delay="0.06"
+        class="flex flex-col gap-3"
+      >
+        {
+          faqs.map((faq, index) => (
+            <div data-animate-child="fade-up">
+              <div class="bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors duration-200 overflow-hidden">
+                <button
+                  class="faq-toggle w-full px-4 py-3 sm:px-5 sm:py-4 text-left flex items-center justify-between focus:outline-none"
+                  aria-expanded="false"
+                  aria-controls={`faq-${index}`}
+                  onclick={`toggleFAQ('faq-${index}')`}
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                </svg>
-              </button>
-              <div
-                id={`faq-${index}`}
-                class="faq-answer overflow-hidden"
-                style="height: 0;"
-              >
-                <div class="px-4 pb-3 sm:px-5 sm:pb-4">
-                  <p data-translate={`${faq.id}Answer`} class="text-base text-gray-600 leading-relaxed whitespace-pre-line">
-                    {t(`${faq.id}Answer`, lang)}
-                  </p>
+                  <h3
+                    data-translate={`${faq.id}Question`}
+                    class="text-lg font-semibold text-gray-900"
+                  >
+                    {t(`${faq.id}Question`, lang)}
+                  </h3>
+                  <svg
+                    class="faq-icon w-5 h-5 text-gray-400 transform transition-transform duration-200 flex-shrink-0 ml-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                <div
+                  id={`faq-${index}`}
+                  class="faq-answer overflow-hidden"
+                  style="height: 0;"
+                >
+                  <div class="px-4 pb-3 sm:px-5 sm:pb-4">
+                    <p
+                      data-translate={`${faq.id}Answer`}
+                      class="text-base text-gray-600 leading-relaxed whitespace-pre-line"
+                    >
+                      {t(`${faq.id}Answer`, lang)}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </div>
@@ -166,38 +198,46 @@ const faqs = [
     if (!faqAnswer) return;
 
     const button = faqAnswer.previousElementSibling as HTMLElement | null;
-    const faqIcon = button?.querySelector('.faq-icon');
-    const isOpen = faqAnswer.dataset.open === 'true';
+    const faqIcon = button?.querySelector(".faq-icon");
+    const isOpen = faqAnswer.dataset.open === "true";
 
-    document.querySelectorAll<HTMLElement>('.faq-answer[data-open="true"]').forEach((el) => {
-      if (el.id === faqId) return;
-      el.dataset.open = 'false';
-      el.style.height = el.scrollHeight + 'px';
-      el.previousElementSibling?.setAttribute('aria-expanded', 'false');
-      requestAnimationFrame(() => {
-        el.style.height = '0';
+    document
+      .querySelectorAll<HTMLElement>('.faq-answer[data-open="true"]')
+      .forEach((el) => {
+        if (el.id === faqId) return;
+        el.dataset.open = "false";
+        el.style.height = el.scrollHeight + "px";
+        el.previousElementSibling?.setAttribute("aria-expanded", "false");
+        requestAnimationFrame(() => {
+          el.style.height = "0";
+        });
+        el.previousElementSibling
+          ?.querySelector(".faq-icon")
+          ?.classList.remove("rotate-180");
       });
-      el.previousElementSibling?.querySelector('.faq-icon')?.classList.remove('rotate-180');
-    });
 
     if (!isOpen) {
-      faqAnswer.dataset.open = 'true';
-      button?.setAttribute('aria-expanded', 'true');
-      faqAnswer.style.height = faqAnswer.scrollHeight + 'px';
-      faqIcon?.classList.add('rotate-180');
-      faqAnswer.addEventListener('transitionend', () => {
-        if (faqAnswer.dataset.open === 'true') {
-          faqAnswer.style.height = 'auto';
-        }
-      }, { once: true });
+      faqAnswer.dataset.open = "true";
+      button?.setAttribute("aria-expanded", "true");
+      faqAnswer.style.height = faqAnswer.scrollHeight + "px";
+      faqIcon?.classList.add("rotate-180");
+      faqAnswer.addEventListener(
+        "transitionend",
+        () => {
+          if (faqAnswer.dataset.open === "true") {
+            faqAnswer.style.height = "auto";
+          }
+        },
+        { once: true },
+      );
     } else {
-      faqAnswer.dataset.open = 'false';
-      button?.setAttribute('aria-expanded', 'false');
-      faqAnswer.style.height = faqAnswer.scrollHeight + 'px';
+      faqAnswer.dataset.open = "false";
+      button?.setAttribute("aria-expanded", "false");
+      faqAnswer.style.height = faqAnswer.scrollHeight + "px";
       requestAnimationFrame(() => {
-        faqAnswer.style.height = '0';
+        faqAnswer.style.height = "0";
       });
-      faqIcon?.classList.remove('rotate-180');
+      faqIcon?.classList.remove("rotate-180");
     }
   }
 

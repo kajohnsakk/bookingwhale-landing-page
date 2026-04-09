@@ -1,11 +1,9 @@
 ---
+
 ---
 
 <div class="lang-toggle-wrap">
-  <button
-    class="lang-toggle js-lang-toggle"
-    aria-label="Switch language"
-  >
+  <button class="lang-toggle js-lang-toggle" aria-label="Switch language">
     <span class="lang-toggle-slider js-lang-slider"></span>
     <span class="lang-toggle-option js-lang-opt" data-lang="th">TH</span>
     <span class="lang-toggle-option js-lang-opt" data-lang="en">EN</span>
@@ -13,208 +11,347 @@
 </div>
 
 <script is:inline>
-(function() {
-  var translations = {
-    en: {
-      services: "Services", features: "Features", faq: "FAQ", blog: "Blog", contact: "Contact", bookNow: "Book Now",
-      heroEyebrow: "LINE OA BOOKING PLATFORM",
-      heroTitle: "Booking System via", heroSubtitle: "Easy booking, instant customer connection",
-      heroDescription: "Appointment booking system, queue management, customer database collection. Create your own booking system connected to LINE Official Account. Easy to use, ready to start immediately.",
-      heroTagline: "", trustedBy: "Join the first 1,000 early adopters", startBookingNow: "GET STARTED",
-      exploreServices: "Explore Services", activeUsers: "Active Users", uptime: "Uptime", support: "Support",
-      ourServices: "Why Booking Whale", servicesDescription: "Everything You Need in One Place",
-      bookingTitle: "Easy Booking via LINE and All Online Channels",
-      bookingDesc: "Customers can book instantly through LINE or scan QR codes at your store, with shareable links for Facebook, Instagram, or websites. Accessible anytime, anywhere.",
-      scheduleTitle: "Smart Scheduling Never Miss a Queue",
-      scheduleDesc: "No more worries when customers pile up. The system automatically arranges queues and remembers regular customers' preferred dates and times, making appointments simple and foolproof.",
-      noshowTitle: "Reduce No-Shows and Last-Minute Cancellations",
-      noshowDesc: "Advance notifications via LINE with SLA settings or cancellation fees for late changes. Reduce no-shows, keep queues full, and never miss sales opportunities.",
-      rebookingTitle: "Build Customer Relationships, Increase Repeat Bookings",
-      rebookingDesc: "After service completion, the system automatically sends LINE messages inviting customers to book their next appointment. Simplify decision-making and maintain continuous queue fulfillment.",
-      whyChoose: "Our Features",
-      featuresDescription: "Experience the next generation of booking technology with features designed for modern businesses and demanding users who expect excellence.",
-      feature1Title: "Instant Online Booking", feature1Desc: "Customers can easily book through LINE OA, website, or QR Code with Rich Menu buttons in LINE that take customers directly to the booking system.",
-      feature2Title: "Smart Queue Management", feature2Desc: "No matter how many customers you have, the system automatically arranges queues, prevents double bookings or missed appointments. Complete management with confidence in every appointment.",
-      feature3Title: "Appointment Reminders & Rebooking Boost", feature3Desc: "Advance notifications via LINE reduce no-shows with cancellation rules, and automatic rebooking messages after service to keep customers coming back continuously.",
-      feature4Title: "Complete Booking Data Collection", feature4Desc: "Record all booking data with historical records for analysis to increase sales opportunities, plus special digital signature feature to confirm actual service usage.",
-      feature5Title: "Real-Time Business Tracking", feature5Desc: "Real-time booking summary helps you see a clear overview of your business and plan accurately.",
-      faqTitle: "Frequently Asked Questions", faqDescription: "Have questions about Booking Whale? We've compiled the most common questions here.",
-      "what-isQuestion": "What is Booking Whale?", "what-isAnswer": "Booking Whale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We're currently in beta development.",
-      "when-launchQuestion": "When will it be available?", "when-launchAnswer": "We're launching our beta version soon! Join our early access list to be among the first customers to try the platform and receive exclusive benefits from us.",
-      costQuestion: "How much does it cost?", costAnswer: "Booking Whale will be free during our beta period. Early adopters will get special pricing when we launch our full platform.",
-      featuresQuestion: "What features will be included?", featuresAnswer: "Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools.",
-      supportQuestion: "Do you provide support?", supportAnswer: "Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions.",
-      securityQuestion: "Is my data secure?", securityAnswer: "Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us.",
-      available247: "Available 24/7", allRightsReserved: "All rights reserved.", privacyPolicy: "Privacy Policy", termsOfService: "Terms of Service", cookiePolicy: "Cookie Policy",
-      statBusinesses: "Businesses", statUptime: "Uptime", statSupport: "Support",
-      learnMore: "Learn more",
-      bookingBullet1: "LINE OA Rich Menu", bookingBullet2: "QR Code", bookingBullet3: "Facebook & Instagram",
-      scheduleBullet1: "Auto queue management", scheduleBullet2: "Double booking prevention", scheduleBullet3: "Auto recurring booking",
-      noshowBullet1: "LINE notifications", noshowBullet2: "Cancellation policies", noshowBullet3: "Reduce No-Shows",
-      rebookingBullet1: "Auto rebooking messages", rebookingBullet2: "Personalized messages", rebookingBullet3: "Continuous queue fill",
-      bookingLink: "Learn more", scheduleLink: "Learn more", noshowLink: "Learn more", rebookingLink: "Learn more",
-      blogTitle: "Articles & Tips", blogDescription: "Learn tips and strategies to boost your business efficiency with online booking systems",
-      viewAllBlogs: "View all articles",
-      integrations: "Integrations",
-      intTitle: "All your tools, one platform.", intDescription: "Supports every tool your business needs — from LINE OA to enterprise-grade cloud infrastructure.",
-      intExplore: "Explore all features"
-    },
-    th: {
-      services: "บริการหลัก", features: "แพลตฟอร์ม", faq: "คำถามที่พบบ่อย", blog: "บทความ", contact: "ติดต่อ", bookNow: "จองเลย",
-      heroEyebrow: "LINE OA BOOKING PLATFORM",
-      heroTitle: "ระบบจองผ่าน", heroSubtitle: "จองง่าย เชื่อมต่อลูกค้าได้ทันที",
-      heroDescription: "ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที",
-      heroTagline: "", trustedBy: "เข้าร่วมเป็น 1,000 คนแรกที่ได้ทดลองใช้ก่อนใคร", startBookingNow: "เริ่มใช้งาน",
-      exploreServices: "ดูบริการทั้งหมด", activeUsers: "ผู้ใช้งาน", uptime: "อัพไทม์", support: "ซัพพอร์ต",
-      ourServices: "ทำไมต้อง Booking Whale", servicesDescription: "ทุกอย่างที่คุณต้องการ ในที่เดียว",
-      bookingTitle: "จองง่ายผ่าน Line และทุกช่องทางออนไลน์",
-      bookingDesc: "ลูกค้าจองได้ทันทีผ่าน LINE หรือสแกน QR Code หน้าร้าน พร้อมลิงก์แชร์บน Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้ง่ายทุกที่ทุกเวลา",
-      scheduleTitle: "จัดตารางอย่างอัจฉริยะไม่พลาดทุกคิว",
-      scheduleDesc: "หมดกังวลเมื่อมีลูกค้าเข้ามาเยอะ ระบบจะจัดคิวให้อัตโนมัติ พร้อมจองวัน และเวลาเดิมให้ลูกค้าประจำ ให้การนัดหมายเป็นเรื่องง่าย ไม่ตกหล่น",
-      noshowTitle: "ลดการผิดนัด (No-Show) และยกเลิกกระทันหัน",
-      noshowDesc: "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกใกล้เวลานัด ช่วยลด No-Show รักษาคิวให้เต็มและไม่เสียโอกาสทางการขาย",
-      rebookingTitle: "สร้างความสัมพันธ์กับลูกค้า เพิ่มการจองซ้ำ",
-      rebookingDesc: "หลังการใช้บริการ ระบบจะส่งข้อความผ่าน LINE เพื่อชวนลูกค้าจองรอบถัดไปทันที ลดขั้นตอนการตัดสินใจ ช่วยให้คิวเต็มต่อเนื่อง",
-      whyChoose: "ฟีเจอร์ของเรา",
-      featuresDescription: "ระบบจองที่ครบครันด้วยฟีเจอร์ที่ออกแบบมาเพื่อตอบสนองความต้องการของธุรกิจสมัยใหม่",
-      feature1Title: "จองออนไลน์ได้ทันที", feature1Desc: "ลูกค้าจองง่ายผ่าน LINE OA, เว็บไซต์ หรือ QR Code พร้อมปุ่ม Rich Menu ใน LINE ที่พาลูกค้าเข้าสู่ระบบจองได้ทันที",
-      feature2Title: "จัดการคิวอัจฉริยะ", feature2Desc: "ไม่ว่าลูกค้าจะเยอะแค่ไหน ระบบช่วยจัดตารางคิวให้อัตโนมัติ ป้องกันการนัดคิวซ้อนหรือตกหล่น จัดการครบ มั่นใจทุกการนัดหมาย",
-      feature3Title: "แจ้งเตือนทุกนัด กระตุ้นการจองซ้ำ", feature3Desc: "แจ้งเตือนล่วงหน้าผ่าน LINE ลด No-Show พร้อมกติกาการยกเลิก และข้อความชวนจองซ้ำอัตโนมัติหลังใช้บริการ ให้ลูกค้ากลับมาใช้บริการได้ต่อเนื่อง",
-      feature4Title: "เก็บข้อมูลการจองครบถ้วน", feature4Desc: "บันทึกข้อมูลทุกการจองพร้อมประวัติย้อนหลัง เพื่อนำไปวิเคราะห์ต่อยอดเพิ่มโอกาสการขาย พร้อมฟีเจอร์พิเศษ ลายเซ็นดิจิทัล เพื่อยืนยันการใช้บริการจริง",
-      feature5Title: "ติดตามผลธุรกิจแบบเรียลไทม์", feature5Desc: "สรุปข้อมูลการจองแบบเรียลไทม์ ช่วยให้คุณมองเห็นภาพรวมของธุรกิจได้อย่างชัดเจน และวางแผนได้แม่นยำ",
-      faqTitle: "คำถามที่พบบ่อย", faqDescription: "มีคำถามเกี่ยวกับ Booking Whale? เราได้รวบรวมคำถามที่พบบ่อยไว้ที่นี่",
-      "what-isQuestion": "Booking Whale คืออะไร?", "what-isAnswer": "Booking Whale คือแพลตฟอร์มการจองรุ่นใหม่ที่ออกแบบมาเพื่อทำให้การจองบริการง่ายขึ้นสำหรับธุรกิจและลูกค้า ขณะนี้เรากำลังพัฒนาเวอร์ชัน beta",
-      "when-launchQuestion": "เมื่อไหร่จะใช้ได้?", "when-launchAnswer": "เรากำลังเปิดตัวเวอร์ชัน beta เร็วๆ นี้! เข้าร่วมรายชื่อ early access เพื่อเป็นลูกค้ากลุ่มแรกที่ได้ทดลองใช้แพลตฟอร์มและรับสิทธิพิเศษจากเรา",
-      costQuestion: "ราคาเท่าไหร่?", costAnswer: "Booking Whale จะฟรีในช่วง beta ผู้ใช้งานแรกจะได้ราคาพิเศษเมื่อเราเปิดตัวแพลตฟอร์มเต็มรูปแบบ",
-      featuresQuestion: "จะมีฟีเจอร์อะไรบ้าง?", featuresAnswer: "แพลตฟอร์มของเราจะรวมการจองอัตโนมัติ การชำระเงินปลอดภัย วิเคราะห์ธุรกิจ การสนับสนุน 24/7 และการเชื่อมต่อกับเครื่องมือที่มีอยู่",
-      supportQuestion: "มีการสนับสนุนไหม?", supportAnswer: "ใช่! เรามีการสนับสนุน 24/7 ผ่านแชท อีเมล และโทรศัพท์ ทีมงานเฉพาะของเราจะช่วยคุณเริ่มต้นและตอบคำถามต่างๆ",
-      securityQuestion: "ข้อมูลของฉันปลอดภัยไหม?", securityAnswer: "แน่นอน เราใช้การเข้ารหัสระดับธนาคารและปฏิบัติตามมาตรฐานอุตสาหกรรมเพื่อปกป้องข้อมูลของคุณ ข้อมูลของคุณปลอดภัยกับเรา",
-      available247: "พร้อมบริการ 24/7", allRightsReserved: "สงวนลิขสิทธิ์", privacyPolicy: "นโยบายความเป็นส่วนตัว", termsOfService: "ข้อกำหนดการใช้บริการ", cookiePolicy: "นโยบายคุกกี้",
-      statBusinesses: "ธุรกิจที่ใช้งาน", statUptime: "อัพไทม์", statSupport: "ซัพพอร์ต",
-      learnMore: "เรียนรู้เพิ่มเติม",
-      bookingBullet1: "LINE OA Rich Menu", bookingBullet2: "QR Code", bookingBullet3: "Facebook & Instagram",
-      scheduleBullet1: "จัดคิวอัตโนมัติ", scheduleBullet2: "ป้องกันจองซ้ำ", scheduleBullet3: "จองเวลาเดิมอัตโนมัติ",
-      noshowBullet1: "แจ้งเตือนผ่าน LINE", noshowBullet2: "กติกาการยกเลิก", noshowBullet3: "ลด No-Show",
-      rebookingBullet1: "ชวนจองซ้ำอัตโนมัติ", rebookingBullet2: "ข้อความส่วนตัว", rebookingBullet3: "คิวเต็มต่อเนื่อง",
-      bookingLink: "ดูเพิ่มเติม", scheduleLink: "ดูเพิ่มเติม", noshowLink: "ดูเพิ่มเติม", rebookingLink: "ดูเพิ่มเติม",
-      blogTitle: "บทความและเคล็ดลับ", blogDescription: "เรียนรู้เคล็ดลับและกลยุทธ์ในการเพิ่มประสิทธิภาพธุรกิจของคุณด้วยระบบจองออนไลน์",
-      viewAllBlogs: "ดูบทความทั้งหมด",
-      integrations: "ระบบที่เชื่อมต่อ",
-      intTitle: "เชื่อมต่อทุกระบบ ในที่เดียว", intDescription: "รองรับทุกเครื่องมือที่ธุรกิจของคุณต้องการ ตั้งแต่ LINE OA ไปจนถึงระบบคลาวด์ระดับ Enterprise",
-      intExplore: "ดูฟีเจอร์ทั้งหมด"
-    }
-  };
+  (function () {
+    var translations = {
+      en: {
+        services: "Services",
+        features: "Features",
+        faq: "FAQ",
+        blog: "Blog",
+        contact: "Contact",
+        bookNow: "Book Now",
+        heroEyebrow: "LINE OA BOOKING PLATFORM",
+        heroTitle: "Booking System via",
+        heroSubtitle: "Easy booking, instant customer connection",
+        heroDescription:
+          "Appointment booking system, queue management, customer database collection. Create your own booking system connected to LINE Official Account. Easy to use, ready to start immediately.",
+        heroTagline: "",
+        trustedBy: "Join the first 1,000 early adopters",
+        startBookingNow: "GET STARTED",
+        exploreServices: "Explore Services",
+        activeUsers: "Active Users",
+        uptime: "Uptime",
+        support: "Support",
+        ourServices: "Why Booking Whale",
+        servicesDescription: "Everything You Need in One Place",
+        bookingTitle: "Easy Booking via LINE and All Online Channels",
+        bookingDesc:
+          "Customers can book instantly through LINE or scan QR codes at your store, with shareable links for Facebook, Instagram, or websites. Accessible anytime, anywhere.",
+        scheduleTitle: "Smart Scheduling Never Miss a Queue",
+        scheduleDesc:
+          "No more worries when customers pile up. The system automatically arranges queues and remembers regular customers' preferred dates and times, making appointments simple and foolproof.",
+        noshowTitle: "Reduce No-Shows and Last-Minute Cancellations",
+        noshowDesc:
+          "Advance notifications via LINE with SLA settings or cancellation fees for late changes. Reduce no-shows, keep queues full, and never miss sales opportunities.",
+        rebookingTitle:
+          "Build Customer Relationships, Increase Repeat Bookings",
+        rebookingDesc:
+          "After service completion, the system automatically sends LINE messages inviting customers to book their next appointment. Simplify decision-making and maintain continuous queue fulfillment.",
+        whyChoose: "Our Features",
+        featuresDescription:
+          "Experience the next generation of booking technology with features designed for modern businesses and demanding users who expect excellence.",
+        feature1Title: "Instant Online Booking",
+        feature1Desc:
+          "Customers can easily book through LINE OA, website, or QR Code with Rich Menu buttons in LINE that take customers directly to the booking system.",
+        feature2Title: "Smart Queue Management",
+        feature2Desc:
+          "No matter how many customers you have, the system automatically arranges queues, prevents double bookings or missed appointments. Complete management with confidence in every appointment.",
+        feature3Title: "Appointment Reminders & Rebooking Boost",
+        feature3Desc:
+          "Advance notifications via LINE reduce no-shows with cancellation rules, and automatic rebooking messages after service to keep customers coming back continuously.",
+        feature4Title: "Complete Booking Data Collection",
+        feature4Desc:
+          "Record all booking data with historical records for analysis to increase sales opportunities, plus special digital signature feature to confirm actual service usage.",
+        feature5Title: "Real-Time Business Tracking",
+        feature5Desc:
+          "Real-time booking summary helps you see a clear overview of your business and plan accurately.",
+        faqTitle: "Frequently Asked Questions",
+        faqDescription:
+          "Have questions about Booking Whale? We've compiled the most common questions here.",
+        "what-isQuestion": "What is Booking Whale?",
+        "what-isAnswer":
+          "Booking Whale is a next-generation booking platform designed to simplify service reservations for businesses and customers. We're currently in beta development.",
+        "when-launchQuestion": "When will it be available?",
+        "when-launchAnswer":
+          "We're launching our beta version soon! Join our early access list to be among the first customers to try the platform and receive exclusive benefits from us.",
+        costQuestion: "How much does it cost?",
+        costAnswer:
+          "Booking Whale will be free during our beta period. Early adopters will get special pricing when we launch our full platform.",
+        featuresQuestion: "What features will be included?",
+        featuresAnswer:
+          "Our platform will include automated booking, secure payments, business analytics, 24/7 support, and seamless integrations with existing tools.",
+        supportQuestion: "Do you provide support?",
+        supportAnswer:
+          "Yes! We provide 24/7 support via chat, email, and phone. Our dedicated team will help you get started and answer any questions.",
+        securityQuestion: "Is my data secure?",
+        securityAnswer:
+          "Absolutely. We use bank-level encryption and follow industry best practices to protect your data. Your information is safe with us.",
+        available247: "Available 24/7",
+        allRightsReserved: "All rights reserved.",
+        privacyPolicy: "Privacy Policy",
+        termsOfService: "Terms of Service",
+        cookiePolicy: "Cookie Policy",
+        statBusinesses: "Businesses",
+        statUptime: "Uptime",
+        statSupport: "Support",
+        learnMore: "Learn more",
+        bookingBullet1: "LINE OA Rich Menu",
+        bookingBullet2: "QR Code",
+        bookingBullet3: "Facebook & Instagram",
+        scheduleBullet1: "Auto queue management",
+        scheduleBullet2: "Double booking prevention",
+        scheduleBullet3: "Auto recurring booking",
+        noshowBullet1: "LINE notifications",
+        noshowBullet2: "Cancellation policies",
+        noshowBullet3: "Reduce No-Shows",
+        rebookingBullet1: "Auto rebooking messages",
+        rebookingBullet2: "Personalized messages",
+        rebookingBullet3: "Continuous queue fill",
+        bookingLink: "Learn more",
+        scheduleLink: "Learn more",
+        noshowLink: "Learn more",
+        rebookingLink: "Learn more",
+        blogTitle: "Articles & Tips",
+        blogDescription:
+          "Learn tips and strategies to boost your business efficiency with online booking systems",
+        viewAllBlogs: "View all articles",
+        integrations: "Integrations",
+        intTitle: "All your tools, one platform.",
+        intDescription:
+          "Supports every tool your business needs — from LINE OA to enterprise-grade cloud infrastructure.",
+        intExplore: "Explore all features",
+      },
+      th: {
+        services: "บริการหลัก",
+        features: "แพลตฟอร์ม",
+        faq: "คำถามที่พบบ่อย",
+        blog: "บทความ",
+        contact: "ติดต่อ",
+        bookNow: "จองเลย",
+        heroEyebrow: "LINE OA BOOKING PLATFORM",
+        heroTitle: "ระบบจองผ่าน",
+        heroSubtitle: "จองง่าย เชื่อมต่อลูกค้าได้ทันที",
+        heroDescription:
+          "ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที",
+        heroTagline: "",
+        trustedBy: "เข้าร่วมเป็น 1,000 คนแรกที่ได้ทดลองใช้ก่อนใคร",
+        startBookingNow: "เริ่มใช้งาน",
+        exploreServices: "ดูบริการทั้งหมด",
+        activeUsers: "ผู้ใช้งาน",
+        uptime: "อัพไทม์",
+        support: "ซัพพอร์ต",
+        ourServices: "ทำไมต้อง Booking Whale",
+        servicesDescription: "ทุกอย่างที่คุณต้องการ ในที่เดียว",
+        bookingTitle: "จองง่ายผ่าน Line และทุกช่องทางออนไลน์",
+        bookingDesc:
+          "ลูกค้าจองได้ทันทีผ่าน LINE หรือสแกน QR Code หน้าร้าน พร้อมลิงก์แชร์บน Facebook, Instagram หรือเว็บไซต์ เข้าถึงได้ง่ายทุกที่ทุกเวลา",
+        scheduleTitle: "จัดตารางอย่างอัจฉริยะไม่พลาดทุกคิว",
+        scheduleDesc:
+          "หมดกังวลเมื่อมีลูกค้าเข้ามาเยอะ ระบบจะจัดคิวให้อัตโนมัติ พร้อมจองวัน และเวลาเดิมให้ลูกค้าประจำ ให้การนัดหมายเป็นเรื่องง่าย ไม่ตกหล่น",
+        noshowTitle: "ลดการผิดนัด (No-Show) และยกเลิกกระทันหัน",
+        noshowDesc:
+          "แจ้งเตือนล่วงหน้าทาง LINE พร้อมกำหนด SLA หรือค่าปรับเมื่อยกเลิกใกล้เวลานัด ช่วยลด No-Show รักษาคิวให้เต็มและไม่เสียโอกาสทางการขาย",
+        rebookingTitle: "สร้างความสัมพันธ์กับลูกค้า เพิ่มการจองซ้ำ",
+        rebookingDesc:
+          "หลังการใช้บริการ ระบบจะส่งข้อความผ่าน LINE เพื่อชวนลูกค้าจองรอบถัดไปทันที ลดขั้นตอนการตัดสินใจ ช่วยให้คิวเต็มต่อเนื่อง",
+        whyChoose: "ฟีเจอร์ของเรา",
+        featuresDescription:
+          "ระบบจองที่ครบครันด้วยฟีเจอร์ที่ออกแบบมาเพื่อตอบสนองความต้องการของธุรกิจสมัยใหม่",
+        feature1Title: "จองออนไลน์ได้ทันที",
+        feature1Desc:
+          "ลูกค้าจองง่ายผ่าน LINE OA, เว็บไซต์ หรือ QR Code พร้อมปุ่ม Rich Menu ใน LINE ที่พาลูกค้าเข้าสู่ระบบจองได้ทันที",
+        feature2Title: "จัดการคิวอัจฉริยะ",
+        feature2Desc:
+          "ไม่ว่าลูกค้าจะเยอะแค่ไหน ระบบช่วยจัดตารางคิวให้อัตโนมัติ ป้องกันการนัดคิวซ้อนหรือตกหล่น จัดการครบ มั่นใจทุกการนัดหมาย",
+        feature3Title: "แจ้งเตือนทุกนัด กระตุ้นการจองซ้ำ",
+        feature3Desc:
+          "แจ้งเตือนล่วงหน้าผ่าน LINE ลด No-Show พร้อมกติกาการยกเลิก และข้อความชวนจองซ้ำอัตโนมัติหลังใช้บริการ ให้ลูกค้ากลับมาใช้บริการได้ต่อเนื่อง",
+        feature4Title: "เก็บข้อมูลการจองครบถ้วน",
+        feature4Desc:
+          "บันทึกข้อมูลทุกการจองพร้อมประวัติย้อนหลัง เพื่อนำไปวิเคราะห์ต่อยอดเพิ่มโอกาสการขาย พร้อมฟีเจอร์พิเศษ ลายเซ็นดิจิทัล เพื่อยืนยันการใช้บริการจริง",
+        feature5Title: "ติดตามผลธุรกิจแบบเรียลไทม์",
+        feature5Desc:
+          "สรุปข้อมูลการจองแบบเรียลไทม์ ช่วยให้คุณมองเห็นภาพรวมของธุรกิจได้อย่างชัดเจน และวางแผนได้แม่นยำ",
+        faqTitle: "คำถามที่พบบ่อย",
+        faqDescription:
+          "มีคำถามเกี่ยวกับ Booking Whale? เราได้รวบรวมคำถามที่พบบ่อยไว้ที่นี่",
+        "what-isQuestion": "Booking Whale คืออะไร?",
+        "what-isAnswer":
+          "Booking Whale คือแพลตฟอร์มการจองรุ่นใหม่ที่ออกแบบมาเพื่อทำให้การจองบริการง่ายขึ้นสำหรับธุรกิจและลูกค้า ขณะนี้เรากำลังพัฒนาเวอร์ชัน beta",
+        "when-launchQuestion": "เมื่อไหร่จะใช้ได้?",
+        "when-launchAnswer":
+          "เรากำลังเปิดตัวเวอร์ชัน beta เร็วๆ นี้! เข้าร่วมรายชื่อ early access เพื่อเป็นลูกค้ากลุ่มแรกที่ได้ทดลองใช้แพลตฟอร์มและรับสิทธิพิเศษจากเรา",
+        costQuestion: "ราคาเท่าไหร่?",
+        costAnswer:
+          "Booking Whale จะฟรีในช่วง beta ผู้ใช้งานแรกจะได้ราคาพิเศษเมื่อเราเปิดตัวแพลตฟอร์มเต็มรูปแบบ",
+        featuresQuestion: "จะมีฟีเจอร์อะไรบ้าง?",
+        featuresAnswer:
+          "แพลตฟอร์มของเราจะรวมการจองอัตโนมัติ การชำระเงินปลอดภัย วิเคราะห์ธุรกิจ การสนับสนุน 24/7 และการเชื่อมต่อกับเครื่องมือที่มีอยู่",
+        supportQuestion: "มีการสนับสนุนไหม?",
+        supportAnswer:
+          "ใช่! เรามีการสนับสนุน 24/7 ผ่านแชท อีเมล และโทรศัพท์ ทีมงานเฉพาะของเราจะช่วยคุณเริ่มต้นและตอบคำถามต่างๆ",
+        securityQuestion: "ข้อมูลของฉันปลอดภัยไหม?",
+        securityAnswer:
+          "แน่นอน เราใช้การเข้ารหัสระดับธนาคารและปฏิบัติตามมาตรฐานอุตสาหกรรมเพื่อปกป้องข้อมูลของคุณ ข้อมูลของคุณปลอดภัยกับเรา",
+        available247: "พร้อมบริการ 24/7",
+        allRightsReserved: "สงวนลิขสิทธิ์",
+        privacyPolicy: "นโยบายความเป็นส่วนตัว",
+        termsOfService: "ข้อกำหนดการใช้บริการ",
+        cookiePolicy: "นโยบายคุกกี้",
+        statBusinesses: "ธุรกิจที่ใช้งาน",
+        statUptime: "อัพไทม์",
+        statSupport: "ซัพพอร์ต",
+        learnMore: "เรียนรู้เพิ่มเติม",
+        bookingBullet1: "LINE OA Rich Menu",
+        bookingBullet2: "QR Code",
+        bookingBullet3: "Facebook & Instagram",
+        scheduleBullet1: "จัดคิวอัตโนมัติ",
+        scheduleBullet2: "ป้องกันจองซ้ำ",
+        scheduleBullet3: "จองเวลาเดิมอัตโนมัติ",
+        noshowBullet1: "แจ้งเตือนผ่าน LINE",
+        noshowBullet2: "กติกาการยกเลิก",
+        noshowBullet3: "ลด No-Show",
+        rebookingBullet1: "ชวนจองซ้ำอัตโนมัติ",
+        rebookingBullet2: "ข้อความส่วนตัว",
+        rebookingBullet3: "คิวเต็มต่อเนื่อง",
+        bookingLink: "ดูเพิ่มเติม",
+        scheduleLink: "ดูเพิ่มเติม",
+        noshowLink: "ดูเพิ่มเติม",
+        rebookingLink: "ดูเพิ่มเติม",
+        blogTitle: "บทความและเคล็ดลับ",
+        blogDescription:
+          "เรียนรู้เคล็ดลับและกลยุทธ์ในการเพิ่มประสิทธิภาพธุรกิจของคุณด้วยระบบจองออนไลน์",
+        viewAllBlogs: "ดูบทความทั้งหมด",
+        integrations: "ระบบที่เชื่อมต่อ",
+        intTitle: "เชื่อมต่อทุกระบบ ในที่เดียว",
+        intDescription:
+          "รองรับทุกเครื่องมือที่ธุรกิจของคุณต้องการ ตั้งแต่ LINE OA ไปจนถึงระบบคลาวด์ระดับ Enterprise",
+        intExplore: "ดูฟีเจอร์ทั้งหมด",
+      },
+    };
 
-  var currentLang = 'th';
-  var isEnglish = window.location.pathname.startsWith('/en');
+    var currentLang = "th";
+    var isEnglish = window.location.pathname.startsWith("/en");
 
-  function initLanguage() {
-    currentLang = isEnglish ? 'en' : 'th';
-    localStorage.setItem('language', currentLang);
-    updateToggle();
-    updatePageContent();
-  }
-
-  function updateToggle() {
-    document.querySelectorAll('.js-lang-slider').forEach(function(slider) {
-      slider.style.transform = currentLang === 'en' ? 'translateX(100%)' : 'translateX(0)';
-      slider.className = 'lang-toggle-slider js-lang-slider';
-    });
-    document.querySelectorAll('.js-lang-opt').forEach(function(opt) {
-      var lang = opt.getAttribute('data-lang');
-      if (lang === currentLang) {
-        opt.classList.add('lang-active');
-      } else {
-        opt.classList.remove('lang-active');
-      }
-    });
-  }
-
-  function updatePageContent() {
-    var t = translations[currentLang];
-    document.querySelectorAll('[data-translate]').forEach(function(el) {
-      var key = el.getAttribute('data-translate');
-      if (key && t[key]) {
-        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-          el.placeholder = t[key];
-        } else if (key === 'heroDescription') {
-          el.innerHTML = t.heroDescription + '<br><span class="text-base lg:text-lg text-gray-500">' + (t.heroTagline || '') + '</span>';
-        } else {
-          el.textContent = t[key];
-        }
-      }
-    });
-  }
-
-  function animateSwitch(callback) {
-    var toggles = document.querySelectorAll('.js-lang-toggle');
-    var sliders = document.querySelectorAll('.js-lang-slider');
-    toggles.forEach(function(t) { t.classList.add('lang-switching'); });
-    sliders.forEach(function(s) { s.classList.add('lang-slider-squish'); });
-    setTimeout(function() {
-      callback();
-      setTimeout(function() {
-        sliders.forEach(function(s) { s.classList.remove('lang-slider-squish'); });
-        toggles.forEach(function(t) { t.classList.remove('lang-switching'); });
-      }, 150);
-    }, 80);
-  }
-
-  function navigateToLang(targetLang) {
-    var hash = window.location.hash || '';
-    var targetPath;
-    if (targetLang === 'en') {
-      targetPath = '/en' + hash;
-    } else {
-      targetPath = '/' + hash;
-    }
-    window.location.href = targetPath;
-  }
-
-  function toggleLang() {
-    animateSwitch(function() {
-      var targetLang = currentLang === 'th' ? 'en' : 'th';
-      currentLang = targetLang;
-      localStorage.setItem('language', currentLang);
+    function initLanguage() {
+      currentLang = isEnglish ? "en" : "th";
+      localStorage.setItem("language", currentLang);
       updateToggle();
       updatePageContent();
-      navigateToLang(targetLang);
-    });
-  }
+    }
 
-  function switchLang(lang) {
-    if (lang === currentLang) return;
-    animateSwitch(function() {
-      currentLang = lang;
-      localStorage.setItem('language', currentLang);
-      updateToggle();
-      updatePageContent();
-      navigateToLang(lang);
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-
-  function init() {
-    initLanguage();
-
-    document.querySelectorAll('.js-lang-toggle').forEach(function(toggle) {
-      toggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleLang();
+    function updateToggle() {
+      document.querySelectorAll(".js-lang-slider").forEach(function (slider) {
+        slider.style.transform =
+          currentLang === "en" ? "translateX(100%)" : "translateX(0)";
+        slider.className = "lang-toggle-slider js-lang-slider";
       });
-    });
+      document.querySelectorAll(".js-lang-opt").forEach(function (opt) {
+        var lang = opt.getAttribute("data-lang");
+        if (lang === currentLang) {
+          opt.classList.add("lang-active");
+        } else {
+          opt.classList.remove("lang-active");
+        }
+      });
+    }
 
-  }
+    function updatePageContent() {
+      var t = translations[currentLang];
+      document.querySelectorAll("[data-translate]").forEach(function (el) {
+        var key = el.getAttribute("data-translate");
+        if (key && t[key]) {
+          if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+            el.placeholder = t[key];
+          } else if (key === "heroDescription") {
+            el.innerHTML =
+              t.heroDescription +
+              '<br><span class="text-base lg:text-lg text-gray-500">' +
+              (t.heroTagline || "") +
+              "</span>";
+          } else {
+            el.textContent = t[key];
+          }
+        }
+      });
+    }
 
-  window.switchLanguage = switchLang;
-  window.toggleLanguageDropdown = toggleLang;
-})();
+    function animateSwitch(callback) {
+      var toggles = document.querySelectorAll(".js-lang-toggle");
+      var sliders = document.querySelectorAll(".js-lang-slider");
+      toggles.forEach(function (t) {
+        t.classList.add("lang-switching");
+      });
+      sliders.forEach(function (s) {
+        s.classList.add("lang-slider-squish");
+      });
+      setTimeout(function () {
+        callback();
+        setTimeout(function () {
+          sliders.forEach(function (s) {
+            s.classList.remove("lang-slider-squish");
+          });
+          toggles.forEach(function (t) {
+            t.classList.remove("lang-switching");
+          });
+        }, 150);
+      }, 80);
+    }
+
+    function navigateToLang(targetLang) {
+      var hash = window.location.hash || "";
+      var targetPath;
+      if (targetLang === "en") {
+        targetPath = "/en" + hash;
+      } else {
+        targetPath = "/" + hash;
+      }
+      window.location.href = targetPath;
+    }
+
+    function toggleLang() {
+      animateSwitch(function () {
+        var targetLang = currentLang === "th" ? "en" : "th";
+        currentLang = targetLang;
+        localStorage.setItem("language", currentLang);
+        updateToggle();
+        updatePageContent();
+        navigateToLang(targetLang);
+      });
+    }
+
+    function switchLang(lang) {
+      if (lang === currentLang) return;
+      animateSwitch(function () {
+        currentLang = lang;
+        localStorage.setItem("language", currentLang);
+        updateToggle();
+        updatePageContent();
+        navigateToLang(lang);
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+
+    function init() {
+      initLanguage();
+
+      document.querySelectorAll(".js-lang-toggle").forEach(function (toggle) {
+        toggle.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleLang();
+        });
+      });
+    }
+
+    window.switchLanguage = switchLang;
+    window.toggleLanguageDropdown = toggleLang;
+  })();
 </script>
 
 <style>
@@ -234,7 +371,10 @@
     border: 1px solid #e5e7eb;
     outline: none;
     min-height: 24px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.15s ease;
   }
 
   .lang-toggle:hover {
@@ -269,8 +409,9 @@
   }
 
   .lang-slider-squish {
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                width 0.15s ease;
+    transition:
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+      width 0.15s ease;
     width: calc(50% + 3px) !important;
   }
 

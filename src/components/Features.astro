@@ -14,7 +14,13 @@ interface Props {
 
 const { lang = "th" } = Astro.props;
 
-const featureImages = [onlineBooking, queueScheduling, bookingReminders, bookingSecureData, realTimeTracking];
+const featureImages = [
+  onlineBooking,
+  queueScheduling,
+  bookingReminders,
+  bookingSecureData,
+  realTimeTracking,
+];
 
 const features = [
   {
@@ -96,7 +102,11 @@ const features = [
                 </p>
               </div>
 
-              <div data-animate={`slide-reveal-${imgDir}`} style="--delay: 0.1s" class="flex-1 flex justify-center">
+              <div
+                data-animate={`slide-reveal-${imgDir}`}
+                style="--delay: 0.1s"
+                class="flex-1 flex justify-center"
+              >
                 <div class="w-full max-w-[340px] sm:max-w-[420px]">
                   <Image
                     src={featureImages[feature.index - 1]}

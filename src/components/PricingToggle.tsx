@@ -11,7 +11,13 @@ const SUPPORT_TOOLTIP_MAP: Record<string, string> = {
   pricingEnterpriseF5: "supportDetailEnterpriseSLA",
 };
 
-function FeatureTooltip({ tooltipKey, lang }: { tooltipKey: string; lang: Lang }) {
+function FeatureTooltip({
+  tooltipKey,
+  lang,
+}: {
+  tooltipKey: string;
+  lang: Lang;
+}) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
@@ -47,7 +53,8 @@ function FeatureTooltip({ tooltipKey, lang }: { tooltipKey: string; lang: Lang }
             transition={{ duration: 0.15 }}
             className="absolute left-6 bottom-0 w-[220px] bg-gray-900 text-white text-xs rounded-lg p-3 z-50 shadow-lg leading-relaxed whitespace-pre-line"
           >
-            {(translations[lang] as Record<string, string>)[tooltipKey] || (translations["en"] as Record<string, string>)[tooltipKey]}
+            {(translations[lang] as Record<string, string>)[tooltipKey] ||
+              (translations["en"] as Record<string, string>)[tooltipKey]}
           </motion.div>
         )}
       </AnimatePresence>
@@ -66,7 +73,13 @@ const plans = [
     subtitleKey: "pricingFreeSubtitle",
     monthlyPrice: 0,
     annualPrice: 0,
-    features: ["pricingFreeF1", "pricingFreeF2", "pricingFreeF3", "pricingFreeF4", "pricingFreeF5"],
+    features: [
+      "pricingFreeF1",
+      "pricingFreeF2",
+      "pricingFreeF3",
+      "pricingFreeF4",
+      "pricingFreeF5",
+    ],
     ctaKey: "pricingStartFree",
     ctaStyle: "btn btn-secondary btn-large w-full",
     everythingIn: null,
@@ -79,7 +92,14 @@ const plans = [
     annualPrice: 490,
     savePercent: 17,
     saveKey: "pricingSave17",
-    features: ["pricingStarterF1", "pricingStarterF2", "pricingStarterF3", "pricingStarterF4", "pricingStarterF5", "pricingStarterF6"],
+    features: [
+      "pricingStarterF1",
+      "pricingStarterF2",
+      "pricingStarterF3",
+      "pricingStarterF4",
+      "pricingStarterF5",
+      "pricingStarterF6",
+    ],
     ctaKey: "pricingChoosePlan",
     ctaStyle: "btn btn-primary btn-large w-full",
     everythingIn: "pricingFreeName",
@@ -93,7 +113,14 @@ const plans = [
     savePercent: 20,
     saveKey: "pricingSave20",
     popular: true,
-    features: ["pricingProF1", "pricingProF2", "pricingProF3", "pricingProF4", "pricingProF5", "pricingProF6"],
+    features: [
+      "pricingProF1",
+      "pricingProF2",
+      "pricingProF3",
+      "pricingProF4",
+      "pricingProF5",
+      "pricingProF6",
+    ],
     ctaKey: "pricingChoosePlan",
     ctaStyle: "btn btn-primary btn-large w-full",
     everythingIn: "pricingStarterName",
@@ -106,7 +133,13 @@ const plans = [
     annualPrice: 3990,
     savePercent: 20,
     saveKey: "pricingSave20",
-    features: ["pricingEnterpriseF1", "pricingEnterpriseF2", "pricingEnterpriseF3", "pricingEnterpriseF4", "pricingEnterpriseF5"],
+    features: [
+      "pricingEnterpriseF1",
+      "pricingEnterpriseF2",
+      "pricingEnterpriseF3",
+      "pricingEnterpriseF4",
+      "pricingEnterpriseF5",
+    ],
     ctaKey: "pricingContactUs",
     ctaStyle: "btn btn-secondary btn-large w-full",
     everythingIn: "pricingProName",
@@ -114,7 +147,11 @@ const plans = [
 ];
 
 function t(key: string, lang: Lang = "th"): string {
-  return (translations[lang] as Record<string, string>)[key] || (translations["en"] as Record<string, string>)[key] || key;
+  return (
+    (translations[lang] as Record<string, string>)[key] ||
+    (translations["en"] as Record<string, string>)[key] ||
+    key
+  );
 }
 
 function formatPrice(price: number, lang: Lang): string {
@@ -215,116 +252,182 @@ export default function PricingToggle({ lang = "th" }: Props) {
 
       <div
         ref={scrollRef}
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          WebkitOverflowScrolling: "touch",
+        }}
         className="overflow-x-auto snap-x snap-mandatory -mx-6 px-6 md:overflow-visible md:snap-none md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden"
       >
-      <div className="flex gap-6 lg:gap-8 items-stretch pt-4 md:grid md:grid-cols-2 xl:grid-cols-4">
-        {plans.map((plan, index) => (
-          <motion.div
-            key={plan.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.05 }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.08 }}
-            className="h-full snap-center shrink-0 w-[72vw] md:w-auto md:shrink md:snap-align-none"
-          >
+        <div className="flex gap-6 lg:gap-8 items-stretch pt-4 md:grid md:grid-cols-2 xl:grid-cols-4">
+          {plans.map((plan, index) => (
             <motion.div
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className={`bg-white rounded-2xl p-6 lg:p-8 flex flex-col h-full transition-shadow duration-300 ${
-                plan.popular
-                  ? "border-2 border-blue-600 relative shadow-xl shadow-blue-100 xl:scale-105"
-                  : "border border-gray-200 hover:shadow-lg hover:border-gray-300"
-              }`}
+              key={plan.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+                delay: index * 0.08,
+              }}
+              className="h-full snap-center shrink-0 w-[72vw] md:w-auto md:shrink md:snap-align-none"
             >
-              {plan.popular && (
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-md shadow-blue-200">
-                  {t("pricingMostPopular", lang)}
-                </span>
-              )}
+              <motion.div
+                whileHover={{ y: -4 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                className={`bg-white rounded-2xl p-6 lg:p-8 flex flex-col h-full transition-shadow duration-300 ${
+                  plan.popular
+                    ? "border-2 border-blue-600 relative shadow-xl shadow-blue-100 xl:scale-105"
+                    : "border border-gray-200 hover:shadow-lg hover:border-gray-300"
+                }`}
+              >
+                {plan.popular && (
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-md shadow-blue-200">
+                    {t("pricingMostPopular", lang)}
+                  </span>
+                )}
 
-              <div className="mb-6 text-center">
-                <h3 className="text-lg font-bold text-gray-900 tracking-wide">{t(plan.nameKey, lang)}</h3>
-                <p className="text-sm text-gray-500 mt-1">{t(plan.subtitleKey, lang)}</p>
-              </div>
+                <div className="mb-6 text-center">
+                  <h3 className="text-lg font-bold text-gray-900 tracking-wide">
+                    {t(plan.nameKey, lang)}
+                  </h3>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {t(plan.subtitleKey, lang)}
+                  </p>
+                </div>
 
-              <div className="mb-6 text-center">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={isAnnual ? "annual" : "monthly"}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                  >
-                    {plan.monthlyPrice === 0 ? (
-                      <>
-                        <span className="text-4xl font-black text-gray-900">{t("pricingFreePrice", lang)}</span>
-                        <div className="flex justify-center mt-2 invisible" aria-hidden="true">
-                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold">&nbsp;</span>
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="flex items-baseline justify-center gap-1">
-                          <span className="text-4xl font-black text-gray-900">
-                            ฿{formatPrice(isAnnual ? plan.annualPrice : plan.monthlyPrice, lang)}
-                          </span>
-                          <span className="text-sm text-gray-400 font-medium">{t("pricingPerMonth", lang)}</span>
-                        </div>
-                        <div className="flex justify-center mt-2">
-                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold">
-                            {t("pricingPerDay", lang)} ฿{Math.ceil((isAnnual ? plan.annualPrice : plan.monthlyPrice) / 30)}{t("pricingPerDayUnit", lang)}
-                          </span>
-                        </div>
-                      </>
-                    )}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              <hr className="border-gray-100 mb-6" />
-
-              {plan.everythingIn ? (
-                <p className="text-sm font-semibold text-gray-900 mb-3 whitespace-nowrap">
-                  {t("pricingEverythingIn", lang).replace("{plan}", t(plan.everythingIn, lang))}
-                </p>
-              ) : (
-                <p className="text-sm font-semibold mb-3 invisible" aria-hidden="true">&nbsp;</p>
-              )}
-
-              <ul className="space-y-3 mb-8 flex-1">
-                {plan.features.map((featureKey) => (
-                  <li key={featureKey} className="flex items-center gap-2.5 text-sm text-gray-600">
-                    <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>
-                      {t(featureKey, lang)}
-                      {SUPPORT_TOOLTIP_MAP[featureKey] && (
+                <div className="mb-6 text-center">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={isAnnual ? "annual" : "monthly"}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                      {plan.monthlyPrice === 0 ? (
                         <>
-                          {" "}
-                          <FeatureTooltip tooltipKey={SUPPORT_TOOLTIP_MAP[featureKey]} lang={lang} />
+                          <span className="text-4xl font-black text-gray-900">
+                            {t("pricingFreePrice", lang)}
+                          </span>
+                          <div
+                            className="flex justify-center mt-2 invisible"
+                            aria-hidden="true"
+                          >
+                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold">
+                              &nbsp;
+                            </span>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="flex items-baseline justify-center gap-1">
+                            <span className="text-4xl font-black text-gray-900">
+                              ฿
+                              {formatPrice(
+                                isAnnual ? plan.annualPrice : plan.monthlyPrice,
+                                lang,
+                              )}
+                            </span>
+                            <span className="text-sm text-gray-400 font-medium">
+                              {t("pricingPerMonth", lang)}
+                            </span>
+                          </div>
+                          <div className="flex justify-center mt-2">
+                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold">
+                              {t("pricingPerDay", lang)} ฿
+                              {Math.ceil(
+                                (isAnnual
+                                  ? plan.annualPrice
+                                  : plan.monthlyPrice) / 30,
+                              )}
+                              {t("pricingPerDayUnit", lang)}
+                            </span>
+                          </div>
                         </>
                       )}
-                    </span>
-                  </li>
-                ))}
-                {Array.from({ length: MAX_FEATURES - plan.features.length }).map((_, i) => (
-                  <li key={`pad-${i}`} className="flex items-start gap-2.5 text-sm invisible" aria-hidden="true">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
-                    <span>&nbsp;</span>
-                  </li>
-                ))}
-              </ul>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
 
-              <button className={plan.ctaStyle}>
-                {t(plan.ctaKey, lang)}
-              </button>
+                <hr className="border-gray-100 mb-6" />
+
+                {plan.everythingIn ? (
+                  <p className="text-sm font-semibold text-gray-900 mb-3 whitespace-nowrap">
+                    {t("pricingEverythingIn", lang).replace(
+                      "{plan}",
+                      t(plan.everythingIn, lang),
+                    )}
+                  </p>
+                ) : (
+                  <p
+                    className="text-sm font-semibold mb-3 invisible"
+                    aria-hidden="true"
+                  >
+                    &nbsp;
+                  </p>
+                )}
+
+                <ul className="space-y-3 mb-8 flex-1">
+                  {plan.features.map((featureKey) => (
+                    <li
+                      key={featureKey}
+                      className="flex items-center gap-2.5 text-sm text-gray-600"
+                    >
+                      <svg
+                        className="w-5 h-5 text-green-500 flex-shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span>
+                        {t(featureKey, lang)}
+                        {SUPPORT_TOOLTIP_MAP[featureKey] && (
+                          <>
+                            {" "}
+                            <FeatureTooltip
+                              tooltipKey={SUPPORT_TOOLTIP_MAP[featureKey]}
+                              lang={lang}
+                            />
+                          </>
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                  {Array.from({
+                    length: MAX_FEATURES - plan.features.length,
+                  }).map((_, i) => (
+                    <li
+                      key={`pad-${i}`}
+                      className="flex items-start gap-2.5 text-sm invisible"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        className="w-5 h-5 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>&nbsp;</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button className={plan.ctaStyle}>
+                  {t(plan.ctaKey, lang)}
+                </button>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
-      </div>
+          ))}
+        </div>
       </div>
 
       <div className="flex justify-center gap-2 mt-4 md:hidden">
@@ -340,7 +443,9 @@ export default function PricingToggle({ lang = "th" }: Props) {
               const card = inner.children[i] as HTMLElement;
               if (!card) return;
               container.scrollTo({
-                left: card.offsetLeft - (container.offsetWidth - card.offsetWidth) / 2,
+                left:
+                  card.offsetLeft -
+                  (container.offsetWidth - card.offsetWidth) / 2,
                 behavior: "smooth",
               });
             }}

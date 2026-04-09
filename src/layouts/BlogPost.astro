@@ -1,8 +1,8 @@
 ---
-import Layout from './Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { getSlug } from '../utils/slug';
+import Layout from "./Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { getSlug } from "../utils/slug";
 
 interface RelatedPost {
   id: string;
@@ -24,181 +24,261 @@ interface Props {
   heroImage?: string;
   category: string;
   tags: string[];
-  lang: 'th' | 'en';
+  lang: "th" | "en";
   readingTime?: string;
   headings: { depth: number; slug: string; text: string }[];
   relatedPosts?: RelatedPost[];
 }
 
-const { title, description, pubDate, updatedDate, heroImage, category, tags, lang, readingTime, headings, relatedPosts = [] } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  category,
+  tags,
+  lang,
+  readingTime,
+  headings,
+  relatedPosts = [],
+} = Astro.props;
 
+const formattedDate = pubDate.toLocaleDateString(
+  lang === "th" ? "th-TH" : "en-US",
+  {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  },
+);
 
-const formattedDate = pubDate.toLocaleDateString(lang === 'th' ? 'th-TH' : 'en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const formattedUpdatedDate = updatedDate?.toLocaleDateString(
+  lang === "th" ? "th-TH" : "en-US",
+  {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  },
+);
 
-const formattedUpdatedDate = updatedDate?.toLocaleDateString(lang === 'th' ? 'th-TH' : 'en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
-
-const tocHeadings = headings.filter(h => h.depth === 2);
+const tocHeadings = headings.filter((h) => h.depth === 2);
 const pageUrl = `https://bookingwhale.co${Astro.url.pathname}`;
 const encodedUrl = encodeURIComponent(pageUrl);
 const encodedTitle = encodeURIComponent(title);
 ---
 
-<Layout title={`${title} | Booking Whale Blog`} description={description} lang={lang} ogImage={heroImage} ogType="article">
+<Layout
+  title={`${title} | Booking Whale Blog`}
+  description={description}
+  lang={lang}
+  ogImage={heroImage}
+  ogType="article"
+>
   <Fragment slot="head">
     <meta property="article:published_time" content={pubDate.toISOString()} />
-    {updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
+    {
+      updatedDate && (
+        <meta
+          property="article:modified_time"
+          content={updatedDate.toISOString()}
+        />
+      )
+    }
     <meta property="article:author" content="Booking Whale" />
     <meta property="article:section" content={category} />
     {tags.map((tag) => <meta property="article:tag" content={tag} />)}
-    {heroImage && <link rel="preload" as="image" href={heroImage} fetchpriority="high" />}
+    {
+      heroImage && (
+        <link rel="preload" as="image" href={heroImage} fetchpriority="high" />
+      )
+    }
   </Fragment>
 
   <Header lang={lang} />
 
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "description": description,
-    ...(heroImage ? { "image": `https://bookingwhale.co${heroImage}` } : {}),
-    "datePublished": pubDate.toISOString(),
-    "dateModified": (updatedDate || pubDate).toISOString(),
-    "author": {
-      "@type": "Organization",
-      "name": "Booking Whale",
-      "url": "https://bookingwhale.co"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Booking Whale",
-      "url": "https://bookingwhale.co",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://bookingwhale.co/logo.webp"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://bookingwhale.co${Astro.url.pathname}`
-    },
-    "inLanguage": lang === 'th' ? 'th-TH' : 'en-US',
-    "keywords": tags.join(', ')
-  })} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: title,
+      description: description,
+      ...(heroImage ? { image: `https://bookingwhale.co${heroImage}` } : {}),
+      datePublished: pubDate.toISOString(),
+      dateModified: (updatedDate || pubDate).toISOString(),
+      author: {
+        "@type": "Organization",
+        name: "Booking Whale",
+        url: "https://bookingwhale.co",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Booking Whale",
+        url: "https://bookingwhale.co",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://bookingwhale.co/logo.webp",
+        },
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `https://bookingwhale.co${Astro.url.pathname}`,
+      },
+      inLanguage: lang === "th" ? "th-TH" : "en-US",
+      keywords: tags.join(", "),
+    })}
+  />
 
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": lang === 'th' ? 'หน้าหลัก' : 'Home',
-        "item": "https://bookingwhale.co/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": lang === 'th' ? 'บทความ' : 'Blog',
-        "item": "https://bookingwhale.co/blog/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": title
-      }
-    ]
-  })} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: lang === "th" ? "หน้าหลัก" : "Home",
+          item: "https://bookingwhale.co/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: lang === "th" ? "บทความ" : "Blog",
+          item: "https://bookingwhale.co/blog/",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: title,
+        },
+      ],
+    })}
+  />
 
   <article class="pt-24 lg:pt-32 pb-16 lg:pb-24">
     <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
       <div class="max-w-none">
         <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
           <a href="/" class="hover:text-gray-900 transition-colors">
-            {lang === 'th' ? 'หน้าหลัก' : 'Home'}
+            {lang === "th" ? "หน้าหลัก" : "Home"}
           </a>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
           </svg>
           <a href="/blog" class="hover:text-gray-900 transition-colors">
-            {lang === 'th' ? 'บทความ' : 'Blog'}
+            {lang === "th" ? "บทความ" : "Blog"}
           </a>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
           </svg>
           <span class="text-gray-400 truncate max-w-[200px]">{title}</span>
         </nav>
 
-        {heroImage && (
-          <div class="mb-8 -mx-6 sm:mx-0">
-            <img
-              src={heroImage}
-              alt={title}
-              width="1200"
-              height="630"
-              class="w-full rounded-none sm:rounded-2xl object-cover aspect-[1200/630]"
-              loading="eager"
-            />
-          </div>
-        )}
+        {
+          heroImage && (
+            <div class="mb-8 -mx-6 sm:mx-0">
+              <img
+                src={heroImage}
+                alt={title}
+                width="1200"
+                height="630"
+                class="w-full rounded-none sm:rounded-2xl object-cover aspect-[1200/630]"
+                loading="eager"
+              />
+            </div>
+          )
+        }
 
         <div class="mb-8">
-          <span class="inline-block bg-blue-50 text-blue-600 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+          <span
+            class="inline-block bg-blue-50 text-blue-600 text-sm font-semibold px-3 py-1 rounded-full mb-4"
+          >
             {category}
           </span>
-          <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em] leading-tight mb-4">
+          <h1
+            class="text-3xl sm:text-4xl lg:text-[2.75rem] font-black text-gray-900 tracking-[-0.03em] leading-tight mb-4"
+          >
             {title}
           </h1>
-          <p class="text-lg text-gray-600 leading-relaxed mb-6">{description}</p>
+          <p class="text-lg text-gray-600 leading-relaxed mb-6">
+            {description}
+          </p>
           <div class="flex items-center gap-4 text-sm text-gray-500">
             <div class="flex items-center gap-2">
-              <img src="/logo.webp" alt="Booking Whale" class="w-8 h-8 rounded-full" width="32" height="32" />
+              <img
+                src="/logo.webp"
+                alt="Booking Whale"
+                class="w-8 h-8 rounded-full"
+                width="32"
+                height="32"
+              />
               <span class="font-medium text-gray-700">Booking Whale</span>
             </div>
             <span>·</span>
             <time datetime={pubDate.toISOString()}>{formattedDate}</time>
-            {readingTime && (
-              <>
-                <span>·</span>
-                <span>{readingTime}</span>
-              </>
-            )}
+            {
+              readingTime && (
+                <>
+                  <span>·</span>
+                  <span>{readingTime}</span>
+                </>
+              )
+            }
           </div>
-          {updatedDate && (
-            <p class="text-sm text-gray-400 mt-2">
-              {lang === 'th' ? 'อัปเดตล่าสุด: ' : 'Updated: '}{formattedUpdatedDate}
-            </p>
-          )}
+          {
+            updatedDate && (
+              <p class="text-sm text-gray-400 mt-2">
+                {lang === "th" ? "อัปเดตล่าสุด: " : "Updated: "}
+                {formattedUpdatedDate}
+              </p>
+            )
+          }
         </div>
 
-        {tocHeadings.length > 2 && (
-          <nav class="bg-gray-50 rounded-xl p-6 mb-10 border border-gray-100">
-            <h2 class="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">
-              {lang === 'th' ? 'สารบัญ' : 'Table of Contents'}
-            </h2>
-            <ul class="space-y-2">
-              {tocHeadings.map((heading) => (
-                <li>
-                  <a
-                    href={`#${heading.slug}`}
-                    class="text-sm text-gray-600 hover:text-blue-600 transition-colors"
-                  >
-                    {heading.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
+        {
+          tocHeadings.length > 2 && (
+            <nav class="bg-gray-50 rounded-xl p-6 mb-10 border border-gray-100">
+              <h2 class="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">
+                {lang === "th" ? "สารบัญ" : "Table of Contents"}
+              </h2>
+              <ul class="space-y-2">
+                {tocHeadings.map((heading) => (
+                  <li>
+                    <a
+                      href={`#${heading.slug}`}
+                      class="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    >
+                      {heading.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )
+        }
 
-        <div class="prose prose-lg max-w-none
+        <div
+          class="prose prose-lg max-w-none
           prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900
           prose-h2:text-2xl prose-h2:mt-14 prose-h2:mb-5
           prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
@@ -210,23 +290,27 @@ const encodedTitle = encodeURIComponent(title);
           prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:rounded-r-lg prose-blockquote:py-1
           prose-img:rounded-xl
           prose-table:my-8
-          prose-hr:my-10
-        ">
+          prose-hr:my-10"
+        >
           <slot />
         </div>
 
         <div class="mt-12 pt-8 border-t border-gray-200">
           <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
             <div class="flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <span class="bg-gray-100 text-gray-600 text-sm px-3 py-1 rounded-full">
-                  {tag}
-                </span>
-              ))}
+              {
+                tags.map((tag) => (
+                  <span class="bg-gray-100 text-gray-600 text-sm px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))
+              }
             </div>
 
             <div class="flex items-center gap-2">
-              <span class="text-sm text-gray-400 mr-1">{lang === 'th' ? 'แชร์' : 'Share'}</span>
+              <span class="text-sm text-gray-400 mr-1"
+                >{lang === "th" ? "แชร์" : "Share"}</span
+              >
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
                 target="_blank"
@@ -234,7 +318,11 @@ const encodedTitle = encodeURIComponent(title);
                 aria-label="Share on Facebook"
                 class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-blue-100 hover:text-blue-600 text-gray-500 transition-colors"
               >
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
+                  ><path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  ></path></svg
+                >
               </a>
               <a
                 href={`https://x.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
@@ -243,7 +331,11 @@ const encodedTitle = encodeURIComponent(title);
                 aria-label="Share on X"
                 class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-800 hover:text-white text-gray-500 transition-colors"
               >
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
+                  ><path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  ></path></svg
+                >
               </a>
               <a
                 href={`https://social-plugins.line.me/lineit/share?url=${encodedUrl}`}
@@ -252,76 +344,116 @@ const encodedTitle = encodeURIComponent(title);
                 aria-label="Share on LINE"
                 class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-green-100 hover:text-green-600 text-gray-500 transition-colors"
               >
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
+                  ><path
+                    d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"
+                  ></path></svg
+                >
               </a>
               <button
                 onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.querySelector('.copy-ok').classList.remove('hidden');setTimeout(()=>this.querySelector('.copy-ok').classList.add('hidden'),2000)})"
                 aria-label="Copy link"
                 class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 transition-colors relative"
               >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-                <span class="copy-ok hidden absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap">Copied!</span>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                  ></path></svg
+                >
+                <span
+                  class="copy-ok hidden absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap"
+                  >Copied!</span
+                >
               </button>
             </div>
           </div>
 
           <div class="bg-blue-50 rounded-xl p-8 text-center">
             <h3 class="text-xl font-bold text-gray-900 mb-2">
-              {lang === 'th' ? 'พร้อมเริ่มใช้ระบบจองออนไลน์?' : 'Ready to start with online booking?'}
+              {
+                lang === "th"
+                  ? "พร้อมเริ่มใช้ระบบจองออนไลน์?"
+                  : "Ready to start with online booking?"
+              }
             </h3>
             <p class="text-gray-600 mb-6">
-              {lang === 'th'
-                ? 'ทดลองใช้ Booking Whale ฟรี ระบบจองคิวผ่าน LINE OA ที่ธุรกิจไทยเลือกใช้'
-                : 'Try Booking Whale free — the LINE OA booking system trusted by Thai businesses'}
+              {
+                lang === "th"
+                  ? "ทดลองใช้ Booking Whale ฟรี ระบบจองคิวผ่าน LINE OA ที่ธุรกิจไทยเลือกใช้"
+                  : "Try Booking Whale free — the LINE OA booking system trusted by Thai businesses"
+              }
             </p>
             <a
               href="/#services"
               class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold text-sm transition-colors"
             >
-              {lang === 'th' ? 'เริ่มใช้งานฟรี' : 'Get Started Free'}
+              {lang === "th" ? "เริ่มใช้งานฟรี" : "Get Started Free"}
             </a>
           </div>
         </div>
 
-        {relatedPosts.length > 0 && (
-          <div class="mt-12 pt-10 border-t border-gray-200">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">
-              {lang === 'th' ? 'บทความที่เกี่ยวข้อง' : 'Related Articles'}
-            </h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {relatedPosts.map((rp) => (
-                <a href={`/blog/${getSlug(rp.id)}`} class="group block bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200 overflow-hidden">
-                  {rp.data.heroImage && (
-                    <img
-                      src={rp.data.heroImage}
-                      alt={rp.data.title}
-                      width="1200"
-                      height="630"
-                      class="w-full aspect-[1200/630] object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  )}
-                  <div class="p-4">
-                    <span class="text-xs font-semibold text-blue-600">{rp.data.category}</span>
-                    <h3 class="text-sm font-bold text-gray-900 mt-1 group-hover:text-blue-600 transition-colors leading-snug line-clamp-2">
-                      {rp.data.title}
-                    </h3>
-                  </div>
-                </a>
-              ))}
+        {
+          relatedPosts.length > 0 && (
+            <div class="mt-12 pt-10 border-t border-gray-200">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                {lang === "th" ? "บทความที่เกี่ยวข้อง" : "Related Articles"}
+              </h2>
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {relatedPosts.map((rp) => (
+                  <a
+                    href={`/blog/${getSlug(rp.id)}`}
+                    class="group block bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200 overflow-hidden"
+                  >
+                    {rp.data.heroImage && (
+                      <img
+                        src={rp.data.heroImage}
+                        alt={rp.data.title}
+                        width="1200"
+                        height="630"
+                        class="w-full aspect-[1200/630] object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    )}
+                    <div class="p-4">
+                      <span class="text-xs font-semibold text-blue-600">
+                        {rp.data.category}
+                      </span>
+                      <h3 class="text-sm font-bold text-gray-900 mt-1 group-hover:text-blue-600 transition-colors leading-snug line-clamp-2">
+                        {rp.data.title}
+                      </h3>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )
+        }
 
         <div class="mt-8">
           <a
             href="/blog"
             class="inline-flex items-center text-gray-600 hover:text-gray-900 font-medium transition-colors"
           >
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            <svg
+              class="w-4 h-4 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"></path>
             </svg>
-            {lang === 'th' ? 'กลับไปบทความทั้งหมด' : 'Back to all articles'}
+            {lang === "th" ? "กลับไปบทความทั้งหมด" : "Back to all articles"}
           </a>
         </div>
       </div>

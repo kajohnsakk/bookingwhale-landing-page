@@ -1,24 +1,26 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { getCollection } from 'astro:content';
-import { t } from '../i18n/utils';
-import { getSlug } from '../utils/slug';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
+import { t } from "../i18n/utils";
+import { getSlug } from "../utils/slug";
 
-const lang = 'th';
-const allPosts = await getCollection('blog', ({ data }) => data.lang === lang);
-const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const lang = "th";
+const allPosts = await getCollection("blog", ({ data }) => data.lang === lang);
+const posts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 
 const categoryColors: Record<string, string> = {
-  'คู่มือ': 'bg-blue-100 text-blue-700',
-  'กลยุทธ์ธุรกิจ': 'bg-green-100 text-green-700',
-  'LINE OA': 'bg-emerald-100 text-emerald-700',
-  'รีวิว': 'bg-purple-100 text-purple-700',
-  'กรณีศึกษา': 'bg-orange-100 text-orange-700',
-  'เทคโนโลยี': 'bg-indigo-100 text-indigo-700',
-  'อุตสาหกรรม': 'bg-pink-100 text-pink-700',
-  'เทรนด์': 'bg-cyan-100 text-cyan-700',
+  คู่มือ: "bg-blue-100 text-blue-700",
+  กลยุทธ์ธุรกิจ: "bg-green-100 text-green-700",
+  "LINE OA": "bg-emerald-100 text-emerald-700",
+  รีวิว: "bg-purple-100 text-purple-700",
+  กรณีศึกษา: "bg-orange-100 text-orange-700",
+  เทคโนโลยี: "bg-indigo-100 text-indigo-700",
+  อุตสาหกรรม: "bg-pink-100 text-pink-700",
+  เทรนด์: "bg-cyan-100 text-cyan-700",
 };
 
 const categories = [...new Set(posts.map((p) => p.data.category))];
@@ -29,30 +31,38 @@ const categories = [...new Set(posts.map((p) => p.data.category))];
   description="อ่านบทความเกี่ยวกับระบบจองออนไลน์ การจัดการคิว LINE OA และเคล็ดลับเพิ่มรายได้สำหรับธุรกิจไทย"
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "บทความและเคล็ดลับ | Booking Whale Blog",
-      "description": "อ่านบทความเกี่ยวกับระบบจองออนไลน์ การจัดการคิว LINE OA และเคล็ดลับเพิ่มรายได้สำหรับธุรกิจไทย",
-      "url": "https://bookingwhale.co/blog/",
-      "mainEntity": {
-        "@type": "ItemList",
-        "numberOfItems": posts.length,
-        "itemListElement": posts.map((post, i) => ({
-          "@type": "ListItem",
-          "position": i + 1,
-          "url": `https://bookingwhale.co/blog/${getSlug(post.id)}/`,
-          "name": post.data.title,
-        }))
-      }
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "บทความและเคล็ดลับ | Booking Whale Blog",
+        description:
+          "อ่านบทความเกี่ยวกับระบบจองออนไลน์ การจัดการคิว LINE OA และเคล็ดลับเพิ่มรายได้สำหรับธุรกิจไทย",
+        url: "https://bookingwhale.co/blog/",
+        mainEntity: {
+          "@type": "ItemList",
+          numberOfItems: posts.length,
+          itemListElement: posts.map((post, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            url: `https://bookingwhale.co/blog/${getSlug(post.id)}/`,
+            name: post.data.title,
+          })),
+        },
+      })}
+    />
   </Fragment>
 
   <Header />
 
   <section class="pt-24 lg:pt-32 pb-10 lg:pb-14 bg-white">
-    <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px] text-center">
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-[-0.03em] mb-4">
+    <div
+      class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px] text-center"
+    >
+      <h1
+        class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-[-0.03em] mb-4"
+      >
         บทความและเคล็ดลับ
       </h1>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -63,83 +73,127 @@ const categories = [...new Set(posts.map((p) => p.data.category))];
 
   <section class="pb-16 lg:pb-24 bg-white">
     <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
-      <div class="flex flex-wrap gap-2 mb-8 justify-center" id="category-filter">
-        <button data-category="all" class="filter-btn active text-sm font-semibold px-4 py-2 rounded-full border border-gray-300 bg-gray-900 text-white transition-colors">
+      <div
+        class="flex flex-wrap gap-2 mb-8 justify-center"
+        id="category-filter"
+      >
+        <button
+          data-category="all"
+          class="filter-btn active text-sm font-semibold px-4 py-2 rounded-full border border-gray-300 bg-gray-900 text-white transition-colors"
+        >
           ทั้งหมด
         </button>
-        {categories.map((cat) => {
-          return (
-            <button data-category={cat} class="filter-btn text-sm font-semibold px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition-colors">
-              {cat}
-            </button>
-          );
-        })}
+        {
+          categories.map((cat) => {
+            return (
+              <button
+                data-category={cat}
+                class="filter-btn text-sm font-semibold px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition-colors"
+              >
+                {cat}
+              </button>
+            );
+          })
+        }
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="posts-grid">
-        {posts.map((post) => {
-          const colorClass = categoryColors[post.data.category] || 'bg-gray-100 text-gray-700';
-          const formattedDate = post.data.pubDate.toLocaleDateString('th-TH', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          });
+      <div
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        id="posts-grid"
+      >
+        {
+          posts.map((post) => {
+            const colorClass =
+              categoryColors[post.data.category] || "bg-gray-100 text-gray-700";
+            const formattedDate = post.data.pubDate.toLocaleDateString(
+              "th-TH",
+              {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              },
+            );
 
-          return (
-            <article class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200 overflow-hidden" data-category={post.data.category}>
-              {post.data.heroImage && (
-                <a href={`/blog/${getSlug(post.id)}`} class="block overflow-hidden">
-                  <img
-                    src={post.data.heroImage}
-                    alt={post.data.title}
-                    width="600"
-                    height="315"
-                    class="w-full aspect-[1200/630] object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                </a>
-              )}
-              <div class="p-6">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class={`text-xs font-semibold px-2.5 py-1 rounded-full ${colorClass}`}>
-                    {post.data.category}
-                  </span>
-                  {post.data.readingTime && (
-                    <span class="text-xs text-gray-400">{post.data.readingTime}</span>
-                  )}
-                </div>
-                <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
-                  <a href={`/blog/${getSlug(post.id)}`}>
-                    {post.data.title}
-                  </a>
-                </h2>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
-                  {post.data.description}
-                </p>
-                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <time datetime={post.data.pubDate.toISOString()} class="text-xs text-gray-400">
-                    {formattedDate}
-                  </time>
+            return (
+              <article
+                class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200 overflow-hidden"
+                data-category={post.data.category}
+              >
+                {post.data.heroImage && (
                   <a
                     href={`/blog/${getSlug(post.id)}`}
-                    class="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center"
-                    aria-label={`อ่านต่อ: ${post.data.title}`}
+                    class="block overflow-hidden"
                   >
-                    อ่านต่อ
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
+                    <img
+                      src={post.data.heroImage}
+                      alt={post.data.title}
+                      width="600"
+                      height="315"
+                      class="w-full aspect-[1200/630] object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
                   </a>
+                )}
+                <div class="p-6">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span
+                      class={`text-xs font-semibold px-2.5 py-1 rounded-full ${colorClass}`}
+                    >
+                      {post.data.category}
+                    </span>
+                    {post.data.readingTime && (
+                      <span class="text-xs text-gray-400">
+                        {post.data.readingTime}
+                      </span>
+                    )}
+                  </div>
+                  <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
+                    <a href={`/blog/${getSlug(post.id)}`}>{post.data.title}</a>
+                  </h2>
+                  <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                    {post.data.description}
+                  </p>
+                  <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <time
+                      datetime={post.data.pubDate.toISOString()}
+                      class="text-xs text-gray-400"
+                    >
+                      {formattedDate}
+                    </time>
+                    <a
+                      href={`/blog/${getSlug(post.id)}`}
+                      class="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center"
+                      aria-label={`อ่านต่อ: ${post.data.title}`}
+                    >
+                      อ่านต่อ
+                      <svg
+                        class="w-4 h-4 ml-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </article>
-          );
-        })}
+              </article>
+            );
+          })
+        }
       </div>
 
       <div class="flex justify-center mt-10" id="load-more-wrapper">
-        <button id="load-more-btn" class="px-8 py-3 rounded-full border border-gray-300 text-gray-700 font-semibold hover:border-gray-400 hover:shadow-sm transition-all">
-          {t('loadMore', lang)}
+        <button
+          id="load-more-btn"
+          class="px-8 py-3 rounded-full border border-gray-300 text-gray-700 font-semibold hover:border-gray-400 hover:shadow-sm transition-all"
+        >
+          {t("loadMore", lang)}
         </button>
       </div>
     </div>
@@ -159,25 +213,34 @@ const categories = [...new Set(posts.map((p) => p.data.category))];
 
 <script>
   const POSTS_PER_PAGE = 9;
-  const loadMoreBtn = document.getElementById('load-more-btn') as HTMLButtonElement;
-  const loadMoreWrapper = document.getElementById('load-more-wrapper') as HTMLElement;
-  const allArticles = Array.from(document.querySelectorAll<HTMLElement>('#posts-grid article'));
+  const loadMoreBtn = document.getElementById(
+    "load-more-btn",
+  ) as HTMLButtonElement;
+  const loadMoreWrapper = document.getElementById(
+    "load-more-wrapper",
+  ) as HTMLElement;
+  const allArticles = Array.from(
+    document.querySelectorAll<HTMLElement>("#posts-grid article"),
+  );
   let visibleCount = 0;
-  let currentCategory = 'all';
+  let currentCategory = "all";
 
   function getFilteredArticles() {
     return allArticles.filter(
-      (a) => currentCategory === 'all' || a.getAttribute('data-category') === currentCategory
+      (a) =>
+        currentCategory === "all" ||
+        a.getAttribute("data-category") === currentCategory,
     );
   }
 
   function applyVisibility() {
     const filtered = getFilteredArticles();
-    allArticles.forEach((a) => (a.style.display = 'none'));
+    allArticles.forEach((a) => (a.style.display = "none"));
     filtered.forEach((a, i) => {
-      a.style.display = i < visibleCount ? '' : 'none';
+      a.style.display = i < visibleCount ? "" : "none";
     });
-    loadMoreWrapper.style.display = visibleCount >= filtered.length ? 'none' : '';
+    loadMoreWrapper.style.display =
+      visibleCount >= filtered.length ? "none" : "";
   }
 
   function resetLoadMore() {
@@ -187,21 +250,23 @@ const categories = [...new Set(posts.map((p) => p.data.category))];
 
   resetLoadMore();
 
-  loadMoreBtn.addEventListener('click', () => {
+  loadMoreBtn.addEventListener("click", () => {
     visibleCount += POSTS_PER_PAGE;
     applyVisibility();
   });
 
-  document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach((b) => {
-        b.classList.remove('active', 'bg-gray-900', 'text-white');
-        b.classList.add('bg-white', 'text-gray-600');
-      });
-      btn.classList.add('active', 'bg-gray-900', 'text-white');
-      btn.classList.remove('bg-white', 'text-gray-600');
+  document.querySelectorAll<HTMLButtonElement>(".filter-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document
+        .querySelectorAll<HTMLButtonElement>(".filter-btn")
+        .forEach((b) => {
+          b.classList.remove("active", "bg-gray-900", "text-white");
+          b.classList.add("bg-white", "text-gray-600");
+        });
+      btn.classList.add("active", "bg-gray-900", "text-white");
+      btn.classList.remove("bg-white", "text-gray-600");
 
-      currentCategory = btn.getAttribute('data-category') || 'all';
+      currentCategory = btn.getAttribute("data-category") || "all";
       resetLoadMore();
     });
   });

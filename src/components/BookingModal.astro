@@ -2,7 +2,9 @@
 import { t } from "../i18n/utils";
 import type { Lang } from "../i18n/utils";
 
-interface Props { lang?: Lang; }
+interface Props {
+  lang?: Lang;
+}
 const { lang = "th" } = Astro.props;
 
 const businesses = [
@@ -18,60 +20,133 @@ const businesses = [
 ];
 ---
 
-<div id="bookingModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden z-50 items-center justify-center p-4">
-  <div class="bg-white rounded-3xl max-w-md lg:max-w-2xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 shadow-2xl" id="modalContent">
-
+<div
+  id="bookingModal"
+  class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden z-50 items-center justify-center p-4"
+>
+  <div
+    class="bg-white rounded-3xl max-w-md lg:max-w-2xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 shadow-2xl"
+    id="modalContent"
+  >
     <div class="px-7 pt-7 pb-3">
       <div class="flex items-center justify-between">
-        <h2 id="modalTitle" data-translate="chooseService" class="text-lg font-bold text-gray-900">{t("chooseService", lang)}</h2>
+        <h2
+          id="modalTitle"
+          data-translate="chooseService"
+          class="text-lg font-bold text-gray-900"
+        >
+          {t("chooseService", lang)}
+        </h2>
         <button
           onclick="closeBookingModal()"
           class="w-7 h-7 flex items-center justify-center text-gray-300 hover:text-gray-500 rounded-full hover:bg-gray-50 transition-all duration-150"
           aria-label="Close modal"
         >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
-      <p id="modalDesc" data-translate="modalDescription" class="text-[13px] text-gray-400 mt-1">{t("modalDescription", lang)}</p>
+      <p
+        id="modalDesc"
+        data-translate="modalDescription"
+        class="text-[13px] text-gray-400 mt-1"
+      >
+        {t("modalDescription", lang)}
+      </p>
 
       <div class="flex items-center justify-center gap-2 mt-4">
-        <div id="dot1" class="w-6 h-1 rounded-full bg-blue-600 transition-all duration-300"></div>
-        <div id="dot2" class="w-6 h-1 rounded-full bg-gray-200 transition-all duration-300"></div>
+        <div
+          id="dot1"
+          class="w-6 h-1 rounded-full bg-blue-600 transition-all duration-300"
+        >
+        </div>
+        <div
+          id="dot2"
+          class="w-6 h-1 rounded-full bg-gray-200 transition-all duration-300"
+        >
+        </div>
       </div>
     </div>
 
     <div id="wizardStep1" class="px-5 pb-5 pt-3 grid grid-cols-3 gap-2">
-      {businesses.map((biz, i) => (
-        <button
-          onclick={`selectBusiness('${biz.key}')`}
-          class="modal-biz-card group relative flex flex-col items-center text-center p-5 rounded-2xl border border-gray-100 hover:border-blue-600 active:border-blue-600 transition-all duration-150"
-          style={`animation-delay: ${i * 40}ms`}
-        >
-          <div class="w-14 h-14 flex items-center justify-center mb-2">
-            <img src={biz.gif} alt="" class="w-12 h-12 object-contain" loading="lazy" />
-          </div>
-          <span data-translate={`biz${biz.key.charAt(0).toUpperCase() + biz.key.slice(1)}Title`} class="text-[12px] font-medium text-gray-500 group-hover:text-gray-900 transition-colors duration-150 leading-tight">{t(`biz${biz.key.charAt(0).toUpperCase() + biz.key.slice(1)}Title` as any, lang)}</span>
-        </button>
-      ))}
+      {
+        businesses.map((biz, i) => (
+          <button
+            onclick={`selectBusiness('${biz.key}')`}
+            class="modal-biz-card group relative flex flex-col items-center text-center p-5 rounded-2xl border border-gray-100 hover:border-blue-600 active:border-blue-600 transition-all duration-150"
+            style={`animation-delay: ${i * 40}ms`}
+          >
+            <div class="w-14 h-14 flex items-center justify-center mb-2">
+              <img
+                src={biz.gif}
+                alt=""
+                class="w-12 h-12 object-contain"
+                loading="lazy"
+              />
+            </div>
+            <span
+              data-translate={`biz${biz.key.charAt(0).toUpperCase() + biz.key.slice(1)}Title`}
+              class="text-[12px] font-medium text-gray-500 group-hover:text-gray-900 transition-colors duration-150 leading-tight"
+            >
+              {t(
+                `biz${biz.key.charAt(0).toUpperCase() + biz.key.slice(1)}Title` as any,
+                lang,
+              )}
+            </span>
+          </button>
+        ))
+      }
     </div>
 
     <div id="wizardStep2" class="hidden px-5 pb-5 pt-3">
-      <button onclick="goBackToStep1()" class="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors mb-4 px-2">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      <button
+        onclick="goBackToStep1()"
+        class="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors mb-4 px-2"
+      >
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 19l-7-7 7-7"></path>
         </svg>
         <span id="backLabel"></span>
       </button>
-      <div id="subCategoryList" class="space-y-1.5 overflow-y-auto max-h-[50vh] px-1"></div>
+      <div
+        id="subCategoryList"
+        class="space-y-1.5 overflow-y-auto max-h-[50vh] px-1"
+      >
+      </div>
     </div>
 
     <div class="px-7 pb-6 pt-2">
       <div class="h-px bg-gray-100 mb-4"></div>
-      <div class="flex items-center justify-center gap-1.5 text-[12px] text-gray-400">
-        <span data-translate="expertConsultantsAvailable">{t("expertConsultantsAvailable", lang)}</span>
-        <a href="tel:+66805956458" class="text-blue-600 hover:text-blue-700 font-medium transition-colors" data-translate="callBooking">{t("callBooking", lang)}</a>
+      <div
+        class="flex items-center justify-center gap-1.5 text-[12px] text-gray-400"
+      >
+        <span data-translate="expertConsultantsAvailable"
+          >{t("expertConsultantsAvailable", lang)}</span
+        >
+        <a
+          href="tel:+66805956458"
+          class="text-blue-600 hover:text-blue-700 font-medium transition-colors"
+          data-translate="callBooking">{t("callBooking", lang)}</a
+        >
       </div>
     </div>
   </div>
@@ -80,140 +155,156 @@ const businesses = [
 <script is:inline>
   var subCategories = {
     food: {
-      th: ['ร้านอาหาร', 'คาเฟ่', 'บาร์ & ผับ', 'เบเกอรี่'],
-      en: ['Restaurant', 'Cafe', 'Bar & Pub', 'Bakery']
+      th: ["ร้านอาหาร", "คาเฟ่", "บาร์ & ผับ", "เบเกอรี่"],
+      en: ["Restaurant", "Cafe", "Bar & Pub", "Bakery"],
     },
     fitness: {
-      th: ['ยิม & ฟิตเนส', 'สตูดิโอโยคะ', 'สนามกีฬา', 'เทรนเนอร์ส่วนตัว'],
-      en: ['Gym & Fitness', 'Yoga Studio', 'Sports Court', 'Personal Trainer']
+      th: ["ยิม & ฟิตเนส", "สตูดิโอโยคะ", "สนามกีฬา", "เทรนเนอร์ส่วนตัว"],
+      en: ["Gym & Fitness", "Yoga Studio", "Sports Court", "Personal Trainer"],
     },
     beauty: {
-      th: ['ร้านทำผม', 'สปา & นวด', 'คลินิกความงาม', 'ร้านเล็บ'],
-      en: ['Hair Salon', 'Spa & Massage', 'Beauty Clinic', 'Nail Salon']
+      th: ["ร้านทำผม", "สปา & นวด", "คลินิกความงาม", "ร้านเล็บ"],
+      en: ["Hair Salon", "Spa & Massage", "Beauty Clinic", "Nail Salon"],
     },
     event: {
-      th: ['คอนเสิร์ต', 'เวิร์คช็อป', 'สัมมนา & อบรม', 'งานแสดง & นิทรรศการ'],
-      en: ['Concert', 'Workshop', 'Seminar & Training', 'Exhibition & Show']
+      th: ["คอนเสิร์ต", "เวิร์คช็อป", "สัมมนา & อบรม", "งานแสดง & นิทรรศการ"],
+      en: ["Concert", "Workshop", "Seminar & Training", "Exhibition & Show"],
     },
     rental: {
-      th: ['เช่ารถ', 'เช่าพื้นที่ & ห้องประชุม', 'เช่าอุปกรณ์', 'เช่าชุด & เครื่องแต่งกาย'],
-      en: ['Car Rental', 'Space & Meeting Room', 'Equipment Rental', 'Costume & Apparel']
+      th: [
+        "เช่ารถ",
+        "เช่าพื้นที่ & ห้องประชุม",
+        "เช่าอุปกรณ์",
+        "เช่าชุด & เครื่องแต่งกาย",
+      ],
+      en: [
+        "Car Rental",
+        "Space & Meeting Room",
+        "Equipment Rental",
+        "Costume & Apparel",
+      ],
     },
     education: {
-      th: ['ติวเตอร์', 'โรงเรียนสอนภาษา', 'คอร์สออนไลน์', 'ดนตรี & ศิลปะ'],
-      en: ['Tutor', 'Language School', 'Online Course', 'Music & Art']
+      th: ["ติวเตอร์", "โรงเรียนสอนภาษา", "คอร์สออนไลน์", "ดนตรี & ศิลปะ"],
+      en: ["Tutor", "Language School", "Online Course", "Music & Art"],
     },
     general: {
-      th: ['ช่างซ่อม & บริการ', 'ทำความสะอาด', 'ช่างภาพ', 'ที่ปรึกษา'],
-      en: ['Repair & Services', 'Cleaning', 'Photography', 'Consulting']
+      th: ["ช่างซ่อม & บริการ", "ทำความสะอาด", "ช่างภาพ", "ที่ปรึกษา"],
+      en: ["Repair & Services", "Cleaning", "Photography", "Consulting"],
     },
     hospitality: {
-      th: ['โรงแรม', 'รีสอร์ท', 'ทัวร์ & ทริป', 'แพ็คเกจท่องเที่ยว'],
-      en: ['Hotel', 'Resort', 'Tour & Trip', 'Travel Package']
+      th: ["โรงแรม", "รีสอร์ท", "ทัวร์ & ทริป", "แพ็คเกจท่องเที่ยว"],
+      en: ["Hotel", "Resort", "Tour & Trip", "Travel Package"],
     },
-    other: null
+    other: null,
   };
 
   var bizTitles = {
-    food: { th: 'ร้านอาหาร & เครื่องดื่ม', en: 'Food & Beverage' },
-    fitness: { th: 'ฟิตเนส & กีฬา', en: 'Fitness & Sports' },
-    beauty: { th: 'ความงาม & เวลเนส', en: 'Beauty & Wellness' },
-    event: { th: 'อีเวนต์ & บัตรเข้างาน', en: 'Event & Ticket' },
-    rental: { th: 'ธุรกิจให้เช่า', en: 'Rental Business' },
-    education: { th: 'การศึกษา & การสอน', en: 'Education & Tutoring' },
-    general: { th: 'บริการทั่วไป', en: 'General Services' },
-    hospitality: { th: 'การท่องเที่ยว & ที่พัก', en: 'Hospitality & Travel' },
-    other: { th: 'อื่นๆ', en: 'Others' }
+    food: { th: "ร้านอาหาร & เครื่องดื่ม", en: "Food & Beverage" },
+    fitness: { th: "ฟิตเนส & กีฬา", en: "Fitness & Sports" },
+    beauty: { th: "ความงาม & เวลเนส", en: "Beauty & Wellness" },
+    event: { th: "อีเวนต์ & บัตรเข้างาน", en: "Event & Ticket" },
+    rental: { th: "ธุรกิจให้เช่า", en: "Rental Business" },
+    education: { th: "การศึกษา & การสอน", en: "Education & Tutoring" },
+    general: { th: "บริการทั่วไป", en: "General Services" },
+    hospitality: { th: "การท่องเที่ยว & ที่พัก", en: "Hospitality & Travel" },
+    other: { th: "อื่นๆ", en: "Others" },
   };
 
   function getLang() {
     const path = window.location.pathname;
-    if (path.startsWith('/en')) return 'en';
-    return 'th';
+    if (path.startsWith("/en")) return "en";
+    return "th";
   }
 
   function openBookingModal() {
-    const modal = document.getElementById('bookingModal');
-    const content = document.getElementById('modalContent');
-    const cards = document.querySelectorAll('.modal-biz-card');
+    const modal = document.getElementById("bookingModal");
+    const content = document.getElementById("modalContent");
+    const cards = document.querySelectorAll(".modal-biz-card");
 
     showStep(1);
 
     if (modal && content) {
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
 
-      cards.forEach(card => card.classList.remove('modal-biz-animate'));
+      cards.forEach((card) => card.classList.remove("modal-biz-animate"));
 
       setTimeout(() => {
-        content.classList.remove('scale-95', 'opacity-0');
-        content.classList.add('scale-100', 'opacity-100');
-        cards.forEach(card => card.classList.add('modal-biz-animate'));
+        content.classList.remove("scale-95", "opacity-0");
+        content.classList.add("scale-100", "opacity-100");
+        cards.forEach((card) => card.classList.add("modal-biz-animate"));
       }, 10);
     }
   }
 
   function closeBookingModal() {
-    const modal = document.getElementById('bookingModal');
-    const content = document.getElementById('modalContent');
+    const modal = document.getElementById("bookingModal");
+    const content = document.getElementById("modalContent");
 
     if (modal && content) {
-      content.classList.remove('scale-100', 'opacity-100');
-      content.classList.add('scale-95', 'opacity-0');
+      content.classList.remove("scale-100", "opacity-100");
+      content.classList.add("scale-95", "opacity-0");
 
       setTimeout(() => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
       }, 250);
     }
   }
 
   function showStep(step) {
-    const step1 = document.getElementById('wizardStep1');
-    const step2 = document.getElementById('wizardStep2');
-    const dot1 = document.getElementById('dot1');
-    const dot2 = document.getElementById('dot2');
+    const step1 = document.getElementById("wizardStep1");
+    const step2 = document.getElementById("wizardStep2");
+    const dot1 = document.getElementById("dot1");
+    const dot2 = document.getElementById("dot2");
 
     if (step === 1) {
-      step1?.classList.remove('hidden');
-      step2?.classList.add('hidden');
-      dot1?.classList.replace('bg-gray-200', 'bg-blue-600');
-      dot2?.classList.replace('bg-blue-600', 'bg-gray-200');
+      step1?.classList.remove("hidden");
+      step2?.classList.add("hidden");
+      dot1?.classList.replace("bg-gray-200", "bg-blue-600");
+      dot2?.classList.replace("bg-blue-600", "bg-gray-200");
     } else {
-      step1?.classList.add('hidden');
-      step2?.classList.remove('hidden');
-      dot1?.classList.replace('bg-blue-600', 'bg-gray-200');
-      dot2?.classList.replace('bg-gray-200', 'bg-blue-600');
+      step1?.classList.add("hidden");
+      step2?.classList.remove("hidden");
+      dot1?.classList.replace("bg-blue-600", "bg-gray-200");
+      dot2?.classList.replace("bg-gray-200", "bg-blue-600");
     }
   }
 
   function selectBusiness(business) {
     const lang = getLang();
     const subs = subCategories[business];
-    const backLabel = document.getElementById('backLabel');
-    const subList = document.getElementById('subCategoryList');
+    const backLabel = document.getElementById("backLabel");
+    const subList = document.getElementById("subCategoryList");
 
-    if (backLabel) backLabel.textContent = bizTitles[business]?.[lang] || business;
+    if (backLabel)
+      backLabel.textContent = bizTitles[business]?.[lang] || business;
 
     if (!subs) {
-      const placeholder = lang === 'th' ? 'ระบุประเภทธุรกิจของคุณ...' : 'Describe your business type...';
-      const btnText = lang === 'th' ? 'ถัดไป' : 'Next';
+      const placeholder =
+        lang === "th"
+          ? "ระบุประเภทธุรกิจของคุณ..."
+          : "Describe your business type...";
+      const btnText = lang === "th" ? "ถัดไป" : "Next";
       if (subList) {
-        subList.innerHTML = '';
-        const wrapper = document.createElement('div');
-        wrapper.className = 'px-2 sub-card opacity-0';
-        wrapper.style.animationDelay = '60ms';
+        subList.innerHTML = "";
+        const wrapper = document.createElement("div");
+        wrapper.className = "px-2 sub-card opacity-0";
+        wrapper.style.animationDelay = "60ms";
 
-        const input = document.createElement('input');
-        input.id = 'otherInput';
-        input.type = 'text';
+        const input = document.createElement("input");
+        input.id = "otherInput";
+        input.type = "text";
         input.placeholder = placeholder;
-        input.className = 'w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all';
+        input.className =
+          "w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all";
 
-        const submitBtn = document.createElement('button');
-        submitBtn.className = 'w-full mt-3 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-colors';
+        const submitBtn = document.createElement("button");
+        submitBtn.className =
+          "w-full mt-3 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-colors";
         submitBtn.textContent = btnText;
-        submitBtn.addEventListener('click', () => submitOther());
+        submitBtn.addEventListener("click", () => submitOther());
 
         wrapper.appendChild(input);
         wrapper.appendChild(submitBtn);
@@ -221,32 +312,39 @@ const businesses = [
       }
       showStep(2);
       setTimeout(() => {
-        document.querySelectorAll('.sub-card').forEach(c => c.classList.add('sub-animate'));
-        document.getElementById('otherInput')?.focus();
+        document
+          .querySelectorAll(".sub-card")
+          .forEach((c) => c.classList.add("sub-animate"));
+        document.getElementById("otherInput")?.focus();
       }, 50);
       return;
     }
 
     if (subList) {
       const items = subs[lang] || subs.th;
-      subList.innerHTML = '';
-      items.forEach(function(item, i) {
-        const btn = document.createElement('button');
-        btn.className = 'sub-card w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left hover:bg-gray-50 transition-all duration-150 opacity-0';
+      subList.innerHTML = "";
+      items.forEach(function (item, i) {
+        const btn = document.createElement("button");
+        btn.className =
+          "sub-card w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left hover:bg-gray-50 transition-all duration-150 opacity-0";
         btn.style.animationDelay = `${i * 60}ms`;
-        btn.addEventListener('click', (e) => selectSubCategory(item, e));
+        btn.addEventListener("click", (e) => selectSubCategory(item, e));
 
-        const span = document.createElement('span');
-        span.className = 'text-[13px] font-medium text-gray-700';
+        const span = document.createElement("span");
+        span.className = "text-[13px] font-medium text-gray-700";
         span.textContent = item;
 
-        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svg.setAttribute('class', 'w-4 h-4 text-gray-300');
-        svg.setAttribute('fill', 'none');
-        svg.setAttribute('stroke', 'currentColor');
-        svg.setAttribute('stroke-width', '2');
-        svg.setAttribute('viewBox', '0 0 24 24');
-        svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>';
+        const svg = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "svg",
+        );
+        svg.setAttribute("class", "w-4 h-4 text-gray-300");
+        svg.setAttribute("fill", "none");
+        svg.setAttribute("stroke", "currentColor");
+        svg.setAttribute("stroke-width", "2");
+        svg.setAttribute("viewBox", "0 0 24 24");
+        svg.innerHTML =
+          '<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>';
 
         btn.appendChild(span);
         btn.appendChild(svg);
@@ -256,7 +354,9 @@ const businesses = [
 
     showStep(2);
     setTimeout(() => {
-      document.querySelectorAll('.sub-card').forEach(c => c.classList.add('sub-animate'));
+      document
+        .querySelectorAll(".sub-card")
+        .forEach((c) => c.classList.add("sub-animate"));
     }, 50);
   }
 
@@ -265,15 +365,16 @@ const businesses = [
   }
 
   function selectSubCategory(_sub, e) {
-    var btn = e && e.target ? e.target.closest('.sub-card') : null;
+    var btn = e && e.target ? e.target.closest(".sub-card") : null;
     if (btn) {
-      btn.classList.add('!bg-blue-50');
-      const label = btn.querySelector('span');
-      if (label) label.classList.add('!text-blue-600');
-      const chevron = btn.querySelector('svg');
+      btn.classList.add("!bg-blue-50");
+      const label = btn.querySelector("span");
+      if (label) label.classList.add("!text-blue-600");
+      const chevron = btn.querySelector("svg");
       if (chevron) {
-        chevron.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>';
-        chevron.classList.add('!text-blue-600');
+        chevron.innerHTML =
+          '<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>';
+        chevron.classList.add("!text-blue-600");
       }
     }
 
@@ -281,7 +382,7 @@ const businesses = [
   }
 
   function submitOther() {
-    var input = document.getElementById('otherInput');
+    var input = document.getElementById("otherInput");
     if (input && input.value.trim()) {
       closeBookingModal();
     } else {
@@ -289,13 +390,13 @@ const businesses = [
     }
   }
 
-  document.addEventListener('click', function(e) {
-    const modal = document.getElementById('bookingModal');
+  document.addEventListener("click", function (e) {
+    const modal = document.getElementById("bookingModal");
     if (e.target === modal) closeBookingModal();
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeBookingModal();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeBookingModal();
   });
 
   window.openBookingModal = openBookingModal;
@@ -308,13 +409,25 @@ const businesses = [
 
 <style>
   @keyframes slideUp {
-    from { transform: translateY(6px); opacity: 0.5; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+      transform: translateY(6px);
+      opacity: 0.5;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .modal-biz-card.modal-biz-animate {
@@ -324,5 +437,4 @@ const businesses = [
   .sub-card.sub-animate {
     animation: fadeIn 0.25s ease-out forwards;
   }
-
 </style>
