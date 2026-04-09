@@ -63,7 +63,7 @@ const { lang = "th" } = Astro.props;
             {t("faq", lang)}
           </a>
           <a
-            href="#blog"
+            href="/blog"
             data-translate="blog"
             class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="อ่านบทความและเคล็ดลับการเพิ่มประสิทธิภาพธุรกิจ"
@@ -71,7 +71,7 @@ const { lang = "th" } = Astro.props;
             {t("blog", lang)}
           </a>
           <a
-            href="#contact"
+            href={lang === "en" ? "/en/contact" : "/contact"}
             data-translate="contact"
             class="text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
             title="ติดต่อทีมงาน Booking Whale สำหรับความช่วยเหลือ"
@@ -83,13 +83,13 @@ const { lang = "th" } = Astro.props;
 
       <div class="hidden xl:flex items-center space-x-4">
         <LanguageSwitcher />
-        <button
-          onclick="openBookingModal()"
+        <a
+          href={lang === "en" ? "/en/contact" : "/contact"}
           data-translate="startBookingNow"
           class="bg-blue-600 text-white text-sm px-6 py-1.5 rounded-full hover:bg-blue-700 transition-colors duration-150 font-bold"
         >
           {t("startBookingNow", lang)}
-        </button>
+        </a>
       </div>
 
       <div class="xl:hidden flex items-center space-x-3">
@@ -136,6 +136,14 @@ const { lang = "th" } = Astro.props;
             {t("whyChoose", lang)}
           </a>
           <a
+            href="#integrations"
+            data-translate="integrations"
+            class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50"
+            onclick="closeMobileMenu()"
+          >
+            {t("integrations", lang)}
+          </a>
+          <a
             href="#faq"
             data-translate="faq"
             class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50"
@@ -144,7 +152,7 @@ const { lang = "th" } = Astro.props;
             {t("faq", lang)}
           </a>
           <a
-            href="#blog"
+            href="/blog"
             data-translate="blog"
             class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50"
             onclick="closeMobileMenu()"
@@ -152,7 +160,7 @@ const { lang = "th" } = Astro.props;
             {t("blog", lang)}
           </a>
           <a
-            href="#contact"
+            href={lang === "en" ? "/en/contact" : "/contact"}
             data-translate="contact"
             class="mobile-menu-link text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50"
             onclick="closeMobileMenu()"

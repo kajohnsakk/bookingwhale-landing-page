@@ -1,0 +1,128 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { t } from "../../i18n/utils";
+---
+
+<Layout
+  lang="en"
+  title="Contact Us | Booking Whale"
+  description="Contact Booking Whale via LINE OA, phone, or email. Available 24/7."
+  keywords="contact Booking Whale, LINE OA, booking system, customer support"
+>
+  <Header lang="en" />
+
+  <section class="pt-36 pb-6 sm:pt-44 sm:pb-8 lg:pt-48">
+    <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
+      <div class="max-w-4xl mx-auto text-center" data-animate="scroll-reveal">
+        <div class="relative inline-block">
+          <span class="contact-badge absolute -top-4 -right-6 sm:-top-5 sm:-right-8 px-4 py-1.5 rounded-full bg-blue-100 text-blue-600 text-xs sm:text-sm font-bold tracking-wide -rotate-6 z-10">
+            {t("contactPageTitle", "en")}
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-[1.1] whitespace-pre-line">
+            {t("contactPageHeadline", "en")}
+          </h1>
+        </div>
+        <p class="text-gray-400 mt-5 text-base sm:text-lg max-w-md mx-auto">
+          {t("contactPageSubtitle", "en")}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 sm:py-14 pb-32 sm:pb-40 lg:pb-48">
+    <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1200px]">
+      <div
+        class="grid md:grid-cols-2 gap-6 lg:gap-8"
+        data-animate="scroll-reveal"
+        data-stagger-delay="0.15"
+      >
+        <div
+          class="group rounded-t-[2rem] bg-gradient-to-b from-[#f2f3f2] to-white overflow-hidden text-center"
+          data-animate-child="fade-up"
+        >
+          <div class="flex items-center justify-center px-10 pt-14 pb-4">
+            <img
+              src="/images/contact/calling.svg"
+              alt="Sales inquiry"
+              class="w-full max-w-[280px] h-auto group-hover:scale-105 transition-transform duration-500"
+              width="280"
+              height="210"
+              loading="lazy"
+            />
+          </div>
+          <div class="px-8 sm:px-10 pb-12 pt-4">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+              {t("contactSalesTitle", "en")}
+            </h2>
+            <p class="text-gray-400 mt-3 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">
+              {t("contactSalesDesc", "en")}
+            </p>
+            <div class="inline-flex flex-col items-center gap-2 mt-6">
+              <a
+                href="tel:0970166045"
+                class="flex items-center gap-2 px-6 py-2.5 rounded-full border border-gray-300 text-gray-900 font-bold text-base hover:border-gray-900 transition-all duration-200"
+              >
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+                </svg>
+                097-016-6045
+              </a>
+              <a
+                href="tel:0805956458"
+                class="text-gray-400 font-medium text-xs hover:text-gray-900 transition-colors duration-200"
+              >
+                {t("contactSalesCta2", "en")}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group rounded-t-[2rem] bg-gradient-to-b from-[#f2f3f2] to-white overflow-hidden text-center"
+          data-animate-child="fade-up"
+        >
+          <div class="flex items-center justify-center px-10 pt-14 pb-4">
+            <img
+              src="/images/contact/chat.svg"
+              alt="LINE OA chat"
+              class="w-full max-w-[280px] h-auto group-hover:scale-105 transition-transform duration-500"
+              width="280"
+              height="210"
+              loading="lazy"
+            />
+          </div>
+          <div class="px-8 sm:px-10 pb-12 pt-4">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+              {t("contactLineTitle", "en")}
+            </h2>
+            <p class="text-gray-400 mt-3 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">
+              {t("contactLineDesc", "en")}
+            </p>
+            <a
+              href="https://line.me/R/ti/p/@337esngk"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block mt-6 px-8 py-3 rounded-full bg-[#2dab18] text-white font-bold text-sm sm:text-base hover:bg-[#259213] hover:scale-105 transition-all duration-200"
+            >
+              {t("contactLineCta", "en")}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  @keyframes badge-float {
+    0%, 100% { transform: rotate(-6deg) translateY(0); }
+    50% { transform: rotate(-6deg) translateY(-6px); }
+  }
+  .contact-badge {
+    animation: badge-float 3s ease-in-out infinite;
+  }
+</style>

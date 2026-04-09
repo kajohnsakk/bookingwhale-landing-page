@@ -68,7 +68,7 @@ const { lang = "th" } = Astro.props;
           <h4
             class="text-sm font-semibold uppercase tracking-wide text-gray-300 mb-4"
           >
-            เมนูหลัก
+            {t("footerMenu", lang)}
           </h4>
           <ul class="space-y-2">
             <li>
@@ -105,7 +105,7 @@ const { lang = "th" } = Astro.props;
             </li>
             <li>
               <a
-                href="#blog"
+                href="/blog"
                 data-translate="blog"
                 class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
                 >{t("blog", lang)}</a
@@ -113,7 +113,7 @@ const { lang = "th" } = Astro.props;
             </li>
             <li>
               <a
-                href="#contact"
+                href={lang === "en" ? "/en/contact" : "/contact"}
                 data-translate="contact"
                 class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
                 >{t("contact", lang)}</a
@@ -126,7 +126,7 @@ const { lang = "th" } = Astro.props;
           <h4
             class="text-sm font-semibold uppercase tracking-wide text-gray-300 mb-4"
           >
-            Enterprise Contact
+            {t("footerContact", lang)}
           </h4>
           <div class="space-y-3">
             <div class="flex items-center space-x-2">
@@ -134,6 +134,25 @@ const { lang = "th" } = Astro.props;
                 class="w-4 h-4 text-gray-400 flex-shrink-0"
                 fill="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                ></path>
+              </svg>
+              <a
+                href="tel:0970166045"
+                class="text-gray-300 hover:text-white transition-colors text-sm"
+              >
+                097-016-6045
+              </a>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg
+                class="w-4 h-4 text-gray-400 flex-shrink-0"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
@@ -151,6 +170,7 @@ const { lang = "th" } = Astro.props;
                 class="w-4 h-4 text-gray-400 flex-shrink-0"
                 fill="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
@@ -172,6 +192,7 @@ const { lang = "th" } = Astro.props;
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
+                aria-hidden="true"
               >
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>

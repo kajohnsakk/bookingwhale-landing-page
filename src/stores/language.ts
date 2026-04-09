@@ -386,6 +386,35 @@ export const translations = {
       "- Dedicated account manager\n- Monthly performance reviews\n- Proactive optimization recommendations",
     supportDetailEnterpriseSLA:
       "- 99.99% uptime guarantee\n- Response within 1 hour\n- Personalized onboarding program",
+
+    contactPageTitle: "Contact Us",
+    contactPageEyebrow: "Get Started",
+    contactPageHeadline: "Ready to boost\nyour bookings!",
+    contactPageSubtitle: "Free consultation. Our team is ready to help you start.",
+    contactSalesTitle: "Sales Inquiry",
+    contactSalesDesc:
+      "Get a personalized demo tailored to your business. Our team will help you get started right away.",
+    contactSalesCta: "Call us at 097-016-6045",
+    contactSalesCta2: "or 080-595-6458",
+    contactLineTitle: "Get in Touch",
+    contactLineDesc:
+      "Ask about features, get support, or start using the platform. We reply within 5 minutes.",
+    contactLineCta: "Add Us On LINE OA",
+    contactFormTitle: "Have questions? Send Us a Message",
+    contactFormDesc:
+      "Fill out the form below and we'll get back to you as soon as possible.",
+    contactFormName: "Name",
+    contactFormEmail: "Email",
+    contactFormPhone: "Phone number",
+    contactFormMessage: "Message",
+    contactFormSend: "Send Message",
+    contactFormSuccessTitle: "Thank you!",
+    contactFormSuccessDesc: "Your message has been received. We'll get back to you shortly.",
+    footerMenu: "Main Menu",
+    footerContact: "Enterprise Contact",
+    badgeServices: "Why choose us?",
+    badgeFeatures: "Everything in one place",
+    badgeFaq: "Got any questions?",
   },
   th: {
     // Navigation
@@ -761,6 +790,35 @@ export const translations = {
       "- ผู้ดูแลบัญชีเฉพาะ\n- รีวิวประสิทธิภาพรายเดือน\n- คำแนะนำเชิงรุกเพื่อเพิ่มประสิทธิภาพ",
     supportDetailEnterpriseSLA:
       "- การันตี uptime 99.99%\n- ตอบกลับภายใน 1 ชั่วโมง\n- โปรแกรม onboarding เฉพาะองค์กร",
+
+    contactPageTitle: "ติดต่อเรา",
+    contactPageEyebrow: "เริ่มต้นใช้งาน",
+    contactPageHeadline: "พร้อมเพิ่มยอดจอง\nให้ธุรกิจของคุณ!",
+    contactPageSubtitle: "ปรึกษาฟรี ทีมงานพร้อมช่วยคุณเริ่มต้น",
+    contactSalesTitle: "สอบถามการใช้งาน",
+    contactSalesDesc:
+      "ทีมงานพร้อมสาธิตระบบและให้คำปรึกษาเฉพาะธุรกิจของคุณ เริ่มต้นได้ทันที",
+    contactSalesCta: "โทร 097-016-6045",
+    contactSalesCta2: "หรือ 080-595-6458",
+    contactLineTitle: "แชทกับเรา",
+    contactLineDesc:
+      "สอบถามฟีเจอร์ ขอความช่วยเหลือ หรือเริ่มต้นใช้งานได้เลย ตอบไวภายใน 5 นาที",
+    contactLineCta: "เพิ่มเพื่อน LINE OA",
+    contactFormTitle: "มีคำถาม? ส่งข้อความถึงเรา",
+    contactFormDesc:
+      "กรอกแบบฟอร์มด้านล่าง เราจะติดต่อกลับโดยเร็วที่สุด",
+    contactFormName: "ชื่อ",
+    contactFormEmail: "อีเมล",
+    contactFormPhone: "เบอร์โทรศัพท์",
+    contactFormMessage: "ข้อความ",
+    contactFormSend: "ส่งข้อความ",
+    contactFormSuccessTitle: "ขอบคุณ!",
+    contactFormSuccessDesc: "เราได้รับข้อความของคุณแล้ว จะติดต่อกลับโดยเร็วที่สุด",
+    footerMenu: "เมนูหลัก",
+    footerContact: "ช่องทางติดต่อ",
+    badgeServices: "ทำไมต้องเลือกเรา?",
+    badgeFeatures: "ครบจบในที่เดียว",
+    badgeFaq: "มีคำถามใช่ไหม?",
   },
 };
 

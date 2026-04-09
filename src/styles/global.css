@@ -270,3 +270,30 @@ a {
   animation: animate-stagger-scale-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--delay, 0s);
 }
+
+@keyframes badge-drift-right {
+  0%, 100% { transform: rotate(6deg) translateX(0); }
+  50% { transform: rotate(6deg) translateX(6px); }
+}
+
+@keyframes badge-drift-left {
+  0%, 100% { transform: rotate(-6deg) translateX(0); }
+  50% { transform: rotate(-6deg) translateX(-6px); }
+}
+
+@keyframes badge-bounce-soft {
+  0%, 100% { transform: rotate(3deg) translateY(0); }
+  50% { transform: rotate(3deg) translateY(-5px); }
+}
+
+.section-badge-wobble {
+  animation: badge-drift-right 3s ease-in-out infinite;
+}
+
+.section-badge-pulse {
+  animation: badge-drift-left 3.5s ease-in-out infinite;
+}
+
+.section-badge-bounce {
+  animation: badge-bounce-soft 2.5s ease-in-out infinite;
+}
