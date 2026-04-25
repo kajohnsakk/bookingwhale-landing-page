@@ -46,6 +46,35 @@ const { lang = "th" } = Astro.props;
           >
             {t("whyChoose", lang)}
           </a>
+          <div class="relative group">
+            <button
+              type="button"
+              class="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors duration-150 font-semibold text-[15px]"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              {t("businesses", lang)}
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+            <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200">
+              <div class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 min-w-[200px]">
+                <a
+                  href={lang === "en" ? "/en/businesses/food-beverage" : "/businesses/food-beverage"}
+                  class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors"
+                >
+                  <span class="text-sm font-medium text-gray-700">{t("bizFoodTitle", lang)}</span>
+                </a>
+                <a
+                  href={lang === "en" ? "/en/businesses/fitness-sports" : "/businesses/fitness-sports"}
+                  class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors"
+                >
+                  <span class="text-sm font-medium text-gray-700">{t("bizFitnessTitle", lang)}</span>
+                </a>
+              </div>
+            </div>
+          </div>
           <a
             href="#integrations"
             data-translate="integrations"
@@ -135,6 +164,37 @@ const { lang = "th" } = Astro.props;
           >
             {t("whyChoose", lang)}
           </a>
+          <div class="mobile-biz-dropdown">
+            <button
+              id="mobileBizToggle"
+              type="button"
+              class="flex items-center justify-between w-full text-gray-600 hover:text-gray-900 transition-colors font-semibold py-3 px-4 rounded-lg hover:bg-gray-50"
+              onclick="toggleMobileBizDropdown()"
+              aria-expanded="false"
+              aria-controls="mobileBizSubmenu"
+            >
+              {t("businesses", lang)}
+              <svg class="w-4 h-4 transition-transform duration-200 mobile-biz-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+            <div id="mobileBizSubmenu" class="mobile-biz-submenu overflow-hidden max-h-0 transition-all duration-200">
+              <a
+                href={lang === "en" ? "/en/businesses/food-beverage" : "/businesses/food-beverage"}
+                class="block text-gray-500 hover:text-gray-900 transition-colors font-medium py-2.5 pl-8 pr-4 rounded-lg hover:bg-gray-50 text-sm"
+                onclick="closeMobileMenu()"
+              >
+                {t("bizFoodTitle", lang)}
+              </a>
+              <a
+                href={lang === "en" ? "/en/businesses/fitness-sports" : "/businesses/fitness-sports"}
+                class="block text-gray-500 hover:text-gray-900 transition-colors font-medium py-2.5 pl-8 pr-4 rounded-lg hover:bg-gray-50 text-sm"
+                onclick="closeMobileMenu()"
+              >
+                {t("bizFitnessTitle", lang)}
+              </a>
+            </div>
+          </div>
           <a
             href="#integrations"
             data-translate="integrations"
@@ -204,7 +264,7 @@ const { lang = "th" } = Astro.props;
 
     if (isMobileMenuOpen) {
       mobileMenu?.classList.remove("max-h-0", "opacity-0");
-      mobileMenu?.classList.add("max-h-96", "opacity-100");
+      mobileMenu?.classList.add("max-h-[600px]", "opacity-100");
       if (hamburgerLines) {
         hamburgerLines[0].style.transform = "rotate(45deg) translate(5px, 5px)";
         hamburgerLines[1].style.opacity = "0";
@@ -213,7 +273,7 @@ const { lang = "th" } = Astro.props;
       }
     } else {
       mobileMenu?.classList.add("max-h-0", "opacity-0");
-      mobileMenu?.classList.remove("max-h-96", "opacity-100");
+      mobileMenu?.classList.remove("max-h-[600px]", "opacity-100");
       if (hamburgerLines) {
         hamburgerLines[0].style.transform = "none";
         hamburgerLines[1].style.opacity = "1";
@@ -245,8 +305,28 @@ const { lang = "th" } = Astro.props;
     }
   });
 
+  function toggleMobileBizDropdown() {
+    const submenu = document.getElementById("mobileBizSubmenu");
+    const toggle = document.getElementById("mobileBizToggle");
+    const chevron = toggle?.querySelector(".mobile-biz-chevron") as HTMLElement | undefined;
+    if (!submenu || !toggle) return;
+    const isOpen = !submenu.classList.contains("max-h-0");
+    if (isOpen) {
+      submenu.classList.add("max-h-0");
+      submenu.classList.remove("max-h-40");
+      chevron?.classList.remove("rotate-180");
+      toggle.setAttribute("aria-expanded", "false");
+    } else {
+      submenu.classList.remove("max-h-0");
+      submenu.classList.add("max-h-40");
+      chevron?.classList.add("rotate-180");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+  }
+
   (window as any).toggleMobileMenu = toggleMobileMenu;
   (window as any).closeMobileMenu = closeMobileMenu;
+  (window as any).toggleMobileBizDropdown = toggleMobileBizDropdown;
 </script>
 
 <style>

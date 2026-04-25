@@ -300,11 +300,12 @@
 
     function navigateToLang(targetLang) {
       var hash = window.location.hash || "";
+      var basePath = window.location.pathname.replace(/^\/en/, "") || "/";
       var targetPath;
       if (targetLang === "en") {
-        targetPath = "/en" + hash;
+        targetPath = "/en" + basePath + hash;
       } else {
-        targetPath = "/" + hash;
+        targetPath = basePath + hash;
       }
       window.location.href = targetPath;
     }
