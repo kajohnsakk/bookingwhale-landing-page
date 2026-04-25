@@ -11,6 +11,12 @@ export const translations = {
     features: "Features",
     faq: "FAQ",
     blog: "Blog",
+    blogTitle: "Articles & Insights",
+    blogDescription:
+      "Tips and strategies to grow your business with online booking systems",
+    viewAllBlogs: "View all articles",
+    integrations: "Integrations",
+    businesses: "Businesses",
     loadMore: "Load More",
     contact: "Contact",
     bookNow: "Book Now",
@@ -307,7 +313,7 @@ export const translations = {
     bizFitnessF1: "Class booking",
     bizFitnessF2: "Trainer scheduling",
     bizFitnessF3: "Member management",
-    bizFitnessF4: "Court reservations",
+    bizFitnessF4: "Auto reminders",
     bizEducationF1: "Class scheduling",
     bizEducationF2: "Student profiles",
     bizEducationF3: "Trial bookings",
@@ -329,6 +335,133 @@ export const translations = {
     bizGeneralF3: "Auto reminders",
     bizGeneralF4: "LINE integration",
 
+    bizLearnMore: "Learn More",
+    bizDetailHeroCta: "Get Started Free",
+    bizDetailPainTitle: "Does This Sound Familiar?",
+    bizDetailSolutionTitle: "How Booking Whale Fixes This",
+    bizDetailCtaTitle: "Ready to fill more seats?",
+    bizDetailCtaDesc:
+      "Setup takes 5 minutes. Start free today — no credit card, no commitment.",
+    bizDetailCtaButton: "Contact Us",
+    bizDetailHowTitle: "Start in 3 Simple Steps",
+    bizDetailHowStep1Title: "Connect LINE OA",
+    bizDetailHowStep1Desc: "Link your LINE Official Account to Booking Whale in just a few clicks.",
+    bizDetailHowStep2Title: "Set Up Your Services",
+    bizDetailHowStep2Desc: "Add your classes, trainers, courts, or tables — customize to fit your business.",
+    bizDetailHowStep3Title: "Customers Start Booking",
+    bizDetailHowStep3Desc: "Share your booking link via LINE. Customers book instantly, you manage everything in one place.",
+    bizDetailTrust1: "Free during Beta",
+    bizDetailTrust2: "Setup in 5 minutes",
+    bizDetailTrust3: "No credit card required",
+    bizFitnessBizTypesTitle: "Supports Every Business Type",
+    bizFitnessBizTypesSub: "No matter what you run — if it has bookings, we've got you covered.",
+    bizFoodBizTypesTitle: "Supports Every Business Type",
+    bizFoodBizTypesSub: "From fine dining to food trucks — if it takes reservations, we've got you covered.",
+    bizFitnessType1Title: "Gym & Fitness Center",
+    bizFitnessType1Desc: "Manage trainers, classes & memberships",
+    bizFitnessType2Title: "Yoga & Pilates Studio",
+    bizFitnessType2Desc: "Class bookings with waitlist",
+    bizFitnessType3Title: "HYROX & Functional Race",
+    bizFitnessType3Desc: "Session booking & athlete management",
+    bizFitnessType4Title: "CrossFit & Functional Training",
+    bizFitnessType4Desc: "WOD sign-ups with capacity limits",
+    bizFitnessType5Title: "Sports Court & Facility",
+    bizFitnessType5Desc: "Court booking with time-slot view",
+    bizFitnessType6Title: "Dance & Movement Studio",
+    bizFitnessType6Desc: "Class booking & room management",
+    bizFoodType1Title: "Restaurant",
+    bizFoodType1Desc: "Table reservations & walk-in queue",
+    bizFoodType2Title: "Cafe & Coffee Shop",
+    bizFoodType2Desc: "Seat booking & peak hour management",
+    bizFoodType3Title: "Bar & Pub",
+    bizFoodType3Desc: "Table booking & event reservations",
+    bizFoodType4Title: "Bakery & Dessert Shop",
+    bizFoodType4Desc: "Pre-order & pickup scheduling",
+    bizFoodType5Title: "Food Truck & Pop-up",
+    bizFoodType5Desc: "Queue management & LINE notifications",
+    bizFoodType6Title: "Catering & Private Dining",
+    bizFoodType6Desc: "Event booking & menu selection",
+
+    bizFoodPageTitle:
+      "Restaurant & Cafe Booking System | Booking Whale",
+    bizFoodPageDesc:
+      "Online table reservation and queue management system for restaurants, cafes, and bars via LINE OA. Reduce no-shows by 60%, manage walk-ins, and boost repeat bookings.",
+    bizFoodPageKeywords:
+      "restaurant booking system, cafe reservation, table booking LINE OA, queue management restaurant, food beverage booking Thailand",
+    bizFoodHeroHeadline: "The booking system\nevery restaurant needs",
+    bizFoodHeroSub:
+      "Let customers reserve tables, manage walk-in queues, and receive reminders via LINE. Reduce staff workload, cut no-shows, and increase table utilization.",
+    bizFoodPainSub:
+      "Sound familiar? These problems cost F&B businesses thousands every month.",
+    bizFoodPain1Title: "No-Shows Eat Your Revenue",
+    bizFoodPain1Desc:
+      "Friday night, 8 PM — three reserved tables sit empty. Customers booked but never showed up. Lost revenue you can't recover.",
+    bizFoodPain2Title: "Phone Rings, Nobody Answers",
+    bizFoodPain2Desc:
+      "Staff can't take calls while plating and serving. Every missed call is a booking that goes straight to your competitor.",
+    bizFoodPain3Title: "Walk-Ins Walk Away",
+    bizFoodPain3Desc:
+      "Customers peek in, see a crowd, and leave. No transparent queue system means you lose walk-in revenue every day.",
+    bizFoodSol1Title: "Tables Booked 24/7, Zero Phone Calls",
+    bizFoodSol1Desc:
+      "Customers tap to reserve a table through LINE — anytime, even at 2 AM. Automatic confirmations go out instantly, and smart reminders 2 hours before cut no-shows by up to 60%.",
+    bizFoodSol2Title: "Digital Queues That Keep Customers Happy",
+    bizFoodSol2Desc:
+      "Walk-in guests scan a QR code, join the queue via LINE, and go browse nearby shops. When their table's ready, they get a ping. No crowded waiting areas, no frustrated customers.",
+    bizFoodSol3Title: "Know Your Rush Hours Before They Hit",
+    bizFoodSol3Desc:
+      "Every walk-in is tracked automatically. See your peak hours, average wait times, and table turnover — then staff smarter and seat faster.",
+    bizFoodSol4Title: "Reminders That Actually Get Read",
+    bizFoodSol4Desc:
+      "Forget SMS that gets ignored. Booking confirmations, reminders, and \"book again?\" follow-ups go straight to LINE — where 90% of Thai customers already chat daily.",
+    bizFoodStat1Value: "14%",
+    bizFoodStat1Label: "Average restaurant no-show rate",
+    bizFoodStat2Value: "56M",
+    bizFoodStat2Label: "LINE users in Thailand",
+    bizFoodStat3Value: "382K+",
+    bizFoodStat3Label: "F&B businesses in Thailand",
+    bizFoodStat4Value: "60%",
+    bizFoodStat4Label: "Cancel within 24 hours",
+    bizFitnessPageTitle:
+      "Gym & Fitness Studio Booking System | Booking Whale",
+    bizFitnessPageDesc:
+      "Class booking and court reservation system for gyms, fitness studios, and sports facilities via LINE OA. Manage trainers, members, and schedules effortlessly.",
+    bizFitnessPageKeywords:
+      "gym booking system, fitness class booking, court reservation, trainer scheduling, sports facility booking Thailand LINE OA",
+    bizFitnessHeroHeadline: "Fill every class,\nbook every session",
+    bizFitnessHeroSub:
+      "A booking system that lets members reserve classes, book trainers, and claim courts via LINE. Reduce staff workload, increase utilization, and cut no-shows.",
+    bizFitnessPainSub:
+      "Whether you run a gym, studio, or sports facility — these problems cost you members every week.",
+    bizFitnessPain1Title: "Popular Classes Full, Others Empty",
+    bizFitnessPain1Desc:
+      "Evening classes are packed, daytime ones have 2-3 people. No data to decide which classes to add or cut.",
+    bizFitnessPain2Title: "Trainers Get Double-Booked",
+    bizFitnessPain2Desc:
+      "Two members book the same trainer, same time — because bookings are managed manually. Staff calls to fix it every time.",
+    bizFitnessPain3Title: "Booked but Never Showed Up",
+    bizFitnessPain3Desc:
+      "Members reserve a spot but don't come. Seats sit empty while others want to join. Lost revenue and opportunity add up.",
+    bizFitnessSol1Title: "Every Class Fills Up — Without You Lifting a Finger",
+    bizFitnessSol1Desc:
+      "Members book classes via LINE on their own. The system limits spots automatically. If someone cancels, the next person in line gets notified and moves up.",
+    bizFitnessSol2Title: "No More Double-Booked Trainers",
+    bizFitnessSol2Desc:
+      "Trainers set their available hours. Members pick a slot and book via LINE. The system blocks the same time from being booked twice.",
+    bizFitnessSol3Title: "Spot Members Before They Quit",
+    bizFitnessSol3Desc:
+      "See who's coming regularly and who's starting to slip. If a member hasn't booked in weeks, send them a LINE message to bring them back — before they cancel.",
+    bizFitnessSol4Title: "Auto Reminders That Cut No-Shows",
+    bizFitnessSol4Desc:
+      "Members get a LINE reminder before their class or session. If they can't make it, they cancel in time and the next person moves up. No-shows drop by up to 60%.",
+    bizFitnessStat1Value: "฿120B",
+    bizFitnessStat1Label: "Thai fitness & sports market",
+    bizFitnessStat2Value: "2,499",
+    bizFitnessStat2Label: "Registered fitness businesses",
+    bizFitnessStat3Value: "18%",
+    bizFitnessStat3Label: "Fitness revenue growth YoY",
+    bizFitnessStat4Value: "56M",
+    bizFitnessStat4Label: "LINE users in Thailand",
     pricingTitle: "Choose Your Plan",
     pricingDescription: "Start free, upgrade as you grow",
     pricingMonthly: "Monthly",
@@ -422,6 +555,12 @@ export const translations = {
     features: "แพลตฟอร์ม",
     faq: "คำถามที่พบบ่อย",
     blog: "บทความ",
+    blogTitle: "บทความและเคล็ดลับ",
+    blogDescription:
+      "เคล็ดลับและกลยุทธ์ในการเพิ่มประสิทธิภาพธุรกิจด้วยระบบจองออนไลน์",
+    viewAllBlogs: "ดูบทความทั้งหมด",
+    integrations: "ระบบที่เชื่อมต่อ",
+    businesses: "ธุรกิจ",
     loadMore: "ดูเพิ่มเติม",
     contact: "ติดต่อ",
     bookNow: "จองเลย",
@@ -711,7 +850,7 @@ export const translations = {
     bizFitnessF1: "จองคลาส",
     bizFitnessF2: "ตารางเทรนเนอร์",
     bizFitnessF3: "จัดการสมาชิก",
-    bizFitnessF4: "จองสนาม",
+    bizFitnessF4: "แจ้งเตือนอัตโนมัติ",
     bizEducationF1: "จัดตารางเรียน",
     bizEducationF2: "โปรไฟล์นักเรียน",
     bizEducationF3: "จองเรียนทดลอง",
@@ -733,6 +872,133 @@ export const translations = {
     bizGeneralF3: "แจ้งเตือนอัตโนมัติ",
     bizGeneralF4: "เชื่อมต่อ LINE",
 
+    bizLearnMore: "ดูรายละเอียด",
+    bizDetailHeroCta: "เริ่มต้นใช้งานฟรี",
+    bizDetailPainTitle: "เคยเจอปัญหาพวกนี้ไหม?",
+    bizDetailSolutionTitle: "Booking Whale แก้ปัญหานี้ได้",
+    bizDetailCtaTitle: "พร้อมเติมเต็มทุกที่นั่งแล้วหรือยัง?",
+    bizDetailCtaDesc:
+      "ตั้งค่าแค่ 5 นาที เริ่มใช้ฟรีวันนี้ ไม่ต้องใช้บัตรเครดิต ไม่มีข้อผูกมัด",
+    bizDetailCtaButton: "ติดต่อเรา",
+    bizDetailHowTitle: "เริ่มต้นใน 3 ขั้นตอน",
+    bizDetailHowStep1Title: "เชื่อมต่อ LINE OA",
+    bizDetailHowStep1Desc: "เชื่อมต่อ LINE Official Account ของคุณกับ Booking Whale ได้ในไม่กี่คลิก",
+    bizDetailHowStep2Title: "ตั้งค่าบริการ",
+    bizDetailHowStep2Desc: "เพิ่มคลาส เทรนเนอร์ สนาม หรือโต๊ะ ปรับแต่งให้ตรงกับธุรกิจของคุณ",
+    bizDetailHowStep3Title: "ลูกค้าเริ่มจองได้เลย",
+    bizDetailHowStep3Desc: "แชร์ลิงก์จองผ่าน LINE ลูกค้าจองได้ทันที คุณจัดการทุกอย่างในที่เดียว",
+    bizDetailTrust1: "ใช้งานฟรีช่วง Beta",
+    bizDetailTrust2: "ตั้งค่าแค่ 5 นาที",
+    bizDetailTrust3: "ไม่ต้องใช้บัตรเครดิต",
+    bizFitnessBizTypesTitle: "รองรับทุกประเภทธุรกิจ",
+    bizFitnessBizTypesSub: "ไม่ว่าคุณจะเปิดอะไร ถ้ามีการจอง เราช่วยได้",
+    bizFoodBizTypesTitle: "รองรับทุกประเภทธุรกิจ",
+    bizFoodBizTypesSub: "ตั้งแต่ร้านอาหารจนถึง Food Truck ถ้ามีการจอง เราช่วยได้",
+    bizFitnessType1Title: "ยิม & ฟิตเนสเซ็นเตอร์",
+    bizFitnessType1Desc: "จัดการเทรนเนอร์ คลาส และสมาชิก",
+    bizFitnessType2Title: "โยคะ & พิลาทิส สตูดิโอ",
+    bizFitnessType2Desc: "จองคลาสพร้อมคิวรอ",
+    bizFitnessType3Title: "HYROX & Functional Race",
+    bizFitnessType3Desc: "จองเซสชัน จัดการนักกีฬา",
+    bizFitnessType4Title: "CrossFit & Functional Training",
+    bizFitnessType4Desc: "จองรอบเรียนพร้อมจำกัดจำนวนคน",
+    bizFitnessType5Title: "สนามกีฬา & คอร์ท",
+    bizFitnessType5Desc: "จองสนาม ดูตารางว่าง",
+    bizFitnessType6Title: "สตูดิโอเต้น & ศิลปะการเคลื่อนไหว",
+    bizFitnessType6Desc: "จองคลาส จัดการห้องเรียน",
+    bizFoodType1Title: "ร้านอาหาร",
+    bizFoodType1Desc: "จองโต๊ะ และคิว Walk-in",
+    bizFoodType2Title: "คาเฟ่ & ร้านกาแฟ",
+    bizFoodType2Desc: "จองที่นั่ง จัดการช่วงพีค",
+    bizFoodType3Title: "บาร์ & ผับ",
+    bizFoodType3Desc: "จองโต๊ะ และจองงานอีเวนต์",
+    bizFoodType4Title: "เบเกอรี่ & ร้านขนม",
+    bizFoodType4Desc: "สั่งล่วงหน้า นัดรับสินค้า",
+    bizFoodType5Title: "Food Truck & Pop-up",
+    bizFoodType5Desc: "จัดการคิว แจ้งเตือนผ่าน LINE",
+    bizFoodType6Title: "จัดเลี้ยง & Private Dining",
+    bizFoodType6Desc: "จองงาน เลือกเมนูล่วงหน้า",
+
+    bizFoodPageTitle:
+      "ระบบจองร้านอาหาร & คาเฟ่ | Booking Whale",
+    bizFoodPageDesc:
+      "ระบบจองโต๊ะออนไลน์และจัดการคิวสำหรับร้านอาหาร คาเฟ่ และบาร์ ผ่าน LINE OA ลด No-Show 60% จัดการ Walk-in เพิ่มยอดจองซ้ำ",
+    bizFoodPageKeywords:
+      "ระบบจองร้านอาหาร, จองโต๊ะออนไลน์, จัดการคิวร้านอาหาร, ระบบจองคาเฟ่, จองโต๊ะผ่าน LINE",
+    bizFoodHeroHeadline: "ระบบจองโต๊ะ\nที่ร้านอาหารต้องมี",
+    bizFoodHeroSub:
+      "ให้ลูกค้าจองโต๊ะ จัดการคิว Walk-in และรับแจ้งเตือนผ่าน LINE ได้เอง ลดภาระพนักงาน ลด No-Show เพิ่มอัตราการเข้าใช้บริการ",
+    bizFoodPainSub:
+      "ปัญหาเหล่านี้ทำให้ธุรกิจ F&B สูญเสียรายได้หลักหมื่นทุกเดือน",
+    bizFoodPain1Title: "No-Show กินรายได้",
+    bizFoodPain1Desc:
+      "คืนวันศุกร์ 2 ทุ่ม โต๊ะที่จองไว้ 3 โต๊ะว่างเปล่า ลูกค้าจองแต่ไม่มา รายได้หายไปเรียกกลับไม่ได้",
+    bizFoodPain2Title: "โทรมา ไม่มีคนรับ",
+    bizFoodPain2Desc:
+      "พนักงานรับสายไม่ได้ขณะจัดจานและเสิร์ฟอาหาร ทุกสายที่พลาดคือจองที่หลุดไปให้ร้านคู่แข่ง",
+    bizFoodPain3Title: "Walk-in เห็นคิวยาว เดินกลับ",
+    bizFoodPain3Desc:
+      "ลูกค้าเดินเข้ามา เห็นคนเยอะก็เดินกลับ ไม่มีระบบคิวที่โปร่งใส เสียรายได้ Walk-in ทุกวัน",
+    bizFoodSol1Title: "จองโต๊ะ 24 ชม. ไม่ต้องรับสาย",
+    bizFoodSol1Desc:
+      "ลูกค้ากดจองโต๊ะผ่าน LINE ได้ตลอด แม้ตี 2 ยืนยันอัตโนมัติทันที แจ้งเตือนก่อน 2 ชั่วโมง ลด No-Show ได้ถึง 60%",
+    bizFoodSol2Title: "คิวดิจิทัลที่ลูกค้าแฮปปี้",
+    bizFoodSol2Desc:
+      "ลูกค้า Walk-in สแกน QR เข้าคิวผ่าน LINE แล้วไปเดินเล่นรอ พอโต๊ะพร้อมก็ได้รับแจ้งเตือน ไม่ต้องยืนรอแน่นหน้าร้าน",
+    bizFoodSol3Title: "รู้ช่วงพีคก่อนลูกค้ามา",
+    bizFoodSol3Desc:
+      "ติดตาม Walk-in ทุกรายอัตโนมัติ เห็นช่วงเวลาพีค เวลารอเฉลี่ย อัตราหมุนเวียนโต๊ะ แล้วจัดพนักงานได้ถูกจังหวะ",
+    bizFoodSol4Title: "แจ้งเตือนที่ถูกเปิดอ่านจริง",
+    bizFoodSol4Desc:
+      "ลืม SMS ที่ไม่มีใครอ่าน ยืนยันจอง แจ้งเตือน และชวนจองซ้ำ ส่งตรงถึง LINE ที่คนไทย 90% ใช้แชทอยู่ทุกวัน",
+    bizFoodStat1Value: "14%",
+    bizFoodStat1Label: "อัตรา No-Show เฉลี่ยของร้านอาหาร",
+    bizFoodStat2Value: "56M",
+    bizFoodStat2Label: "ผู้ใช้ LINE ในไทย",
+    bizFoodStat3Value: "382K+",
+    bizFoodStat3Label: "ธุรกิจ F&B ในประเทศไทย",
+    bizFoodStat4Value: "60%",
+    bizFoodStat4Label: "ลูกค้ายกเลิกภายใน 24 ชม.",
+    bizFitnessPageTitle:
+      "ระบบจองฟิตเนส & สตูดิโอ | Booking Whale",
+    bizFitnessPageDesc:
+      "ระบบจองคลาสและสนามกีฬาสำหรับยิม ฟิตเนสสตูดิโอ และสนามกีฬา ผ่าน LINE OA จัดการเทรนเนอร์ สมาชิก และตารางเรียนง่าย ๆ",
+    bizFitnessPageKeywords:
+      "ระบบจองฟิตเนส, จองคลาสออนไลน์, จองสนามกีฬา, ตารางเทรนเนอร์, ระบบจองยิม LINE OA",
+    bizFitnessHeroHeadline: "เติมเต็มทุกคลาส\nจองได้ทุกเซสชัน",
+    bizFitnessHeroSub:
+      "ระบบจองที่ช่วยให้สมาชิกจองคลาส นัดเทรนเนอร์ และจองสนามได้เองผ่าน LINE ลดภาระพนักงาน เพิ่มอัตราเข้าใช้บริการ และลด No-Show ได้จริง",
+    bizFitnessPainSub:
+      "ไม่ว่าจะเป็นยิม สตูดิโอ หรือสนามกีฬา ปัญหาพวกนี้ทำให้เสียสมาชิกทุกสัปดาห์",
+    bizFitnessPain1Title: "คลาสยอดนิยมเต็ม คลาสอื่นว่าง",
+    bizFitnessPain1Desc:
+      "คลาสช่วงเย็นคนล้น คลาสกลางวันมีแค่ 2-3 คน ไม่มีข้อมูลช่วยตัดสินใจว่าควรเปิดคลาสไหนเพิ่มหรือลด",
+    bizFitnessPain2Title: "เทรนเนอร์โดนจองซ้อน",
+    bizFitnessPain2Desc:
+      "สมาชิก 2 คนจองเทรนเนอร์คนเดียวกัน เวลาเดียวกัน เพราะจัดการจองด้วยมือ ต้องโทรตามแก้ทุกครั้ง",
+    bizFitnessPain3Title: "จองแล้วไม่มา",
+    bizFitnessPain3Desc:
+      "สมาชิกกดจองไว้แต่ไม่มา ที่นั่งว่างทั้งที่คนอื่นอยากเข้า ยิมเสียทั้งรายได้และโอกาสโดยไม่รู้ตัว",
+    bizFitnessSol1Title: "คลาสเต็มทุกรอบ โดยไม่ต้องจัดการเอง",
+    bizFitnessSol1Desc:
+      "สมาชิกจองคลาสผ่าน LINE ได้เอง ระบบจำกัดจำนวนคนให้อัตโนมัติ ถ้ามีคนยกเลิก คนถัดไปในคิวจะได้รับแจ้งเตือนและเลื่อนขึ้นมาเอง",
+    bizFitnessSol2Title: "เทรนเนอร์ไม่โดนจองซ้อนอีก",
+    bizFitnessSol2Desc:
+      "เทรนเนอร์ตั้งเวลาว่างไว้ สมาชิกเลือกจองผ่าน LINE ได้เลย ระบบจะป้องกันไม่ให้เวลาเดียวกันถูกจองซ้ำ",
+    bizFitnessSol3Title: "จับสัญญาณสมาชิกที่กำลังจะหาย",
+    bizFitnessSol3Desc:
+      "ดูได้ว่าใครมาสม่ำเสมอ ใครเริ่มห่างหาย ถ้าสมาชิกไม่ได้จองมาหลายสัปดาห์ ส่งข้อความ LINE ชวนกลับมาก่อนที่จะยกเลิก",
+    bizFitnessSol4Title: "แจ้งเตือนอัตโนมัติ ลดคนไม่มา",
+    bizFitnessSol4Desc:
+      "สมาชิกได้รับแจ้งเตือนผ่าน LINE ก่อนถึงเวลาคลาสหรือเซสชัน ถ้ามาไม่ได้ก็ยกเลิกทัน คนถัดไปเลื่อนขึ้นมาเอง No-Show ลดได้ถึง 60%",
+    bizFitnessStat1Value: "฿120B",
+    bizFitnessStat1Label: "ตลาดฟิตเนส & กีฬาไทย",
+    bizFitnessStat2Value: "2,499",
+    bizFitnessStat2Label: "ธุรกิจฟิตเนสจดทะเบียน",
+    bizFitnessStat3Value: "18%",
+    bizFitnessStat3Label: "การเติบโตรายได้ฟิตเนสต่อปี",
+    bizFitnessStat4Value: "56M",
+    bizFitnessStat4Label: "ผู้ใช้ LINE ในไทย",
     pricingTitle: "เลือกแพลนที่เหมาะกับคุณ",
     pricingDescription: "เริ่มต้นฟรี อัปเกรดตามการเติบโต",
     pricingMonthly: "รายเดือน",

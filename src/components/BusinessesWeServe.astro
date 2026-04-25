@@ -7,11 +7,15 @@ interface Props {
 
 const { lang = "th" } = Astro.props;
 
+const langPrefix = lang === "en" ? "/en" : "";
+
 const businesses = [
   {
     id: "bizBeauty",
     image: "/images/businesses/beauty-wellness.svg",
     icon: "M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75",
+    slug: "beauty-wellness",
+    detailPage: false,
     features: [
       t("bizBeautyF1", lang),
       t("bizBeautyF2", lang),
@@ -23,6 +27,8 @@ const businesses = [
     id: "bizFood",
     image: "/images/businesses/food-beverage.svg",
     icon: "M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.379a48.474 48.474 0 00-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265zm-3 0a.375.375 0 11-.53 0L9 2.845l.265.265zm6 0a.375.375 0 11-.53 0L15 2.845l.265.265z",
+    slug: "food-beverage",
+    detailPage: true,
     features: [
       t("bizFoodF1", lang),
       t("bizFoodF2", lang),
@@ -34,6 +40,8 @@ const businesses = [
     id: "bizFitness",
     image: "/images/businesses/fitness-sports.svg",
     icon: "M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z",
+    slug: "fitness-sports",
+    detailPage: true,
     features: [
       t("bizFitnessF1", lang),
       t("bizFitnessF2", lang),
@@ -45,6 +53,8 @@ const businesses = [
     id: "bizEducation",
     image: "/images/businesses/education-tutoring.svg",
     icon: "M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15v3.75m0 0h10.5m-10.5 0V15m10.5 3.75V15",
+    slug: "education-tutoring",
+    detailPage: false,
     features: [
       t("bizEducationF1", lang),
       t("bizEducationF2", lang),
@@ -56,6 +66,8 @@ const businesses = [
     id: "bizEvent",
     image: "/images/businesses/event-ticket.svg",
     icon: "M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z",
+    slug: "event-ticket",
+    detailPage: false,
     features: [
       t("bizEventF1", lang),
       t("bizEventF2", lang),
@@ -67,6 +79,8 @@ const businesses = [
     id: "bizHospitality",
     image: "/images/businesses/hospitality-travel.svg",
     icon: "M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z",
+    slug: "hospitality-travel",
+    detailPage: false,
     features: [
       t("bizHospitalityF1", lang),
       t("bizHospitalityF2", lang),
@@ -78,6 +92,8 @@ const businesses = [
     id: "bizRental",
     image: "/images/businesses/rental-business.svg",
     icon: "M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H18.75m-7.5-3H18m-1.5-3h3.375c.621 0 1.125.504 1.125 1.125V12m-9.75 0V5.625A1.125 1.125 0 0112.375 4.5h.75c.621 0 1.125.504 1.125 1.125V12m-9.75 0H2.25",
+    slug: "rental-business",
+    detailPage: false,
     features: [
       t("bizRentalF1", lang),
       t("bizRentalF2", lang),
@@ -89,6 +105,8 @@ const businesses = [
     id: "bizGeneral",
     image: "/images/businesses/general-services.svg",
     icon: "M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+    slug: "general-services",
+    detailPage: false,
     features: [
       t("bizGeneralF1", lang),
       t("bizGeneralF2", lang),
@@ -97,6 +115,8 @@ const businesses = [
     ],
   },
 ];
+
+const learnMoreText = t("bizLearnMore", lang);
 ---
 
 <section
@@ -136,6 +156,8 @@ const businesses = [
             businesses.map((b) => t(`${b.id}Desc`, lang)),
           )}
           data-features={JSON.stringify(businesses.map((b) => b.features))}
+          data-slugs={JSON.stringify(businesses.map((b) => b.detailPage ? `${langPrefix}/businesses/${b.slug}` : ""))}
+          data-learn-more={learnMoreText}
         >
           {
             businesses.map((biz, i) => (
@@ -232,6 +254,16 @@ const businesses = [
               ))
             }
           </div>
+          <a
+            href={businesses[0].detailPage ? `${langPrefix}/businesses/${businesses[0].slug}` : "#"}
+            class="biz-caption-link inline-flex items-center gap-1 text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors mt-4 mx-auto"
+            style={businesses[0].detailPage ? "" : "display:none"}
+          >
+            {learnMoreText}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -258,6 +290,10 @@ const businesses = [
     const features: string[][] = JSON.parse(
       container.getAttribute("data-features") || "[]",
     );
+    const slugs: string[] = JSON.parse(
+      container.getAttribute("data-slugs") || "[]",
+    );
+    const learnMoreLabel = container.getAttribute("data-learn-more") || "";
     const captionTitle = document.querySelector(".biz-caption-title");
     const captionDesc = document.querySelector(".biz-caption-desc");
     const captionFeatures = document.querySelector(".biz-caption-features");
@@ -355,6 +391,15 @@ const businesses = [
                 `<div class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="text-sm text-gray-900">${escapeHtml(f)}</span></div>`,
             )
             .join("");
+        }
+        const linkEl = document.querySelector(".biz-caption-link");
+        if (linkEl) {
+          if (slugs[targetIndex]) {
+            (linkEl as HTMLAnchorElement).href = slugs[targetIndex];
+            (linkEl as HTMLElement).style.display = "";
+          } else {
+            (linkEl as HTMLElement).style.display = "none";
+          }
         }
         image.style.opacity = "1";
       }, 300);

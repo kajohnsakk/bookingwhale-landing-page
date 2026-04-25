@@ -12,7 +12,7 @@ const { lang = "th" } = Astro.props;
 const allPosts = await getCollection("blog", ({ data }) => data.lang === lang);
 const posts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .slice(0, 6);
 ---
 
 <section
