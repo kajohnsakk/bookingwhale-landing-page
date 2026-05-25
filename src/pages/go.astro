@@ -1,0 +1,166 @@
+---
+const API_BASE = import.meta.env.PUBLIC_API_URL ?? "https://api.bookingwhale.co/api";
+const REDIRECT_DELAY_MS = 3000;
+---
+
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>กำลังพาไป… | Booking Whale</title>
+    <link rel="icon" href="/favicon.svg" />
+    <style>
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .spin { animation: spin 0.8s linear infinite; }
+      @keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+      .fade-in { animation: fade-in 0.3s ease-out both; }
+    </style>
+  </head>
+  <body class="min-h-screen bg-gray-50 flex items-center justify-center px-6 antialiased font-sans text-gray-900">
+    <main class="w-full max-w-sm text-center">
+      <!-- Loading -->
+      <div id="state-loading" class="flex flex-col items-center gap-4 py-10">
+        <span class="h-9 w-9 rounded-full border-[3px] border-gray-200 border-t-gray-800 spin"></span>
+        <p class="text-sm text-gray-400">กำลังโหลด…</p>
+      </div>
+
+      <!-- Ready -->
+      <div id="state-ready" class="hidden fade-in flex-col items-center gap-5">
+        <img id="brand-logo" alt="" class="hidden h-16 w-16 rounded-2xl object-cover shadow-sm" />
+        <div>
+          <h1 id="brand-name" class="text-xl font-bold leading-tight"></h1>
+          <p class="mt-1 text-sm text-gray-400">เลือกช่องทางเพื่อเข้าใช้งาน</p>
+        </div>
+
+        <div id="channels" class="w-full space-y-2.5"></div>
+
+        <p id="countdown" class="text-xs text-gray-400 pt-1"></p>
+      </div>
+
+      <!-- Error -->
+      <div id="state-error" class="hidden fade-in flex-col items-center gap-3 py-10">
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
+          <svg class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.75h.008M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </div>
+        <p id="error-msg" class="text-sm text-gray-500">ไม่พบลิงก์ที่ต้องการ</p>
+      </div>
+    </main>
+
+    <script define:vars={{ API_BASE, REDIRECT_DELAY_MS }}>
+      const params = new URLSearchParams(window.location.search);
+      const slug = (params.get("t") || "").trim();
+      const next = (params.get("next") || "").trim();
+
+      const $loading = document.getElementById("state-loading");
+      const $ready = document.getElementById("state-ready");
+      const $error = document.getElementById("state-error");
+
+      function show(el) {
+        for (const e of [$loading, $ready, $error]) {
+          e.classList.toggle("hidden", e !== el);
+          e.classList.toggle("flex", e === el);
+        }
+      }
+
+      function fail(msg) {
+        if (msg) document.getElementById("error-msg").textContent = msg;
+        show($error);
+      }
+
+      function buildLineUrl(liffUrl) {
+        if (!liffUrl) return null;
+        if (!next) return liffUrl;
+        const base = liffUrl.replace(/\/+$/, "");
+        const path = next.replace(/^\/+/, "");
+        return `${base}/${path}`;
+      }
+
+      // Extensible channel config — LINE only for now.
+      function buildChannels(cfg) {
+        const channels = [];
+        const lineUrl = buildLineUrl(cfg.liffUrlCustomer);
+        if (lineUrl) {
+          channels.push({
+            key: "line",
+            label: "เปิดใน LINE",
+            url: lineUrl,
+            primary: true,
+            bg: "#06C755",
+            fg: "#ffffff",
+          });
+        }
+        return channels;
+      }
+
+      function renderChannels(channels, onPrimary) {
+        const wrap = document.getElementById("channels");
+        wrap.innerHTML = "";
+        for (const c of channels) {
+          const a = document.createElement("a");
+          a.href = c.url;
+          a.dataset.key = c.key;
+          a.className =
+            "flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-[15px] font-semibold transition-opacity active:opacity-80";
+          a.style.background = c.bg;
+          a.style.color = c.fg;
+          a.textContent = c.label;
+          a.addEventListener("click", () => onPrimary());
+          wrap.appendChild(a);
+        }
+      }
+
+      if (!slug) {
+        fail("ลิงก์ไม่ถูกต้อง");
+      } else {
+        fetch(`${API_BASE}/tenants/slug/${encodeURIComponent(slug)}/liff-config`)
+          .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+          .then((res) => {
+            const cfg = res?.data ?? res ?? {};
+            const channels = buildChannels(cfg);
+            if (channels.length === 0) {
+              fail("ยังไม่ได้ตั้งค่าช่องทาง LINE");
+              return;
+            }
+
+            if (cfg.logoUrl) {
+              const logo = document.getElementById("brand-logo");
+              logo.src = cfg.logoUrl;
+              logo.classList.remove("hidden");
+            }
+            document.getElementById("brand-name").textContent =
+              cfg.name || "Booking Whale";
+
+            let cancelled = false;
+            const cancel = () => {
+              cancelled = true;
+              document.getElementById("countdown").textContent = "";
+            };
+            renderChannels(channels, cancel);
+            show($ready);
+
+            // Auto-redirect to the primary channel if the user doesn't choose.
+            const primary = channels.find((c) => c.primary) ?? channels[0];
+            let remaining = Math.ceil(REDIRECT_DELAY_MS / 1000);
+            const $cd = document.getElementById("countdown");
+            const tick = () => {
+              if (cancelled) return;
+              $cd.textContent =
+                remaining > 0 ? `กำลังพาไป LINE ใน ${remaining} วินาที…` : "";
+              if (remaining <= 0) {
+                window.location.href = primary.url;
+                return;
+              }
+              remaining -= 1;
+              setTimeout(tick, 1000);
+            };
+            tick();
+          })
+          .catch(() => fail("ไม่พบร้านค้านี้"));
+      }
+    </script>
+  </body>
+</html>
