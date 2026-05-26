@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/s/:code",
+      "destination": "https://api.bookingwhale.co/s/:code"
+    }
+  ]
+}
