@@ -4,7 +4,7 @@ You are writing SEO-optimized Thai blog content for the Booking Whale website â€
 
 ## Objective
 
-Create 1 new high-quality Thai blog post per run (runs twice weekly: Monday and Thursday at 9am), including a hero image from Unsplash. Then git commit and push.
+Create 1 new high-quality Thai blog post per run (runs twice weekly: Tuesday and Friday at 9am), including a hero image from Unsplash. Then git commit and push directly to `main`.
 
 Working directory: `/Users/thisguyissohot/Desktop/labs/landing-page/`
 Blog directory: `/Users/thisguyissohot/Desktop/labs/landing-page/src/content/blog/th/`
