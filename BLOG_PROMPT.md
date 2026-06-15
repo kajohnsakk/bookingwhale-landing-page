@@ -4,7 +4,7 @@ You are writing SEO-optimized Thai blog content for the Booking Whale website �
 
 ## Objective
 
-Create 1 new high-quality Thai blog post per run (runs twice weekly: Tuesday and Friday at 9am), including a hero image from Unsplash. Then git commit and push directly to `main`.
+Create 1 new high-quality Thai blog post per run (runs twice weekly: Monday and Thursday at 9am), including a hero image from Unsplash. Then git commit and push.
 
 Working directory: `/Users/thisguyissohot/Desktop/labs/landing-page/`
 Blog directory: `/Users/thisguyissohot/Desktop/labs/landing-page/src/content/blog/th/`
@@ -13,26 +13,6 @@ Image directory: `/Users/thisguyissohot/Desktop/labs/landing-page/public/images/
 ---
 
 ## Steps
-
-### 0. Pre-flight cleanup (NO-DELETE method — never triggers the delete popup)
-
-This repo lives in a synced folder protected by a Cowork file-delete guard: any `rm` inside the repo fails with `Operation not permitted` until the user approves a delete-permission popup. Git also constantly creates lock/temp files inside `.git` (`index.lock`, `HEAD.lock`, `*.lock`, `tmp_obj_*`) that it normally unlinks — but the guard blocks those unlinks too, leaving stale files behind that would block the next run.
-
-**Solution: never delete anything in the repo. Use two tricks instead so no popup is ever needed.**
-
-1. Ensure on `main`: `git -C <repo> checkout main` (if not already).
-2. **Route git's index + its lock into the sandbox** (where deletion is allowed). Export this for ALL git commands in the run:
-   - `export GIT_INDEX_FILE=/tmp/bw_index && git read-tree HEAD`
-   - This moves `index.lock` to `/tmp/bw_index.lock` (deletable), so git never trips the guard on the index.
-3. **Clear any stale `.git` lock by RENAME, not delete** (rename = `rename()` syscall, which the guard permits; `rm` = `unlink()`, which it blocks):
-   - For each of `.git/index.lock .git/HEAD.lock .git/*.lock .git/refs/**/*.lock`: if it exists, `mv "$L" "$L.cleared-$(date +%s%N)"`.
-   - Renamed `*.cleared-*` files stay inside `.git`, are ignored by git, don't match `*.lock`, and never show in `git status` — harmless.
-4. **Never call `mcp__cowork__allow_cowork_file_delete`.** This run does not delete; it renames. The delete popup must never appear.
-5. Junk images (`_try_*.webp`, `cand_*.webp`, `test-*.webp`, or a `{slug}.webp` whose `{slug}.md` does not exist): if any exist, move them OUT of the served folder by rename into `.git/_trash/` (create it once: `mkdir -p .git/_trash`), e.g. `mv public/images/blog/cand_x.webp .git/_trash/`. Do not `rm`.
-6. Recover any orphan posts left uncommitted by a previous interrupted run: for every COMPLETE post `.md` (valid frontmatter and `wc -w` ≥ 500) plus its matching `.webp` that is untracked, stage and commit them in a single recovery commit before continuing (use the commit recipe in Step 7).
-7. Confirm `git status --short` shows no untracked blog/image files before proceeding.
-
-Use git author identity for all commits: name `Johnny`, email `kajohnsak.aof@gmail.com`.
 
 ### 1. Research existing posts
 
@@ -187,52 +167,34 @@ Save with a descriptive kebab-case English filename:
 - Verify the hero image file exists at `public/images/blog/{slug}.webp`
 - Verify no duplicate topic with existing posts
 
-### 7. Git commit and push (NO-DELETE method — commit straight to `main`)
+### 7. Git commit and push
 
-After the blog post is verified, commit the two new files directly to `main`. **Always keep `GIT_INDEX_FILE` exported (from Step 0) and clear any lock git leaves behind by RENAME, never `rm`.**
+After the blog post is verified:
 
 ```bash
 cd /Users/thisguyissohot/Desktop/labs/landing-page
-export GIT_INDEX_FILE=/tmp/bw_index           # sandbox index — set in Step 0
 
-MD=src/content/blog/th/{slug}.md
-IMG=public/images/blog/{slug}.webp
+# Create a new branch
+git checkout -b blog/{slug}
 
-# Fresh index from HEAD, then stage ONLY the two new files
-git read-tree HEAD
-git add -- "$MD" "$IMG"
-git diff --cached --name-only                  # sanity: must list exactly the 2 files
+# Stage both the blog post and hero image
+git add src/content/blog/th/{slug}.md public/images/blog/{slug}.webp
 
-# Commit with Johnny identity, messages BEFORE the -- pathspec separator
-git -c user.name="Johnny" -c user.email="kajohnsak.aof@gmail.com" commit \
-  -m "blog: Add Thai blog post — {short English topic description}" \
-  -m "{2-3 line body summarizing the post}" \
-  -- "$MD" "$IMG"
+# Commit (do NOT include Co-Authored-By signature)
+git commit -m "blog: Add Thai blog post — {short English topic description}"
 
-# Git could not unlink its own locks under the folder guard — rename them away (NOT rm)
-for L in .git/HEAD.lock .git/next-index-*.lock .git/index.lock; do
-  [ -e "$L" ] && mv "$L" "$L.cleared-$(date +%s%N)"; done
+# Push
+git push -u origin blog/{slug}
 
-git push origin main
-
-# Push may leave a tracking-ref lock — rename it away too (NOT rm)
-for L in .git/refs/remotes/origin/main.lock .git/packed-refs.lock; do
-  [ -e "$L" ] && mv "$L" "$L.cleared-$(date +%s%N)"; done
-
-# Verify synced + clean
-git fetch origin main
-git rev-parse HEAD; git rev-parse origin/main   # must be equal
-git status -sb                                   # ## main...origin/main, no ahead/behind
-ls .git/*.lock 2>/dev/null || echo "no blocking lock — next run starts clean"
+# Verify
+git status
 ```
 
 **Git rules:**
-- Commit directly to `main` (no feature branch) using the recipe above.
-- NEVER use `rm` or `allow_cowork_file_delete` anywhere in the run — clear locks by `mv` rename only.
-- Keep `GIT_INDEX_FILE=/tmp/bw_index` exported for every git command.
-- Do NOT include a Co-Authored-By line.
-- Stage only the two specific files; never `git add .` / `git add -A`.
-- `tmp_obj_*` "unable to unlink" warnings from git are harmless (orphan temp objects); ignore them.
+- Always create a new branch named `blog/{slug}` before committing
+- Do NOT include Co-Authored-By line in commits
+- Stage only the specific files (blog .md + hero image .webp)
+- Do NOT run `git add .` or `git add -A`
 
 ---
 
@@ -248,5 +210,4 @@ Before committing, verify:
 - [ ] Natural Thai language (not machine-translated)
 - [ ] H2/H3 headings include keywords
 - [ ] Ends with `## สรุป` section
-- [ ] Committed to `main` and pushed via the NO-DELETE recipe (sandbox `GIT_INDEX_FILE` + `mv` lock-cleanup; no `rm`, no delete popup)
-- [ ] Tree clean and synced: `HEAD == origin/main`, no blocking `.git/*.lock`
+- [ ] Git branch created, committed, and pushed

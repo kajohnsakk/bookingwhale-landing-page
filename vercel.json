@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/cookies",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/blog/choosing-right-queue-booking-system-for-your-business",
+      "destination": "/blog/online-queue-booking-system-guide",
+      "permanent": true
+    }
+  ]
+}
