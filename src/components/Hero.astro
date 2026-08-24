@@ -7,6 +7,12 @@ interface Props {
   lang?: Lang;
 }
 const { lang = "th" } = Astro.props;
+
+const customerAvatars = [
+  "/images/hero/avatars/asia-1.webp",
+  "/images/hero/avatars/asia-2.webp",
+  "/images/hero/avatars/asia-3.webp",
+];
 ---
 
 <section class="bg-white pt-24 pb-12 lg:pt-32 lg:pb-20">
@@ -72,6 +78,34 @@ const { lang = "th" } = Astro.props;
             >
               {t("learnMore", lang)}
             </a>
+          </div>
+        </div>
+
+        <div data-animate="scroll-reveal" style="--delay: 0.35s">
+          <div
+            class="inline-flex items-center gap-3 mt-8 bg-white border border-gray-100 rounded-full pl-2 pr-5 py-2 shadow-lg shadow-black/8"
+          >
+            <div class="flex -space-x-2.5">
+              {
+                customerAvatars.map((src) => (
+                  <img
+                    src={src}
+                    alt=""
+                    width="128"
+                    height="128"
+                    class="w-8 h-8 sm:w-9 sm:h-9 rounded-full ring-2 ring-white object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ))
+              }
+            </div>
+            <p class="text-sm sm:text-base font-semibold text-gray-800">
+              <span class="font-black text-blue-600">9,000+</span>
+              <span data-translate="heroCustomersLabel">
+                {t("heroCustomersLabel", lang)}
+              </span>
+            </p>
           </div>
         </div>
       </div>

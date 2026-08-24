@@ -179,9 +179,9 @@ a {
   line-height: 1.5rem;
 }
 
-.header-scrolled {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(16px) !important;
+.header-scrolled nav {
+  background-color: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.14);
 }
 
 .header-hidden {

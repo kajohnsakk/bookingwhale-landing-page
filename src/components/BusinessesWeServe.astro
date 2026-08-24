@@ -215,13 +215,17 @@ const learnMoreText = t("bizLearnMore", lang);
       >
         <div class="flex-1 flex items-center justify-center">
           <img
-            class="biz-image w-[60%] sm:w-[45%] lg:w-[75%] aspect-square object-contain transition-opacity duration-500"
+            class="biz-image w-[68%] sm:w-[50%] lg:w-[82%] aspect-square object-contain drop-shadow-[0_28px_24px_rgba(15,23,42,0.14)] transition-[opacity,transform] duration-500"
             src={businesses[0].image}
             alt={t(`${businesses[0].id}Title`, lang)}
             loading="eager"
           />
         </div>
-        <div class="bg-gray-50 rounded-xl p-4 lg:p-5 mt-6 w-full">
+        <div class="mt-6 w-full border-t border-slate-200 pt-5 lg:pt-6">
+          <div class="mb-3 flex items-center justify-center gap-2 font-mono text-[10px] font-bold tracking-[0.16em] text-slate-400">
+            <span class="h-1.5 w-1.5 rounded-full bg-blue-600" />
+            INDUSTRY FIT
+          </div>
           <h3
             class="biz-caption-title text-lg lg:text-xl font-bold text-blue-600 text-center"
           >

@@ -29,6 +29,10 @@ export const translations = {
       "Appointment booking system, queue management, customer database collection. Create your own booking system connected to LINE Official Account. Easy to use, ready to start immediately.",
     heroTagline: "",
     trustedBy: "Join the first 1,000 early adopters",
+    heroCustomersLabel: "customers on the app",
+    ctaTitle: "Ready to get started?",
+    ctaSubtitle:
+      "Create your own booking system connected to LINE Official Account.",
     startBookingNow: "GET STARTED",
     learnMore: "Learn More",
     exploreServices: "Explore Services",
@@ -573,6 +577,10 @@ export const translations = {
       "ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที",
     heroTagline: "",
     trustedBy: "เข้าร่วมเป็น 1,000 คนแรกที่ได้ทดลองใช้ก่อนใคร",
+    heroCustomersLabel: "ลูกค้าใช้งานผ่านแอป",
+    ctaTitle: "พร้อมเริ่มใช้งานแล้วหรือยัง",
+    ctaSubtitle:
+      "สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ได้ทันที",
     startBookingNow: "เริ่มใช้งาน",
     learnMore: "ดูวิธีการใช้",
     exploreServices: "ดูบริการทั้งหมด",
