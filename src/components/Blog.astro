@@ -55,59 +55,63 @@ const posts = allPosts
           );
 
           return (
-            <div data-animate-child="fade-up">
-              <article class="group bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all duration-200 overflow-hidden h-full flex flex-col">
+            <div data-animate-child="fade-up" class="h-full">
+              <article class="group relative bg-white rounded-2xl border border-gray-100 shadow-sm shadow-gray-900/5 hover:shadow-xl hover:shadow-gray-900/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden h-full flex flex-col">
                 {post.data.heroImage && (
                   <a
                     href={`/blog/${getSlug(post.id)}`}
-                    class="block overflow-hidden"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    class="relative block overflow-hidden"
                   >
                     <img
                       src={post.data.heroImage}
                       alt={post.data.title}
                       width="600"
                       height="315"
-                      class="w-full aspect-[1200/630] object-cover group-hover:scale-105 transition-transform duration-300"
+                      class="w-full aspect-[1200/630] object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
                       loading="lazy"
                     />
-                  </a>
-                )}
-                <div class="p-5 sm:p-6 flex flex-col flex-1">
-                  <div class="flex items-center gap-2 mb-3">
-                    <span class="bg-blue-50 text-blue-600 text-[13px] font-semibold px-2.5 py-0.5 rounded-full">
+                    <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
                       {post.data.category}
                     </span>
-                    <span class="text-[13px] text-gray-400">
-                      {formattedDate}
-                    </span>
-                  </div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    {post.data.title}
+                  </a>
+                )}
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="text-lg sm:text-xl font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    <a
+                      href={`/blog/${getSlug(post.id)}`}
+                      class="focus:outline-none"
+                    >
+                      <span class="absolute inset-0" aria-hidden="true"></span>
+                      {post.data.title}
+                    </a>
                   </h3>
-                  <p class="text-base text-gray-600 mb-4 leading-relaxed flex-1">
+                  <p class="text-[15px] text-gray-600 mt-3 leading-relaxed line-clamp-3 flex-1">
                     {post.data.description}
                   </p>
-                  <a
-                    href={`/blog/${getSlug(post.id)}`}
-                    class="text-blue-600 hover:text-blue-700 text-[13px] font-medium flex items-center"
-                    aria-label={`${lang === "th" ? "อ่านต่อ" : "Read more"}: ${post.data.title}`}
-                  >
-                    {lang === "th" ? "อ่านต่อ" : "Read more"}
-                    <svg
-                      class="w-4 h-4 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </a>
+                  <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
+                    <span class="text-[13px] text-gray-400 font-medium">
+                      {formattedDate}
+                    </span>
+                    <span class="text-blue-600 text-[13px] font-bold inline-flex items-center gap-1">
+                      {lang === "th" ? "อ่านต่อ" : "Read more"}
+                      <svg
+                        class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
               </article>
             </div>
@@ -120,7 +124,7 @@ const posts = allPosts
       <div class="text-center mt-10 lg:mt-12">
         <a
           href="/blog"
-          class="inline-flex items-center text-gray-600 hover:text-gray-900 font-medium py-3 px-6 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200"
+          class="inline-flex items-center text-gray-700 hover:text-gray-900 font-bold py-3.5 px-8 rounded-full border-2 border-gray-200 hover:border-gray-400 transition-all duration-200"
         >
           <span data-translate="viewAllBlogs">{t("viewAllBlogs", lang)}</span>
           <svg
