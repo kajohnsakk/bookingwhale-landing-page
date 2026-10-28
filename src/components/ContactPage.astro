@@ -1,0 +1,16 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+interface Props { locale?: 'th' | 'en' }
+const {locale='th'}=Astro.props;
+const th=locale==='th';
+const title=th?'ติดต่อ Booking Whale | เริ่มรับจองผ่าน LINE OA':'Contact Booking Whale | Start taking bookings through LINE OA';
+const description=th?'สอบถามระบบจองออนไลน์ผ่าน LINE OA ติดต่อ Booking Whale ทาง LINE โทร 097-016-6045 หรือ 080-595-6458 และอีเมล info@bookingwhale.co':'Ask about online bookings through LINE OA. Contact Booking Whale on LINE, call +66 97 016 6045 or +66 80 595 6458, or email info@bookingwhale.co.';
+---
+<ContentLayout {title} {description} {locale} breadcrumb={[{name:th?'ติดต่อเรา':'Contact',path:th?'/contact/':'/en/contact/'}]}>
+  <header class="editorial-intro"><span class="editorial-kicker">Booking Whale</span><h1>{th?'จองง่ายขึ้น เริ่มตรงนี้':'Easier bookings start here.'}</h1><p>{th?'บอกเราว่าร้านคุณรับจองแบบไหน เราช่วยคุณเริ่มต้นได้':'Tell us how your business takes bookings. We’ll help you get started.'}</p><a class="editorial-button" href={th?'/contact/':'/en/contact/'} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{th?'เลือกช่องทางติดต่อ':'Choose a contact method'} <span aria-hidden="true">→</span></a></header>
+  <div class="editorial-grid">
+    <section class="editorial-card"><h2>{th?'ทักหาเราทาง LINE':'Contact us on LINE'}</h2><p>{th?'ถามเรื่องระบบ หรือให้เราช่วยเริ่มรับจองได้ในแชท':'Ask about the system or get help setting up bookings in the chat.'}</p><a href="https://line.me/R/ti/p/%40337esngk" target="_blank" rel="noopener noreferrer">{th?'เพิ่มเพื่อน LINE':'Add us on LINE'} →</a></section>
+    <section class="editorial-card"><h2>{th?'โทรสอบถาม':'Call us'}</h2><p><a href="tel:0970166045">097-016-6045</a></p><p><a href="tel:0805956458">080-595-6458</a></p></section>
+    <section class="editorial-card"><h2>{th?'อีเมล':'Email'}</h2><p><a href="mailto:info@bookingwhale.co">info@bookingwhale.co</a></p></section>
+  </div>
+</ContentLayout>

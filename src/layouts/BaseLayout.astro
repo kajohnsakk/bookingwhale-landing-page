@@ -1,0 +1,84 @@
+---
+import '../styles/fonts.css';
+import thaiBodyFont from '@fontsource-variable/noto-sans-thai/files/noto-sans-thai-thai-wght-normal.woff2?url';
+import thaiHeadingFont from '@fontsource-variable/anuphan/files/anuphan-thai-wght-normal.woff2?url';
+import latinBodyFont from '../assets/fonts/noto-sans-thai-latin-core.woff2?url';
+import latinHeadingFont from '../assets/fonts/plus-jakarta-sans-latin-core.woff2?url';
+import { heroImageSources } from '../data/hero-images';
+import { localeFromPath } from "../i18n";
+import { buildSeo } from '../seo/metadata';
+import Analytics from '../components/Analytics.astro';
+import '../styles/site.css';
+import '../styles/document.css';
+import '../styles/light-theme.css';
+import '../styles/hero-graphic.css';
+import '../styles/section-transitions.css';
+import '../styles/layout-system.css';
+import '../styles/product-graphics.css';
+import '../styles/page-background.css';
+import '../styles/contact-refinement.css';
+import '../styles/hero-live.css';
+import '../styles/content-layout.css';
+import '../styles/page-polish.css';
+import '../styles/product-story.css';
+import '../styles/start-button.css';
+import '../styles/typography.css';
+import '../styles/experience.css';
+import '../styles/mobile-layout.css';
+import '../styles/getting-started.css';
+const locale=localeFromPath(Astro.url.pathname);
+const heroImage=heroImageSources(locale,'merchant');
+interface Props { title?: string; description?: string; }
+if (!Astro.site) throw new Error('A public site URL is required for SEO metadata.');
+const seo = buildSeo(Astro.site, locale, Astro.props);
+---
+<!doctype html>
+<html lang={seo.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" as="image" href={heroImage.src} imagesrcset={heroImage.srcset} imagesizes={heroImage.sizes} fetchpriority="high" />
+    {locale==='th'&&<><link rel="preload" as="font" type="font/woff2" href={thaiBodyFont} crossorigin="anonymous" /><link rel="preload" as="font" type="font/woff2" href={thaiHeadingFont} crossorigin="anonymous" /></>}
+    {locale==='en'&&<><link rel="preload" as="font" type="font/woff2" href={latinBodyFont} crossorigin="anonymous" /><link rel="preload" as="font" type="font/woff2" href={latinHeadingFont} crossorigin="anonymous" /></>}
+    <style is:inline>
+      #bookingwhale .bw-hero-scroll-track,#bookingwhale #top{min-height:100svh}
+      @media(min-width:901px) and (min-height:720px) and (prefers-reduced-motion:no-preference){
+        .bw-desktop-motion #bookingwhale .bw-hero-scroll-track{height:290svh}
+        .bw-desktop-motion #bookingwhale .bw-hero-scroll-track>.bw-hero-live{position:sticky;top:0;height:100svh;min-height:100svh;box-sizing:border-box;overflow:hidden}
+      }
+    </style>
+
+    <script is:inline>document.documentElement.classList.add('bw-js');if(window.matchMedia('(min-width:901px) and (min-height:720px) and (prefers-reduced-motion:no-preference)').matches)document.documentElement.classList.add('bw-desktop-motion');</script>
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={seo.canonical} />
+    {seo.alternates.map(item=><link rel="alternate" hreflang={item.language} href={item.url} />)}
+    <link rel="alternate" hreflang="x-default" href={seo.home} />
+    <link rel="icon" type="image/svg+xml" href="/favicon-browser.svg" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={seo.ogLocale} />
+    {seo.otherOgLocales.map(value=><meta property="og:locale:alternate" content={value} />)}
+    <meta property="og:site_name" content="Booking Whale" />
+    <meta property="og:title" content={seo.title} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:url" content={seo.canonical} />
+    <meta property="og:image" content={seo.image} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={seo.imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seo.title} />
+    <meta name="twitter:description" content={seo.description} />
+    <meta name="twitter:image" content={seo.image} />
+    <meta name="twitter:image:alt" content={seo.imageAlt} />
+    <script type="application/ld+json" set:html={seo.schema} />
+    <Analytics />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">ข้ามไปเนื้อหา</a>
+    <slot />
+  </body>
+</html>

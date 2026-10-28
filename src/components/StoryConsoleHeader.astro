@@ -1,0 +1,13 @@
+---
+import Icon from './Icon.astro';
+interface Props { active: 'bookings' | 'customers'; }
+const { active } = Astro.props;
+---
+<div class="bw-ui-chrome bw-console-header" aria-hidden="true">
+  <span class="bw-console-brand"><img src="/assets/bookingwhale-mark-96.png" width="28" height="28" alt="" /><strong>Booking Whale</strong></span>
+  <div class="bw-console-nav">
+    <span class:list={[{ 'is-current': active === 'bookings' }]}><Icon name="calendar-check" />การจอง</span>
+    <span class:list={[{ 'is-current': active === 'customers' }]}><Icon name="user-round" />ลูกค้า</span>
+  </div>
+  <span class="bw-console-shop"><span>Sunday Social</span><img src="/assets/product-captures/sunday-social-logo.svg" width="28" height="28" alt="" /><Icon name="menu" /></span>
+</div>

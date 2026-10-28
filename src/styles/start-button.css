@@ -1,0 +1,27 @@
+#bookingwhale :is(#top,#contact,.bw-nav) .bw-start-button.bw-primary{gap:12px;translate:0 0;scale:1;box-shadow:none;transition:translate .28s cubic-bezier(.2,.8,.2,1),scale .18s ease,background-color .28s ease,padding .65s var(--nav-ease,ease);text-decoration:none}
+#bookingwhale .bw-start-button .bw-start-arrow{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;flex-shrink:0;overflow:hidden}
+#bookingwhale .bw-start-button .bw-start-arrow svg{display:block;width:20px;height:20px;flex-shrink:0;stroke-width:2}
+#bookingwhale .bw-nav-demo .bw-start-arrow{width:18px;height:18px}
+#bookingwhale .bw-nav-demo .bw-start-arrow svg{width:18px;height:18px}
+#bookingwhale :is(#top,#contact,.bw-nav) .bw-start-button.bw-primary:focus-visible{translate:0 -2px;box-shadow:none}
+#bookingwhale .bw-start-button:focus-visible .bw-start-arrow svg{animation:bw-start-arrow .48s cubic-bezier(.22,.7,.3,1) both}
+@media(hover:hover) and (pointer:fine){
+#bookingwhale :is(#top,#contact,.bw-nav) .bw-start-button.bw-primary:hover{translate:0 -2px;box-shadow:none}
+#bookingwhale .bw-start-button:hover .bw-start-arrow svg{animation:bw-start-arrow .48s cubic-bezier(.22,.7,.3,1) both}
+}
+#bookingwhale :is(#top,#contact,.bw-nav) .bw-start-button.bw-primary:active{translate:0 0;scale:.97;box-shadow:none}
+@keyframes bw-start-arrow{
+0%{transform:translate(0,0);opacity:1}
+42%{transform:translate(110%,0);opacity:0}
+43%{transform:translate(-110%,0);opacity:0}
+100%{transform:translate(0,0);opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+#bookingwhale :is(#top,#contact,.bw-nav) .bw-start-button.bw-primary,#bookingwhale :is(#top,#contact,.bw-nav) .bw-start-button.bw-primary:is(:hover,:focus-visible,:active){translate:none;scale:none;transition:none}
+#bookingwhale .bw-start-button .bw-start-arrow svg,#bookingwhale .bw-start-button:is(:hover,:focus-visible) .bw-start-arrow svg{animation:none;transform:none}
+}
+
+#bookingwhale .bw-nav .bw-start-button .bw-nav-contact-label{margin-right:0;line-height:1.65;overflow:visible;max-width:none;flex-shrink:0}
+#bookingwhale .bw-nav .bw-main-menu>a .bw-menu-arrow{display:none;width:18px;height:18px;flex-shrink:0;stroke-width:2}
+#bookingwhale .bw-hero-watch .bw-action-icon{stroke-width:2}
+@media(max-width:900px){#bookingwhale .bw-nav .bw-main-menu>a .bw-menu-arrow{display:block}}

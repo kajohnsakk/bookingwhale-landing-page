@@ -1,0 +1,1674 @@
+{
+  "BookingWhale — ระบบจองผ่าน LINE OA สำหรับธุรกิจของคุณ": {
+    "en": "Booking Whale — Bookings made simple with LINE OA",
+    "zh": "Booking Whale — 通过 LINE OA 轻松管理预订"
+  },
+  "เปิดรับจองบริการ คลาส และรอบเข้าใช้ผ่าน LINE OA ลูกค้าเลือกวันเวลา คุณดูรายการและประวัติการจองในระบบร้าน ดูตัวอย่างและเริ่มใช้งานสำหรับธุรกิจคุณ": {
+    "en": "Let customers book services, classes and time slots through LINE OA. Manage every booking and customer history in one place. Get started with Booking Whale.",
+    "zh": "让客户通过 LINE OA 预订服务、课程和时段，在同一平台管理预订和客户记录。立即开始使用 Booking Whale。"
+  },
+  "ข้ามไปเนื้อหา": {
+    "en": "Skip to content",
+    "zh": "跳至正文"
+  },
+  "BookingWhale หน้าแรก": {
+    "en": "Booking Whale home",
+    "zh": "Booking Whale 首页"
+  },
+  "เมนูหลัก": {
+    "en": "Main menu",
+    "zh": "主菜单"
+  },
+  "ระบบจอง": {
+    "en": "How it works",
+    "zh": "预订流程"
+  },
+  "สำหรับธุรกิจ": {
+    "en": "For businesses",
+    "zh": "适用商家"
+  },
+  "วิธีเริ่มต้น": {
+    "en": "Getting started",
+    "zh": "开始使用"
+  },
+  "คำถามที่พบบ่อย": {
+    "en": "FAQs",
+    "zh": "常见问题"
+  },
+  "เริ่มต้นระบบจองผ่าน LINE OA": {
+    "en": "Start taking bookings through LINE OA",
+    "zh": "通过 LINE OA 开始接收预订"
+  },
+  "เริ่มใช้งาน": {
+    "en": "Get started",
+    "zh": "开始使用"
+  },
+  "เปิดเมนู": {
+    "en": "Open menu",
+    "zh": "打开菜单"
+  },
+  "ระบบจองผ่าน LINE OA": {
+    "en": "Bookings through LINE OA",
+    "zh": "通过 LINE OA 预订"
+  },
+  "ลูกค้า": {
+    "en": "Customers",
+    "zh": "客户"
+  },
+  "จองเอง": {
+    "en": "book.",
+    "zh": "自主预订"
+  },
+  "คุณจัดการง่าย": {
+    "en": "You stay in control.",
+    "zh": "管理更轻松"
+  },
+  "ลูกค้าเลือกเวลาเองผ่าน LINE OA": {
+    "en": "Your customers pick a time through LINE OA.",
+    "zh": "客户通过 LINE OA 选择时间。"
+  },
+  "คุณดูทุกการจองได้ในที่เดียว": {
+    "en": "You keep every booking in one place.",
+    "zh": "所有预订，一处掌握。"
+  },
+  "ดูขั้นตอนการจอง": {
+    "en": "See how it works",
+    "zh": "了解预订流程"
+  },
+  "เลือกวันและเวลา": {
+    "en": "Choose a date and time",
+    "zh": "选择日期和时间"
+  },
+  "จัดการรายการจอง": {
+    "en": "Manage bookings",
+    "zh": "管理预订"
+  },
+  "ดูประวัติลูกค้า": {
+    "en": "Know your customers",
+    "zh": "了解客户"
+  },
+  "หน้าจองและบัตรยืนยันการจอง": {
+    "en": "Booking page and confirmation card",
+    "zh": "预订页面和确认卡"
+  },
+  "เลือกเวลาที่สะดวก": {
+    "en": "Pick the time that fits",
+    "zh": "选择合适的时间"
+  },
+  "จองผ่าน LINE OA": {
+    "en": "Book through LINE OA",
+    "zh": "通过 LINE OA 预订"
+  },
+  "จองเรียบร้อย": {
+    "en": "Booking confirmed",
+    "zh": "预订成功"
+  },
+  "รายละเอียดอยู่ในมือคุณ": {
+    "en": "All the details, right here",
+    "zh": "预订详情，随时查看"
+  },
+  "หน้าการจอง SPM จากคอมโพเนนต์ระบบจริง": {
+    "en": "Business booking dashboard preview",
+    "zh": "商家预订后台示例"
+  },
+  "ตัวอย่างหน้าจอง Sunday Social จากระบบลูกค้า": {
+    "en": "Sunday Social customer booking preview",
+    "zh": "Sunday Social 客户预订页面示例"
+  },
+  "ตัวอย่างบัตรยืนยันการจอง Sunday Social": {
+    "en": "Sunday Social booking confirmation preview",
+    "zh": "Sunday Social 预订确认示例"
+  },
+  "ระบบจองเดียว": {
+    "en": "One booking system",
+    "zh": "一个预订系统"
+  },
+  "ปรับให้เข้ากับ": {
+    "en": "Made for",
+    "zh": "适合"
+  },
+  "ธุรกิจของคุณ": {
+    "en": "your business",
+    "zh": "你的业务"
+  },
+  "จองบริการ จองคลาส จองรอบที่สะดวก": {
+    "en": "Services, classes and time slots. All bookable.",
+    "zh": "服务、课程和时段，都能轻松预订。"
+  },
+  "ดูรูปแบบการจอง": {
+    "en": "Explore booking options",
+    "zh": "探索预订场景"
+  },
+  "ความงาม & เวลเนส": {
+    "en": "Beauty & wellness",
+    "zh": "美容与健康"
+  },
+  "นวดผ่อนคลาย": {
+    "en": "Relaxing massage",
+    "zh": "舒缓按摩"
+  },
+  "24 ต.ค.": {
+    "en": "24 Oct",
+    "zh": "10月24日"
+  },
+  "60 นาที · เลือกเวลาจอง": {
+    "en": "60 min · Pick your time",
+    "zh": "60分钟 · 选择时间"
+  },
+  "ร้านอาหาร & เครื่องดื่ม": {
+    "en": "Food & beverage",
+    "zh": "餐饮"
+  },
+  "จองโต๊ะ": {
+    "en": "Table booking",
+    "zh": "餐桌预订"
+  },
+  "2 คน · มื้อเย็น": {
+    "en": "2 guests · Dinner",
+    "zh": "2位 · 晚餐"
+  },
+  "ฟิตเนส & กีฬา": {
+    "en": "Fitness & sports",
+    "zh": "健身与运动"
+  },
+  "คลาส Pilates": {
+    "en": "Pilates class",
+    "zh": "普拉提课程"
+  },
+  "เหลือ 3 ที่ · 60 นาที": {
+    "en": "3 spots left · 60 min",
+    "zh": "余3位 · 60分钟"
+  },
+  "การศึกษา & การสอน": {
+    "en": "Education & tutoring",
+    "zh": "教育与辅导"
+  },
+  "เรียนภาษาอังกฤษ": {
+    "en": "English lesson",
+    "zh": "英语课程"
+  },
+  "เรียนตัวต่อตัว · 1 ชั่วโมง": {
+    "en": "One-to-one · 1 hour",
+    "zh": "一对一 · 1小时"
+  },
+  "อีเวนต์ & บัตรเข้างาน": {
+    "en": "Events & tickets",
+    "zh": "活动与门票"
+  },
+  "2 ที่นั่ง · รอบบ่าย": {
+    "en": "2 seats · Afternoon",
+    "zh": "2席 · 下午场"
+  },
+  "การท่องเที่ยว & ที่พัก": {
+    "en": "Travel & stays",
+    "zh": "旅行与住宿"
+  },
+  "2 คน · รอบเช้า": {
+    "en": "2 guests · Morning",
+    "zh": "2位 · 上午场"
+  },
+  "ธุรกิจให้เช่า": {
+    "en": "Rentals",
+    "zh": "租赁"
+  },
+  "จองพื้นที่ · 2 ชั่วโมง": {
+    "en": "Book a space · 2 hours",
+    "zh": "场地预订 · 2小时"
+  },
+  "บริการทั่วไป": {
+    "en": "Everyday services",
+    "zh": "日常服务"
+  },
+  "จองเวลาปรึกษา": {
+    "en": "Consultation booking",
+    "zh": "咨询预订"
+  },
+  "จองล่วงหน้า · 60 นาที": {
+    "en": "Book ahead · 60 min",
+    "zh": "提前预订 · 60分钟"
+  },
+  "ขั้นตอนการจองและจัดการร้าน": {
+    "en": "Customer bookings and business management",
+    "zh": "客户预订与商家管理流程"
+  },
+  "ลูกค้าจองเอง": {
+    "en": "Customers book",
+    "zh": "客户自主预订"
+  },
+  "ผ่าน LINE OA": {
+    "en": "through LINE OA",
+    "zh": "通过 LINE OA"
+  },
+  "เปิดหน้าจอง เลือกวันได้จาก LINE OA ของร้าน": {
+    "en": "Customers open the booking page from your LINE OA.",
+    "zh": "从商家的 LINE OA 直接进入预订页面。"
+  },
+  "เห็นเวลาว่าง": {
+    "en": "See what is available",
+    "zh": "查看空闲时段"
+  },
+  "เลือกได้ทันที": {
+    "en": "Pick a time",
+    "zh": "轻松选择时间"
+  },
+  "รอบไหนว่าง ลูกค้าเห็นและเลือกจองได้เอง": {
+    "en": "Customers see open slots and choose the one that fits.",
+    "zh": "客户查看可预订时段，选择合适的时间。"
+  },
+  "รายละเอียดครบ": {
+    "en": "All the details",
+    "zh": "详情一目了然"
+  },
+  "วัน เวลา และจำนวนคน รวมอยู่ในรายการเดียว": {
+    "en": "Date, time and guest count in one booking.",
+    "zh": "日期、时间和人数，汇总在同一条预订中。"
+  },
+  "การจองเข้ามา": {
+    "en": "A new booking",
+    "zh": "收到新预订"
+  },
+  "ร้านก็เห็นทันที": {
+    "en": "Right on your screen",
+    "zh": "商家即时查看"
+  },
+  "ดูชื่อลูกค้า เวลา และสถานะได้ในหน้าเดียว": {
+    "en": "Customer, time and status. One clear view.",
+    "zh": "客户、时间和状态，一页看清。"
+  },
+  "ดูประวัติการจอง": {
+    "en": "See every booking",
+    "zh": "查看预订记录"
+  },
+  "รู้จักลูกค้ามากขึ้น": {
+    "en": "Know each customer",
+    "zh": "更了解每位客户"
+  },
+  "เปิดโปรไฟล์เดียว ดูได้ทั้งข้อมูลติดต่อและการจองที่ผ่านมา": {
+    "en": "Contact details and past bookings, in a single profile.",
+    "zh": "一个客户档案，汇集联系方式和历史预订。"
+  },
+  "เลือกขั้นตอนตัวอย่างการจอง": {
+    "en": "Choose a booking demo step",
+    "zh": "选择预订演示步骤"
+  },
+  "วัน": {
+    "en": "Date",
+    "zh": "日期"
+  },
+  "เวลา": {
+    "en": "Time",
+    "zh": "时间"
+  },
+  "รายละเอียด": {
+    "en": "Details",
+    "zh": "详情"
+  },
+  "ระบบร้าน": {
+    "en": "Business",
+    "zh": "商家"
+  },
+  "เล่าเรื่องการจองตามการเลื่อน: ลูกค้าเลือกวันที่ 24 ตุลาคม เวลา 19 ถึง 20 นาฬิกา จากนั้นการจองของEmma Wilson ย้ายไปแสดงในระบบร้าน แล้วเปิดโปรไฟล์และประวัติของลูกค้าคนเดิม": {
+    "en": "Scroll through a booking: Emma Wilson selects 24 October, 19:00–20:00. The booking appears in the business dashboard, then in her customer history.",
+    "zh": "滚动查看预订流程：Emma Wilson 选择10月24日19:00–20:00，预订显示在商家后台，再进入她的客户档案和预订记录。"
+  },
+  "หน้าจองของลูกค้า": {
+    "en": "Customer booking",
+    "zh": "客户预订"
+  },
+  "ระบบของร้าน": {
+    "en": "Business dashboard",
+    "zh": "商家后台"
+  },
+  "ตัวอย่างหน้าจองจาก UI ปัจจุบัน ปฏิทินเดือนตุลาคม 2569 เลือกวันที่ 24 และจองโต๊ะเวลา 19:00 ถึง 20:00": {
+    "en": "Booking demo: select 24 October 2026 and a table from 19:00 to 20:00.",
+    "zh": "预订示例：选择2026年10月24日19:00至20:00的餐桌。"
+  },
+  "สำรองโต๊ะออนไลน์": {
+    "en": "Online table booking",
+    "zh": "在线订桌"
+  },
+  "เปิดรับจอง": {
+    "en": "Open for bookings",
+    "zh": "开放预订"
+  },
+  "เลือกวันที่คุณสะดวก": {
+    "en": "Choose your date",
+    "zh": "选择日期"
+  },
+  "ตุลาคม 2569": {
+    "en": "October 2026",
+    "zh": "2026年10月"
+  },
+  "จ.": {
+    "en": "Mon",
+    "zh": "一"
+  },
+  "อ.": {
+    "en": "Tue",
+    "zh": "二"
+  },
+  "พ.": {
+    "en": "Wed",
+    "zh": "三"
+  },
+  "พฤ.": {
+    "en": "Thu",
+    "zh": "四"
+  },
+  "ศ.": {
+    "en": "Fri",
+    "zh": "五"
+  },
+  "ส.": {
+    "en": "Sat",
+    "zh": "六"
+  },
+  "อา.": {
+    "en": "Sun",
+    "zh": "日"
+  },
+  "เลือกวันเพื่อดูเวลาว่าง": {
+    "en": "Choose a date to see availability",
+    "zh": "选择日期，查看空闲时段"
+  },
+  "แล้วเลือกรอบที่เหมาะกับคุณ": {
+    "en": "Then find the time that fits",
+    "zh": "再选一个合适的时间"
+  },
+  "เวลาที่ว่าง": {
+    "en": "Available times",
+    "zh": "可预订时段"
+  },
+  "24 ต.ค. 2569": {
+    "en": "24 Oct 2026",
+    "zh": "2026年10月24日"
+  },
+  "เหลือ 4 ที่": {
+    "en": "4 spots left",
+    "zh": "余4位"
+  },
+  "เลือก": {
+    "en": "Select",
+    "zh": "选择"
+  },
+  "เหลือ 3 ที่": {
+    "en": "3 spots left",
+    "zh": "余3位"
+  },
+  "24 ต.ค. · 19:00 - 20:00": {
+    "en": "24 Oct · 19:00–20:00",
+    "zh": "10月24日 · 19:00–20:00"
+  },
+  "ถัดไป": {
+    "en": "Next",
+    "zh": "下一步"
+  },
+  "ตัวอย่างระบบร้าน รายการจองวันที่ 24 ตุลาคม 2569 ลูกค้าEmma Wilson เวลา 19:00 ถึง 20:00 สถานะยืนยันแล้ว": {
+    "en": "Business dashboard demo: Emma Wilson, 24 October 2026, 19:00–20:00, confirmed.",
+    "zh": "商家后台示例：Emma Wilson，2026年10月24日19:00–20:00，已确认。"
+  },
+  "การจอง": {
+    "en": "Bookings",
+    "zh": "预订"
+  },
+  "การจองของร้าน": {
+    "en": "Your bookings",
+    "zh": "商家预订"
+  },
+  "สร้างการจอง": {
+    "en": "New booking",
+    "zh": "新增预订"
+  },
+  "ปฏิทิน": {
+    "en": "Calendar",
+    "zh": "日历"
+  },
+  "รายการ": {
+    "en": "Bookings",
+    "zh": "条预订"
+  },
+  "ทั้งหมด": {
+    "en": "All",
+    "zh": "全部"
+  },
+  "ยืนยันแล้ว": {
+    "en": "Confirmed",
+    "zh": "已确认"
+  },
+  "1 รายการ": {
+    "en": "1 booking",
+    "zh": "1条预订"
+  },
+  "จองโต๊ะ · 2 คน": {
+    "en": "Table · 2 guests",
+    "zh": "餐桌 · 2位"
+  },
+  "รับจองผ่าน LINE OA": {
+    "en": "Booked through LINE OA",
+    "zh": "通过 LINE OA 预订"
+  },
+  "หน้า 1 / 1": {
+    "en": "Page 1 / 1",
+    "zh": "第1页 / 共1页"
+  },
+  "ตัวอย่างโปรไฟล์ลูกค้า Emma Wilson รหัส BW-001284 พร้อมข้อมูลติดต่อและประวัติการจองวันที่ 24 ตุลาคม 2569": {
+    "en": "Customer profile demo: Emma Wilson, BW-001284, contact details and booking history for 24 October 2026.",
+    "zh": "客户档案示例：Emma Wilson，BW-001284，联系方式及2026年10月24日的预订记录。"
+  },
+  "สมาชิกตั้งแต่ 6/9/2026": {
+    "en": "Member since 6 Sep 2026",
+    "zh": "2026年9月6日加入"
+  },
+  "ใช้งาน": {
+    "en": "Active",
+    "zh": "有效"
+  },
+  "แก้ไขข้อมูล": {
+    "en": "Edit profile",
+    "zh": "编辑资料"
+  },
+  "ข้อมูลทั่วไป": {
+    "en": "Profile",
+    "zh": "基本资料"
+  },
+  "ประวัติการจอง": {
+    "en": "Booking history",
+    "zh": "预订记录"
+  },
+  "ความยินยอม": {
+    "en": "Consent",
+    "zh": "授权"
+  },
+  "ข้อมูลติดต่อ": {
+    "en": "Contact details",
+    "zh": "联系方式"
+  },
+  "รหัสลูกค้า": {
+    "en": "Customer ID",
+    "zh": "客户编号"
+  },
+  "ชื่อ": {
+    "en": "Name",
+    "zh": "姓名"
+  },
+  "อีเมล": {
+    "en": "Email",
+    "zh": "电子邮件"
+  },
+  "การจองล่าสุด": {
+    "en": "Latest booking",
+    "zh": "最近预订"
+  },
+  "ต.ค. 2569": {
+    "en": "Oct 2026",
+    "zh": "2026年10月"
+  },
+  "วันและเวลา": {
+    "en": "Date and time",
+    "zh": "日期和时间"
+  },
+  "สถานะ": {
+    "en": "Status",
+    "zh": "状态"
+  },
+  "เลขที่การจอง": {
+    "en": "Booking number",
+    "zh": "预订编号"
+  },
+  "จากหน้าจองผ่าน LINE OA": {
+    "en": "From your LINE OA booking page",
+    "zh": "来自 LINE OA 预订页面"
+  },
+  "บันทึกไว้ในประวัติของ Emma Wilson": {
+    "en": "Saved to Emma Wilson’s history",
+    "zh": "已保存至 Emma Wilson 的预订记录"
+  },
+  "รายละเอียดการจอง": {
+    "en": "Booking details",
+    "zh": "预订详情"
+  },
+  "ต.ค.": {
+    "en": "Oct",
+    "zh": "10月"
+  },
+  "หน้าจออ้างอิงแอปจริง · ข้อมูลตัวอย่าง": {
+    "en": "Based on the real app · Sample data",
+    "zh": "基于实际应用 · 示例数据"
+  },
+  "ร้านเห็นการจองแล้ว": {
+    "en": "Booking received by the business",
+    "zh": "商家已收到预订"
+  },
+  "ธุรกิจของคุณ จองแบบไหน?": {
+    "en": "What does booking look like for you?",
+    "zh": "你的业务，如何预订？"
+  },
+  "ทุกการจอง": {
+    "en": "Every booking.",
+    "zh": "所有预订"
+  },
+  "จัดการในที่เดียว": {
+    "en": "All in one place.",
+    "zh": "一处轻松管理"
+  },
+  "ทั้งจองโต๊ะ จองคลาส และนัดหมายบริการ คุณกำหนดเวลาและจำนวนที่รับ ลูกค้าเลือกรอบที่สะดวก": {
+    "en": "Tables, classes and service appointments. You set the times and capacity. Customers choose the slot that fits.",
+    "zh": "无论是餐桌、课程还是服务预约，你设置时间和接待人数，客户选择合适的时段。"
+  },
+  "รอบมื้ออาหาร": {
+    "en": "Dining times",
+    "zh": "用餐时段"
+  },
+  "จองโต๊ะมื้อเย็น": {
+    "en": "Dinner reservation",
+    "zh": "晚餐订桌"
+  },
+  "จำนวนคน": {
+    "en": "Guests",
+    "zh": "人数"
+  },
+  "ให้ลูกค้าเลือกมื้อ เวลา และจำนวนคนก่อนมาถึง": {
+    "en": "Let guests choose a dining time and party size before they arrive.",
+    "zh": "到店前，让客人选择用餐场次、时间和人数。"
+  },
+  "เวลารับบริการ": {
+    "en": "Service times",
+    "zh": "服务时段"
+  },
+  "นวดอโรม่า": {
+    "en": "Aroma massage",
+    "zh": "芳香按摩"
+  },
+  "60 นาที": {
+    "en": "60 min",
+    "zh": "60分钟"
+  },
+  "เปิดเวลาจองนวด ดูแลผิว และทรีตเมนต์": {
+    "en": "Make massages, skincare and treatments easy to book.",
+    "zh": "轻松开放按摩、护肤和护理服务预订。"
+  },
+  "คลาสและรอบเข้าใช้": {
+    "en": "Classes and sessions",
+    "zh": "课程与场次"
+  },
+  "พิลาทิสช่วงเย็น": {
+    "en": "Evening Pilates",
+    "zh": "晚间普拉提"
+  },
+  "กับครูแดเนียล": {
+    "en": "with Daniel",
+    "zh": "Daniel 授课"
+  },
+  "ว่างอีก 3 ที่": {
+    "en": "3 spots available",
+    "zh": "余3位"
+  },
+  "เปิดคลาสให้จอง พร้อมกำหนดจำนวนที่รับ": {
+    "en": "Open your classes for bookings and set a limit for each session.",
+    "zh": "开放课程预订，为每节课设置人数上限。"
+  },
+  "วันและเวลาเรียน": {
+    "en": "Lesson dates and times",
+    "zh": "课程日期和时间"
+  },
+  "English กับครูแดเนียล": {
+    "en": "English with Daniel",
+    "zh": "Daniel 英语课"
+  },
+  "วันอังคาร · 16:00–17:00": {
+    "en": "Tuesday · 16:00–17:00",
+    "zh": "周二 · 16:00–17:00"
+  },
+  "ให้ผู้เรียนเลือกวันและเวลาเรียนที่สะดวก": {
+    "en": "Let students choose the lesson time that works for them.",
+    "zh": "让学员选择适合自己的上课时间。"
+  },
+  "รอบและจำนวนที่นั่ง": {
+    "en": "Sessions and seats",
+    "zh": "场次与座位"
+  },
+  "เวิร์กช็อปออกแบบ": {
+    "en": "Design workshop",
+    "zh": "设计工作坊"
+  },
+  "วันเสาร์": {
+    "en": "Saturday",
+    "zh": "周六"
+  },
+  "ผู้เข้าร่วม": {
+    "en": "Participants",
+    "zh": "参与人数"
+  },
+  "2 คน": {
+    "en": "2 guests",
+    "zh": "2位"
+  },
+  "ให้ลูกค้าเลือกรอบกิจกรรมและจำนวนที่นั่ง": {
+    "en": "Let guests choose an event session and number of seats.",
+    "zh": "让客人选择活动场次和座位数量。"
+  },
+  "วันและรอบเดินทาง": {
+    "en": "Travel dates and departures",
+    "zh": "旅行日期和出发场次"
+  },
+  "เดินเที่ยวเมืองเก่า": {
+    "en": "Old town walking tour",
+    "zh": "古城步行游"
+  },
+  "ย่านเมืองเก่า": {
+    "en": "Old town",
+    "zh": "古城区"
+  },
+  "09:00 · จุดรวมตัว": {
+    "en": "09:00 · Meeting point",
+    "zh": "09:00 · 集合地点"
+  },
+  "ย่านริมแม่น้ำ": {
+    "en": "Riverside",
+    "zh": "河畔"
+  },
+  "11:30 · สิ้นสุดทริป": {
+    "en": "11:30 · Tour ends",
+    "zh": "11:30 · 行程结束"
+  },
+  "24 ต.ค. · ผู้ร่วมทริป 2 คน": {
+    "en": "24 Oct · 2 travellers",
+    "zh": "10月24日 · 2位旅客"
+  },
+  "จองรอบทัวร์ เลือกวันและจำนวนผู้ร่วมทริป": {
+    "en": "Book a tour by date, departure time and group size.",
+    "zh": "按日期、出发时间和人数预订行程。"
+  },
+  "ช่วงเวลาที่เปิดให้จอง": {
+    "en": "Available hours",
+    "zh": "可预订时间"
+  },
+  "สตูดิโอ A": {
+    "en": "Studio A",
+    "zh": "A工作室"
+  },
+  "สตูดิโอ A · 2 ชั่วโมง": {
+    "en": "Studio A · 2 hours",
+    "zh": "A工作室 · 2小时"
+  },
+  "10:00–12:00 · จองแล้ว": {
+    "en": "10:00–12:00 · Booked",
+    "zh": "10:00–12:00 · 已预订"
+  },
+  "รับจองห้อง สตูดิโอ และอุปกรณ์ตามช่วงเวลา": {
+    "en": "Take time-based bookings for rooms, studios and equipment.",
+    "zh": "按时段接受房间、工作室和设备预订。"
+  },
+  "24 ตุลาคม": {
+    "en": "24 October",
+    "zh": "10月24日"
+  },
+  "Emma Wilson · ยืนยันการจองแล้ว": {
+    "en": "Emma Wilson · Confirmed",
+    "zh": "Emma Wilson · 已确认"
+  },
+  "เปิดเวลาปรึกษาและบริการให้ลูกค้าจองล่วงหน้า": {
+    "en": "Let customers book consultations and services ahead of time.",
+    "zh": "让客户提前预订咨询和服务。"
+  },
+  "มีรูปแบบการจองในใจแล้ว?": {
+    "en": "Have a booking flow in mind?",
+    "zh": "已有心仪的预订方式？"
+  },
+  "เล่าให้ทีมงานฟัง": {
+    "en": "Tell us about it",
+    "zh": "告诉我们"
+  },
+  "คุณกำหนดรอบ ลูกค้าเลือกจอง": {
+    "en": "Your schedule. Their choice.",
+    "zh": "你安排时段，客户自由选择。"
+  },
+  "เริ่มรับจอง": {
+    "en": "Start taking bookings",
+    "zh": "开始接收预订"
+  },
+  "ใน 3 ขั้นตอน": {
+    "en": "in 3 steps",
+    "zh": "只需3步"
+  },
+  "ให้ทีมงานช่วยเริ่มต้น": {
+    "en": "Get help getting started",
+    "zh": "获取入门帮助"
+  },
+  "เชื่อมต่อ": {
+    "en": "Connect",
+    "zh": "连接"
+  },
+  "เชื่อม LINE OA ของร้าน": {
+    "en": "Connect your LINE OA",
+    "zh": "连接商家的 LINE OA"
+  },
+  "พาลูกค้าจาก LINE OA ของคุณเข้าสู่หน้าจอง": {
+    "en": "Bring customers from your LINE OA to your booking page.",
+    "zh": "引导客户从 LINE OA 进入预订页面。"
+  },
+  "เชื่อมระบบจอง": {
+    "en": "Connect bookings",
+    "zh": "连接预订系统"
+  },
+  "เชื่อมต่อแล้ว": {
+    "en": "Connected",
+    "zh": "已连接"
+  },
+  "พร้อมเปิดหน้าจองของคุณ": {
+    "en": "Your booking page is ready",
+    "zh": "预订页面已就绪"
+  },
+  "ตั้งค่ารอบจอง": {
+    "en": "Set your slots",
+    "zh": "设置时段"
+  },
+  "กำหนดรอบรับจอง": {
+    "en": "Choose your booking times",
+    "zh": "设置可预订时间"
+  },
+  "เลือกบริการ เวลา และจำนวนคนที่รับได้ในแต่ละรอบ": {
+    "en": "Set the service, time and capacity for each slot.",
+    "zh": "设置每个时段的服务、时间和人数。"
+  },
+  "รอบที่เปิดรับจอง": {
+    "en": "Available booking slots",
+    "zh": "开放预订时段"
+  },
+  "มื้อเย็น · 2 คน": {
+    "en": "Dinner · 2 guests",
+    "zh": "晚餐 · 2位"
+  },
+  "เปิดรอบจองแล้ว": {
+    "en": "Slots are open",
+    "zh": "时段已开放"
+  },
+  "พร้อมรับจอง 3 รอบ": {
+    "en": "3 slots ready to book",
+    "zh": "3个时段可供预订"
+  },
+  "ตั้งเวลารับจองแล้ว": {
+    "en": "Schedule set",
+    "zh": "时间已设置"
+  },
+  "แชร์หน้าจองให้ลูกค้า": {
+    "en": "Share your booking page",
+    "zh": "分享预订页面"
+  },
+  "ส่งลิงก์ผ่าน LINE OA แล้วให้ลูกค้าเลือกจองเอง": {
+    "en": "Share the link through LINE OA. Let customers book for themselves.",
+    "zh": "通过 LINE OA 分享链接，让客户自主预订。"
+  },
+  "หน้าจองของคุณ": {
+    "en": "Your booking page",
+    "zh": "你的预订页面"
+  },
+  "Sunday Social · จองโต๊ะ": {
+    "en": "Sunday Social · Table booking",
+    "zh": "Sunday Social · 餐桌预订"
+  },
+  "แชร์ลิงก์": {
+    "en": "Share link",
+    "zh": "分享链接"
+  },
+  "เปิดรับจองแล้ว": {
+    "en": "Now taking bookings",
+    "zh": "正在接受预订"
+  },
+  "การจองใหม่ · Emma Wilson": {
+    "en": "New booking · Emma Wilson",
+    "zh": "新预订 · Emma Wilson"
+  },
+  "24 ต.ค. · 19:00 · 2 คน": {
+    "en": "24 Oct · 19:00 · 2 guests",
+    "zh": "10月24日 · 19:00 · 2位"
+  },
+  "พร้อมให้ลูกค้าจอง": {
+    "en": "Ready for bookings",
+    "zh": "已准备好接收预订"
+  },
+  "ก่อนเปิดรับจอง": {
+    "en": "Before you begin",
+    "zh": "开始之前"
+  },
+  "คำถามที่": {
+    "en": "Good questions.",
+    "zh": "常见问题"
+  },
+  "พบบ่อย": {
+    "en": "Clear answers.",
+    "zh": "清晰解答"
+  },
+  "คำถาม": {
+    "en": "Good questions.",
+    "zh": "常见问题"
+  },
+  "ที่พบบ่อย": {
+    "en": "Clear answers.",
+    "zh": "清晰解答"
+  },
+  "อยากรู้ก่อนเริ่มรับจอง?": {
+    "en": "A few things you might be wondering.",
+    "zh": "开始使用前，你可能想了解这些。"
+  },
+  "เรารวมคำตอบไว้ให้ตรงนี้": {
+    "en": "Here is what you need to know.",
+    "zh": "答案都在这里。"
+  },
+  "ถามทีมงานได้เลย": {
+    "en": "Ask our team",
+    "zh": "咨询我们"
+  },
+  "ระบบนี้เหมาะกับธุรกิจแบบไหน?": {
+    "en": "Is this right for my business?",
+    "zh": "适合哪些业务？"
+  },
+  "เหมาะกับบริการที่จองเป็นวันและเวลา เช่น สปา คลาสพิลาทิส หรือโต๊ะอาหาร คุณกำหนดรอบและจำนวนที่รับได้": {
+    "en": "If customers book a date and time — for a spa, a Pilates class or a table — you can set the slots and capacity.",
+    "zh": "适合需要按日期和时间预订的业务，例如水疗、普拉提课程或餐桌。你可以设置时段和接待人数。"
+  },
+  "หากต้องจัดพนักงาน ห้อง หรืออุปกรณ์ร่วมกัน ให้ทีมงานช่วยตรวจสอบรูปแบบก่อนเริ่มใช้": {
+    "en": "If you need to coordinate staff, rooms or shared equipment, our team can check your setup before you start.",
+    "zh": "如果需要协调员工、房间或共用设备，请先让我们的团队确认是否适合你的业务流程。"
+  },
+  "ใช้ LINE OA เดิมได้ไหม?": {
+    "en": "Can I use my existing LINE OA?",
+    "zh": "可以使用现有的 LINE OA 吗？"
+  },
+  "ใช้ LINE OA เดิมพาลูกค้าเข้าหน้าจองได้ ทีมงานจะช่วยตรวจสอบการเชื่อมต่อ ส่วนคุณดูและจัดการการจองผ่านระบบร้าน": {
+    "en": "Yes. Use your existing LINE OA to send customers to your booking page. We will help check the connection, while you manage bookings in your business dashboard.",
+    "zh": "可以。通过现有的 LINE OA 引导客户进入预订页面。我们协助检查连接，你通过商家后台管理预订。"
+  },
+  "ลูกค้าจองแล้ว ร้านจัดการอย่างไร?": {
+    "en": "What happens after a customer books?",
+    "zh": "客户预订后，商家如何管理？"
+  },
+  "ดูวัน เวลา ชื่อลูกค้า และสถานะในระบบร้าน เลือกชื่อลูกค้าเพื่อเปิดข้อมูลติดต่อและประวัติการจองได้": {
+    "en": "See the date, time, customer and status in your dashboard. Open a customer profile for their contact details and booking history.",
+    "zh": "在商家后台查看日期、时间、客户和状态。打开客户档案即可查看联系方式及预订记录。"
+  },
+  "เริ่มใช้งานต้องเตรียมอะไรบ้าง?": {
+    "en": "What do I need to get started?",
+    "zh": "开始使用需要准备什么？"
+  },
+  "เตรียมรายการบริการ เวลาที่เปิดรับจอง และจำนวนที่รับต่อรอบ แล้วเล่าว่าปัจจุบันรับจองอย่างไร ทีมงานจะพาดูระบบจากตัวอย่างของคุณและตรวจสอบว่ารองรับได้แค่ไหน": {
+    "en": "Have your services, available hours and capacity ready. Tell us how you take bookings today. We will walk through your example and check what the system supports.",
+    "zh": "准备服务项目、开放时间和每个时段的人数，并告诉我们目前的预订方式。我们会结合你的实例演示系统，并确认可支持的功能。"
+  },
+  "มีค่าใช้จ่ายเท่าไหร่ และทดลองใช้ได้ไหม?": {
+    "en": "How much does it cost? Is there a trial?",
+    "zh": "费用是多少？可以试用吗？"
+  },
+  "เล่ารูปแบบการจองที่ต้องการให้ทีมงานฟัง เราจะสรุปแพ็กเกจ ราคา และเงื่อนไขทดลองใช้ที่พร้อมให้บริการก่อนคุณตัดสินใจ": {
+    "en": "Tell us what you need. We will explain the available plans, pricing and trial terms before you decide.",
+    "zh": "告诉我们你的需求。我们会在你决定前说明可选套餐、价格和试用条件。"
+  },
+  "ให้ลูกค้าจองง่าย": {
+    "en": "Easy for customers.",
+    "zh": "客户轻松预订"
+  },
+  "ให้ร้านจัดการคล่อง": {
+    "en": "Simple for your team.",
+    "zh": "商家轻松管理"
+  },
+  "เล่าให้เราฟังว่าร้านคุณรับจองแบบไหน": {
+    "en": "Tell us how your business takes bookings.",
+    "zh": "告诉我们你的业务如何接受预订。"
+  },
+  "ทีมงานจะพาดูระบบและช่วยหาวิธีเริ่มต้นที่เหมาะกับคุณ": {
+    "en": "We will show you around and help you find the right way to start.",
+    "zh": "我们会带你了解系统，找到适合你的使用方式。"
+  },
+  "เริ่มต้นกับ Booking Whale": {
+    "en": "Get started with Booking Whale",
+    "zh": "开始使用 Booking Whale"
+  },
+  "เลือกช่องทางที่สะดวก เราพร้อมช่วยคุณเริ่มต้น": {
+    "en": "Choose how to reach us. We’re here to help you get started.",
+    "zh": "选择你方便的联系方式，我们随时为你提供入门帮助。"
+  },
+  "ปิดหน้าต่างติดต่อ": {
+    "en": "Close contact dialog",
+    "zh": "关闭联系窗口"
+  },
+  "คุยกับเราผ่าน LINE": {
+    "en": "Chat with us on LINE",
+    "zh": "通过 LINE 与我们联系"
+  },
+  "เริ่มใช้งานผ่าน LINE": {
+    "en": "Get started on LINE",
+    "zh": "通过 LINE 开始使用"
+  },
+  "หรือโทร": {
+    "en": "Or call",
+    "zh": "或致电"
+  },
+  "โทรหาเรา": {
+    "en": "Call us",
+    "zh": "致电我们"
+  },
+  "คุยกับทีมงาน": {
+    "en": "Talk to us",
+    "zh": "联系我们"
+  },
+  "ตัวอย่างหน้าจองของลูกค้าและระบบจัดการรายการจองของร้าน": {
+    "en": "Customer booking page and business dashboard examples",
+    "zh": "客户预订页面和商家管理后台示例"
+  },
+  "Booking Whale · ระบบจัดการร้าน": {
+    "en": "Booking Whale · Business dashboard",
+    "zh": "Booking Whale · 商家后台"
+  },
+  "Booking Whale หน้าแรก": {
+    "en": "Booking Whale home",
+    "zh": "Booking Whale 首页"
+  },
+  "จองง่ายสำหรับลูกค้า": {
+    "en": "Easy bookings for customers.",
+    "zh": "客户预订更轻松"
+  },
+  "จัดการคล่องสำหรับร้าน": {
+    "en": "Smooth days for your business.",
+    "zh": "商家管理更顺畅"
+  },
+  "รู้จัก Booking Whale": {
+    "en": "Meet Booking Whale",
+    "zh": "了解 Booking Whale"
+  },
+  "ระบบจองทำงานอย่างไร": {
+    "en": "How bookings work",
+    "zh": "预订如何运作"
+  },
+  "สำหรับธุรกิจของคุณ": {
+    "en": "For your business",
+    "zh": "适合你的业务"
+  },
+  "เริ่มต้นใช้งาน": {
+    "en": "Get started",
+    "zh": "开始使用"
+  },
+  "นโยบายความเป็นส่วนตัว": {
+    "en": "Privacy policy",
+    "zh": "隐私政策"
+  },
+  "ข้อกำหนดการใช้บริการ": {
+    "en": "Terms of service",
+    "zh": "服务条款"
+  },
+  "กลับด้านบน": {
+    "en": "Back to top",
+    "zh": "返回顶部"
+  },
+  "เลือกวันที่": {
+    "en": "Choose a date",
+    "zh": "选择日期"
+  },
+  "เดือนก่อน": {
+    "en": "Previous month",
+    "zh": "上个月"
+  },
+  "เดือนหน้า": {
+    "en": "Next month",
+    "zh": "下个月"
+  },
+  "พ": {
+    "en": "Wed",
+    "zh": "三"
+  },
+  "พฤ": {
+    "en": "Thu",
+    "zh": "四"
+  },
+  "ศ": {
+    "en": "Fri",
+    "zh": "五"
+  },
+  "ส": {
+    "en": "Sat",
+    "zh": "六"
+  },
+  "อา": {
+    "en": "Sun",
+    "zh": "日"
+  },
+  "วันที่จอง": {
+    "en": "Booking date",
+    "zh": "预订日期"
+  },
+  "จันทร์ 26 ต.ค.": {
+    "en": "Mon 26 Oct",
+    "zh": "10月26日周一"
+  },
+  "จำนวนผู้ใช้บริการ": {
+    "en": "Guests",
+    "zh": "人数"
+  },
+  "ช่วงเวลาว่าง · จ. 26 ต.ค.": {
+    "en": "Available times · Mon 26 Oct",
+    "zh": "可预订时间 · 10月26日周一"
+  },
+  "19:00 - 20:00 จองโต๊ะ · ว่าง 4": {
+    "en": "19:00–20:00 Table · 4 available",
+    "zh": "19:00–20:00 餐桌 · 余4位"
+  },
+  "จองโต๊ะ · ว่าง 4": {
+    "en": "Table · 4 available",
+    "zh": "餐桌 · 余4位"
+  },
+  "20:30 - 21:30 จองโต๊ะ · ว่าง 3": {
+    "en": "20:30–21:30 Table · 3 available",
+    "zh": "20:30–21:30 餐桌 · 余3位"
+  },
+  "จองโต๊ะ · ว่าง 3": {
+    "en": "Table · 3 available",
+    "zh": "餐桌 · 余3位"
+  },
+  "26 ต.ค. · 2 คน": {
+    "en": "26 Oct · 2 guests",
+    "zh": "10月26日 · 2位"
+  },
+  "ยืนยันการจอง": {
+    "en": "Confirm booking",
+    "zh": "确认预订"
+  },
+  "แดชบอร์ด": {
+    "en": "Dashboard",
+    "zh": "概览"
+  },
+  "การชำระเงิน": {
+    "en": "Payments",
+    "zh": "付款"
+  },
+  "บริการ / แพ็กเกจ": {
+    "en": "Services / packages",
+    "zh": "服务 / 套餐"
+  },
+  "สินค้า": {
+    "en": "Products",
+    "zh": "商品"
+  },
+  "บัญชี": {
+    "en": "Account",
+    "zh": "账户"
+  },
+  "ผู้ให้บริการ": {
+    "en": "Providers",
+    "zh": "服务人员"
+  },
+  "ผู้ใช้งาน": {
+    "en": "Users",
+    "zh": "用户"
+  },
+  "ประกาศ": {
+    "en": "Announcements",
+    "zh": "公告"
+  },
+  "รายงาน": {
+    "en": "Reports",
+    "zh": "报表"
+  },
+  "ตั้งค่า": {
+    "en": "Settings",
+    "zh": "设置"
+  },
+  "หน้าร้าน": {
+    "en": "Storefront",
+    "zh": "店铺页面"
+  },
+  "จัดการการจองลูกค้า": {
+    "en": "Manage customer bookings",
+    "zh": "管理客户预订"
+  },
+  "อัปเดตล่าสุด 17:00 น.": {
+    "en": "Updated at 17:00",
+    "zh": "更新于17:00"
+  },
+  "ผังการจอง": {
+    "en": "Booking layout",
+    "zh": "预订布局"
+  },
+  "ค้นหาชื่อ, เบอร์โทร... (Enter)": {
+    "en": "Search name, phone… (Enter)",
+    "zh": "搜索姓名、电话…（回车）"
+  },
+  "นำเข้า Excel": {
+    "en": "Import Excel",
+    "zh": "导入 Excel"
+  },
+  "เตรียมสินค้า": {
+    "en": "Prepare items",
+    "zh": "准备商品"
+  },
+  "ตุลาคม 2026": {
+    "en": "October 2026",
+    "zh": "2026年10月"
+  },
+  "อาทิตย์": {
+    "en": "Sunday",
+    "zh": "周日"
+  },
+  "จันทร์": {
+    "en": "Monday",
+    "zh": "周一"
+  },
+  "อังคาร": {
+    "en": "Tuesday",
+    "zh": "周二"
+  },
+  "พุธ": {
+    "en": "Wednesday",
+    "zh": "周三"
+  },
+  "พฤหัสบดี": {
+    "en": "Thursday",
+    "zh": "周四"
+  },
+  "ศุกร์": {
+    "en": "Friday",
+    "zh": "周五"
+  },
+  "เสาร์": {
+    "en": "Saturday",
+    "zh": "周六"
+  },
+  "26 ต.ค. 2569": {
+    "en": "26 Oct 2026",
+    "zh": "2026年10月26日"
+  },
+  "24 รายการ": {
+    "en": "24 bookings",
+    "zh": "24条预订"
+  },
+  "กำลังดำเนินการ": {
+    "en": "In progress",
+    "zh": "处理中"
+  },
+  "รอยืนยัน": {
+    "en": "Pending",
+    "zh": "待确认"
+  },
+  "เลื่อนเวลา": {
+    "en": "Rescheduled",
+    "zh": "已改期"
+  },
+  "4 รายการ": {
+    "en": "4 bookings",
+    "zh": "4条预订"
+  },
+  "เลขที่จอง": {
+    "en": "Booking ID",
+    "zh": "预订编号"
+  },
+  "แพ็กเกจ": {
+    "en": "Package",
+    "zh": "套餐"
+  },
+  "จำนวน(คน)": {
+    "en": "Guests",
+    "zh": "人数"
+  },
+  "รายการเพิ่มเติม": {
+    "en": "Extras",
+    "zh": "附加项目"
+  },
+  "หมายเหตุ(ร้าน)": {
+    "en": "Business notes",
+    "zh": "商家备注"
+  },
+  "ยอดชำระ": {
+    "en": "Amount",
+    "zh": "金额"
+  },
+  "ขอโต๊ะริมหน้าต่าง": {
+    "en": "Window table, please",
+    "zh": "请安排靠窗桌"
+  },
+  "ฉลองวันเกิด": {
+    "en": "Birthday celebration",
+    "zh": "生日庆祝"
+  },
+  "ไม่ทานอาหารทะเล": {
+    "en": "No seafood",
+    "zh": "不吃海鲜"
+  },
+  "มีเด็กเล็ก 1 คน": {
+    "en": "1 young child",
+    "zh": "1名幼童"
+  },
+  "2 รายการ": {
+    "en": "2 bookings",
+    "zh": "2条预订"
+  },
+  "โซนเงียบ": {
+    "en": "Quiet area",
+    "zh": "安静区域"
+  },
+  "1-6 จาก 24": {
+    "en": "1–6 of 24",
+    "zh": "第1–6条，共24条"
+  },
+  "หน้าแรก": {
+    "en": "First page",
+    "zh": "首页"
+  },
+  "หน้าก่อนหน้า": {
+    "en": "Previous page",
+    "zh": "上一页"
+  },
+  "หน้า": {
+    "en": "Page",
+    "zh": "页"
+  },
+  "หน้าถัดไป": {
+    "en": "Next page",
+    "zh": "下一页"
+  },
+  "หน้าสุดท้าย": {
+    "en": "Last page",
+    "zh": "末页"
+  },
+  "จันทร์ 26 ต.ค. 2569": {
+    "en": "Mon 26 Oct 2026",
+    "zh": "2026年10月26日周一"
+  },
+  "พรุ่งนี้": {
+    "en": "Tomorrow",
+    "zh": "明天"
+  },
+  "1 ชม.": {
+    "en": "1 hr",
+    "zh": "1小时"
+  },
+  "บริการ": {
+    "en": "Service",
+    "zh": "服务"
+  },
+  "รหัสการจอง": {
+    "en": "Booking code",
+    "zh": "预订编号"
+  },
+  "คลิกเพื่อคัดลอก": {
+    "en": "Copy to clipboard",
+    "zh": "复制"
+  },
+  "จองเมื่อ": {
+    "en": "Booked on",
+    "zh": "预订时间"
+  },
+  "25 ต.ค. 2569 17:00": {
+    "en": "25 Oct 2026, 17:00",
+    "zh": "2026年10月25日17:00"
+  },
+  "หมายเหตุ": {
+    "en": "Notes",
+    "zh": "备注"
+  },
+  "ขอโต๊ะริมหน้าต่าง สำหรับ 2 คน": {
+    "en": "Window table for 2, please",
+    "zh": "请安排2人靠窗桌"
+  },
+  "วันอาทิตย์ที่ 27 กันยายน 2026": {
+    "en": "Sunday, 27 September 2026",
+    "zh": "2026年9月27日"
+  },
+  "วันจันทร์ที่ 28 กันยายน 2026": {
+    "en": "Monday, 28 September 2026",
+    "zh": "2026年9月28日"
+  },
+  "วันอังคารที่ 29 กันยายน 2026": {
+    "en": "Tuesday, 29 September 2026",
+    "zh": "2026年9月29日"
+  },
+  "วันพุธที่ 30 กันยายน 2026": {
+    "en": "Wednesday, 30 September 2026",
+    "zh": "2026年9月30日"
+  },
+  "วันพฤหัสบดีที่ 1 ตุลาคม 2026": {
+    "en": "Thursday, 1 October 2026",
+    "zh": "2026年10月1日"
+  },
+  "วันศุกร์ที่ 2 ตุลาคม 2026": {
+    "en": "Friday, 2 October 2026",
+    "zh": "2026年10月2日"
+  },
+  "วันเสาร์ที่ 3 ตุลาคม 2026": {
+    "en": "Saturday, 3 October 2026",
+    "zh": "2026年10月3日"
+  },
+  "วันอาทิตย์ที่ 4 ตุลาคม 2026": {
+    "en": "Sunday, 4 October 2026",
+    "zh": "2026年10月4日"
+  },
+  "วันจันทร์ที่ 5 ตุลาคม 2026": {
+    "en": "Monday, 5 October 2026",
+    "zh": "2026年10月5日"
+  },
+  "วันอังคารที่ 6 ตุลาคม 2026": {
+    "en": "Tuesday, 6 October 2026",
+    "zh": "2026年10月6日"
+  },
+  "วันพุธที่ 7 ตุลาคม 2026": {
+    "en": "Wednesday, 7 October 2026",
+    "zh": "2026年10月7日"
+  },
+  "วันพฤหัสบดีที่ 8 ตุลาคม 2026": {
+    "en": "Thursday, 8 October 2026",
+    "zh": "2026年10月8日"
+  },
+  "วันศุกร์ที่ 9 ตุลาคม 2026": {
+    "en": "Friday, 9 October 2026",
+    "zh": "2026年10月9日"
+  },
+  "วันเสาร์ที่ 10 ตุลาคม 2026": {
+    "en": "Saturday, 10 October 2026",
+    "zh": "2026年10月10日"
+  },
+  "วันอาทิตย์ที่ 11 ตุลาคม 2026": {
+    "en": "Sunday, 11 October 2026",
+    "zh": "2026年10月11日"
+  },
+  "วันจันทร์ที่ 12 ตุลาคม 2026": {
+    "en": "Monday, 12 October 2026",
+    "zh": "2026年10月12日"
+  },
+  "วันอังคารที่ 13 ตุลาคม 2026": {
+    "en": "Tuesday, 13 October 2026",
+    "zh": "2026年10月13日"
+  },
+  "วันพุธที่ 14 ตุลาคม 2026": {
+    "en": "Wednesday, 14 October 2026",
+    "zh": "2026年10月14日"
+  },
+  "วันพฤหัสบดีที่ 15 ตุลาคม 2026": {
+    "en": "Thursday, 15 October 2026",
+    "zh": "2026年10月15日"
+  },
+  "วันศุกร์ที่ 16 ตุลาคม 2026": {
+    "en": "Friday, 16 October 2026",
+    "zh": "2026年10月16日"
+  },
+  "วันเสาร์ที่ 17 ตุลาคม 2026": {
+    "en": "Saturday, 17 October 2026",
+    "zh": "2026年10月17日"
+  },
+  "วันอาทิตย์ที่ 18 ตุลาคม 2026": {
+    "en": "Sunday, 18 October 2026",
+    "zh": "2026年10月18日"
+  },
+  "วันจันทร์ที่ 19 ตุลาคม 2026": {
+    "en": "Monday, 19 October 2026",
+    "zh": "2026年10月19日"
+  },
+  "วันอังคารที่ 20 ตุลาคม 2026": {
+    "en": "Tuesday, 20 October 2026",
+    "zh": "2026年10月20日"
+  },
+  "วันพุธที่ 21 ตุลาคม 2026": {
+    "en": "Wednesday, 21 October 2026",
+    "zh": "2026年10月21日"
+  },
+  "วันพฤหัสบดีที่ 22 ตุลาคม 2026": {
+    "en": "Thursday, 22 October 2026",
+    "zh": "2026年10月22日"
+  },
+  "วันศุกร์ที่ 23 ตุลาคม 2026": {
+    "en": "Friday, 23 October 2026",
+    "zh": "2026年10月23日"
+  },
+  "วันเสาร์ที่ 24 ตุลาคม 2026": {
+    "en": "Saturday, 24 October 2026",
+    "zh": "2026年10月24日"
+  },
+  "Today, วันอาทิตย์ที่ 25 ตุลาคม 2026": {
+    "en": "Today, Sunday, 25 October 2026",
+    "zh": "今天，2026年10月25日"
+  },
+  "วันจันทร์ที่ 26 ตุลาคม 2026, selected": {
+    "en": "Monday, 26 October 2026, selected",
+    "zh": "2026年10月26日，已选择"
+  },
+  "วันอังคารที่ 27 ตุลาคม 2026": {
+    "en": "Tuesday, 27 October 2026",
+    "zh": "2026年10月27日"
+  },
+  "วันพุธที่ 28 ตุลาคม 2026": {
+    "en": "Wednesday, 28 October 2026",
+    "zh": "2026年10月28日"
+  },
+  "วันพฤหัสบดีที่ 29 ตุลาคม 2026": {
+    "en": "Thursday, 29 October 2026",
+    "zh": "2026年10月29日"
+  },
+  "วันศุกร์ที่ 30 ตุลาคม 2026": {
+    "en": "Friday, 30 October 2026",
+    "zh": "2026年10月30日"
+  },
+  "วันเสาร์ที่ 31 ตุลาคม 2026": {
+    "en": "Saturday, 31 October 2026",
+    "zh": "2026年10月31日"
+  },
+  "฿1,300.00": {
+    "en": "฿1,300.00",
+    "zh": "฿1,300.00"
+  },
+  "฿4,800.00": {
+    "en": "฿4,800.00",
+    "zh": "฿4,800.00"
+  },
+  "฿5,400.00": {
+    "en": "฿5,400.00",
+    "zh": "฿5,400.00"
+  },
+  "฿3,900.00": {
+    "en": "฿3,900.00",
+    "zh": "฿3,900.00"
+  },
+  "฿2,400.00": {
+    "en": "฿2,400.00",
+    "zh": "฿2,400.00"
+  },
+  "฿9,000.00": {
+    "en": "฿9,000.00",
+    "zh": "฿9,000.00"
+  },
+  "จ": {
+    "en": "Mon",
+    "zh": "一"
+  },
+  "อ": {
+    "en": "Tue",
+    "zh": "二"
+  },
+  "ปิดเมนู": {
+    "en": "Close menu",
+    "zh": "关闭菜单"
+  },
+  "รูปแบบการจองสำหรับธุรกิจ": {
+    "en": "Booking options for businesses",
+    "zh": "商家预订场景"
+  },
+  "ตัวอย่างบริการที่จองได้": {
+    "en": "Example bookable services",
+    "zh": "可预订服务示例"
+  },
+  "FOOD & DRINK": {
+    "en": "FOOD & DRINK",
+    "zh": "餐饮"
+  },
+  "WELLNESS": {
+    "en": "WELLNESS",
+    "zh": "美容与健康"
+  },
+  "FITNESS & STUDIO": {
+    "en": "FITNESS & STUDIO",
+    "zh": "健身与工作室"
+  },
+  "EDUCATION": {
+    "en": "EDUCATION",
+    "zh": "教育"
+  },
+  "EVENTS": {
+    "en": "EVENTS",
+    "zh": "活动"
+  },
+  "TRAVEL": {
+    "en": "TRAVEL",
+    "zh": "旅行"
+  },
+  "RENTALS": {
+    "en": "RENTALS",
+    "zh": "租赁"
+  },
+  "SERVICES": {
+    "en": "SERVICES",
+    "zh": "服务"
+  },
+  "Business Console": {
+    "en": "Business Console",
+    "zh": "商家后台"
+  },
+  "Business": {
+    "en": "Business",
+    "zh": "商家"
+  },
+  "QR Code": {
+    "en": "QR Code",
+    "zh": "二维码"
+  },
+  "Design Workshop": {
+    "en": "Design Workshop",
+    "zh": "设计工作坊"
+  },
+  "City Walking Tour": {
+    "en": "City Walking Tour",
+    "zh": "城市步行游"
+  },
+  "Studio A": {
+    "en": "Studio A",
+    "zh": "A工作室"
+  },
+  "รายการจอง": {
+    "en": "List",
+    "zh": "列表"
+  },
+  "เลื่อนดูรูปแบบเพิ่มเติม": {
+    "en": "Scroll to explore more",
+    "zh": "滑动查看更多场景"
+  },
+  "ดูธุรกิจก่อนหน้า": {
+    "en": "Previous businesses",
+    "zh": "查看前面的商家类型"
+  },
+  "เพิ่มเพื่อน LINE": {
+    "en": "Add us on LINE",
+    "zh": "添加 LINE 好友"
+  },
+  "ดูธุรกิจถัดไป": {
+    "en": "Next businesses",
+    "zh": "查看后面的商家类型"
+  },
+  "ติดต่อเรา": {
+    "en": "Contact us",
+    "zh": "联系我们"
+  },
+  "สอบถามการใช้งาน": {
+    "en": "Explore the system",
+    "zh": "了解系统"
+  },
+  "แชทกับเรา": {
+    "en": "Chat with us",
+    "zh": "在线咨询"
+  },
+  "ให้ทีมงานพาดูระบบและช่วยเลือกวิธีเริ่มต้นที่เหมาะกับธุรกิจคุณ": {
+    "en": "Get a walkthrough and find the right way to get started for your business.",
+    "zh": "由团队带你了解系统，找到适合业务的开始方式。"
+  },
+  "สอบถามฟีเจอร์ ขอความช่วยเหลือ หรือเริ่มต้นใช้งานผ่าน LINE": {
+    "en": "Ask about features, get help, or get started through LINE.",
+    "zh": "通过 LINE 咨询功能、获取帮助或开始使用。"
+  },
+  "จองง่ายขึ้น เริ่มตรงนี้": {
+    "en": "Easier bookings start here.",
+    "zh": "轻松预订，从这里开始"
+  },
+  "บอกเราว่าร้านคุณรับจองแบบไหน เราช่วยคุณเริ่มต้นได้": {
+    "en": "Tell us how your business takes bookings. We’ll help you get started.",
+    "zh": "告诉我们你的业务如何接受预订，我们帮你开始。"
+  },
+  "ดูระบบไปด้วยกัน": {
+    "en": "See how it works",
+    "zh": "一起了解系统"
+  },
+  "โทรมาเล่าเรื่องร้านคุณ แล้วเราช่วยดูว่ารับจองแบบไหนได้บ้าง": {
+    "en": "Call us to explore how Booking Whale fits your business.",
+    "zh": "打个电话，聊聊 Booking Whale 如何帮你的业务接受预订。"
+  },
+  "ทักหาเราทาง LINE": {
+    "en": "Let’s chat on LINE",
+    "zh": "在 LINE 上聊聊"
+  },
+  "ถามเรื่องระบบ หรือให้เราช่วยเริ่มรับจองได้ในแชท": {
+    "en": "Ask a question or get help setting up your bookings, right in the chat.",
+    "zh": "在聊天中咨询功能，或让我们帮你开始接受预订。"
+  },
+  "โทรสอบถาม": {
+    "en": "Call us",
+    "zh": "电话咨询"
+  },
+  "ลูกค้าเปิดหน้าจองผ่าน LINE OA เลือกวันและรอบที่สะดวกได้เอง": {
+    "en": "Customers open your booking page from LINE OA and choose a date and time that suits them.",
+    "zh": "客户从 LINE 官方账号打开预约页面，自行选择合适的日期和时段。"
+  },
+  "จัดการต่อได้ในที่เดียว": {
+    "en": "Manage it all in one place",
+    "zh": "统一管理每笔预约"
+  },
+  "ร้านเห็นรายการจอง พร้อมข้อมูลลูกค้าและประวัติการใช้บริการ": {
+    "en": "View bookings alongside customer details and their booking history.",
+    "zh": "查看预约记录、客户资料和历史预约，一目了然。"
+  },
+  "2 ชั่วโมง": {
+    "en": "2 hours",
+    "zh": "2小时"
+  },
+  "จองแล้ว": {
+    "en": "Booked",
+    "zh": "已预订"
+  },
+  "เลือกแล้ว": {
+    "en": "Selected",
+    "zh": "已选择"
+  },
+  "วันอังคาร": {
+    "en": "Tuesday",
+    "zh": "周二"
+  },
+  "ผู้ร่วมทริป 2 คน": {
+    "en": "2 travellers",
+    "zh": "2位旅客"
+  },
+  "บทความสำหรับธุรกิจ": {
+    "en": "Business articles (Thai)",
+    "zh": "商业文章（泰语）"
+  },
+  "แนวทางจองคลาสพิลาทิส": {
+    "en": "Pilates class booking guide (Thai)",
+    "zh": "普拉提课程预约指南（泰语）"
+  },
+  "แนวทางจองโต๊ะร้านอาหาร": {
+    "en": "Restaurant booking guide (Thai)",
+    "zh": "餐厅订位指南（泰语）"
+  },
+  "ระบบจองคิวผ่าน LINE OA": {
+    "en": "Bookings through LINE OA",
+    "zh": "通过 LINE OA 预订"
+  },
+  "คู่มือเริ่มรับจองผ่าน LINE OA": {
+    "en": "LINE OA booking guide (Thai)",
+    "zh": "LINE OA 预订指南（泰语）"
+  },
+  "บทความ": {
+    "en": "Articles",
+    "zh": "文章"
+  }
+}

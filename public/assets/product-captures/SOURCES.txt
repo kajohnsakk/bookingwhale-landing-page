@@ -1,0 +1,7 @@
+Captured 2026-10-24 from local main source snapshots with fictional B & W fixtures.
+customer-web main: b10f869a96d1c4c2ed4fd10faeab7ee08b05abe7
+service-management-web main: 455839fef2ce5e9df0cfad2d848389146c2a3674
+Customer: ProviderInfoCard, ProviderCoverBackdrop, CalendarView, TimeSlotGrid, Button. Components and original globals.css are imported directly from the archived main source. Content wrapper follows bookings/new/page.tsx. Fixture capture omits authentication, full app navigation and network requests.
+Merchant: CalendarBookingTable imported directly from archived main; surrounding capture header is a fixture wrapper, not the authenticated app shell.
+These are component renders with demo data, not full authenticated page captures. Device frames are landing-page presentation. Original repositories were not changed. No source component CSS overrides.
+Cover: Glenov Brankovic / Unsplash https://unsplash.com/photos/e4B5AvA7Jqo . B & W logo is a fictional demo asset.

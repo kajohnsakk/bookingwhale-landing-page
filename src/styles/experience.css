@@ -1,0 +1,108 @@
+#bookingwhale .bw-business-intro{display:block;margin-bottom:32px}
+#bookingwhale .bw-industry-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 20px;flex-shrink:0;width:100%}
+#bookingwhale .bw-industry-controls[hidden]{display:none}
+#bookingwhale .bw-industry-controls>p{margin:0;min-width:0;font-size:14px;line-height:1.5;color:#637083}
+#bookingwhale .bw-industry-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+#bookingwhale .bw-industry-range{min-width:58px;text-align:center;font-size:13px;font-variant-numeric:tabular-nums;color:#637083}
+#bookingwhale .bw-industry-actions button{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid #dcdfe3;border-radius:50%;background:#fff;color:#222;cursor:pointer;transition:background-color .18s,border-color .18s}
+#bookingwhale .bw-industry-actions button svg{width:20px;height:20px}
+#bookingwhale .bw-industry-actions button:hover:not(:disabled){background:#f3f3f3;border-color:#aaa}
+#bookingwhale .bw-industry-actions button:focus-visible{outline:2px solid #0747ff;outline-offset:3px}
+#bookingwhale .bw-industry-actions button:disabled{opacity:.35;cursor:default}
+html:not(.bw-js) #bookingwhale .bw-industry-actions{display:none}
+#bookingwhale .is-business-track .bw-business-intro{margin-bottom:16px}
+#bookingwhale .is-business-track .bw-industry-controls{margin-bottom:12px}
+#bookingwhale .is-business-track .bw-directory-note{margin-top:16px}
+#bookingwhale #business .bw-business-context{max-width:48ch;margin:18px 0 0;text-wrap:pretty}
+#bookingwhale .bw-hero-result-note>p{left:auto;right:4%;top:auto;bottom:-18px;text-align:left}
+#bookingwhale .bw-hero-result-note .bw-hero-note-arrow{left:auto;right:8%;top:auto;bottom:46px;width:48px;height:80px}
+@media(min-width:901px) and (any-pointer:coarse){
+#bookingwhale .bw-hero-live-stage[data-static]{container-type:inline-size}
+#bookingwhale .bw-hero-result-note .bw-hero-note-arrow{top:calc(112px + 54cqw);bottom:auto;width:24px;height:40px}
+#bookingwhale .bw-hero-result-note>p{top:calc(160px + 54cqw);bottom:auto}
+}
+#bookingwhale .bw-language{position:relative;color:#263142}
+#bookingwhale .bw-language summary{display:flex;align-items:center;gap:6px;min-height:44px;padding:0 8px;cursor:pointer;list-style:none;font-size:13px;font-weight:600;border-radius:24px}
+#bookingwhale .bw-language summary::-webkit-details-marker{display:none}
+#bookingwhale .bw-language summary>svg{width:18px;height:18px}
+#bookingwhale .bw-language summary:hover{background:#f3f3f3}
+#bookingwhale .bw-language-options{position:absolute;top:calc(100% + 12px);right:0;display:grid;min-width:150px;padding:8px;border:1px solid #e7e7e7;border-radius:16px;background:#fff;box-shadow:0 12px 36px #0000000d;z-index:50}
+#bookingwhale .bw-language-options>a{display:block;padding:12px;border-radius:10px;font-size:15px;white-space:nowrap}
+#bookingwhale .bw-language-options>a:hover,#bookingwhale .bw-language-options>a[aria-current]{background:#f3f3f3;color:#222}
+#bookingwhale .bw-nav-actions{gap:6px}
+#bookingwhale .bw-nav{max-width:960px}
+#bookingwhale .bw-hero-live h1>span{white-space:normal}
+html:lang(en) #bookingwhale .bw-hero-live h1{font-size:clamp(38px,4.2vw,62px);line-height:1.13;letter-spacing:-.045em}
+html:lang(en) #bookingwhale .bw-hero-accent{margin-left:.2em}
+html:lang(zh) #bookingwhale{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif}
+html:lang(zh) #bookingwhale h1,html:lang(zh) #bookingwhale h2,html:lang(zh) #bookingwhale h3{font-family:inherit;line-height:1.35;letter-spacing:-.025em}
+#bookingwhale .bw-flow-chapter h3{overflow-wrap:normal;text-wrap:balance}
+#bookingwhale .bw-flow-steps{flex-wrap:wrap;row-gap:4px}
+#bookingwhale .bw-console-header{gap:10px}
+#bookingwhale .bw-console-nav>span{white-space:nowrap}
+#bookingwhale .bw-ui-profile-tabs{flex-wrap:wrap}
+#bookingwhale .bw-ui-date-prompt{min-width:0}
+#bookingwhale .bw-spread-heading{max-width:540px}
+#bookingwhale .bw-spread-heading h2{font-size:clamp(30px,3.7vw,52px)}
+#bookingwhale .bw-industry-viewport:focus-visible,#bookingwhale .bw-spread-cards:focus-visible{outline:2px solid #0747ff;outline-offset:4px}
+@media(max-width:1100px){#bookingwhale .bw-nav .bw-main-menu>a{font-size:14px;padding-inline:10px}}
+@media(max-width:900px){
+#bookingwhale .bw-nav{max-width:calc(100% - 32px)}
+#bookingwhale .bw-nav .bw-main-menu{max-height:calc(100dvh - 104px);overflow-y:auto;overscroll-behavior:contain;box-sizing:border-box}
+#bookingwhale .bw-nav .bw-main-menu>a{font-size:18px}
+#bookingwhale .bw-nav .bw-nav-wordmark{display:none}
+#bookingwhale .bw-language summary{padding-inline:6px}
+#bookingwhale .bw-hero-live h1{max-width:15ch}
+#bookingwhale .bw-business-intro{margin-bottom:24px}
+}
+@media(max-width:600px){
+#bookingwhale .bw-nav .bw-nav-demo{padding-inline:12px;font-size:13px}
+#bookingwhale .bw-nav .bw-brand{width:36px}
+#bookingwhale .bw-nav .bw-nav-favicon{width:36px;height:36px;flex-basis:36px}
+#bookingwhale .bw-console-brand strong,#bookingwhale .bw-console-shop>span{display:none}
+#bookingwhale .bw-ui-profile-actions{flex-wrap:wrap}
+#bookingwhale .bw-spread-heading{width:100%}
+#bookingwhale .bw-flow-chapter h3{font-size:clamp(28px,7.8vw,38px)}
+#bookingwhale .bw-flow-chapter p{font-size:16px}
+}
+@media(max-width:360px){
+#bookingwhale .bw-nav{padding-inline:8px;gap:4px}
+#bookingwhale .bw-nav-actions{gap:2px}
+#bookingwhale .bw-language summary>svg{display:none}
+#bookingwhale .bw-nav .bw-nav-demo{padding-inline:10px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+#bookingwhale .bw-language{padding:0;border:0;margin:0}
+#bookingwhale .bw-nav{height:64px}
+@media(min-width:901px){
+#bookingwhale .bw-nav{width:max-content;max-width:calc(100% - 48px);height:60px;grid-template-columns:auto auto auto;gap:12px;padding:8px 10px}
+#bookingwhale .bw-nav .bw-brand{width:44px;height:44px;justify-content:center}
+#bookingwhale .bw-nav .bw-nav-favicon{width:30px;height:30px;flex-basis:30px}
+#bookingwhale .bw-nav .bw-main-menu{margin:0;gap:2px;justify-content:flex-start}
+#bookingwhale .bw-nav .bw-main-menu>a{display:flex;align-items:center;min-height:40px;padding:8px 12px;font-size:14px;font-weight:500;line-height:1.5;white-space:nowrap}
+#bookingwhale .bw-nav-actions{gap:10px}
+#bookingwhale .bw-nav-actions::before{content:"";width:1px;height:24px;margin-right:4px;background:#e5e9ef}
+#bookingwhale .bw-nav .bw-language summary{gap:6px;padding-inline:6px;font-size:12px;font-weight:500}
+#bookingwhale .bw-nav .bw-language summary>svg{width:16px;height:16px}
+#bookingwhale .bw-nav .bw-nav-demo{height:40px;min-height:40px;padding-inline:16px;font-size:14px;font-weight:600;gap:10px}
+}
+html:lang(zh) #bookingwhale .bw-page p,html:lang(zh) #bookingwhale .bw-ui-window{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif!important}
+#bookingwhale #features .bw-flow-steps{flex-wrap:wrap}
+#bookingwhale #features .bw-flow-steps button{flex-shrink:0}
+@media(max-width:600px){#bookingwhale .bw-nav{height:60px}}
+@media(min-width:901px) and (max-height:719px){
+#bookingwhale .bw-hero-scroll-track,#bookingwhale .is-spread-track{height:auto!important}
+#bookingwhale .bw-hero-scroll-track>.bw-hero-live{position:relative!important;height:auto!important;overflow:visible!important}
+#bookingwhale .bw-hero-spread{display:block;width:100%;max-width:1200px;padding:64px 40px 0;box-sizing:border-box}
+#bookingwhale .bw-spread-heading{position:static;transform:none;width:100%;max-width:none;margin-bottom:28px}
+#bookingwhale .bw-spread-cards{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 2px 24px}
+#bookingwhale .bw-spread-card{position:relative;flex:0 0 250px;width:250px;scroll-snap-align:center}
+}
+@media(max-width:900px){
+#bookingwhale .bw-hero-result-note{display:flex;position:relative;inset:auto;order:4;justify-content:center;padding-top:10px}
+#bookingwhale .bw-hero-result-note>p{position:static;text-align:center}
+#bookingwhale .bw-hero-result-note .bw-hero-note-arrow{display:none}
+}
+html.bw-js #bookingwhale .bw-flow-chapter:first-child{visibility:visible;opacity:1}
+html:lang(en) #bookingwhale .bw-ui-window{font-family:'Plus Jakarta Sans',sans-serif!important}
+html:lang(zh) #bookingwhale .bw-ui-booking-date small{white-space:normal;line-height:1.35;max-width:5em;margin-inline:auto;text-wrap:balance}

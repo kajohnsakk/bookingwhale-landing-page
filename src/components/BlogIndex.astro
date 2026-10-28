@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import ContentLayout from '../layouts/ContentLayout.astro';
+import images from '../data/blog-images.json';
+interface Props { page?: number }
+const page = Astro.props.page || 1;
+const posts = (await getCollection('blog')).sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const pageCount = Math.ceil(posts.length / 12);
+const visible = posts.slice((page - 1) * 12, page * 12);
+const pagePath = (n: number) => n === 1 ? '/blog/' : `/blog/page/${n}/`;
+const title = `บทความระบบจองออนไลน์และ LINE OA${page > 1 ? ` หน้า ${page}` : ''} | Booking Whale`;
+const description = `แนวทางจัดการการจองโต๊ะ คลาส และบริการผ่าน LINE OA สำหรับธุรกิจไทย รวมบทความเรื่องรอบเวลา ความจุ และการเตรียมร้านก่อนเริ่มรับจอง${page > 1 ? ` — หน้า ${page}` : ''}`;
+const breadcrumb = [{ name: 'บทความ', path: '/blog/' }, ...(page > 1 ? [{ name: `หน้า ${page}`, path: pagePath(page) }] : [])];
+---
+<ContentLayout {title} {description} {breadcrumb}>
+  <header class="editorial-intro editorial-blog-intro"><span class="editorial-kicker">แนวทางสำหรับธุรกิจ</span><h1>ไอเดียจัดการ<span class="editorial-accent">การจอง</span>{page > 1 && <span> · หน้า {page}</span>}</h1><p>อ่านแนวทางสำหรับร้านอาหาร คลาส และธุรกิจบริการ เพื่อวางรูปแบบการจองให้เหมาะกับร้านคุณ</p></header>
+  <div class="editorial-grid">
+    {visible.map(post => <article class="editorial-card editorial-article-card">
+      {post.data.heroImage && <img src={post.data.heroImage} {...images[post.data.heroImage as keyof typeof images]} alt="" loading="lazy" decoding="async" />}
+      <span class="editorial-kicker">{post.data.category}</span>
+      <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+      <p>{post.data.description}</p>
+      <time class="editorial-date" datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toLocaleDateString('th-TH', {dateStyle:'long', timeZone:'UTC'})}</time>
+    </article>)}
+  </div>
+  <nav class="editorial-pagination" aria-label="หน้ารวมบทความ">
+    {Array.from({length:pageCount},(_,i) => i + 1).map(n => <a href={pagePath(n)} aria-label={`บทความ หน้า ${n}`} aria-current={page === n ? 'page' : undefined}>{n}</a>)}
+  </nav>
+</ContentLayout>

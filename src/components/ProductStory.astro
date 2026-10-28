@@ -1,0 +1,96 @@
+---
+import Icon from "./Icon.astro";
+import Avatar from "./Avatar.astro";
+import StoryConsoleHeader from "./StoryConsoleHeader.astro";
+import MobileBookingStory from "./MobileBookingStory.astro";
+---
+<section id="features" class="bw-container bw-section bw-product-stories" aria-labelledby="features-heading">
+<h2 id="features-heading" class="bw-visually-hidden">ขั้นตอนการจองและจัดการร้าน</h2>
+<MobileBookingStory />
+<div class="bw-flow" id="customer">
+  <div class="bw-flow-pin">
+    <div class="bw-flow-copy">
+      <div class="bw-flow-chapters">
+        <div class="bw-flow-chapter"><h3>ลูกค้าจองเอง<br /><em>ผ่าน LINE OA</em></h3><p>เปิดหน้าจอง เลือกวันได้จาก LINE OA ของร้าน</p></div>
+        <div class="bw-flow-chapter"><h3>เห็นเวลาว่าง<br /><em>เลือกได้ทันที</em></h3><p>รอบไหนว่าง ลูกค้าเห็นและเลือกจองได้เอง</p></div>
+        <div class="bw-flow-chapter"><h3>จองเรียบร้อย<br /><em>รายละเอียดครบ</em></h3><p>วัน เวลา และจำนวนคน รวมอยู่ในรายการเดียว</p></div>
+        <div class="bw-flow-chapter"><h3>การจองเข้ามา<br /><em>ร้านก็เห็นทันที</em></h3><p>ดูชื่อลูกค้า เวลา และสถานะได้ในหน้าเดียว</p></div>
+        <div class="bw-flow-chapter"><h3>ดูประวัติการจอง<br /><em>รู้จักลูกค้ามากขึ้น</em></h3><p>เปิดโปรไฟล์เดียว ดูได้ทั้งข้อมูลติดต่อและการจองที่ผ่านมา</p></div>
+      </div>
+      <div class="bw-flow-steps" role="group" aria-label="เลือกขั้นตอนตัวอย่างการจอง">
+        {['วัน', 'เวลา', 'รายละเอียด', 'ระบบร้าน', 'ลูกค้า'].map((label, index) => <button type="button" data-step={String(index + 1).padStart(2, '0')} aria-pressed={index === 0 ? 'true' : 'false'}>{label}</button>)}
+      </div>
+    </div>
+    <div class="bw-flow-visual" role="img" aria-label="เล่าเรื่องการจองตามการเลื่อน: ลูกค้าเลือกวันที่ 24 ตุลาคม เวลา 19 ถึง 20 นาฬิกา จากนั้นการจองของEmma Wilson ย้ายไปแสดงในระบบร้าน แล้วเปิดโปรไฟล์และประวัติของลูกค้าคนเดิม">
+      <div class="bw-flow-route" aria-hidden="true"><span class="bw-flow-client-label"><Icon name="smartphone" /> หน้าจองของลูกค้า</span><Icon name="arrow-right" /><span class="bw-flow-shop-label"><Icon name="store" /> ระบบของร้าน</span></div>
+      <div class="bw-flow-canvas" aria-hidden="true">
+        <div class="bw-flow-client"><div class="bw-ui-window bw-ui-booking" data-product="booking" role="img" aria-label="ตัวอย่างหน้าจองจาก UI ปัจจุบัน ปฏิทินเดือนตุลาคม 2569 เลือกวันที่ 24 และจองโต๊ะเวลา 19:00 ถึง 20:00">
+  <div class="bw-ui-chrome" aria-hidden="true"><span class="bw-ui-brand"><img src="/assets/product-captures/sunday-social-logo.svg" width="34" height="34" alt="" /><strong>Sunday Social<small class="bw-booking-subtitle">สำรองโต๊ะออนไลน์</small></strong></span><span class="bw-booking-open">เปิดรับจอง</span></div>
+  <div class="bw-ui-body" aria-hidden="true">
+    <div class="bw-ui-calendar">
+      <div class="bw-ui-calendar-head"><strong>เลือกวันที่คุณสะดวก</strong><span><Icon name="chevron-left" /><b>ตุลาคม 2569</b><Icon name="chevron-right" /></span></div>
+      <div class="bw-ui-month"><span class="bw-ui-weekday">จ.</span><span class="bw-ui-weekday">อ.</span><span class="bw-ui-weekday">พ.</span><span class="bw-ui-weekday">พฤ.</span><span class="bw-ui-weekday">ศ.</span><span class="bw-ui-weekday">ส.</span><span class="bw-ui-weekday">อา.</span><span class="bw-ui-day-past">28</span><span class="bw-ui-day-past">29</span><span class="bw-ui-day-past">30</span><span class="bw-ui-day-past">1</span><span class="bw-ui-day-past">2</span><span class="bw-ui-day-past">3</span><span class="bw-ui-day-past">4</span><span class="bw-ui-day-past">5</span><span class="bw-ui-day-past">6</span><span class="bw-ui-day-past">7</span><span class="bw-ui-day-past">8</span><span class="bw-ui-day-past">9</span><span class="bw-ui-day-past">10</span><span class="bw-ui-day-past">11</span><span class="bw-ui-day-past">12</span><span class="bw-ui-day-past">13</span><span class="bw-ui-day-past">14</span><span class="bw-ui-day-past">15</span><span class="bw-ui-day-past">16</span><span class="bw-ui-day-past">17</span><span class="bw-ui-day-past">18</span><span class="bw-ui-day-past">19</span><span class="bw-ui-day-past">20</span><span class="bw-ui-day-past">21</span><span class="bw-ui-day-past">22</span><span class="bw-ui-day-past">23</span><span class="bw-ui-day-pick">24</span><span class="">25</span><span class="">26</span><span class="">27</span><span class="">28</span><span class="">29</span><span class="">30</span><span class="">31</span><span class="bw-ui-day-past">1</span></div>
+    </div>
+    <div class="bw-ui-availability">
+      <div class="bw-ui-date-prompt"><span class="bw-ui-date-prompt-icon"><Icon name="calendar-clock" /></span><strong>เลือกวันเพื่อดูเวลาว่าง</strong><span>แล้วเลือกรอบที่เหมาะกับคุณ</span></div>
+    <div class="bw-ui-times">
+      <div class="bw-ui-section-label"><Icon name="calendar" /><strong>เวลาที่ว่าง</strong><span>24 ต.ค. 2569</span></div>
+      <div class="bw-ui-slot-group"><div class="bw-ui-time"><Icon name="clock" />19:00 - 20:00</div><div class="bw-ui-slot bw-ui-slot-selected"><div><strong>จองโต๊ะ</strong><span>เหลือ 4 ที่</span></div><span class="bw-ui-selection-label">เลือก</span><span class="bw-ui-check"><Icon name="check" /></span></div></div>
+      <div class="bw-ui-slot-group bw-ui-slot-secondary"><div class="bw-ui-time"><Icon name="clock" />20:30 - 21:30</div><div class="bw-ui-slot"><div><strong>จองโต๊ะ</strong><span>เหลือ 3 ที่</span></div><span class="bw-ui-selection-label">เลือก</span></div></div>
+    </div>
+  </div>
+  </div>
+  <div class="bw-ui-selection-summary" aria-hidden="true"><Icon name="check-circle-2" /><span>24 ต.ค. · 19:00 - 20:00</span><strong>ถัดไป</strong></div>
+</div>
+</div>
+        <div class="bw-flow-merchant" id="owner"><div class="bw-ui-window bw-ui-manage" data-product="manage" role="img" aria-label="ตัวอย่างระบบร้าน รายการจองวันที่ 24 ตุลาคม 2569 ลูกค้าEmma Wilson เวลา 19:00 ถึง 20:00 สถานะยืนยันแล้ว">
+  <StoryConsoleHeader active="bookings" />
+  <div class="bw-ui-body" aria-hidden="true">
+    <div class="bw-ui-page-heading"><strong>การจองของร้าน</strong><span class="bw-ui-new"><Icon name="plus" />สร้างการจอง</span></div>
+    <div class="bw-ui-tabs"><span class="is-current"><Icon name="calendar-check" />ปฏิทิน</span><span><Icon name="list" />รายการจอง</span></div>
+    <div class="bw-ui-manage-layout"><div class="bw-ui-manage-calendar"><strong>ตุลาคม 2569</strong><div class="bw-ui-month"><span class="bw-ui-weekday">จ.</span><span class="bw-ui-weekday">อ.</span><span class="bw-ui-weekday">พ.</span><span class="bw-ui-weekday">พฤ.</span><span class="bw-ui-weekday">ศ.</span><span class="bw-ui-weekday">ส.</span><span class="bw-ui-weekday">อา.</span><span class="bw-ui-day-past">28</span><span class="bw-ui-day-past">29</span><span class="bw-ui-day-past">30</span><span class="bw-ui-day-past">1</span><span class="bw-ui-day-past">2</span><span class="bw-ui-day-past">3</span><span class="bw-ui-day-past">4</span><span class="bw-ui-day-past">5</span><span class="bw-ui-day-past">6</span><span class="bw-ui-day-past">7</span><span class="bw-ui-day-past">8</span><span class="bw-ui-day-past">9</span><span class="bw-ui-day-past">10</span><span class="bw-ui-day-past">11</span><span class="bw-ui-day-past">12</span><span class="bw-ui-day-past">13</span><span class="bw-ui-day-past">14</span><span class="bw-ui-day-past">15</span><span class="bw-ui-day-past">16</span><span class="bw-ui-day-past">17</span><span class="bw-ui-day-past">18</span><span class="bw-ui-day-past">19</span><span class="bw-ui-day-past">20</span><span class="bw-ui-day-past">21</span><span class="bw-ui-day-past">22</span><span class="bw-ui-day-past">23</span><span class="bw-ui-day-pick">24</span><span class="">25</span><span class="">26</span><span class="">27</span><span class="">28</span><span class="">29</span><span class="">30</span><span class="">31</span><span class="bw-ui-day-past">1</span></div></div><div class="bw-ui-manage-list"><div class="bw-ui-date-bar"><Icon name="calendar" /><strong>24 ต.ค. 2569</strong><span>การจอง <b class="bw-flow-count">1</b></span></div>
+    <div class="bw-ui-status-filters"><span>ทั้งหมด <b class="bw-flow-count">1</b></span><span>ยืนยันแล้ว <b class="bw-flow-count">1</b></span></div>
+    <div class="bw-ui-booking-group bw-ui-arriving-group"><div class="bw-ui-group-heading"><span><Icon name="clock" />19:00 - 20:00</span><small>1 รายการ</small></div><div class="bw-ui-arriving-row"><span class="bw-ui-avatar"><Avatar person="emma" /></span><strong>Emma Wilson<small class="bw-customer-booking-meta">จองโต๊ะ · 2 คน</small></strong><span class="bw-ui-status"><Icon name="circle-check" />ยืนยันแล้ว</span></div></div>
+    <div class="bw-console-channel"><Icon name="calendar-check" /><span>รับจองผ่าน LINE OA</span></div>
+    <div class="bw-ui-booking-group bw-ui-existing-group"><div class="bw-ui-group-heading"><span><Icon name="clock" />20:30 - 21:30</span><small>1 รายการ</small></div><div class="bw-ui-arriving-row"><span class="bw-ui-avatar"><Avatar person="daniel" /></span><strong>Daniel Carter</strong><span class="bw-ui-status"><Icon name="circle-check" />ยืนยันแล้ว</span></div></div>
+  </div></div></div>
+  <div class="bw-ui-window-foot" aria-hidden="true"><span>ทั้งหมด <b class="bw-flow-count">1</b></span><span>หน้า 1 / 1</span></div>
+</div>
+</div>
+        <div class="bw-flow-profile" id="profile"><div class="bw-ui-window bw-ui-customer" data-product="customer" role="img" aria-label="ตัวอย่างโปรไฟล์ลูกค้า Emma Wilson รหัส BW-001284 พร้อมข้อมูลติดต่อและประวัติการจองวันที่ 24 ตุลาคม 2569">
+  <StoryConsoleHeader active="customers" />
+  <div class="bw-ui-body" aria-hidden="true">
+    <div class="bw-ui-breadcrumb"><span>ลูกค้า</span><span>›</span><span>Emma Wilson</span></div><div class="bw-ui-profile"><span class="bw-ui-avatar"><Avatar person="emma" /></span><div><strong>Emma Wilson</strong><span class="bw-ui-member"><Icon name="calendar" />สมาชิกตั้งแต่ 6/9/2026</span></div><span class="bw-ui-active">ใช้งาน</span><div class="bw-ui-profile-actions"><span><Icon name="qr-code" />QR</span><span><Icon name="pencil" />แก้ไขข้อมูล</span></div></div>
+    <div class="bw-ui-tabs bw-ui-profile-tabs"><span class="bw-ui-info-tab"><Icon name="user-round" />ข้อมูลทั่วไป</span><span class="bw-ui-history-tab is-current"><Icon name="calendar-check" />ประวัติการจอง</span><span><Icon name="shield-check" />ความยินยอม</span></div>
+    <div class="bw-ui-profile-content">
+      <div class="bw-ui-info-pane">
+        <strong class="bw-ui-pane-title">ข้อมูลติดต่อ</strong>
+        <dl><div><dt>รหัสลูกค้า</dt><dd><code>BW-001284</code><Icon name="copy" /></dd></div><div><dt>ชื่อ</dt><dd>Emma Wilson</dd></div><div><dt>อีเมล</dt><dd>emma@example.com</dd></div></dl>
+        <div class="bw-ui-latest-booking">
+          <span class="bw-ui-latest-label">การจองล่าสุด</span>
+          <span class="bw-ui-booking-date"><strong>24</strong><small>ต.ค. 2569</small></span>
+          <div class="bw-ui-latest-copy"><strong>19:00 – 20:00</strong><span>จองโต๊ะ · 2 คน</span></div>
+          <span class="bw-ui-status"><Icon name="circle-check" />ยืนยันแล้ว</span>
+        </div>
+      </div>
+      <div class="bw-ui-history-pane">
+        <div class="bw-ui-history-heading"><strong class="bw-ui-pane-title">ประวัติการจอง</strong><span>1 รายการ</span></div>
+        <div class="bw-ui-history-labels"><span>วันและเวลา</span><span>สถานะ</span></div>
+        <div class="bw-ui-history-row"><span class="bw-ui-booking-date"><strong>24</strong><small>ต.ค. 2569</small></span><div><strong>19:00 – 20:00</strong><span>จองโต๊ะ · 2 คน</span></div><span class="bw-ui-status"><Icon name="circle-check" />ยืนยันแล้ว</span></div>
+        <div class="bw-ui-history-number">เลขที่การจอง <span>BK-001284</span></div>
+        <div class="bw-ui-history-context"><Icon name="calendar-check" /><span>จากหน้าจองผ่าน LINE OA<br /><strong>บันทึกไว้ในประวัติของ Emma Wilson</strong></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+        <div class="bw-flow-identity"><span><Avatar person="emma" /></span><strong>Emma Wilson</strong></div>
+        <div class="bw-flow-ticket"><div class="bw-flow-ticket-top"><span>รายละเอียดการจอง</span><span>1 รายการ</span></div><div class="bw-flow-ticket-main"><span class="bw-flow-ticket-date">24<small>ต.ค.</small></span><div><strong>24 ต.ค. 2569</strong><span>19:00 – 20:00</span><small class="bw-confirm-service">จองโต๊ะ</small></div><Icon name="check-circle-2" /></div></div>
+        <div class="bw-flow-pointer"><Icon name="mouse-pointer-2" /><span class="bw-flow-pulse"></span></div>
+      </div>
+      <div class="bw-flow-bottom"><span>หน้าจออ้างอิงแอปจริง · ข้อมูลตัวอย่าง</span><span class="bw-flow-complete"><Icon name="check" /> ร้านเห็นการจองแล้ว</span></div>
+      <div class="bw-flow-progress"><span></span></div>
+    </div>
+  </div>
+</div>
+</section>

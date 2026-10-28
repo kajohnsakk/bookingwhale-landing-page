@@ -1,35 +1,30 @@
 ---
-import { getCollection, render } from "astro:content";
-import BlogPost from "../../layouts/BlogPost.astro";
-
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import images from '../../data/blog-images.json';
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: { slug: post.id.replace(/^(th|en)\//, "").replace(/\.md$/, "") },
-    props: { post, allPosts: posts },
-  }));
+  return (await getCollection('blog')).map(post => ({params:{slug:post.id},props:{post}}));
 }
-
-const { post, allPosts } = Astro.props;
+interface Props { post: CollectionEntry<'blog'> }
+const { post } = Astro.props;
 const { Content, headings } = await render(post);
-
-const currentSlug = post.id.replace(/^(th|en)\//, "").replace(/\.md$/, "");
-const related = allPosts
-  .filter((p) => {
-    const slug = p.id.replace(/^(th|en)\//, "").replace(/\.md$/, "");
-    return slug !== currentSlug && p.data.lang === post.data.lang;
-  })
-  .map((p) => {
-    const sharedTags = p.data.tags.filter((t) =>
-      post.data.tags.includes(t),
-    ).length;
-    const sameCategory = p.data.category === post.data.category ? 2 : 0;
-    return { ...p, score: sharedTags + sameCategory };
-  })
-  .sort((a, b) => b.score - a.score)
-  .slice(0, 3);
+const related = (await getCollection('blog')).filter(item => item.id !== post.id).sort((a,b) => Number(b.data.category === post.data.category) - Number(a.data.category === post.data.category) || b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0,3);
+const breadcrumb = [{name:'บทความ',path:'/blog/'},{name:post.data.title,path:`/blog/${post.id}/`}];
+const article = {title:post.data.title,published:post.data.pubDate,modified:post.data.updatedDate,image:post.data.heroImage};
 ---
-
-<BlogPost {...post.data} headings={headings} relatedPosts={related}>
-  <Content />
-</BlogPost>
+<ContentLayout title={`${post.data.title} | Booking Whale`} description={post.data.description} {breadcrumb} {article}>
+  <article class="editorial-article">
+    <header class="editorial-article-header">
+      <span class="editorial-kicker">{post.data.category}</span>
+      <h1>{post.data.title}</h1>
+      <p class="editorial-date">เผยแพร่ <time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toLocaleDateString('th-TH',{dateStyle:'long',timeZone:'UTC'})}</time>{post.data.updatedDate && <> · ปรับปรุง <time datetime={post.data.updatedDate.toISOString()}>{post.data.updatedDate.toLocaleDateString('th-TH',{dateStyle:'long',timeZone:'UTC'})}</time></>}{post.data.readingTime && <> · อ่าน {post.data.readingTime}</>}</p>
+      {post.data.heroImage && <img class="editorial-cover" src={post.data.heroImage} {...images[post.data.heroImage as keyof typeof images]} alt={post.data.title} fetchpriority="high" decoding="async" />}
+    </header>
+    <div class="editorial-prose">
+    {headings.some(item => item.depth === 2) && <details class="editorial-toc"><summary>เนื้อหาในบทความ</summary><ul>{headings.filter(item => item.depth === 2).map(item => <li><a href={`#${item.slug}`}>{item.text}</a></li>)}</ul></details>}
+    <Content />
+    <aside class="editorial-cta"><h2>เริ่มรับจองให้เหมาะกับร้านคุณ</h2><p>ดูรูปแบบสำหรับ <a href="/businesses/food-beverage/">ร้านอาหาร</a> <a href="/businesses/fitness-sports/">คลาสและฟิตเนส</a> หรือ <a href="/businesses/services/">ธุรกิจบริการ</a> แล้วสอบถามรายละเอียดก่อนเริ่มใช้งาน</p><a class="editorial-button" data-contact-open href="/contact/" aria-haspopup="dialog" aria-controls="contact-dialog">เริ่มใช้งาน <span aria-hidden="true">→</span></a></aside>
+    </div>
+  </article>
+  <section aria-labelledby="related-title"><h2 id="related-title">อ่านต่อ</h2><div class="editorial-grid">{related.map(item => <article class="editorial-card"><span class="editorial-kicker">{item.data.category}</span><h3><a href={`/blog/${item.id}/`}>{item.data.title}</a></h3><p>{item.data.description}</p></article>)}</div></section>
+</ContentLayout>

@@ -1,55 +1,24 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import { languageAlternates } from './src/seo/routes.mjs';
+import { pruneStyles } from './scripts/prune-styles.mjs';
 
-import tailwindcss from '@tailwindcss/vite';
-
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://bookingwhale.co',
-  integrations: [react(), sitemap({
-    changefreq: 'weekly',
-    priority: 0.7,
-    serialize(item) {
-      const url = item.url;
-      // Homepage gets highest priority
-      if (url === 'https://bookingwhale.co/' || url === 'https://bookingwhale.co/en/') {
-        item.priority = 1.0;
-        item.changefreq = 'daily';
-      }
-      // Business detail pages
-      else if (url.includes('/businesses/')) {
-        item.priority = 0.9;
-        item.changefreq = 'weekly';
-      }
-      // Blog index
-      else if (url.endsWith('/blog/')) {
-        item.priority = 0.8;
-        item.changefreq = 'daily';
-      }
-      // Blog posts
-      else if (url.includes('/blog/')) {
-        item.priority = 0.7;
-        item.changefreq = 'monthly';
-      }
-      // Contact
-      else if (url.includes('/contact')) {
-        item.priority = 0.6;
-        item.changefreq = 'monthly';
-      }
-      // Legal pages
-      else if (url.includes('privacy') || url.includes('terms')) {
-        item.priority = 0.3;
-        item.changefreq = 'yearly';
-      }
-      return item;
-    },
-  })],
-  build: {
-    inlineStylesheets: 'always'
+  site: process.env.SITE_URL || 'https://bookingwhale.co',
+  output: 'static',
+  trailingSlash: 'always',
+  redirects: {
+    '/th/': { destination: '/', status: 301 },
+    '/cookies/': { destination: '/privacy-policy/', status: 301 },
+    '/blog/choosing-right-queue-booking-system-for-your-business/': { destination: '/blog/online-queue-booking-system-guide/', status: 301 },
   },
-  vite: {
-    plugins: [tailwindcss()]
-  }
+  vite: { plugins: [pruneStyles()] },
+  integrations: [sitemap({
+    filter: page => !['/th/', '/cookies/', '/blog/choosing-right-queue-booking-system-for-your-business/'].includes(new URL(page).pathname) && !/^\/(?:previews|hero-preview|hero-live)(?:\/|$)|^\/404(?:\.html)?(?:\/|$)/.test(new URL(page).pathname),
+    serialize: item => ({
+      ...item,
+      links: languageAlternates(new URL(item.url).pathname).map(link => ({ lang: link.language, url: new URL(link.path, item.url).href })),
+    }),
+  })],
+  devToolbar: { enabled: false },
 });

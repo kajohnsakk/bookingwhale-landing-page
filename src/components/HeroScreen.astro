@@ -1,0 +1,24 @@
+---
+import { heroImageSources } from '../data/hero-images';
+import placeholders from '../data/hero-placeholders.json';
+import { localeFromPath } from '../i18n';
+interface Props { screen: 'merchant' | 'booking' | 'success'; title: string; }
+const {screen,title}=Astro.props;
+const locale=localeFromPath(Astro.url.pathname);
+const merchant=screen==='merchant';
+const image=heroImageSources(locale,screen);
+---
+<div class="bw-hero-screen" style={`background-image:url('${placeholders[locale][screen]}')`}>
+  <img src={image.src} srcset={image.srcset} sizes={image.sizes} alt={title} width={merchant?1600:780} height={merchant?900:1688} loading="eager" decoding="async" fetchpriority={merchant?'high':'auto'} />
+</div>
+<style is:global>
+  #bookingwhale .bw-hero-live-stage[data-static] .bw-hero-live-panel { isolation:isolate; }
+  #bookingwhale .bw-hero-live-stage[data-static] .bw-hero-screen { position:absolute; inset:26px 0 0; overflow:hidden; border-radius:0 0 24px 24px; background-color:#fff; background-position:top center; background-size:100% auto; background-repeat:no-repeat; pointer-events:none; }
+  #bookingwhale .bw-hero-live-stage[data-static] .bw-hero-live-spm .bw-hero-screen { inset:0; border-radius:11px; }
+  #bookingwhale .bw-hero-live-stage[data-static] .bw-hero-screen img { display:block; width:100%; height:auto; max-width:none; aspect-ratio:780/1688; }
+  #bookingwhale .bw-hero-live-stage[data-static] .bw-hero-live-spm .bw-hero-screen img { aspect-ratio:16/9; }
+  @media(max-width:900px) {
+    #bookingwhale .bw-hero-live-stage[data-static] .bw-hero-screen { top:14px; border-radius:0 0 15px 15px; }
+    #bookingwhale .bw-hero-live-stage[data-static] .bw-hero-live-spm .bw-hero-screen { border-radius:10px; }
+  }
+</style>

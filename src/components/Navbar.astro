@@ -1,0 +1,18 @@
+---
+import Icon from "./Icon.astro";
+import { localeFromPath, localePath, locales } from "../i18n";
+interface Props { sectionBase?: string; contentPage?: boolean }
+const { sectionBase = '', contentPage = false } = Astro.props;
+const locale=localeFromPath(Astro.url.pathname);
+---
+<header class="bw-nav">
+      <a class="bw-brand" href={`${sectionBase}#top`} aria-label="BookingWhale หน้าแรก"><img class="bw-nav-favicon" src="/assets/bookingwhale-mark-96.png" width="44" height="44" alt="" /><span class="bw-nav-wordmark">Booking Whale</span></a>
+      <nav class="bw-main-menu" id="bw-main-menu" aria-label="เมนูหลัก">
+        <a href={`${sectionBase}#features`} data-nav-section="features">ระบบจอง<Icon name="chevron-right" class="bw-menu-arrow" /></a>
+        <a href={`${sectionBase}#business`} data-nav-section="business">สำหรับธุรกิจ<Icon name="chevron-right" class="bw-menu-arrow" /></a>
+        <a href={`${sectionBase}#how`} data-nav-section="how">วิธีเริ่มต้น<Icon name="chevron-right" class="bw-menu-arrow" /></a>
+        {contentPage ? <a href="/blog/" aria-current={Astro.url.pathname.startsWith('/blog/') ? 'page' : undefined}>บทความ<Icon name="chevron-right" class="bw-menu-arrow" /></a> : <a href="#faq" data-nav-section="faq">คำถามที่พบบ่อย<Icon name="chevron-right" class="bw-menu-arrow" /></a>}
+        <div class="bw-menu-bottom"><span>เริ่มต้นระบบจองผ่าน LINE OA</span><a class="bw-button bw-primary bw-start-button" data-contact-open href="https://bookingwhale.co/contact" aria-haspopup="dialog" aria-controls="contact-dialog">เริ่มใช้งาน <span class="bw-start-arrow" aria-hidden="true"><Icon name="arrow-right" class="bw-action-icon" /></span></a></div>
+      </nav>
+      <div class="bw-nav-actions"><details class="bw-language"><summary aria-label={`${locale.toUpperCase()} — ${({en:"Change language",th:"เปลี่ยนภาษา",zh:"切换语言"})[locale]}`}><Icon name="globe" /><span>{locale.toUpperCase()}</span></summary><div class="bw-language-options">{locales.map(item=><a href={localePath(item)} data-language={item} lang={item==='zh'?'zh-Hans':item} aria-current={locale===item?'page':undefined}>{({en:'English',th:'ไทย',zh:'简体中文'})[item]}</a>)}</div></details><a class="bw-button bw-primary bw-nav-demo bw-start-button" aria-label="เริ่มใช้งาน" data-contact-open href="https://bookingwhale.co/contact" aria-haspopup="dialog" aria-controls="contact-dialog"><span class="bw-nav-contact-label">เริ่มใช้งาน</span><span class="bw-nav-contact-arrow bw-start-arrow" aria-hidden="true"><Icon name="arrow-right" class="bw-action-icon" /></span></a><button type="button" id="bw-menu-toggle" class="bw-menu-toggle" aria-label="เปิดเมนู" data-open-label="เปิดเมนู" data-close-label="ปิดเมนู" aria-controls="bw-main-menu" aria-expanded="false"><span class="bw-open-icon"><Icon name="menu" /></span><span class="bw-close-icon"><Icon name="x" /></span></button></div>
+    </header>

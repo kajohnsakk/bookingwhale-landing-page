@@ -1,0 +1,16 @@
+:root{--bw-page-surface:#ffffff;background:var(--bw-page-surface)}
+body,#bookingwhale,#bookingwhale .bw-page{background:var(--bw-page-surface)}
+#bookingwhale #main-content>section:is(.bw-section,.bw-hero,.bw-contact),#bookingwhale .bw-footer.bw-footer-refined{background:var(--bw-page-surface)}
+#bookingwhale #main-content>section:is(.bw-section,.bw-hero,.bw-contact)::before,#bookingwhale #main-content>section:is(.bw-section,.bw-hero,.bw-contact)::after{background:var(--bw-page-surface)}
+#bookingwhale .bw-business .bw-gallery-runway,#bookingwhale .bw-business .bw-gallery-scene,#bookingwhale .bw-cinematic .bw-business .bw-gallery-scene,#bookingwhale .bw-story-curtain{background:var(--bw-page-surface)}
+#bookingwhale #features{color:#172238}
+#bookingwhale #features .bw-flow-copy h3{color:#172238}
+#bookingwhale #features .bw-flow-copy .bw-product-heading h2,#bookingwhale #features .bw-flow-copy p,#bookingwhale #features .bw-flow-kicker,#bookingwhale #features .bw-flow-scroll,#bookingwhale #features .bw-flow-steps,#bookingwhale #features .bw-flow-route,#bookingwhale #features .bw-flow-bottom{color:#586579}
+#bookingwhale #features .bw-product-heading em,#bookingwhale #features .bw-product-heading>.bw-eyebrow,#bookingwhale #features .bw-flow-chapter em,#bookingwhale #features .bw-flow-chapter>span{color:#0747ff}
+#bookingwhale #features .bw-flow-steps,#bookingwhale #features .bw-flow-route,#bookingwhale #features .bw-flow-bottom{--bw-blue:#0747ff;--bw-line:#c5c8cb}
+#bookingwhale #features .bw-flow-route::before,#bookingwhale #features .bw-flow-route::after{background:#c5c8cb}
+#bookingwhale #features .bw-flow-steps button{color:#586579}
+#bookingwhale #features .bw-flow-steps button[aria-pressed=true]{border-color:#a8b9dd;background:#edf2ff}
+#bookingwhale #features .bw-flow-steps button:focus-visible{outline-color:#0747ff}
+
+#bookingwhale #business,#bookingwhale .bw-cinematic #business,#bookingwhale #business::before,#bookingwhale .bw-cinematic #business::before{background:#fff}

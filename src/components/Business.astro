@@ -1,0 +1,195 @@
+---
+import Icon from "./Icon.astro";
+import { localeFromPath } from '../i18n';
+const businessPrefix = localeFromPath(Astro.url.pathname) === 'en' ? '/en' : '';
+const businessLinks: Record<number,string> = {0:'food-beverage',1:'services',2:'fitness-sports',7:'services'};
+import BusinessSymbol from "./BusinessSymbol.astro";
+const industries = [
+  { kind:0, icon:'cake', title:'ร้านอาหาร & เครื่องดื่ม', description:'ให้ลูกค้าเลือกมื้อ เวลา และจำนวนคนก่อนมาถึง', label:'FOOD & DRINK', color:'#ffeadb' },
+  { kind:1, icon:'fingerprint', title:'ความงาม & เวลเนส', description:'เปิดเวลาจองนวด ดูแลผิว และทรีตเมนต์', label:'WELLNESS', color:'#eae4ff' },
+  { kind:2, icon:'panels-top-left', title:'ฟิตเนส & กีฬา', description:'เปิดคลาสให้จอง พร้อมกำหนดจำนวนที่รับ', label:'FITNESS & STUDIO', color:'#d8f2e7' },
+  { kind:3, icon:'graduation-cap', title:'การศึกษา & การสอน', description:'ให้ผู้เรียนเลือกวันและเวลาเรียนที่สะดวก', label:'EDUCATION', color:'#dfeaff' },
+  { kind:4, icon:'tickets', title:'อีเวนต์ & บัตรเข้างาน', description:'ให้ลูกค้าเลือกรอบกิจกรรมและจำนวนที่นั่ง', label:'EVENTS', color:'#ffe1ea' },
+  { kind:5, icon:'building-2', title:'การท่องเที่ยว & ที่พัก', description:'จองรอบทัวร์ เลือกวันและจำนวนผู้ร่วมทริป', label:'TRAVEL', color:'#d9f2f4' },
+  { kind:6, icon:'forklift', title:'ธุรกิจให้เช่า', description:'รับจองห้อง สตูดิโอ และอุปกรณ์ตามช่วงเวลา', label:'RENTALS', color:'#f4edcc' },
+  { kind:7, icon:'settings', title:'บริการทั่วไป', description:'เปิดเวลาปรึกษาและบริการให้ลูกค้าจองล่วงหน้า', label:'SERVICES', color:'#e6eaf2' },
+] as const;
+---
+<div class="bw-business-scroll-track">
+<section class="bw-container bw-section bw-business" id="business">
+  <div class="bw-business-intro"><div class="bw-heading"><span class="bw-eyebrow">ธุรกิจของคุณ จองแบบไหน?</span><h2>ทุกการจอง<br><em>จัดการในที่เดียว</em></h2><p class="bw-business-context">ทั้งจองโต๊ะ จองคลาส และนัดหมายบริการ คุณกำหนดเวลาและจำนวนที่รับ ลูกค้าเลือกรอบที่สะดวก</p></div></div>
+  <div class="bw-industry-controls">
+    <p id="business-scroll-hint">เลื่อนดูรูปแบบเพิ่มเติม</p>
+    <div class="bw-industry-actions"><span class="bw-industry-range" aria-hidden="true">1 / {industries.length}</span><button type="button" data-business-direction="previous" aria-label="ดูธุรกิจก่อนหน้า" aria-controls="business-gallery" disabled><Icon name="chevron-left" /></button><button type="button" data-business-direction="next" aria-label="ดูธุรกิจถัดไป" aria-controls="business-gallery"><Icon name="chevron-right" /></button></div>
+  </div>
+  <div id="business-gallery" class="bw-industry-viewport" tabindex="0" role="region" aria-label="รูปแบบการจองสำหรับธุรกิจ" aria-describedby="business-scroll-hint"><div class="bw-business-directory">
+    {industries.map((item) => <article class="bw-industry-graphic">
+      <div class="bw-industry-scene" data-industry-index={item.kind} aria-hidden="true">
+        <div class="bw-industry-identity"><span class="bw-industry-symbol"><BusinessSymbol kind={item.kind}/></span><span>{item.label}</span></div>
+        <div class="bw-industry-demo bw-booking-demo">
+          {item.kind===0&&<>
+            <div class="bw-booking-heading"><strong>จองโต๊ะมื้อเย็น</strong></div>
+            <div class="bw-booking-panel bw-time-panel">
+              <div class="bw-preview-detail"><span><Icon name="calendar"/>24 ตุลาคม</span></div>
+              <div class="bw-dinner-rounds"><span>18:00</span><span class="is-selected">19:00 <Icon name="check"/></span><span>20:30</span></div>
+            </div>
+            <div class="bw-booking-meta"><span class="bw-guest-count"><Icon name="users"/><span>จำนวนคน</span><b>2</b></span><span class="bw-preview-status"><Icon name="check"/>เลือกแล้ว</span></div>
+          </>}
+          {item.kind===1&&<>
+            <div class="bw-booking-heading"><strong>นวดผ่อนคลาย</strong></div>
+            <div class="bw-booking-panel bw-time-panel">
+              <div class="bw-preview-detail"><span>นวดอโรม่า</span><span><Icon name="clock"/>60 นาที</span></div>
+              <div class="bw-industry-slots"><span>10:00</span><span class="bw-industry-selected">13:00</span><span>15:00</span></div>
+            </div>
+            <div class="bw-booking-meta"><span class="bw-booking-duration"><Icon name="calendar"/>24 ตุลาคม</span><span class="bw-preview-status"><Icon name="check"/>เลือกแล้ว</span></div>
+          </>}
+          {item.kind===2&&<>
+            <div class="bw-booking-heading"><strong>พิลาทิสช่วงเย็น</strong></div>
+            <div class="bw-booking-panel bw-fitness-panel">
+              <div class="bw-class-time"><b>18:00</b><span>60 นาที</span></div>
+              <div class="bw-capacity">{Array.from({length:8},(_,i)=><i class:list={{filled:i<5}} />)}</div>
+            </div>
+            <div class="bw-booking-meta"><span class="bw-booking-duration"><Icon name="user-round"/>กับครูแดเนียล</span><span class="bw-preview-status">ว่างอีก 3 ที่</span></div>
+          </>}
+          {item.kind===3&&<>
+            <div class="bw-booking-heading"><strong>English กับครูแดเนียล</strong></div>
+            <div class="bw-booking-panel bw-lesson-panel"><div class="bw-lesson-days">{['จ.','อ.','พ.'].map((day,i)=><span class:list={{chosen:i===1}}><small>{day}</small><b>{26+i}</b></span>)}</div></div>
+            <div class="bw-booking-meta"><span class="bw-booking-duration"><Icon name="clock"/>16:00–17:00</span><span class="bw-preview-status"><Icon name="check"/>วันอังคาร</span></div>
+          </>}
+          {item.kind===4&&<>
+            <div class="bw-booking-heading"><strong>เวิร์กช็อปออกแบบ</strong></div>
+            <div class="bw-booking-panel bw-consultation-summary">
+              <div class="bw-consultation-date"><span>ต.ค.</span><b>24</b></div>
+              <div class="bw-consultation-slot"><strong>14:00–16:00</strong><span>วันเสาร์</span></div>
+            </div>
+            <div class="bw-booking-meta"><span class="bw-booking-duration"><Icon name="users"/>ผู้เข้าร่วม</span><span class="bw-preview-status bw-participant-count"><Icon name="check"/><b>2 คน</b></span></div>
+          </>}
+          {item.kind===5&&<>
+            <div class="bw-booking-heading"><strong>เดินเที่ยวเมืองเก่า</strong></div>
+            <div class="bw-booking-panel bw-travel-panel"><div class="bw-tour-route"><span><i/>ย่านเมืองเก่า<small>09:00</small></span><span><i/>ย่านริมแม่น้ำ<small>11:30</small></span></div></div>
+            <div class="bw-booking-meta"><span class="bw-booking-duration"><Icon name="calendar"/>24 ตุลาคม</span><span class="bw-preview-status"><Icon name="users"/>ผู้ร่วมทริป 2 คน</span></div>
+          </>}
+          {item.kind===6&&<>
+            <div class="bw-booking-heading"><strong>สตูดิโอ A</strong><span>24 ตุลาคม</span></div>
+            <div class="bw-rental-schedule">
+              <div class="bw-rental-axis">{['09:00','10:00','11:00','12:00','13:00'].map(time=><span>{time}</span>)}</div>
+              <div class="bw-rental-timeline"><span class="bw-rental-reservation">10:00–12:00</span></div>
+            </div>
+            <div class="bw-booking-meta"><span class="bw-booking-duration"><Icon name="clock"/>2 ชั่วโมง</span><span class="bw-preview-status"><Icon name="check"/>จองแล้ว</span></div>
+          </>}
+          {item.kind===7&&<>
+            <div class="bw-booking-heading"><strong>จองเวลาปรึกษา</strong></div>
+            <div class="bw-consultation-summary">
+              <div class="bw-consultation-date"><span>ต.ค.</span><b>24</b></div>
+              <div class="bw-consultation-slot"><strong>11:00–12:00</strong><span><Icon name="clock"/>60 นาที</span></div>
+            </div>
+            <div class="bw-booking-meta"><span class="bw-booking-client"><i>EW</i>Emma Wilson</span><span class="bw-preview-status"><Icon name="check"/>ยืนยันแล้ว</span></div>
+          </>}
+        </div>
+      </div>
+      <h3>{businessLinks[item.kind] ? <a class="bw-business-detail-link" href={`${businessPrefix}/businesses/${businessLinks[item.kind]}/`}>{item.title}</a> : item.title}</h3><p>{item.description}</p>
+    </article>)}
+  </div></div>
+  <p class="bw-directory-note">มีรูปแบบการจองในใจแล้ว? <a href="#contact">เล่าให้ทีมงานฟัง <Icon name="arrow-up-right" class="bw-action-icon" /></a></p>
+</section>
+</div>
+<style>
+.bw-business-directory{display:flex;width:max-content;gap:24px}
+.bw-industry-graphic{width:360px;flex:0 0 360px;min-width:0}
+.bw-industry-scene{background:#f6f7f9;border:0;border-radius:20px;padding:18px;height:300px;color:#23324b}
+.bw-industry-identity{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:10px;font-size:10px;font-weight:600;letter-spacing:.12em}
+.bw-industry-symbol{display:grid;place-items:center;width:88px;height:88px;border-radius:50%;background:#fff;color:#98a2b3}
+:global(#bookingwhale) #business .bw-industry-symbol :global(svg){width:54px;height:54px;transform-origin:50% 60%}
+.bw-industry-demo{display:flex;flex-direction:column;gap:10px;height:140px;padding:8px 0 0;justify-content:flex-start;background:transparent;border:0;border-radius:0;overflow:hidden}
+.bw-industry-demo>strong{font-size:16px;font-weight:600;line-height:1.35}
+.bw-demo-label{font-size:10px;color:#617087}
+.bw-ticket-date{font-size:11px;color:#748094}
+.bw-service-detail,.bw-guest-count{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#748094}
+.bw-guest-count b{margin-right:auto;font-size:16px}
+.bw-dinner-rounds,.bw-industry-slots{display:flex;gap:6px;font-size:12px}
+.bw-dinner-rounds>span,.bw-industry-slots>span{flex:1;text-align:center;padding:10px 2px;background:#f3f5f9;border-radius:5px}
+.bw-dinner-rounds>.is-selected{background:#735542;color:#fff}
+.bw-dinner-rounds :global(svg){width:12px;height:12px;display:inline}
+.bw-industry-slots>.bw-industry-selected{background:#526b9a;color:#fff}
+.bw-class-time{display:flex;align-items:center;justify-content:space-between}.bw-class-time>b{font-size:30px;line-height:1.1;font-weight:500}.bw-class-time>span{font-size:11px}.bw-class-time small{display:block;font-size:9px;color:#748094;margin-top:5px}
+.bw-capacity{display:flex;gap:5px}.bw-capacity i{flex:1;height:9px;border:1px solid #b6d4c8;border-radius:2px}.bw-capacity .filled{background:#b6d4c8}
+.bw-lesson-days{display:flex;gap:7px}.bw-lesson-days>span{flex:1;text-align:center;border:1px solid #e0e6ef;border-radius:5px;padding:6px}.bw-lesson-days small{display:block;font-size:8px}.bw-lesson-days b{font-size:20px;font-weight:500}.bw-lesson-days>.chosen{background:#e4ebfb}
+.bw-workshop-round{display:flex;align-items:center;gap:20px}.bw-workshop-round>b{font-size:30px;line-height:1}.bw-workshop-round small{display:block;font-size:10px;color:#748094;margin-top:4px}.bw-workshop-round>span,.bw-participant-count{font-size:11px}.bw-participant-count{display:flex;align-items:center;justify-content:space-between;padding:8px}.bw-participant-count :global(svg){width:14px;height:14px}
+.bw-tour-route{display:grid;gap:10px;padding-left:13px;border-left:1px solid #b6d6d9;margin-left:4px}.bw-tour-route>span{position:relative;font-size:12px}.bw-tour-route small{display:block;font-size:9px;color:#748094}.bw-tour-route i{position:absolute;left:-17px;top:3px;background:#4b7a7f;border:2px solid #fff;border-radius:50%;width:7px;height:7px}
+:global(#bookingwhale) #business .bw-industry-graphic h3{color:#18212f;margin:18px 0 8px}
+:global(#bookingwhale) #business .bw-industry-graphic>p{color:#617087;margin:0}
+:global(#bookingwhale) .bw-directory-note{color:#617087;margin:30px 0 0}.bw-directory-note a{color:#344f7a;margin-left:8px}
+:global(#bookingwhale) #business .bw-industry-viewport{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:12px}
+:global(#bookingwhale) #business .bw-industry-viewport::-webkit-scrollbar{display:none;width:0;height:0}
+:global(#bookingwhale .is-business-track) #business .bw-industry-viewport{overflow:hidden;scroll-snap-type:none;padding-bottom:0}
+@media(max-width:750px){.bw-industry-scene{padding:16px;height:296px}.bw-directory-note a{display:block;margin-left:0}}
+
+:global(#bookingwhale) #business .bw-dinner-rounds>span,:global(#bookingwhale) #business .bw-industry-slots>span{background:#fff;color:#334155;border:0;box-shadow:none;padding:8px 2px}
+:global(#bookingwhale) #business .bw-dinner-rounds>.is-selected,:global(#bookingwhale) #business .bw-industry-slots>.bw-industry-selected{background:#263449;color:#fff;border:0}
+:global(#bookingwhale) #business .bw-capacity i{border-color:#a9b2c0;background:#fff}
+:global(#bookingwhale) #business .bw-capacity i.filled{background:#758398}
+:global(#bookingwhale) #business .bw-class-time>b{color:#263449}
+:global(#bookingwhale) #business .bw-lesson-days>.chosen{background:#e1e6ee;border-color:#a9b2c0}
+:global(#bookingwhale) #business .bw-demo-label{display:none}
+
+:global(#bookingwhale) #business .bw-booking-demo{gap:10px}
+:global(#bookingwhale) #business .bw-booking-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:26px}
+:global(#bookingwhale) #business .bw-booking-heading strong{font-size:18px;font-weight:600;line-height:1.4;color:#29384f}
+:global(#bookingwhale) #business .bw-booking-heading>span{font-size:12px;color:#617087;white-space:nowrap}
+:global(#bookingwhale) #business :is(.bw-booking-panel,.bw-rental-schedule,.bw-consultation-summary){background:#fff;border:1px solid #e7ebf1;border-radius:12px;min-height:84px;padding:12px;box-sizing:border-box}
+:global(#bookingwhale) #business .bw-rental-axis{display:flex;justify-content:space-between;color:#617087;font-size:10px;line-height:16px;font-variant-numeric:tabular-nums}
+:global(#bookingwhale) #business .bw-rental-timeline{position:relative;height:34px;margin:8px 13px 0;background:repeating-linear-gradient(to right,#e7ebf1 0 1px,transparent 1px 25%);border-right:1px solid #e7ebf1}
+:global(#bookingwhale) #business .bw-rental-reservation{position:absolute;inset:0 25%;display:flex;align-items:center;justify-content:center;border-radius:6px;background:#263449;color:#fff;font-size:11px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+:global(#bookingwhale) #business .bw-booking-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:28px;font-size:12px;color:#526178}
+:global(#bookingwhale) #business :is(.bw-booking-duration,.bw-booking-client,.bw-preview-status){display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+:global(#bookingwhale) #business .bw-booking-meta :global(svg){width:13px;height:13px;flex-shrink:0}
+:global(#bookingwhale) #business .bw-preview-status{font-size:11px;font-weight:500;color:#334155;background:#e9edf2;border-radius:999px;padding:4px 8px}
+:global(#bookingwhale) #business .bw-consultation-summary{display:flex;align-items:center;gap:14px}
+:global(#bookingwhale) #business .bw-consultation-date{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:0 0 48px;align-self:stretch;border:1px solid #e7ebf1;border-radius:8px;overflow:hidden}
+:global(#bookingwhale) #business .bw-consultation-date>span{width:100%;text-align:center;font-size:10px;line-height:19px;background:#f0f3f7;color:#526178}
+:global(#bookingwhale) #business .bw-consultation-date>b{font-size:23px;font-weight:600;line-height:32px;color:#29384f}
+:global(#bookingwhale) #business .bw-consultation-slot{display:flex;flex-direction:column;gap:6px;min-width:0}
+:global(#bookingwhale) #business .bw-consultation-slot>strong{font-size:18px;font-weight:600;line-height:1.3;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#29384f;white-space:nowrap}
+:global(#bookingwhale) #business .bw-consultation-slot>span{display:flex;align-items:center;gap:5px;font-size:12px;color:#617087}
+:global(#bookingwhale) #business .bw-consultation-slot :global(svg){width:12px;height:12px}
+:global(#bookingwhale) #business .bw-booking-client>i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#e9edf2;color:#526178;font-size:9px;font-weight:600;font-style:normal}
+
+:global(#bookingwhale) #business .bw-booking-demo .bw-booking-panel{height:84px;flex-shrink:0}
+:global(#bookingwhale) #business .bw-time-panel{display:flex;flex-direction:column;justify-content:space-between;gap:8px}
+:global(#bookingwhale) #business .bw-preview-detail{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;line-height:16px;color:#617087}
+:global(#bookingwhale) #business .bw-preview-detail>span{display:inline-flex;align-items:center;gap:5px}
+:global(#bookingwhale) #business .bw-preview-detail :global(svg){width:12px;height:12px;flex-shrink:0}
+:global(#bookingwhale) #business .bw-booking-panel :is(.bw-dinner-rounds,.bw-industry-slots){gap:6px;font-size:12px;line-height:18px;font-variant-numeric:tabular-nums}
+:global(#bookingwhale) #business .bw-booking-panel :is(.bw-dinner-rounds,.bw-industry-slots)>span{display:flex;align-items:center;justify-content:center;gap:4px;padding:5px 2px;border:1px solid #e7ebf1;border-radius:6px;min-width:0}
+:global(#bookingwhale) #business .bw-booking-panel :is(.bw-dinner-rounds,.bw-industry-slots)>:is(.is-selected,.bw-industry-selected){border-color:transparent}
+:global(#bookingwhale) #business .bw-booking-panel .bw-dinner-rounds :global(svg){width:11px;height:11px;flex-shrink:0}
+:global(#bookingwhale) #business .bw-booking-meta .bw-guest-count{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;color:#526178;font-size:12px;line-height:1.5}
+:global(#bookingwhale) #business .bw-booking-meta .bw-guest-count b{margin:0;font-size:12px;font-weight:600}
+:global(#bookingwhale) #business .bw-fitness-panel{display:flex;flex-direction:column;justify-content:space-between}
+:global(#bookingwhale) #business .bw-booking-panel .bw-class-time>b{font-size:24px;line-height:30px;font-weight:600;font-variant-numeric:tabular-nums}
+:global(#bookingwhale) #business .bw-booking-panel .bw-class-time>span{font-size:12px;color:#617087}
+:global(#bookingwhale) #business .bw-booking-panel .bw-capacity{gap:5px}
+:global(#bookingwhale) #business .bw-booking-panel .bw-capacity i{height:7px;border-radius:3px}
+:global(#bookingwhale) #business .bw-booking-panel .bw-lesson-days{height:100%;gap:8px}
+:global(#bookingwhale) #business .bw-booking-panel .bw-lesson-days>span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0;border-radius:6px;border:1px solid #e7ebf1}
+:global(#bookingwhale) #business .bw-booking-panel .bw-lesson-days>.chosen{border-color:#a9b2c0}
+:global(#bookingwhale) #business .bw-booking-panel .bw-lesson-days small{margin:0;font-size:10px;line-height:14px;color:#617087}
+:global(#bookingwhale) #business .bw-booking-panel .bw-lesson-days b{font-size:20px;line-height:24px;font-weight:600;color:#29384f}
+:global(#bookingwhale) #business .bw-booking-meta .bw-participant-count{border:0;padding:4px 8px;font-size:11px;line-height:1.5;gap:6px;color:#334155}
+:global(#bookingwhale) #business .bw-booking-meta .bw-participant-count b{font-weight:500;margin:0}
+:global(#bookingwhale) #business .bw-travel-panel{display:flex;align-items:center}
+:global(#bookingwhale) #business .bw-booking-panel .bw-tour-route{display:flex;flex:1;justify-content:space-between;gap:12px;border:0;margin:0;padding:0;position:relative}
+:global(#bookingwhale) #business .bw-booking-panel .bw-tour-route::before{content:"";position:absolute;top:4px;left:4px;right:4px;height:1px;background:#dce3ec}
+:global(#bookingwhale) #business .bw-booking-panel .bw-tour-route>span{padding-top:16px;font-size:12px;line-height:17px;min-width:0}
+:global(#bookingwhale) #business .bw-booking-panel .bw-tour-route>span:last-child{text-align:right}
+:global(#bookingwhale) #business .bw-booking-panel .bw-tour-route small{max-width:none;font-size:11px;line-height:16px;color:#617087;font-variant-numeric:tabular-nums}
+:global(#bookingwhale) #business .bw-booking-panel .bw-tour-route i{width:8px;height:8px;top:0;left:0;border:2px solid #fff;outline:1px solid #bcc6d4;background:#758398}
+:global(#bookingwhale) #business .bw-booking-panel .bw-tour-route>span:last-child i{left:auto;right:0}
+@media(max-width:743px){.bw-industry-symbol{contain:paint;transform:translateZ(0)}}
+</style>
+
+<style>
+  .bw-business-detail-link{color:inherit;text-decoration:none}
+  .bw-business-detail-link:hover{text-decoration:underline;text-underline-offset:5px}
+  .bw-business-detail-link:focus-visible{outline:2px solid #0747ff;outline-offset:4px}
+</style>

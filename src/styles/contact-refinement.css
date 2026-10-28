@@ -1,0 +1,20 @@
+#bookingwhale #contact.bw-contact-showcase{display:flex;flex-direction:column;align-items:center;max-width:1040px;padding-block:56px 40px;background:#fff;border:0;text-align:center}
+#bookingwhale #contact.bw-contact-showcase::before,#bookingwhale #contact.bw-contact-showcase::after{display:none}
+#bookingwhale #contact .bw-contact-copy{display:block;width:100%;max-width:680px;margin:0 auto 28px;text-align:center}
+#bookingwhale #contact h2{font-size:clamp(34px,3.6vw,48px);line-height:1.25;margin:12px 0 0}
+#bookingwhale #contact h2 em{color:#0747ff;font-style:normal}
+#bookingwhale #contact .bw-contact-copy p{font-size:17px;line-height:1.65;margin:16px auto 0;max-width:42ch}
+#bookingwhale #contact .bw-contact-actions{display:flex;justify-content:center;align-items:center;margin-top:22px}
+#bookingwhale #contact .bw-contact-actions .bw-button{min-height:48px;padding:12px 22px;font-size:16px}
+#bookingwhale #contact .bw-contact-products{width:100%;max-width:540px;aspect-ratio:1.6;margin:0 auto}
+#bookingwhale #contact figcaption{justify-content:center;font-size:11px;margin-top:10px}
+#bookingwhale #contact figcaption span{display:none}
+@media(max-width:750px){
+#bookingwhale #contact.bw-contact-showcase{padding-block:40px 28px}
+#bookingwhale #contact .bw-contact-copy{margin-bottom:24px}
+#bookingwhale #contact .bw-contact-copy p{font-size:16px}
+#bookingwhale #contact .bw-contact-actions{gap:14px;flex-wrap:wrap;margin-top:20px}
+#bookingwhale #contact .bw-contact-products{max-width:360px;aspect-ratio:1.4;margin:0 auto}
+}
+@media(min-width:751px){#bookingwhale #contact h2 br{display:none}#bookingwhale #contact .bw-contact-products{max-width:460px}}
+@media(max-width:750px){#bookingwhale #contact .bw-contact-products{max-width:300px}}

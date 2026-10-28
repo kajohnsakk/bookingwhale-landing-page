@@ -1,0 +1,5 @@
+Sample customer portraits from Random User Generator:
+Emma Wilson (fictional display name): https://randomuser.me/api/portraits/women/68.jpg
+Daniel Carter (fictional display name): https://randomuser.me/api/portraits/men/32.jpg
+Source information: https://randomuser.me/copyright
+Names and booking details are fictional demonstration data, not testimonials or customer endorsements.

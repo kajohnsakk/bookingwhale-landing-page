@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from './Navbar.astro';
+import Hero from './Hero.astro';
+import ProductStory from './ProductStory.astro';
+import Business from './Business.astro';
+import GettingStarted from './GettingStarted.astro';
+import FAQ from './FAQ.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import ContactDialog from './ContactDialog.astro';
+---
+<BaseLayout>
+  <div id="bookingwhale">
+    <div class="bw-page bw-ui-static">
+      <Navbar />
+      <main id="main-content">
+        <Hero />
+        <ProductStory />
+        <Business />
+        <GettingStarted />
+        <FAQ />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+    <ContactDialog />
+  </div>
+  <script>
+    import '../scripts/motion.js';
+  </script>
+</BaseLayout>

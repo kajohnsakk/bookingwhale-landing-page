@@ -1,0 +1,57 @@
+Booking Whale performance audit — 2026-10-26
+
+Scope
+Production Astro preview on localhost, Chromium, 1440x900 and 390x900.
+Cold page load followed by 100 programmatic scroll steps at 40 ms intervals.
+Measurements are local diagnostics, not field Core Web Vitals, Lighthouse scores,
+or a guarantee of frame rate on users' devices. Resource Content-Length totals
+exclude streamed responses and must not be presented as total transfer size.
+
+Changes
+- Navbar, footer and UI mark now share a 96px PNG (4.8 KB), replacing two
+  separately requested 486,828-byte source images. Source originals retained.
+- Three decorative hero iframe views are prerendered HTML from the existing
+  production React component demos. Their appearance and device motion remain;
+  those frames no longer initialize React or application data hooks.
+- Original interactive demos remain at /hero-live/ for development.
+- Preview roots are inert so decorative app controls cannot capture keyboard focus.
+- Primary Thai heading font is preloaded. Initial desktop hero scroll-track space
+  is reserved before animation initialization to avoid a late geometry change.
+- Spread cards use transform x/y instead of animating layout left/top.
+- Navigation reuses its DOM lists and updates aria-current only when it changes.
+- Resizes refresh scroll measurements without restarting every animation loop.
+- CTA screenshots remain lazy-loaded and use asynchronous image decoding.
+- Native user scrolling is preserved. Section links jump directly because long
+  smooth jumps across pinned sections were interrupted by refresh; anchor checks pass.
+
+Measured before -> after
+Desktop initial cumulative layout-shift sum: 0.13099 -> 0.000148.
+Mobile initial cumulative layout-shift sum: 0.002477 -> 0.000919.
+Desktop scripted-scroll ScriptDuration: 0.084s -> 0.067s.
+Mobile scripted-scroll ScriptDuration: 0.074s -> 0.053s.
+Network request count including the scroll pass: desktop 41 -> 37, mobile 43 -> 37.
+No parent-page tasks over 50ms in either scripted scroll pass, before or after.
+Timings vary; do not infer a percentage improvement in real-user speed from one run.
+Raw results: workspace work/performance-before.json and performance-after.json.
+
+Data loading
+The marketing page is static HTML. Booking records are demo fixtures; no live
+booking API, user authentication, polling or customer-data fetch is connected.
+Browser checks observed no fetch/XHR requests during navigation and FAQ use.
+Production CDN compression, cache headers and server latency were not changed:
+this audit has access to the local preview, not deployed hosting configuration.
+
+Updating hero previews
+After rebuilding the original customer/merchant demos, run from workspace root:
+PLAYWRIGHT_MODULE=/absolute/path/to/@playwright/test/index.mjs \
+  node bookingwhale-astro/scripts/render-hero-previews.mjs
+The script expects a preview at http://127.0.0.1:4322; override PREVIEW_ORIGIN
+when needed. It renders all three states, removes runtime scripts, preserves CSS,
+and updates public/hero-preview/*.html. Rebuild Astro afterwards.
+Tests validate that referenced preview assets exist and no runtime scripts return.
+
+Validation
+Production build; six output tests; desktop/mobile rapid scroll; initial device
+rotation; FAQ expansion; navbar menu and anchor destination; resizing; reduced
+motion; hero screenshot inspection. A separate slow-load check uses Chromium CPU
+4x throttling, 100ms latency and 187,500 bytes/s download throughput.

@@ -1,0 +1,17 @@
+---
+import Icon from './Icon.astro';
+const examples=[
+ {title:'ความงาม & เวลเนส',icon:'flower-2',service:'นวดผ่อนคลาย',time:'13:00',detail:'60 นาที · เลือกเวลาจอง'},
+ {title:'ร้านอาหาร & เครื่องดื่ม',icon:'utensils',service:'จองโต๊ะ',time:'19:00',detail:'2 คน · มื้อเย็น'},
+ {title:'ฟิตเนส & กีฬา',icon:'dumbbell',service:'คลาส Pilates',time:'18:00',detail:'เหลือ 3 ที่ · 60 นาที'},
+ {title:'การศึกษา & การสอน',icon:'graduation-cap',service:'เรียนภาษาอังกฤษ',time:'16:00',detail:'เรียนตัวต่อตัว · 1 ชั่วโมง'},
+ {title:'อีเวนต์ & บัตรเข้างาน',icon:'tickets',service:'Design Workshop',time:'14:00',detail:'2 ที่นั่ง · รอบบ่าย'},
+ {title:'การท่องเที่ยว & ที่พัก',icon:'globe',service:'City Walking Tour',time:'09:00',detail:'2 คน · รอบเช้า'},
+ {title:'ธุรกิจให้เช่า',icon:'key-round',service:'Studio A',time:'10:00',detail:'จองพื้นที่ · 2 ชั่วโมง'},
+ {title:'บริการทั่วไป',icon:'settings',service:'จองเวลาปรึกษา',time:'11:00',detail:'จองล่วงหน้า · 60 นาที'},
+] as const;
+---
+<div class="bw-hero-spread">
+ <div class="bw-spread-heading"><p>ระบบจองเดียว</p><h2>ปรับให้เข้ากับ<br/><em>ธุรกิจของคุณ</em></h2><span>จองบริการ จองคลาส จองรอบที่สะดวก</span><a href="#business">ดูรูปแบบการจอง <Icon name="arrow-down"/></a></div>
+ <div class="bw-spread-cards" tabindex="0" role="group" aria-label="ตัวอย่างบริการที่จองได้">{examples.map((item,i)=><article class="bw-spread-card" data-spread-index={i}><header><Icon name={item.icon}/><span>{item.title}</span></header><strong>{item.service}</strong><div class="bw-spread-slot"><span>24 ต.ค.</span><b>{item.time}</b><Icon name="check"/></div><p>{item.detail}</p></article>)}</div>
+</div>

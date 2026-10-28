@@ -1,286 +1,40 @@
 ---
-import { t } from "../i18n/utils";
-import type { Lang } from "../i18n/utils";
-
-interface Props {
-  lang?: Lang;
-}
-const { lang = "th" } = Astro.props;
+import Icon from "./Icon.astro";
+import '../styles/footer-controls.css';
+interface Props { sectionBase?: string; compactResources?: boolean }
+const { sectionBase = '', compactResources = false } = Astro.props;
 ---
-
-<footer
-  id="contact"
-  class="bg-gray-950 text-white rounded-t-[2.5rem] lg:rounded-t-[3rem]"
->
-  <div class="mx-auto px-6 sm:px-10 md:px-14 lg:px-24 max-w-[1400px]">
-    <div class="py-16">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="lg:col-span-1">
-          <div class="flex items-center space-x-3 mb-4">
-            <img
-              src="/logo.webp"
-              alt="Booking Whale company logo - Thailand's leading LINE Official Account booking management platform"
-              class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain rounded-lg"
-              width="96"
-              height="96"
-              loading="lazy"
-            />
-          </div>
-
-          <div class="flex space-x-3">
-            <a
-              href="https://www.facebook.com/bookingwhale"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow us on Facebook"
-              class="group w-10 h-10 bg-white/5 hover:bg-white/10 rounded-lg flex items-center justify-center transition-all duration-200"
-            >
-              <svg
-                class="w-4 h-4 text-gray-300 group-hover:text-white transition-colors"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                ></path>
-              </svg>
-            </a>
-            <a
-              href="https://line.me/R/ti/p/@337esngk"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Add us on LINE"
-              class="group w-10 h-10 bg-white/5 hover:bg-white/10 rounded-lg flex items-center justify-center transition-all duration-200"
-            >
-              <svg
-                class="w-4 h-4 text-gray-300 group-hover:text-white transition-colors"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.271.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"
-                ></path>
-              </svg>
-            </a>
-            <a
-              href="https://www.instagram.com/bookingwhale.th/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow us on Instagram"
-              class="group w-10 h-10 bg-white/5 hover:bg-white/10 rounded-lg flex items-center justify-center transition-all duration-200"
-            >
-              <svg
-                class="w-4 h-4 text-gray-300 group-hover:text-white transition-colors"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h4
-            class="text-sm font-semibold uppercase tracking-wide text-gray-300 mb-4"
-          >
-            {t("footerMenu", lang)}
-          </h4>
-          <ul class="space-y-2">
-            <li>
-              <a
-                href="#services"
-                data-translate="ourServices"
-                class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                >{t("ourServices", lang)}</a
-              >
-            </li>
-            <li>
-              <a
-                href="#features"
-                data-translate="whyChoose"
-                class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                >{t("whyChoose", lang)}</a
-              >
-            </li>
-            <li>
-              <a
-                href="#integrations"
-                data-translate="integrations"
-                class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                >{t("integrations", lang)}</a
-              >
-            </li>
-            <li>
-              <a
-                href="#faq"
-                data-translate="faq"
-                class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                >{t("faq", lang)}</a
-              >
-            </li>
-            <li>
-              <a
-                href="/blog"
-                data-translate="blog"
-                class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                >{t("blog", lang)}</a
-              >
-            </li>
-            <li>
-              <a
-                href={lang === "en" ? "/en/contact" : "/contact"}
-                data-translate="contact"
-                class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                >{t("contact", lang)}</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4
-            class="text-sm font-semibold uppercase tracking-wide text-gray-300 mb-4"
-          >
-            {t("businesses", lang)}
-          </h4>
-          <ul class="space-y-2">
-            <li>
-              <a
-                href={lang === "en" ? "/en/businesses/food-beverage" : "/businesses/food-beverage"}
-                class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                >{t("bizFoodTitle", lang)}</a
-              >
-            </li>
-            <li>
-              <a
-                href={lang === "en" ? "/en/businesses/fitness-sports" : "/businesses/fitness-sports"}
-                class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                >{t("bizFitnessTitle", lang)}</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4
-            class="text-sm font-semibold uppercase tracking-wide text-gray-300 mb-4"
-          >
-            {t("footerContact", lang)}
-          </h4>
-          <div class="space-y-3">
-            <div class="flex items-center space-x-2">
-              <svg
-                class="w-4 h-4 text-gray-400 flex-shrink-0"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
-                ></path>
-              </svg>
-              <a
-                href="tel:0970166045"
-                class="text-gray-300 hover:text-white transition-colors text-sm"
-              >
-                097-016-6045
-              </a>
-            </div>
-            <div class="flex items-center space-x-2">
-              <svg
-                class="w-4 h-4 text-gray-400 flex-shrink-0"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
-                ></path>
-              </svg>
-              <a
-                href="tel:0805956458"
-                class="text-gray-300 hover:text-white transition-colors text-sm"
-              >
-                080-595-6458
-              </a>
-            </div>
-            <div class="flex items-center space-x-2">
-              <svg
-                class="w-4 h-4 text-gray-400 flex-shrink-0"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-                ></path>
-              </svg>
-              <a
-                href="mailto:info@bookingwhale.co"
-                class="text-gray-300 hover:text-white transition-colors text-sm"
-              >
-                info@bookingwhale.co
-              </a>
-            </div>
-            <div class="flex items-center space-x-2">
-              <svg
-                class="w-4 h-4 text-gray-400 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-              <span
-                data-translate="available247"
-                class="font-medium text-gray-300 text-sm"
-                >{t("available247", lang)}</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
+<footer class="bw-container bw-footer bw-footer-refined">
+  <div class="bw-footer-top">
+    <div class="bw-footer-identity">
+      <a class="bw-brand" href={sectionBase || '#top'} aria-label="Booking Whale หน้าแรก"><img src="/assets/bookingwhale-wordmark-480.png" width="480" height="90" alt="Booking Whale" loading="lazy" decoding="async" /></a>
+      <p>จองง่ายสำหรับลูกค้า<br>จัดการคล่องสำหรับร้าน</p>
+      <span class="bw-footer-caption">ระบบจองคิวผ่าน LINE OA</span>
     </div>
-
-    <div class="border-t border-white/5 py-8">
-      <div
-        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
-      >
-        <div class="text-gray-400 text-sm text-center md:text-left">
-          <span
-            >&copy; {new Date().getFullYear()} Booking Whale. <span
-              data-translate="allRightsReserved"
-              >{t("allRightsReserved", lang)}</span
-            ></span
-          >
-        </div>
-        <div class="flex flex-wrap justify-center gap-4 text-sm">
-          <a
-            href="/privacy-policy"
-            data-translate="privacyPolicy"
-            class="text-gray-400 hover:text-white transition-colors"
-            >{t("privacyPolicy", lang)}</a
-          >
-          <a
-            href="/terms"
-            data-translate="termsOfService"
-            class="text-gray-400 hover:text-white transition-colors"
-            >{t("termsOfService", lang)}</a
-          >
-        </div>
-      </div>
+    <div>
+      <strong>รู้จัก Booking Whale</strong>
+      <a href={`${sectionBase}#features`}>ระบบจองทำงานอย่างไร</a>
+      <a href={`${sectionBase}#business`}>สำหรับธุรกิจของคุณ</a>
+      <a data-contact-open href="https://bookingwhale.co/contact" aria-haspopup="dialog" aria-controls="contact-dialog">เริ่มใช้งาน</a>
+      <a href={`${sectionBase}#faq`}>คำถามที่พบบ่อย</a>
+      <a href="/blog/">บทความสำหรับธุรกิจ</a>
+      <a href="/blog/line-oa-booking-guide/" lang="th">คู่มือเริ่มรับจองผ่าน LINE OA</a>
+      {!compactResources && <><a href="/blog/pilates-studio-booking-system/" lang="th">แนวทางจองคลาสพิลาทิส</a>
+      <a href="/blog/restaurant-queue-management/" lang="th">แนวทางจองโต๊ะร้านอาหาร</a></>}
+    </div>
+    <div class="bw-footer-contact">
+      <strong>ติดต่อเรา</strong>
+      <a class="bw-footer-email" href="mailto:info@bookingwhale.co">info@bookingwhale.co <Icon name="arrow-up-right" class="bw-action-icon" /></a>
+      <a href="tel:0970166045"><Icon name="phone" />097-016-6045</a>
+      <a href="tel:0805956458"><Icon name="phone" />080-595-6458</a>
     </div>
   </div>
+  <div class="bw-footer-bottom">
+    <span>© 2026 Booking Whale</span>
+    <div class="bw-footer-legal">
+    <a href="/privacy-policy/">นโยบายความเป็นส่วนตัว <Icon name="arrow-up-right" class="bw-action-icon" /></a>
+    <a href="/terms/">ข้อกำหนดการใช้บริการ <Icon name="arrow-up-right" class="bw-action-icon" /></a>
+    </div>
+    <a class="bw-back-to-top" href="#top" aria-label="กลับด้านบน" title="กลับด้านบน"><span class="bw-back-to-top-label">กลับด้านบน</span> <Icon name="arrow-up" class="bw-action-icon" /></a>
+  </div>
 </footer>
-

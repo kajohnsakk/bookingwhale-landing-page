@@ -1,0 +1,5 @@
+---
+import analytics from '../scripts/analytics.js?raw';
+const enabled = import.meta.env.PROD && import.meta.env.PUBLIC_ANALYTICS_ENABLED !== 'false';
+---
+{enabled && <script is:inline set:html={analytics} />}

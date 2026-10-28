@@ -1,0 +1,24 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import { businessPages } from '../data/business-pages';
+interface Props { slug: string; locale?: 'th' | 'en' }
+const {slug,locale='th'} = Astro.props;
+const page = businessPages.find(item => item.slug === slug)!;
+const copy = page[locale];
+const isThai = locale === 'th';
+const prefix = isThai ? '' : '/en';
+const breadcrumb = [{name:copy.title,path:`${prefix}/businesses/${slug}/`}];
+---
+<ContentLayout title={`${copy.title} | Booking Whale`} description={copy.description} {locale} {breadcrumb}>
+  <header class="editorial-intro"><span class="editorial-kicker">Booking Whale · LINE OA</span><h1>{copy.title}</h1><p>{copy.intro}</p><a class="editorial-button" href={`${prefix}/contact/`} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{isThai ? 'เริ่มใช้งาน' : 'Get started'} <span aria-hidden="true">→</span></a></header>
+  <div class="editorial-grid">{copy.sections.map((section,i) => <section class="editorial-card"><span class="editorial-kicker">0{i + 1}</span><h2>{section.title}</h2><p>{section.body}</p></section>)}</div>
+  <div class="editorial-prose">
+    <h2>{isThai ? 'ตัวอย่างรูปแบบการจอง' : 'An example booking setup'}</h2><p>{copy.example}</p>
+    <h2>{isThai ? 'เตรียมอะไรบ้างก่อนเริ่ม' : 'What to prepare'}</h2><ul>{copy.prepare.map(item => <li>{item}</li>)}</ul>
+    <h2>{isThai ? 'ตรวจสอบรูปแบบของร้านก่อนเริ่มใช้' : 'Check your workflow before you start'}</h2><p>{copy.note}</p>
+    <p>{isThai ? 'ค่าใช้จ่ายและเงื่อนไขการทดลองใช้ขึ้นอยู่กับข้อเสนอที่เหมาะกับร้าน สอบถามรายละเอียดก่อนตัดสินใจได้ที่' : 'Ask about pricing and trial availability for your business before deciding. See our'} <a href={`${prefix}/contact/`}>{isThai ? 'หน้าติดต่อ' : 'contact page'}</a></p>
+    <p><a href="/blog/line-oa-booking-guide/" lang="th">{isThai ? 'คู่มือเริ่มรับจองผ่าน LINE OA' : 'LINE OA booking setup guide (Thai)'} →</a></p>
+    <p><a href={`/blog/${page.article}/`} lang="th">{copy.related} →</a></p>
+  </div>
+  <aside class="editorial-cta"><h2>{isThai ? 'ดูรูปแบบสำหรับธุรกิจอื่น' : 'Explore other business types'}</h2><ul>{businessPages.filter(item => item.slug !== slug).map(item => <li><a href={`${prefix}/businesses/${item.slug}/`}>{item[locale].title}</a></li>)}</ul></aside>
+</ContentLayout>

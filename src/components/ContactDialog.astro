@@ -1,0 +1,35 @@
+---
+import Icon from './Icon.astro';
+import '../styles/contact-dialog.css';
+---
+<dialog id="contact-dialog" class="bw-contact-dialog" aria-labelledby="contact-dialog-title" aria-describedby="contact-dialog-description">
+  <button type="button" class="bw-contact-dialog-close" aria-label="ปิดหน้าต่างติดต่อ" autofocus><Icon name="x" /></button>
+  <div class="bw-dialog-intro">
+    <span class="bw-dialog-kicker">ติดต่อเรา</span>
+    <h2 id="contact-dialog-title">จองง่ายขึ้น เริ่มตรงนี้</h2>
+    <p id="contact-dialog-description">บอกเราว่าร้านคุณรับจองแบบไหน เราช่วยคุณเริ่มต้นได้</p>
+  </div>
+  <div class="bw-dialog-cards">
+    <section class="bw-dialog-channel bw-dialog-channel-line" aria-labelledby="contact-line-title">
+      <img class="bw-dialog-illustration" src="/assets/contact/chat.svg" width="500" height="500" alt="" loading="lazy" decoding="async" />
+      <h3 id="contact-line-title">ทักหาเราทาง LINE</h3>
+      <p>ถามเรื่องระบบ หรือให้เราช่วยเริ่มรับจองได้ในแชท</p>
+      <div class="bw-dialog-channel-actions">
+        <a class="bw-dialog-line" href="https://line.me/R/ti/p/%40337esngk" target="_blank" rel="noopener noreferrer"><img class="bw-dialog-line-logo" src="/assets/line-mark-72.png" srcset="/assets/line-mark-72.png 72w, /assets/line-mark-144.png 144w" sizes="28px" loading="lazy" width="28" height="28" alt="" /><span>เพิ่มเพื่อน LINE</span><Icon name="arrow-right" /></a>
+      </div>
+    </section>
+    <section class="bw-dialog-channel bw-dialog-channel-call" aria-labelledby="contact-call-title">
+      <img class="bw-dialog-illustration" src="/assets/contact/calling.svg" width="500" height="500" alt="" loading="lazy" decoding="async" />
+      <h3 id="contact-call-title">โทรสอบถาม</h3>
+      <p>โทรมาเล่าเรื่องร้านคุณ แล้วเราช่วยดูว่ารับจองแบบไหนได้บ้าง</p>
+      <div class="bw-dialog-channel-actions">
+        <a class="bw-dialog-phone-primary" href="tel:0970166045"><Icon name="phone" />097-016-6045</a>
+        <a class="bw-dialog-phone-secondary" href="tel:0805956458"><Icon name="phone" /><span>หรือโทร</span> 080-595-6458</a>
+      </div>
+    </section>
+  </div>
+  <div class="bw-dialog-email"><Icon name="mail" /><a href="mailto:info@bookingwhale.co">info@bookingwhale.co</a></div>
+</dialog>
+<script>
+  import '../scripts/contact-dialog.js';
+</script>

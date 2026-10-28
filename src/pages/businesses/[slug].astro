@@ -1,0 +1,7 @@
+---
+import BusinessPage from '../../components/BusinessPage.astro';
+import { businessPages } from '../../data/business-pages';
+export function getStaticPaths() { return businessPages.map(page => ({params:{slug:page.slug}})); }
+const {slug} = Astro.params;
+---
+<BusinessPage slug={slug!} />
