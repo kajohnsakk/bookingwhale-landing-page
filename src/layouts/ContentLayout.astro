@@ -80,7 +80,7 @@ if (article) schema['@graph'].push({
         {crumbs.length > 1 && <nav class="editorial-breadcrumb" aria-label={isThai ? 'เส้นทางหน้าเว็บ' : 'Breadcrumb'}><ol>{crumbs.map((crumb, i) => <li>{i === crumbs.length - 1 ? <span aria-current="page">{crumb.name}</span> : <a href={crumb.path}>{crumb.name}</a>}</li>)}</ol></nav>}
         <slot />
       </main>
-      <Footer sectionBase={home} compactResources />
+      <Footer sectionBase={home} />
       <ContactDialog />
     </div>
     <script>import '../scripts/editorial-navigation.js';</script>
