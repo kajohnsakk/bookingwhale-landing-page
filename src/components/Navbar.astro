@@ -8,7 +8,7 @@ const locale=localeFromPath(Astro.url.pathname);
 <header class="bw-nav">
       <a class="bw-brand" href={`${sectionBase}#top`} aria-label="BookingWhale หน้าแรก"><img class="bw-nav-favicon" src="/assets/bookingwhale-mark-96.png" width="44" height="44" alt="" /><span class="bw-nav-wordmark">Booking Whale</span></a>
       <nav class="bw-main-menu" id="bw-main-menu" aria-label="เมนูหลัก">
-        <a href={`${sectionBase}#features`} data-nav-section="features">ฟีเจอร์<Icon name="chevron-right" class="bw-menu-arrow" /></a>
+        <a href={`${sectionBase}#features`} data-nav-section="features">จองยังไง<Icon name="chevron-right" class="bw-menu-arrow" /></a>
         <a href={`${sectionBase}#business`} data-nav-section="business">สำหรับธุรกิจ<Icon name="chevron-right" class="bw-menu-arrow" /></a>
         <a href={`${sectionBase}#how`} data-nav-section="how">วิธีเริ่มต้น<Icon name="chevron-right" class="bw-menu-arrow" /></a>
         {contentPage ? <a href="/blog/" aria-current={Astro.url.pathname.startsWith('/blog/') ? 'page' : undefined}>บทความ<Icon name="chevron-right" class="bw-menu-arrow" /></a> : <a href="#faq" data-nav-section="faq">คำถามที่พบบ่อย<Icon name="chevron-right" class="bw-menu-arrow" /></a>}
