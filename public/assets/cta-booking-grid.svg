@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="520" viewBox="0 0 640 520" fill="none">
+<g stroke="white" stroke-opacity=".14" stroke-width="2">
+<rect x="16" y="28" width="608" height="476" rx="28"/>
+<path d="M16 92H624"/>
+<rect x="130" y="10" width="12" height="40" rx="6" fill="#0747ff"/>
+<rect x="498" y="10" width="12" height="40" rx="6" fill="#0747ff"/>
+<rect x="48" y="116" width="64" height="56" rx="8"/>
+<rect x="128" y="116" width="64" height="56" rx="8" fill="white" fill-opacity=".12"/>
+<rect x="208" y="116" width="64" height="56" rx="8"/>
+<rect x="288" y="116" width="64" height="56" rx="8"/>
+<rect x="368" y="116" width="64" height="56" rx="8"/>
+<rect x="448" y="116" width="64" height="56" rx="8"/>
+<rect x="528" y="116" width="64" height="56" rx="8"/>
+<rect x="48" y="188" width="64" height="56" rx="8"/>
+<rect x="128" y="188" width="64" height="56" rx="8"/>
+<rect x="208" y="188" width="64" height="56" rx="8"/>
+<rect x="288" y="188" width="64" height="56" rx="8"/>
+<rect x="368" y="188" width="64" height="56" rx="8"/>
+<rect x="448" y="188" width="64" height="56" rx="8"/>
+<rect x="528" y="188" width="64" height="56" rx="8"/>
+<rect x="48" y="260" width="64" height="56" rx="8"/>
+<rect x="128" y="260" width="64" height="56" rx="8"/>
+<rect x="208" y="260" width="64" height="56" rx="8"/>
+<rect x="288" y="260" width="64" height="56" rx="8"/>
+<rect x="368" y="260" width="64" height="56" rx="8"/>
+<rect x="448" y="260" width="64" height="56" rx="8"/>
+<rect x="528" y="260" width="64" height="56" rx="8"/>
+<rect x="48" y="332" width="64" height="56" rx="8"/>
+<rect x="128" y="332" width="64" height="56" rx="8"/>
+<rect x="208" y="332" width="64" height="56" rx="8"/>
+<rect x="288" y="332" width="64" height="56" rx="8"/>
+<rect x="368" y="332" width="64" height="56" rx="8"/>
+<rect x="448" y="332" width="64" height="56" rx="8"/>
+<rect x="528" y="332" width="64" height="56" rx="8" fill="white" fill-opacity=".12"/>
+<rect x="48" y="404" width="64" height="56" rx="8"/>
+<rect x="128" y="404" width="64" height="56" rx="8"/>
+<rect x="208" y="404" width="64" height="56" rx="8"/>
+<rect x="288" y="404" width="64" height="56" rx="8"/>
+<rect x="368" y="404" width="64" height="56" rx="8"/>
+<rect x="448" y="404" width="64" height="56" rx="8"/>
+<rect x="528" y="404" width="64" height="56" rx="8"/>
+</g>
+</svg>

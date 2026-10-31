@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { parse } from 'parse5';
 
 const read = path => readFileSync(new URL(`../dist/${path}`, import.meta.url), 'utf8');
@@ -52,7 +52,8 @@ test('locale pages use unique language-specific search and social metadata', () 
 test('canonical and all language return links agree with sitemap entries', () => {
   const sitemap = read('sitemap-0.xml');
   const entries = [...sitemap.matchAll(/<url>(.*?)<\/url>/gs)].map(match => match[1]);
-  assert.equal(entries.length, 99);
+  const articles = readdirSync(new URL('../src/content/blog/', import.meta.url)).filter(file => file.endsWith('.md'));
+  assert.equal(entries.length, 20 + articles.length);
   const origin = new URL(pages[0].canonical).origin;
   for (const page of pages) {
     assert.equal(page.canonical, `${origin}/${page.path}`);

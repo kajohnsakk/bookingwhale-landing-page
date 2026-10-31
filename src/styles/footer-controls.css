@@ -4,10 +4,16 @@
 #bookingwhale footer.bw-footer.bw-footer-refined .bw-footer-legal{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;min-width:0}
 #bookingwhale footer.bw-footer.bw-footer-refined .bw-footer-legal>a{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:inherit;text-decoration:none}
 @media(max-width:750px){
-#bookingwhale footer.bw-footer.bw-footer-refined .bw-footer-bottom{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;gap:8px 16px}
+
+#bookingwhale footer.bw-footer.bw-footer-refined .bw-footer-bottom{display:grid;grid-template-columns:minmax(0,1fr);align-items:center;gap:8px 16px}
 #bookingwhale footer.bw-footer.bw-footer-refined .bw-footer-bottom>span{grid-column:1;grid-row:1;width:auto;margin:0}
-#bookingwhale footer.bw-footer.bw-footer-refined .bw-footer-bottom>.bw-back-to-top{grid-column:2;grid-row:1;display:grid;place-items:center;width:44px;height:44px;min-height:44px;min-width:44px;margin:0;padding:0;border-radius:50%}
-#bookingwhale footer.bw-footer.bw-footer-refined .bw-back-to-top-label{display:none}
-#bookingwhale footer.bw-footer.bw-footer-refined .bw-back-to-top>svg{display:block;width:18px;height:18px;stroke-width:2}
 #bookingwhale footer.bw-footer.bw-footer-refined .bw-footer-legal{grid-column:1/-1;grid-row:2;gap:4px 18px}
 }
+#bookingwhale #bw-back-to-top{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));z-index:80;display:grid;place-items:center;width:48px;height:48px;min-width:48px;min-height:48px;margin:0;padding:0;border:0;border-radius:50%;background:#0747ff;color:#fff;box-shadow:none;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s,background-color .18s}
+#bookingwhale #bw-back-to-top[data-visible]{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+#bookingwhale #bw-back-to-top:hover{background:#0036cc}
+#bookingwhale #bw-back-to-top:focus-visible{outline:2px solid #0747ff;outline-offset:4px}
+#bookingwhale #bw-back-to-top svg{display:block;width:20px;height:20px;margin:0;stroke-width:2}
+#bookingwhale:has(.bw-menu-open,dialog[open]) #bw-back-to-top{opacity:0;visibility:hidden;pointer-events:none}
+@media(max-width:750px){#bookingwhale #bw-back-to-top{right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){#bookingwhale #bw-back-to-top{transition:none;transform:none}}

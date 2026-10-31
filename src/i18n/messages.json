@@ -1678,5 +1678,65 @@
   "จองยังไง": {
     "en": "How to book",
     "zh": "如何预订"
+  },
+  "เลือกช่องทางที่สะดวกสำหรับคุณ": {
+    "en": "Choose the way that works for you.",
+    "zh": "选择适合您的联系方式"
+  },
+  "เริ่มรับจองไปด้วยกัน": {
+    "en": "Let’s get you booking.",
+    "zh": "一起开始接受预约"
+  },
+  "เล่าเรื่องร้านคุณ เราช่วยดูว่าระบบเหมาะไหม": {
+    "en": "Tell us about your business. Let’s see if we’re a good fit.",
+    "zh": "聊聊你的业务，看看我们的系统是否适合你。"
+  },
+  "โทรถามได้เลย": {
+    "en": "Give us a call",
+    "zh": "有问题，打电话问我们"
+  },
+  "สะดวกพิมพ์? ทักมาใน LINE ได้เลย": {
+    "en": "Prefer to type? Say hello on LINE.",
+    "zh": "更喜欢打字？在 LINE 上找我们聊聊。"
+  },
+  "เบอร์หลัก": {
+    "en": "Primary number",
+    "zh": "主要电话"
+  },
+  "เบอร์สำรอง": {
+    "en": "Alternative number",
+    "zh": "备用电话"
+  },
+  "โทรคุยกันได้": {
+    "en": "Let’s talk",
+    "zh": "打电话聊聊"
+  },
+  "เล่าเรื่องร้านคุณ แล้วเราช่วยดูว่ารับจองแบบไหนได้บ้าง": {
+    "en": "Tell us about your business. We’ll help you find a booking setup that fits.",
+    "zh": "聊聊你的店铺，我们帮你找到适合的预约方式。"
+  },
+  "จุดเริ่มต้น": {
+    "en": "Starting point",
+    "zh": "起点"
+  },
+  "จุดสิ้นสุด": {
+    "en": "Finish",
+    "zh": "终点"
+  },
+  "เมืองเก่า": {
+    "en": "Old town",
+    "zh": "老城区"
+  },
+  "ริมแม่น้ำ": {
+    "en": "Riverside",
+    "zh": "河畔"
+  },
+  "อังคาร 27 ต.ค.": {
+    "en": "Tue, 27 Oct",
+    "zh": "10月27日 周二"
+  },
+  "ยืนยันคลาสแล้ว": {
+    "en": "Class confirmed",
+    "zh": "课程已确认"
   }
 }

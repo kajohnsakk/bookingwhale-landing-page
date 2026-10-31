@@ -66,11 +66,11 @@
 #bookingwhale #features .bw-ui-customer .bw-ui-info-pane dl{font-size:13px}
 #bookingwhale #features .bw-ui-customer .bw-ui-info-pane dl>div{grid-template-columns:110px minmax(0,1fr);padding:7px 0;border-color:#ededed}
 #bookingwhale #features .bw-ui-customer .bw-ui-info-pane dl>div:last-child{border:0}
-#bookingwhale #features .bw-ui-latest-booking{display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:8px 12px;margin-top:12px;padding:12px;border-radius:14px;background:#f7f7f7}
+#bookingwhale #features .bw-ui-latest-booking{display:grid;grid-template-columns:54px minmax(0,1fr) auto;align-items:center;gap:8px 12px;margin-top:12px;padding:12px;border-radius:14px;background:#f7f7f7}
 #bookingwhale #features .bw-ui-latest-label{grid-column:1/-1;font-size:12px;color:#717171}
-#bookingwhale #features .bw-ui-booking-date{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex-shrink:0;width:48px;min-height:52px;border-radius:12px;background:#fff;color:#222}
-#bookingwhale #features .bw-ui-booking-date>strong{font-size:22px;font-weight:600;line-height:1}
-#bookingwhale #features .bw-ui-booking-date>small{font-size:11px;color:#717171;white-space:nowrap}
+#bookingwhale #features .bw-ui-booking-date{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;flex-shrink:0;width:54px;min-height:54px;padding:0;box-sizing:border-box;border:1px solid #e7ebf1;border-radius:8px;overflow:hidden;background:#fff;color:#29384f}
+#bookingwhale #features .bw-ui-booking-date>strong{display:block;font-size:24px;font-weight:600;line-height:34px;color:#29384f;text-align:center}
+#bookingwhale #features .bw-ui-booking-date>small{display:block;width:100%;background:#dc3545;color:#fff;font-size:10px;line-height:19px;text-align:center;white-space:nowrap}
 #bookingwhale #features .bw-ui-latest-copy{display:grid;gap:5px}
 #bookingwhale #features .bw-ui-latest-copy>strong{font-size:15px;color:#222}
 #bookingwhale #features .bw-ui-latest-copy>span{font-size:12px;color:#717171}
@@ -80,7 +80,7 @@
 #bookingwhale #features .bw-ui-history-heading>span{font-size:12px;color:#717171}
 #bookingwhale #features .bw-ui-customer .bw-ui-history-labels{border-color:#ededed;background:#f7f7f7;padding:9px 12px;border-radius:12px 12px 0 0}
 #bookingwhale #features .bw-ui-customer .bw-ui-history-row{padding:12px;gap:12px;border-color:#ededed;border-radius:0 0 12px 12px}
-#bookingwhale #features .bw-ui-history-row .bw-ui-booking-date{background:#f7f7f7}
+#bookingwhale #features .bw-ui-history-row .bw-ui-booking-date{background:#fff}
 #bookingwhale #features .bw-ui-history-row>div>strong{font-size:15px;color:#222}
 #bookingwhale #features .bw-ui-customer .bw-ui-history-number{padding:12px 0;color:#717171}
 #bookingwhale #features .bw-ui-history-context{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:#f7f7f7;color:#717171;font-size:12px;line-height:1.8}
@@ -128,7 +128,9 @@
 #bookingwhale #features .bw-ui-manage .bw-ui-window-foot{padding:14px 22px;background:#fff;border-color:#ebebeb;color:#717171;font-size:12px}
 #bookingwhale #features .bw-flow-ticket{border-color:#ddd;border-radius:20px;color:#222;box-shadow:0 14px 36px #00000014}
 #bookingwhale #features .bw-flow-ticket-top{color:#717171}
-#bookingwhale #features .bw-flow-ticket-date{border-radius:12px;background:#f7f7f7;color:#222}
+#bookingwhale #features .bw-flow-ticket-date{display:flex;flex-direction:column;align-items:center;flex:0 0 54px;border:1px solid #e7ebf1;border-radius:8px;background:#fff;color:#29384f;padding:0;overflow:hidden}
+#bookingwhale #features .bw-flow-ticket-date>small{display:block;width:100%;background:#dc3545;color:#fff;font-size:10px;line-height:19px;text-align:center}
+#bookingwhale #features .bw-flow-ticket-date>strong{display:block;font-size:24px;font-weight:600;line-height:34px;color:#29384f;text-align:center}
 #bookingwhale #features .bw-flow-ticket-main>svg{color:#45765c}
 @media(min-width:601px){
 #bookingwhale #features .bw-ui-booking .bw-ui-times{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -182,13 +184,13 @@
 #bookingwhale #features .bw-ui-customer .bw-ui-info-pane,#bookingwhale #features .bw-ui-customer .bw-ui-history-pane{padding:12px 0 0}
 #bookingwhale #features .bw-ui-customer .bw-ui-info-pane dl{font-size:12px}
 #bookingwhale #features .bw-ui-customer .bw-ui-info-pane dl>div{grid-template-columns:70px minmax(0,1fr);gap:6px}
-#bookingwhale #features .bw-ui-latest-booking{grid-template-columns:44px minmax(0,1fr);gap:8px 10px;padding:12px}
-#bookingwhale #features .bw-ui-booking-date{width:44px;min-height:54px}
+#bookingwhale #features .bw-ui-latest-booking{grid-template-columns:54px minmax(0,1fr);gap:8px 10px;padding:12px}
+#bookingwhale #features .bw-ui-booking-date{width:54px;min-height:54px}
 #bookingwhale #features .bw-ui-latest-copy>strong,#bookingwhale #features .bw-ui-history-row>div>strong{font-size:13px}
 #bookingwhale #features .bw-ui-latest-copy>span{font-size:11px}
 #bookingwhale #features .bw-ui-latest-booking>.bw-ui-status{grid-column:2;justify-self:start;margin:0}
 #bookingwhale #features .bw-ui-customer .bw-ui-history-row{flex-wrap:wrap;padding:14px 10px;gap:10px}
-#bookingwhale #features .bw-ui-history-row>.bw-ui-status{margin-left:54px}
+#bookingwhale #features .bw-ui-history-row>.bw-ui-status{margin-left:64px}
 #bookingwhale #features .bw-ui-history-context{padding:12px;gap:8px;font-size:11px}
 #bookingwhale #features .bw-ui-chrome.bw-console-header{gap:8px;padding:12px 14px}
 #bookingwhale #features .bw-console-brand>strong,#bookingwhale #features .bw-console-shop>span{display:none}
@@ -204,4 +206,15 @@
 #bookingwhale #features .bw-ui-manage .bw-ui-arriving-row{padding:16px 12px;flex-wrap:wrap}
 #bookingwhale #features .bw-ui-manage .bw-ui-arriving-row>.bw-ui-status{margin-left:48px}
 #bookingwhale #features .bw-ui-manage .bw-ui-window-foot{padding:12px 16px}
+}
+
+#bookingwhale #features .bw-flow-canvas > :is(.bw-flow-client, .bw-flow-merchant, .bw-flow-profile) > .bw-ui-window {
+  width: 100%;
+  max-width: none;
+  min-height: var(--bw-story-frame-height, 0px);
+  display: flex;
+  flex-direction: column;
+}
+#bookingwhale #features .bw-flow-canvas > :is(.bw-flow-client, .bw-flow-merchant, .bw-flow-profile) > .bw-ui-window > .bw-ui-body {
+  flex: 1;
 }

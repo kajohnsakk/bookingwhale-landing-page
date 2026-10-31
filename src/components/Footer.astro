@@ -33,6 +33,9 @@ const { sectionBase = '' } = Astro.props;
     <a href="/privacy-policy/">นโยบายความเป็นส่วนตัว <Icon name="arrow-up-right" class="bw-action-icon" /></a>
     <a href="/terms/">ข้อกำหนดการใช้บริการ <Icon name="arrow-up-right" class="bw-action-icon" /></a>
     </div>
-    <a class="bw-back-to-top" href="#top" aria-label="กลับด้านบน" title="กลับด้านบน"><span class="bw-back-to-top-label">กลับด้านบน</span> <Icon name="arrow-up" class="bw-action-icon" /></a>
   </div>
 </footer>
+<button id="bw-back-to-top" class="bw-back-to-top" type="button" aria-label="กลับด้านบน" title="กลับด้านบน"><Icon name="arrow-up" /></button>
+<script>
+  import '../scripts/back-to-top.js';
+</script>

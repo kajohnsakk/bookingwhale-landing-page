@@ -2,14 +2,6 @@
 #bookingwhale .bw-industry-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 20px;flex-shrink:0;width:100%}
 #bookingwhale .bw-industry-controls[hidden]{display:none}
 #bookingwhale .bw-industry-controls>p{margin:0;min-width:0;font-size:14px;line-height:1.5;color:#637083}
-#bookingwhale .bw-industry-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
-#bookingwhale .bw-industry-range{min-width:58px;text-align:center;font-size:13px;font-variant-numeric:tabular-nums;color:#637083}
-#bookingwhale .bw-industry-actions button{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid #dcdfe3;border-radius:50%;background:#fff;color:#222;cursor:pointer;transition:background-color .18s,border-color .18s}
-#bookingwhale .bw-industry-actions button svg{width:20px;height:20px}
-#bookingwhale .bw-industry-actions button:hover:not(:disabled){background:#f3f3f3;border-color:#aaa}
-#bookingwhale .bw-industry-actions button:focus-visible{outline:2px solid #0747ff;outline-offset:3px}
-#bookingwhale .bw-industry-actions button:disabled{opacity:.35;cursor:default}
-html:not(.bw-js) #bookingwhale .bw-industry-actions{display:none}
 #bookingwhale .is-business-track .bw-business-intro{margin-bottom:16px}
 #bookingwhale .is-business-track .bw-industry-controls{margin-bottom:12px}
 #bookingwhale .is-business-track .bw-directory-note{margin-top:16px}

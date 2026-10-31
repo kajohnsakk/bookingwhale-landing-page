@@ -1,62 +1,92 @@
 #bookingwhale #main-content > #how { display: block; }
 #bookingwhale #how .bw-journey-head {
-  position: static; display: block; max-width: none;
-  margin: 0 0 28px; text-align: left;
+  position: static; top: auto; display: block; max-width: 840px;
+  margin: 0 auto 40px; text-align: center;
 }
 #bookingwhale #how .bw-journey-head .bw-heading { margin: 0; }
+#bookingwhale #how .bw-journey-head h2 em { display: inline; }
 #bookingwhale #how .bw-journey-head > .bw-inline-link { display: inline-flex; margin: 16px 0 0; }
-#bookingwhale #how ol { max-width: none; margin: 0; gap: 0; }
+#bookingwhale #how ol {
+  display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); grid-template-rows: repeat(2, 1fr);
+  align-items: stretch; max-width: none; margin: 0; padding: 0; gap: 24px; list-style: none;
+}
 #bookingwhale #how li,
-#bookingwhale #how li:first-child {
-  display: block; padding: 24px 0; border: 0;
-  border-bottom: 1px solid #e8edf5; border-radius: 0;
+#bookingwhale #how li:first-child,
+#bookingwhale #how li:last-child {
+  position: relative; top: 0; display: block; min-width: 0; margin: 0; padding: 28px 24px 24px;
+  border: 0; border-radius: 24px; background: #f6f7f9; box-shadow: none;
 }
-#bookingwhale #how li:first-child { padding-top: 0; }
-#bookingwhale #how li:last-child { padding-bottom: 0; border-bottom: 0; }
+#bookingwhale #how li:first-child { grid-column: 1; grid-row: 1 / span 2; align-self: stretch; }
+#bookingwhale #how li:nth-child(n + 2) { grid-column: 2; }
 #bookingwhale #how .bw-step-content {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 350px);
-  align-items: center; gap: 32px;
+  display: flex; flex-direction: column; align-items: stretch; height: 100%; gap: 28px;
 }
-#bookingwhale #how .bw-step-copy { grid-column: auto; }
+#bookingwhale #how li:nth-child(n + 2) .bw-step-content {
+  display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  align-items: center; gap: 24px;
+}
+#bookingwhale #how li:first-child .bw-step-content { height: 100%; }
+#bookingwhale #how li:first-child .bw-step-scene {
+  display: flex; flex: 1; align-items: center; justify-content: center; max-width: 440px; margin: 0; align-self: center;
+}
+#bookingwhale #how li:nth-child(n + 2) .bw-step-scene { margin: 0; }
+#bookingwhale #how .bw-step-copy { grid-column: auto; min-width: 0; }
 #bookingwhale #how .bw-step-label {
-  display: flex; align-items: center; gap: 10px; min-height: 28px; margin: 0;
+  display: flex; align-items: center; gap: 14px; min-height: 44px; margin: 0;
   color: #617087; font-size: 14px; line-height: 1.5;
 }
 #bookingwhale #how .bw-step-label .bw-step-number {
-  display: grid; place-items: center; flex: 0 0 28px; align-self: center;
-  width: 28px; height: 28px; margin: 0; padding: 0;
-  color: #fff; background: var(--bw-heading-accent); border-radius: 50%;
-  font-size: 12px; font-weight: 500; line-height: 1; letter-spacing: 0;
+  display: grid; place-items: center; flex: 0 0 auto; align-self: center;
+  width: auto; height: 44px; margin: 0; padding: 0;
+  color: var(--bw-heading-accent); background: transparent; border-radius: 0;
+  font-size: 40px; font-weight: 600; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums;
 }
-#bookingwhale #how .bw-step-copy h3 { margin: 12px 0; font-size: 24px; line-height: 1.4; }
-#bookingwhale #how .bw-step-copy p { margin: 0; }
-#bookingwhale #how .bw-step-scene { grid-column: auto; width: 100%; max-width: 350px; justify-self: start; border-radius: 16px; }
-#bookingwhale #how .bw-film-stage { height: auto; min-height: 0; padding: 12px; border-radius: 16px; }
-
-@media (min-width: 1100px) and (pointer: fine) {
-  #bookingwhale #main-content > #how {
-    display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.5fr);
-    align-items: start; gap: 64px;
-  }
-  #bookingwhale #how .bw-journey-head { position: sticky; top: 112px; margin: 0; }
-  #bookingwhale #how .bw-step-content { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+#bookingwhale #how .bw-step-copy h3 { min-height: 0; margin: 16px 0 12px; font-size: 22px; line-height: 1.4; }
+#bookingwhale #how .bw-step-copy p { min-height: 0; margin: 0; color: #617087; font-size: 16px; line-height: 1.7; }
+#bookingwhale #how .bw-step-scene {
+  grid-column: auto; width: 100%; max-width: none; margin: auto 0 0; padding: 0;
+  border: 0; border-radius: 16px; box-shadow: none;
 }
-@media (min-width: 1024px) and (min-height: 600px) and (orientation: landscape) and (any-pointer: coarse) {
-  #bookingwhale #main-content > #how {
-    display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr);
-    align-items: start; gap: 32px;
-  }
-  #bookingwhale #how .bw-journey-head { position: sticky; top: 112px; margin: 0; }
-  #bookingwhale #how .bw-step-content { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
-}
-@media (max-width: 743px) {
-  #bookingwhale #how .bw-journey-head { text-align: center; }
-  #bookingwhale #how ol { gap: 0; }
+#bookingwhale #how .bw-film-stage { width: 100%; height: auto; min-height: 0; padding: 0; border-radius: 0; background: transparent; }
+#bookingwhale #how .bw-film-window { border: 0; border-radius: 12px; box-shadow: none; }
+#bookingwhale #how .bw-film-notice { position: relative; inset: auto; margin-top: 12px; border: 0; border-radius: 12px; box-shadow: none; }
+@media (min-width: 1024px) and (max-width: 1199px) {
+  #bookingwhale #how ol { gap: 16px; }
   #bookingwhale #how li,
-  #bookingwhale #how li:first-child { padding: 24px 0; border: 0; border-bottom: 1px solid #e8edf5; border-radius: 0; }
-  #bookingwhale #how li:first-child { padding-top: 0; }
-  #bookingwhale #how li:last-child { padding-bottom: 0; border-bottom: 0; }
-  #bookingwhale #how .bw-step-content { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  #bookingwhale #how li:first-child,
+  #bookingwhale #how li:last-child { padding: 24px 18px 18px; }
+  #bookingwhale #how li:nth-child(n + 2) .bw-step-content { gap: 16px; }
   #bookingwhale #how .bw-step-copy h3 { font-size: 21px; }
-  #bookingwhale #how .bw-step-scene { max-width: none; }
+}
+@media (max-width: 1023px), (orientation: portrait) and (any-pointer: coarse) {
+  #bookingwhale #how .bw-journey-head { margin-bottom: 28px; }
+  #bookingwhale #how .bw-journey-head h2 em { display: block; }
+  #bookingwhale #how ol { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; max-width: 560px; margin-inline: auto; padding-bottom: 0; gap: 20px; }
+  #bookingwhale #how li:nth-child(n) { grid-column: auto; grid-row: auto; }
+  #bookingwhale #how li:nth-child(n) .bw-step-content { display: flex; height: auto; gap: 24px; }
+  #bookingwhale #how li:nth-child(n) .bw-step-scene { display: block; flex: none; max-width: 440px; margin: 0; }
+  #bookingwhale #how .bw-step-content { gap: 24px; }
+  #bookingwhale #how .bw-step-scene { max-width: 440px; align-self: center; }
+  #bookingwhale #how .bw-film-stage { min-height: 0; }
+}
+@media (max-width: 600px) {
+  #bookingwhale #how li,
+  #bookingwhale #how li:first-child,
+  #bookingwhale #how li:last-child { padding: 24px 20px 20px; }
+  #bookingwhale #how .bw-step-copy h3 { font-size: 21px; }
+  #bookingwhale #how .bw-step-copy p { font-size: 15px; }
+}
+
+@media (min-width: 1024px) and (orientation: landscape), (min-width: 1024px) and (any-pointer: fine) {
+  #bookingwhale #how .bw-film-0 .bw-film-chrome { height: 46px; padding-inline: 16px; }
+  #bookingwhale #how .bw-film-0 .bw-film-chrome > img { width: 28px; height: 28px; }
+  #bookingwhale #how .bw-film-0 .bw-film-account { gap: 12px; padding: 24px 16px; }
+  #bookingwhale #how .bw-film-0 .bw-film-store,
+  #bookingwhale #how .bw-film-0 .bw-film-store > img { width: 40px; height: 40px; }
+  #bookingwhale #how .bw-film-0 .bw-film-linkrow { margin: 0 16px 16px; padding: 24px 16px; gap: 12px; font-size: 14px; border-radius: 8px; }
+  #bookingwhale #how .bw-film-0 .bw-film-linkrow .bw-brand-image { width: 32px; height: 32px; flex-shrink: 0; }
+  #bookingwhale #how .bw-film-0 .bw-film-stage strong { font-size: 14px; }
+  #bookingwhale #how .bw-film-0 .bw-film-stage small { font-size: 12px; }
+  #bookingwhale #how .bw-film-0 .bw-film-notice { padding: 16px; gap: 12px; }
+  #bookingwhale #how .bw-film-0 .bw-film-notice > svg { width: 20px; height: 20px; }
 }

@@ -1,0 +1,43 @@
+#bookingwhale .bw-page {
+  --bw-section-space: 128px;
+  --bw-section-half: calc(var(--bw-section-space) / 2);
+}
+#bookingwhale #main-content > #how,
+#bookingwhale #main-content > #faq {
+  padding-block: var(--bw-section-half);
+}
+#bookingwhale .bw-business-scroll-track:not(.is-business-track) > #business,
+#bookingwhale .is-touch-business-track > #business {
+  padding-block: var(--bw-section-half);
+}
+#bookingwhale #main-content > #contact.bw-contact-banner {
+  margin-block: var(--bw-section-half);
+}
+#bookingwhale .bw-page:has(> #main-content) > .bw-footer {
+  padding-top: var(--bw-section-half);
+}
+@media (max-width: 1023px), (max-width: 1366px) and (any-pointer: coarse) {
+  #bookingwhale .bw-page { --bw-section-space: 96px; }
+}
+@media (max-width: 600px) {
+  #bookingwhale .bw-page { --bw-section-space: 80px; }
+}
+@media (max-width: 900px) {
+  #bookingwhale #main-content > #features {
+    padding-block: var(--bw-section-half);
+  }
+}
+#bookingwhale .is-business-track > #business {
+  min-height: 0;
+  justify-content: flex-start;
+  padding-block: var(--bw-section-half);
+}
+@media (min-width: 901px) {
+  #bookingwhale #main-content > #features {
+    padding-block: 0;
+  }
+  #bookingwhale #features .bw-flow-pin {
+    min-height: 0;
+    padding-block: var(--bw-section-half);
+  }
+}

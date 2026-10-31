@@ -197,7 +197,7 @@
 #bookingwhale #features .bw-flow-steps button[aria-pressed=true]::before{background:#0747ff;border-color:#0747ff;color:#fff;box-shadow:0 3px 8px #0747ff20}
 #bookingwhale #features .bw-flow-steps button:hover::before{border-color:#8da8ff}
 
-#bookingwhale #business .bw-industry-scene{border:1px solid #eef0f4;border-radius:18px;background:#f7f8fa;padding:20px;height:auto;min-height:340px}
+#bookingwhale #business .bw-industry-scene{contain:layout paint;border:1px solid #eef0f4;border-radius:18px;background:#f7f8fa;padding:20px;height:auto;min-height:340px}
 #bookingwhale #business .bw-industry-identity{gap:9px;margin-bottom:18px}
 #bookingwhale #business .bw-industry-symbol{width:76px;height:76px;border:1px solid #eef1f5;box-shadow:0 3px 10px #20365304}
 #bookingwhale #business .bw-industry-symbol svg{width:46px;height:46px}

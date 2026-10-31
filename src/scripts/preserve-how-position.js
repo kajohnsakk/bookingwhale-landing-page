@@ -1,3 +1,5 @@
+import { scrollToPosition } from './smooth-scroll';
+
 export const preserveGettingStartedPosition=(root,gsap,ScrollTrigger)=>{
   const section=root.querySelector('#how');
   if(!section)return()=>{};
@@ -21,7 +23,7 @@ export const preserveGettingStartedPosition=(root,gsap,ScrollTrigger)=>{
   const apply=()=>{
     if(!pending||!pending.anchor.isConnected)return;
     const offset=Math.min(pending.offset,window.innerHeight-160);
-    window.scrollTo({top:window.scrollY+pending.anchor.getBoundingClientRect().top-offset,behavior:'instant'});
+    scrollToPosition({top:window.scrollY+pending.anchor.getBoundingClientRect().top-offset,behavior:'instant'});
     ScrollTrigger.update();
   };
   const settle=()=>{

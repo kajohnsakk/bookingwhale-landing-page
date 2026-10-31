@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import { setupSmoothScrolling, scrollToPosition } from './smooth-scroll';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { preserveGettingStartedPosition } from './preserve-how-position';
 
@@ -32,6 +33,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
   const menuReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   let menuAnimation=null;
   const permanentCleanups=[];
+  permanentCleanups.push(setupSmoothScrolling(gsap,ScrollTrigger));
   permanentCleanups.push(()=>gsap.removeEventListener('matchMediaInit',rememberGalleryPosition));
   const on=(target,type,handler,options)=>{
     target?.addEventListener(type,handler,options);
@@ -116,7 +118,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     const trigger=ScrollTrigger.getAll().find(item=>item.pin&&(item.trigger===target||target.contains(item.pin)));
     const anchor=target.closest('.bw-hero-scroll-track,.bw-business-scroll-track')||target;
     const offset=window.innerWidth<=900&&target.closest('#features')?(header?.offsetHeight||64)+16:0;
-    window.scrollTo({top:Math.max(0,(trigger?trigger.start:window.scrollY+anchor.getBoundingClientRect().top)-offset),behavior});
+    scrollToPosition({top:Math.max(0,(trigger?trigger.start:window.scrollY+anchor.getBoundingClientRect().top)-offset),behavior});
     if(behavior!=='smooth'){ScrollTrigger.update();trigger?.getTween()?.progress(1);}
     syncNavigation();
   };
@@ -213,13 +215,19 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
       const fitActiveScene=()=>{
         if(cinematic)return;
         const scene=activeScene<3?client:activeScene===3?merchant:profile;
-        gsap.set(canvas,{height:scene.offsetHeight+8});
+        gsap.set(canvas,{height:parseFloat(canvas.style.getPropertyValue('--bw-story-frame-height'))+8});
         if(activeScene===2)gsap.set(ticket,{x:(canvas.clientWidth-ticket.offsetWidth)/2,y:Math.max(16,(scene.offsetHeight-ticket.offsetHeight)/2)});
       };
+      let measuredFlow='';
       const measureFlow=()=>{
+        const geometry=`${canvas.clientWidth}:${window.innerHeight}:${document.fonts?.status}`;
+        if(geometry===measuredFlow)return;
+        measuredFlow=geometry;
+        gsap.set(canvas,{'--bw-story-frame-height':'0px'});
         gsap.set(availability,{height:availabilityHeight(activeScene>0?times:prompt)});
         const bookingHeight=client.offsetHeight+Math.max(0,availabilityHeight(times)-availability.offsetHeight);
-        gsap.set(canvas,{height:Math.max(bookingHeight,merchant.offsetHeight,profile.offsetHeight)+8});
+        const frameHeight=Math.ceil(Math.max(bookingHeight,merchant.offsetHeight,profile.offsetHeight));
+        gsap.set(canvas,{'--bw-story-frame-height':`${frameHeight}px`,height:frameHeight+8});
         fitActiveScene();
       };
       measureFlow();
@@ -239,15 +247,8 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
           chapters[index].setAttribute('aria-hidden',String(index!==activeScene));
         });
       };
-      const journey=gsap.timeline({paused:!cinematic,onUpdate:syncScene,scrollTrigger:cinematic?{id:'product-story',trigger:flow,pin,start:'top top',end:()=>'+='+Math.max(2200,window.innerHeight*3.2),scrub:.55,invalidateOnRefresh:true,onUpdate:settleFastScroll}:undefined,defaults:{ease:'power1.inOut'}});
-      if(!reduced){
-        const zoom=cinematic?1.12:1;
-        const focus=element=>()=>-(zoom-1)*(local(element).y+element.offsetHeight/2);
-        gsap.set(canvas,{transformOrigin:'0 0',scale:1,x:0,y:0,force3D:true});
-        journey.to(canvas,{scale:zoom,x:()=>-(zoom-1)*canvas.clientWidth/2,y:focus(day),duration:.8,ease:'power2.inOut'},.15)
-          .to(canvas,{y:focus(slot),duration:1,ease:'power2.inOut'},1.55)
-          .to(canvas,{scale:1,x:0,y:0,duration:.65,ease:'power2.inOut'},3.6);
-      }
+      const journey=gsap.timeline({paused:!cinematic,onUpdate:syncScene,scrollTrigger:cinematic?{id:'product-story',trigger:flow,pin,start:()=>`top ${Math.max(16,(window.innerHeight-pin.offsetHeight)/2)}px`,end:()=>'+='+Math.max(2200,window.innerHeight*3.2),scrub:.55,invalidateOnRefresh:true,onUpdate:settleFastScroll}:undefined,defaults:{ease:'power1.inOut'}});
+      gsap.set(canvas,{transformOrigin:'0 0',scale:1,x:0,y:0,force3D:true});
       journey.to(pointer,{autoAlpha:1,x:()=>local(day).x+local(day).width/2,y:()=>local(day).y+12,duration:.45},.4)
         .fromTo(pulse,{scale:.25,autoAlpha:.8},{scale:1.7,autoAlpha:0,duration:.35},.95)
         .to(day,{'--day-selected':1,color:'#fff',duration:.2},1)
@@ -290,10 +291,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
       const infoTab=customerTarget.querySelector('.bw-ui-info-tab');
       const historyTab=customerTarget.querySelector('.bw-ui-history-tab');
       if(!reduced){
-        const profileZoom=cinematic?1.03:1;
-        journey.to(canvas,{scale:profileZoom,x:()=>-(profileZoom-1)*canvas.clientWidth/2,y:0,duration:.85,ease:'power2.inOut'},10.6)
-          .to(canvas,{y:-6,duration:.65,ease:'power2.inOut'},11.8)
-          .fromTo(profile.querySelector('.bw-ui-latest-booking'),{y:12,autoAlpha:0},{y:0,autoAlpha:1,duration:.5,immediateRender:false},10.55)
+        journey.fromTo(profile.querySelector('.bw-ui-latest-booking'),{y:12,autoAlpha:0},{y:0,autoAlpha:1,duration:.5,immediateRender:false},10.55)
           .fromTo(profile.querySelector('.bw-ui-history-row'),{y:12,autoAlpha:0},{y:0,autoAlpha:1,duration:.45,immediateRender:false},12.1);
       }
       const rowPoint=()=>({x:local(rowIdentity[0]).x,y:local(row).y+(row.offsetHeight-48)/2});
@@ -330,7 +328,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         if(!sceneTimes[index]&&index!==0)return;
         const story=journey.scrollTrigger;
         if(story){
-          window.scrollTo({top:story.start+(story.end-story.start)*sceneTimes[index]/journey.duration(),behavior});
+          scrollToPosition({top:story.start+(story.end-story.start)*sceneTimes[index]/journey.duration(),behavior});
           if(behavior==='smooth')return;
           ScrollTrigger.update();
           story.getTween()?.progress(1);
@@ -484,7 +482,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         const art=row.querySelector('.bw-step-scene');
         const cursor=art.querySelector('.bw-film-cursor');
         const notice=art.querySelector('.bw-film-notice');
-        const tl=gsap.timeline({paused:true,defaults:{ease:'power2.inOut'}});
+        const tl=gsap.timeline({paused:true,repeat:-1,repeatDelay:.8,defaults:{ease:'power2.inOut'}});
         gsap.set([cursor,notice],{autoAlpha:0});
         tl.set(notice,{autoAlpha:0},0)
           .fromTo(cursor,{autoAlpha:0,x:12,y:14},{autoAlpha:1,x:0,y:0,duration:.5},.4)
@@ -510,7 +508,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     if(!reduced){
       qa('.bw-industry-scene').forEach(art=>onApproach(art,()=>{
         const index=Number(art.dataset.industryIndex);
-        const tl=gsap.timeline({paused:true,repeat:context.conditions.mobile?0:-1,repeatDelay:1.4,defaults:{ease:'power2.inOut'}});
+        const tl=gsap.timeline({paused:true,repeat:context.conditions.mobile&&index!==3&&index!==5?0:-1,repeatDelay:1.4,defaults:{ease:'power2.inOut'}});
         const symbols=gsap.timeline({paused:true,repeat:-1,repeatDelay:2.4});
         const animateSymbol=(selector,from,to,at=0)=>{
           const nodes=art.querySelectorAll(selector);
@@ -536,14 +534,30 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         symbols.to({},{duration:.2},1.8);
         observeLoop(art,symbols);
         const highlight=(selector,from,to,at=1)=>{const nodes=art.querySelectorAll(selector);if(nodes.length)tl.fromTo(nodes,from,{...to,duration:.4,stagger:.12},at+2.2);};
-        if(index===0){highlight('.bw-dinner-rounds .is-selected',{backgroundColor:'#ffffff',color:'#23324b'},{backgroundColor:'#263449',color:'#fff'},.8);highlight('.bw-guest-count b',{color:'#748094'},{color:'#263449'},1.4);}
-        if(index===1)highlight('.bw-industry-selected',{backgroundColor:'#ffffff',color:'#23324b'},{backgroundColor:'#263449',color:'#fff'});
-        if(index===2){highlight('.bw-class-time>b',{color:'#23324b'},{color:'#263449'});highlight('.bw-capacity .filled',{backgroundColor:'#fff'},{backgroundColor:'#758398'},.8);}
-        if(index===3)highlight('.bw-lesson-days .chosen',{backgroundColor:'#fff'},{backgroundColor:'#e1e6ee'});
-        if(index===4)highlight('.bw-participant-count',{backgroundColor:'#fff'},{backgroundColor:'#e9edf2'});
-        if(index===5)highlight('.bw-tour-route>span',{color:'#8999a2'},{color:'#263449'});
-        if(index===6)highlight('.bw-rental-reservation',{backgroundColor:'#e1e6ee',color:'#334155'},{backgroundColor:'#263449',color:'#fff'});
-        if(index===7)highlight('.bw-preview-status',{backgroundColor:'#fff'},{backgroundColor:'#e9edf2'});
+        if(index===0){highlight('.bw-dinner-rounds .is-selected',{backgroundColor:'#ffffff',color:'#23324b'},{backgroundColor:'#315bca',color:'#fff'},.8);highlight('.bw-guest-count b',{color:'#748094'},{color:'#263449'},1.4);}
+        if(index===1)highlight('.bw-industry-selected',{backgroundColor:'#ffffff',color:'#23324b'},{backgroundColor:'#315bca',color:'#fff'});
+        if(index===2){highlight('.bw-class-time>b',{color:'#23324b'},{color:'#263449'});highlight('.bw-capacity .filled',{backgroundColor:'#fff'},{backgroundColor:'#6c9a90'},.8);}
+        if(index===3){
+          const progress=art.querySelector('.bw-lesson-progress');
+          tl.fromTo(progress,{scaleX:0,opacity:1},{scaleX:1,duration:1.8,ease:'sine.inOut'},.9)
+            .to(progress,{opacity:0,duration:.5},4.8);
+          highlight('.bw-lesson-confirmed',{backgroundColor:'#fff'},{backgroundColor:'#edf2ff'});
+          tl.fromTo(art.querySelector('.bw-lesson-confirmed svg'),{opacity:0,scale:.6},{opacity:1,scale:1,duration:.4,ease:'power2.out'},3.2);
+        }
+        if(index===4)highlight('.bw-participant-count',{backgroundColor:'#fff'},{backgroundColor:'#edf7f1'});
+        if(index===5){
+          const route=art.querySelector('.bw-route-connector');
+          const travel=()=>Math.max(0,(route.clientWidth-20)/2);
+          const departure=art.querySelector('.bw-tour-route>span:first-child .bw-route-time');
+          const arrival=art.querySelector('.bw-tour-route>span:last-child .bw-route-time');
+          tl.fromTo(departure,{color:'#29384f'},{color:'#315bca',duration:.3},.7)
+            .fromTo(art.querySelector('.bw-route-progress'),{scaleX:0},{scaleX:1,duration:1.8,ease:'sine.inOut'},1.1)
+            .fromTo(art.querySelector('.bw-route-traveler'),{x:()=>-travel()},{x:travel,duration:1.8,ease:'sine.inOut'},1.1)
+            .fromTo(arrival,{color:'#29384f'},{color:'#315bca',duration:.35},2.8)
+            .fromTo(arrival,{scale:1},{scale:1.06,duration:.3,repeat:1,yoyo:true,ease:'sine.inOut'},2.8);
+        }
+        if(index===6)highlight('.bw-rental-reservation',{backgroundColor:'#eaf0ff',color:'#334155'},{backgroundColor:'#315bca',color:'#fff'});
+        if(index===7)highlight('.bw-preview-status',{backgroundColor:'#fff'},{backgroundColor:'#edf7f1'});
         tl.to({},{duration:1.2},4.4);observeLoop(art,tl);
       }));
     }
@@ -560,12 +574,9 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
       enter(q('.bw-journey-head'),timeline=>{
         timeline.fromTo(q('.bw-journey-head'),{y:24,opacity:1},{y:0,opacity:1,ease:'power2.out'});
       });
+      const howGrid=window.matchMedia('(min-width:1024px)').matches&&!window.matchMedia('(orientation:portrait) and (any-pointer:coarse)').matches;
       qa('.bw-how li').forEach((row,index)=>{
-        enter(row,timeline=>{
-          timeline.fromTo(row.querySelector('.bw-step-number'),{scale:.75,opacity:1},{scale:1,opacity:1,ease:'power2.out'},0);
-          timeline.fromTo(row.querySelector('.bw-step-copy'),{y:24,opacity:1},{y:0,opacity:1,ease:'power2.out'},index*.06);
-          timeline.fromTo(row.querySelector('.bw-step-scene'),{y:context.conditions.mobile?16:52,scale:context.conditions.mobile?1:.96,opacity:1},{y:0,scale:1,opacity:1,ease:'power2.out'},.12+index*.06);
-        });
+        gsap.fromTo(row,{y:24},{y:0,duration:.65,delay:howGrid?index*.1:0,ease:'power2.out',scrollTrigger:{trigger:row,start:'top 92%',once:true}});
       });
       const faq=q('.bw-faq');
       if(faq){
@@ -595,12 +606,9 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     const rail=q('.bw-business-directory');
     const viewport=q('.bw-industry-viewport');
     const galleryControls=q('.bw-industry-controls');
-    const previousBusiness=q('[data-business-direction="previous"]');
-    const nextBusiness=q('[data-business-direction="next"]');
-    const businessRange=q('.bw-industry-range');
     let gallery=null;
     const touchGallery=context.conditions.touch;
-    const galleryHold=touchGallery?.03:.08;
+    const galleryHold=touchGallery?.06:.1;
     let galleryWidth=0;
     let galleryTravel=0;
     let galleryStride=0;
@@ -616,16 +624,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     const galleryOffset=()=>gallery?Math.max(0,-Number(gsap.getProperty(rail,'x'))):viewport.scrollLeft;
     const galleryStep=()=>galleryStride;
     const syncGallery=()=>{
-      const distance=galleryDistance();
-      const offset=galleryOffset();
-      galleryControls.hidden=distance<2;
-      previousBusiness.disabled=offset<2;
-      nextBusiness.disabled=offset>=distance-2;
-      const step=galleryStep();
-      const first=Math.min(rail.children.length,Math.floor((offset+1)/step)+1);
-      const last=Math.min(rail.children.length,Math.ceil((offset+galleryWidth-1)/step));
-      const label=`${first===last?first:first+'–'+last} / ${rail.children.length}`;
-      if(businessRange.textContent!==label)businessRange.textContent=label;
+      galleryControls.hidden=galleryDistance()<2;
     };
     const moveGallery=direction=>{
       const offset=galleryOffset();
@@ -635,11 +634,9 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         const trigger=gallery.scrollTrigger;
         const fraction=galleryDistance()?next/galleryDistance():0;
         const progress=touchGallery?fraction:Math.acos(1-2*fraction)/Math.PI;
-        window.scrollTo({top:trigger.start+(trigger.end-trigger.start)*(galleryHold+progress)/gallery.duration(),behavior});
+        scrollToPosition({top:trigger.start+(trigger.end-trigger.start)*(galleryHold+progress)/gallery.duration(),behavior});
       }else viewport.scrollTo({left:next,behavior});
     };
-    listen(previousBusiness,'click',()=>moveGallery(-1));
-    listen(nextBusiness,'click',()=>moveGallery(1));
     listen(viewport,'scroll',syncGallery);
     listen(viewport,'keydown',event=>{
       const direction={ArrowLeft:-1,ArrowRight:1,Home:'start',End:'end'}[event.key];
@@ -657,7 +654,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         track.classList.add('is-business-track');
         track.classList.toggle('is-touch-business-track',touchGallery);
         viewport.scrollTo({left:0,behavior:'instant'});
-        const pinTop=()=>touchGallery?Math.min((header?.offsetHeight||64)+16,window.innerHeight-business.offsetHeight-24):Math.min(0,window.innerHeight-business.offsetHeight);
+        const pinTop=()=>Math.min((header?.offsetHeight||64)+16,window.innerHeight-business.offsetHeight-24);
         const sizeTrack=()=>{
           measureGallery();
           track.style.setProperty('--business-pin-top',`${pinTop()}px`);
@@ -666,7 +663,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         };
         sizeTrack();
         ScrollTrigger.addEventListener('refreshInit',sizeTrack);
-        gallery=gsap.timeline({onUpdate:syncGallery,scrollTrigger:{id:'business-gallery',trigger:track,start:()=>`top ${pinTop()}px`,end:()=>touchGallery?`bottom ${pinTop()+business.offsetHeight}px`:'bottom bottom',scrub:touchGallery?.4:.55,invalidateOnRefresh:true,onUpdate:self=>{
+        gallery=gsap.timeline({onUpdate:syncGallery,scrollTrigger:{id:'business-gallery',trigger:track,start:()=>`top ${pinTop()}px`,end:()=>`bottom ${pinTop()+business.offsetHeight}px`,scrub:touchGallery?.3:.4,invalidateOnRefresh:true,onUpdate:self=>{
           if(touchGallery&&!galleryRestore&&!self.isReverted&&window.innerWidth===galleryViewportWidth&&window.innerHeight===galleryViewportHeight){
             gallerySnapshot=self.scroll()>=self.start&&self.scroll()<=self.end?{progress:self.progress,fraction:gsap.utils.clamp(0,1,self.progress*(1+galleryHold*2)-galleryHold)}:null;
           }
@@ -694,14 +691,14 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     const {progress,fraction}=galleryRestore;
     const trigger=ScrollTrigger.getById('business-gallery');
     if(trigger){
-      window.scrollTo({top:trigger.start+(trigger.end-trigger.start)*progress,behavior:'instant'});
+      scrollToPosition({top:trigger.start+(trigger.end-trigger.start)*progress,behavior:'instant'});
       ScrollTrigger.update();
       trigger.getTween()?.progress(1);
     }else{
       const viewport=q('.bw-industry-viewport');
       const track=q('.bw-business-scroll-track');
       viewport.scrollTo({left:(viewport.scrollWidth-viewport.clientWidth)*fraction,behavior:'instant'});
-      window.scrollTo({top:window.scrollY+track.getBoundingClientRect().top-(header?.offsetHeight||64)-16,behavior:'instant'});
+      scrollToPosition({top:window.scrollY+track.getBoundingClientRect().top-(header?.offsetHeight||64)-16,behavior:'instant'});
     }
     syncNavigation();
   };
@@ -750,7 +747,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     refreshTimer=setTimeout(()=>{if(root.isConnected)ScrollTrigger.refresh(true);},150);
   };
   qa('details').forEach(item=>on(item,'toggle',refresh));
-  qa('img').filter(image=>!image.complete).forEach(image=>on(image,'load',refresh,{once:true}));
+  qa('img').filter(image=>!image.complete&&!(Number(image.getAttribute('width'))>0&&Number(image.getAttribute('height'))>0)).forEach(image=>on(image,'load',refresh,{once:true}));
   let initialPositioned=false;
   const positionInitialHash=()=>{
     if(initialPositioned||!root.isConnected)return;

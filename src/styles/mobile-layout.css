@@ -156,3 +156,20 @@
   #bookingwhale #how .bw-journey-head { display: block; margin: 0; }
   #bookingwhale #how .bw-journey-head > .bw-inline-link { margin-top: 20px; }
 }
+
+@media (max-width: 600px) {
+  #bookingwhale #main-content #contact.bw-contact-banner {
+    width: calc(100% - 40px); margin: 32px auto 24px; padding: 32px 24px 24px;
+    grid-template-columns: minmax(0, 1fr); gap: 24px; border-radius: 24px;
+  }
+  #bookingwhale #contact.bw-contact-banner .bw-contact-copy { min-width: 0; text-align: center; }
+  #bookingwhale #contact.bw-contact-banner .bw-eyebrow { margin-bottom: 12px; font-size: 10px; letter-spacing: .08em; }
+  #bookingwhale #contact.bw-contact-banner h2 { margin: 0; font-size: clamp(26px, 7.2vw, 32px); line-height: 1.3; }
+  #bookingwhale #contact.bw-contact-banner .bw-contact-copy p { max-width: 30ch; margin: 16px auto 0; font-size: 14px; line-height: 1.7; }
+  #bookingwhale #contact.bw-contact-banner .bw-contact-actions { justify-content: center; margin-top: 22px; }
+  #bookingwhale #contact.bw-contact-banner .bw-contact-actions > a { height: 48px; min-height: 48px; min-width: 156px; padding-inline: 24px; font-size: 15px; }
+  #bookingwhale #contact .bw-cta-devices { width: 100%; max-width: 300px; aspect-ratio: 1.3; margin: 0 auto; justify-self: center; }
+  #bookingwhale #contact .bw-cta-devices::before { inset: 0; opacity: .65; }
+  #bookingwhale #contact .bw-cta-devices .bw-cta-desktop { width: 84%; top: 4%!important; left: 3%!important; rotate: -4deg; }
+  #bookingwhale #contact .bw-cta-devices .bw-cta-handset { width: 30%; right: 3%!important; bottom: 7%!important; rotate: 6deg; }
+}

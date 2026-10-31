@@ -44,7 +44,7 @@ if(contactDialog instanceof HTMLDialogElement){
   closeButton.addEventListener('click',close);
   contactDialog.addEventListener('keydown',event=>{
     if(event.key!=='Tab')return;
-    const controls=Array.from(contactDialog.querySelectorAll('button:not(:disabled),a[href]'));
+    const controls=Array.from(contactDialog.querySelectorAll('button:not(:disabled),a[href]')).filter(control=>control.getClientRects().length>0);
     const index=controls.indexOf(document.activeElement);
     const next=index<0?0:(index+(event.shiftKey?-1:1)+controls.length)%controls.length;
     event.preventDefault();

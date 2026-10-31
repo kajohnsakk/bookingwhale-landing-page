@@ -18,7 +18,10 @@ const pages = urls.map(url => ({url,nodes:flatten(parse(htmlAt(url.pathname)))})
 
 test('all 90 production URLs survive as pages or permanent redirects',()=>{
   assert.equal(inventory.length,90);
-  assert.equal(files.length,79);
+  for(const value of inventory){
+    const slug=new URL(value).pathname.match(/^\/blog\/([^/]+)\/?$/)?.[1];
+    if(slug)assert.ok(files.includes(`${slug}.md`),slug);
+  }
   for(const value of inventory){
     const url=new URL(value);
     const key=url.pathname.replace(/\/$/,'');
@@ -91,7 +94,7 @@ test('articles retain publishing dates, breadcrumbs and crawlable related conten
     assert.ok(nodes.filter(n=>n.tagName==='a'&&attr(n,'href')?.startsWith('/blog/')).length>=5);
     assert.doesNotMatch(html,/bw-hero-scroll-track|gsap|imagesrcset=/);
   }
-  assert.equal((read('dist/rss.xml').match(/<item>/g)||[]).length,79);
+  assert.equal((read('dist/rss.xml').match(/<item>/g)||[]).length,files.length);
 });
 
 test('every sitemap page is reachable from home through ordinary HTML links',()=>{

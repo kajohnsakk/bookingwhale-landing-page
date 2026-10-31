@@ -109,14 +109,12 @@
 #bookingwhale #contact.bw-contact-banner .bw-contact-phone:hover{background:#f5f5f6}
 #bookingwhale #contact .bw-cta-devices{position:relative;display:block;width:100%;max-width:560px;height:auto;aspect-ratio:1.15;margin:0;isolation:isolate}
 #bookingwhale #contact .bw-cta-devices figure{position:absolute;margin:0;box-sizing:border-box}
-#bookingwhale #contact .bw-cta-desktop{width:94%;left:0;top:12%;rotate:-5deg;z-index:1}
+#bookingwhale #contact .bw-cta-desktop{width:94%;left:0;top:16%;rotate:-5deg;z-index:1}
 #bookingwhale #contact .bw-cta-desktop-screen{border:7px solid #222a35;border-bottom-width:16px;border-radius:15px;overflow:hidden;background:#fff;box-shadow:0 24px 40px #18212f14}
 #bookingwhale #contact .bw-cta-browser{display:flex;align-items:center;gap:4px;height:22px;padding:0 8px;background:#f3f5f8;color:#8190a2;font-size:6px}
 #bookingwhale #contact .bw-cta-browser i{width:4px;height:4px;border-radius:50%;background:#c6ced9}
 #bookingwhale #contact .bw-cta-browser span{margin-left:6px}
 #bookingwhale #contact .bw-cta-desktop img{display:block;width:100%;height:auto;aspect-ratio:1000/654;object-fit:contain}
-#bookingwhale #contact .bw-cta-desktop-stand{height:36px;width:22%;margin:auto;background:linear-gradient(#9aa4b1,#d2d8df);clip-path:polygon(16% 0,84% 0,100% 100%,0 100%)}
-#bookingwhale #contact .bw-cta-desktop-base{height:7px;width:45%;margin:auto;border-radius:50% 50% 4px 4px;background:#cdd4dc}
 #bookingwhale #contact .bw-cta-handset{width:31%;right:0;bottom:4%;rotate:8deg;background:#fff;border:5px solid #202834;border-radius:24px;overflow:hidden;z-index:2;box-shadow:0 18px 30px #18212f20}
 #bookingwhale #contact .bw-cta-handset-status{height:24px;display:flex;align-items:center;justify-content:space-between;padding:0 9px;position:relative;font-size:7px;color:#243247}
 #bookingwhale #contact .bw-cta-handset-status i{width:34%;height:9px;background:#202834;border-radius:8px;position:absolute;left:33%;top:5px}
@@ -146,12 +144,20 @@
 #bookingwhale #contact .bw-cta-floating strong{font-size:10px}
 #bookingwhale #contact .bw-cta-floating>div>span{font-size:8px}
 #bookingwhale #contact .bw-cta-desktop-screen{border-width:4px;border-bottom-width:9px;border-radius:9px}
-#bookingwhale #contact .bw-cta-desktop-stand{height:24px}
 }
-#bookingwhale #main-content #contact.bw-contact-banner{background:#fff}
-#bookingwhale #main-content #contact.bw-contact-banner::after{background:transparent;box-shadow:none;pointer-events:none}
+#bookingwhale #main-content #contact.bw-contact-banner{background-color:#0747ff;background-image:none;color:#fff}
+#bookingwhale #main-content #contact.bw-contact-banner::before{display:none}
+#bookingwhale #main-content #contact.bw-contact-banner .bw-contact-copy :is(h2,h2 em,.bw-eyebrow,p){color:#fff}
+#bookingwhale #main-content #contact.bw-contact-banner .bw-primary{background:#fff;color:#0747ff;border-color:#fff;box-shadow:none}
+#bookingwhale #main-content #contact.bw-contact-banner .bw-primary:hover{background:#edf2ff;border-color:#edf2ff}
+#bookingwhale #main-content #contact.bw-contact-banner .bw-primary:active{background:#dce6ff;border-color:#dce6ff}
+#bookingwhale #main-content #contact.bw-contact-banner .bw-primary:focus-visible{outline:2px solid #fff;outline-offset:4px}
+#bookingwhale #main-content #contact.bw-contact-banner::after{display:none}
+#bookingwhale #contact .bw-cta-devices::before{content:"";position:absolute;inset:-8% -6% -2% -10%;background:url("/assets/cta-booking-grid.svg") center/contain no-repeat;pointer-events:none;z-index:0}
+@media(max-width:900px){#bookingwhale #contact .bw-cta-devices::before{inset:-8% -4% -2% -6%}}
+#bookingwhale #main-content #contact.bw-contact-banner>.bw-contact-copy,#bookingwhale #main-content #contact.bw-contact-banner>.bw-contact-products{position:relative;z-index:1}
 #bookingwhale #contact .bw-cta-devices .bw-cta-handset{left:auto!important;right:0!important;top:auto!important;bottom:4%!important}
-#bookingwhale #contact .bw-cta-devices .bw-cta-desktop{left:0!important;right:auto!important;top:12%!important;bottom:auto!important}
+#bookingwhale #contact .bw-cta-devices .bw-cta-desktop{left:0!important;right:auto!important;top:16%!important;bottom:auto!important}
 
 #bookingwhale #contact.bw-contact-banner{padding-block:44px}
 #bookingwhale #contact .bw-cta-devices{max-width:430px;justify-self:end}
