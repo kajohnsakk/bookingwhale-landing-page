@@ -1,0 +1,56 @@
+.business-cost-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:start}
+.business-cost-form-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px}
+.restaurant-page .business-cost-form-heading h3{font-size:20px;margin:0}
+.business-cost-form-heading button{border:0;background:none;font:inherit;font-size:13px;color:#52627a;cursor:pointer;min-height:44px;padding:8px 0;text-decoration:underline;text-underline-offset:4px}
+.business-cost-field{display:grid;grid-template-columns:minmax(0,1fr) 144px;gap:0 16px;margin-bottom:12px;align-items:center}
+.business-cost-field label{font-size:15px;font-weight:600;line-height:1.6;color:#18212f}
+.business-cost-input{display:flex;align-items:center;gap:8px;background:#f7f8fa;border-radius:10px;padding:0 12px;min-width:0}
+.business-cost-input input{display:block;width:100%;min-width:0;height:44px;border:0;background:transparent;font:inherit;font-size:17px;font-weight:600;color:#18212f;box-sizing:border-box}
+.business-cost-input span{font-size:11px;color:#52627a;flex:none}
+.business-cost-input:focus-within{outline:2px solid #0747ff;outline-offset:2px}
+.business-cost-input input:focus{outline:none}
+.business-cost-input:has(input[aria-invalid=true]){outline:2px solid #b42318;outline-offset:2px}
+.restaurant-page .business-cost-field p{grid-column:1/-1;font-size:12px;line-height:1.65;margin:0;color:#617087}
+.restaurant-page .business-cost-field .business-cost-error{color:#b42318}
+.business-cost-error[hidden]{display:none}
+.business-cost-results{background:#f2f6ff;border-radius:24px;padding:32px;min-width:0}
+.restaurant-page .business-cost-state{font-size:12px;margin:0 0 16px;color:#52627a}
+.business-cost-time{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px}
+.business-cost-time>.bw-icon{width:22px;height:22px;color:#222}
+.business-cost-time>span,.business-cost-missed>span{font-size:14px;font-weight:500;color:#23324b}
+.business-cost-time>strong{grid-column:1/-1;font-size:44px;line-height:1.3;color:#0747ff;font-variant-numeric:tabular-nums}
+.business-cost-results strong small{font-size:15px;font-weight:500;color:#52627a}
+.business-cost-results output{overflow-wrap:anywhere}
+.restaurant-page .business-cost-time p{grid-column:1/-1;font-size:13px;margin:0;line-height:1.8}
+.business-cost-time p b{display:block;font-weight:600;color:#23324b;font-size:17px}
+.business-cost-missed{margin-top:20px;padding-top:20px;border-top:1px solid #dae3f5}
+.business-cost-missed>strong{display:block;font-size:32px;line-height:1.4;margin-top:8px;color:#18212f;font-variant-numeric:tabular-nums}
+.restaurant-page .business-cost-missed p{font-size:12px;margin:4px 0 0}
+.restaurant-page .business-cost-disclaimer{font-size:12px;line-height:1.75;margin:20px 0 12px;color:#52627a}
+.business-cost-method{font-size:12px;color:#52627a;margin-bottom:24px}
+.business-cost-method summary{cursor:pointer;min-height:32px;line-height:2}
+.business-cost-method ul{padding-left:18px;margin:8px 0;line-height:1.8}
+.business-cost-method li+li{margin-top:8px}
+.business-cost-results .editorial-button{font-size:14px;min-height:48px;max-width:100%;box-sizing:border-box}
+.business-cost button:focus-visible,.business-cost summary:focus-visible{outline:3px solid #0747ff;outline-offset:4px}
+@media(max-width:1023px){.business-cost-layout{gap:28px;grid-template-columns:1.1fr 1fr}.business-cost-results{padding:24px}.business-cost-field{grid-template-columns:minmax(0,1fr) 120px;gap:0 12px}.business-cost-input{max-width:100%}}
+@media(max-width:767px){.business-cost-layout{grid-template-columns:1fr;gap:24px}.business-cost-field{grid-template-columns:minmax(0,1fr) 128px;gap:0 12px;margin-bottom:12px}.business-cost-field label{font-size:14px}.business-cost-form-heading{margin-bottom:12px}.business-cost-results{padding:24px;border-radius:20px}.business-cost-time>strong{font-size:38px}.business-cost-missed>strong{font-size:30px}}
+@media(max-width:359px){.business-cost-field{grid-template-columns:1fr}}
+
+.business-cost-slider{grid-column:1/-1;min-width:0}
+.business-cost-slider input{appearance:none;-webkit-appearance:none;display:block;width:100%;height:44px;margin:0;background:transparent;cursor:pointer;--range-track:linear-gradient(to right,#0747ff 0 var(--range-progress),#e7ebf2 var(--range-progress) 100%)}
+.business-cost-slider input::-webkit-slider-runnable-track{height:6px;border-radius:999px;background:var(--range-track)}
+.business-cost-slider input::-moz-range-track{height:6px;border-radius:999px;background:var(--range-track)}
+.business-cost-slider input::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:24px;height:24px;margin-top:-9px;border-radius:50%;background:#0747ff;border:3px solid #fff;box-shadow:0 1px 4px #18212f30}
+.business-cost-slider input::-moz-range-thumb{box-sizing:border-box;width:24px;height:24px;border-radius:50%;background:#0747ff;border:3px solid #fff;box-shadow:0 1px 4px #18212f30}
+.business-cost-slider input:focus-visible{outline:2px solid #0747ff;outline-offset:2px;border-radius:8px}
+.business-cost-slider input:disabled{opacity:.5;cursor:default}
+.business-cost-range-labels{display:none}
+
+.business-cost-help{font-size:12px;color:#52627a}
+.business-cost-help summary{cursor:pointer;min-height:44px;align-content:center}
+.business-cost-help summary:focus-visible{outline:2px solid #0747ff;outline-offset:2px}
+.business-cost-help dl{margin:8px 0 0;line-height:1.65}
+.business-cost-help dl>div+div{margin-top:12px}
+.business-cost-help dt{font-weight:600;color:#23324b}
+.business-cost-help dd{margin:2px 0 0}

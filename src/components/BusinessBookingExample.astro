@@ -1,0 +1,12 @@
+---
+import {businessDetails} from '../data/business-details';
+interface Props { slug:'fitness-sports'|'services'; locale:'th'|'en' }
+const {slug,locale}=Astro.props;
+const th=locale==='th';
+const fitness=slug==='fitness-sports';
+const text=businessDetails[slug][locale];
+---
+<section class:list={['restaurant-section','business-example',fitness?'studio-schedule':'service-agenda']} id="business-example">
+  <div class="business-example-copy"><span class="editorial-kicker">{th?'วางรอบให้เหมาะกับงานจริง':'Plan slots around your work'}</span><h2>{fitness?(th?'หนึ่งสตูดิโอ หลายรอบสอน':'One studio. A day of classes.'):text.exampleTitle}</h2><p>{fitness?text.exampleBody:(th?'นวด 60 นาที แล้วเผื่อเตรียมห้อง 15 นาที ก่อนรับนัดถัดไป คุณเป็นผู้กำหนดเวลาเปิดรอบตามทีมและห้องที่พร้อม':'A 60-minute massage, then 15 minutes to prepare the room. You set the next slot around your team and available rooms.')}</p><p class="restaurant-caption">{th?'ตัวอย่างการวางรอบ ปรับให้เหมาะกับธุรกิจของคุณ':'Example schedule. Adjust it to suit your business.'}</p></div>
+  {fitness ? <div class="studio-board"><div class="schedule-heading"><span>{th?'คลาสฟิตเนสช่วงเย็น':'Evening group fitness'}</span><span>{th?'60 นาที / คลาส':'60 min / class'}</span></div><ol>{text.times.map((time,i)=><li><time>{time}</time><div><h3>{th?'คลาสฟิตเนสกลุ่ม':'Group fitness'}</h3><p>{th?'60 นาที · รับ 10 คน':'60 minutes · 10 places'}</p></div><span class="class-round">{th?'รอบ':'Session'} {i+1}</span></li>)}</ol><p class="schedule-note">{th?'ลูกค้าเลือกรอบผ่าน LINE OA':'Customers choose a session through LINE OA'}</p></div> : <div class="appointment-board"><div class="schedule-heading"><span>{th?'ตัวอย่างหนึ่งห้องบริการ':'Example: one treatment room'}</span><span>{th?'ช่วงเช้า':'Morning'}</span></div><ol><li><time>10:00</time><div><span class="appointment-label">{th?'นัดแรก':'First appointment'}</span><h3>{text.sample}</h3><p>10:00–11:00 · {text.duration}</p></div></li><li class="appointment-break"><time>11:00</time><div><h3>{th?'เตรียมห้อง':'Room preparation'}</h3><p>{th?'เผื่อเวลา 15 นาที':'Allow 15 minutes'}</p></div></li><li><time>11:15</time><div><span class="appointment-label">{th?'นัดถัดไป':'Next appointment'}</span><h3>{th?'พร้อมรับลูกค้าคนถัดไป':'Ready for the next customer'}</h3><p>{th?'เปิดรอบตามเวลาที่ให้บริการได้':'Open a slot you can deliver'}</p></div></li></ol></div>}
+</section>

@@ -47,7 +47,7 @@ test('every indexable page has unique metadata, a matching canonical and one h1'
     assert.equal(attr(nodes.find(n=>n.tagName==='link'&&attr(n,'rel')==='canonical'),'href'),url.href);
     assert.doesNotMatch(attr(nodes.find(n=>n.tagName==='meta'&&attr(n,'name')==='robots'),'content'),/noindex/);
     const lang=attr(nodes.find(n=>n.tagName==='html'),'lang');
-    assert.equal(lang,url.pathname==='/'||/^\/(blog|businesses|contact|th)\//.test(url.pathname)?'th':url.pathname==='/zh/'?'zh-Hans':'en',url.href);
+    assert.equal(lang,url.pathname==='/'||/^\/(blog|businesses|contact|th)\//.test(url.pathname)?'th':url.pathname.startsWith('/zh/')?'zh-Hans':'en',url.href);
     const alternates=nodes.filter(n=>n.tagName==='link'&&attr(n,'hreflang'));
     const expected=languageAlternates(url.pathname);
     assert.equal(alternates.length,expected.length,url.href);

@@ -1,0 +1,27 @@
+Business scenario photographs added 2026-11-04.
+Illustrative use cases, not Booking Whale customers or endorsements.
+License: https://www.pexels.com/license/
+Locally resized to 800px WebP. Other scenario assets retain provenance in ../SOURCES.txt and the relevant business directory.
+
+personal-training.webp
+Andres Ayrton — A Young Woman Training at the Gym
+https://www.pexels.com/photo/a-young-woman-training-at-the-gym-6551098/
+https://images.pexels.com/photos/6551098/pexels-photo-6551098.jpeg
+
+skincare.webp
+Gustavo Fring — Woman Getting a Facial Treatment
+https://www.pexels.com/photo/woman-getting-a-facial-treatment-3985332/
+https://images.pexels.com/photos/3985332/pexels-photo-3985332.jpeg
+
+consultation.webp
+Kindel Media — Two Women Having a Meeting in the Office
+https://www.pexels.com/photo/two-women-having-a-meeting-in-the-office-7651742/
+https://images.pexels.com/photos/7651742/pexels-photo-7651742.jpeg
+
+boxing-coaching.webp
+Mikhail Nilov — Man Training A Woman In Boxing
+https://www.pexels.com/photo/man-training-a-woman-in-boxing-6740346/
+https://images.pexels.com/photos/6740346/pexels-photo-6740346.jpeg
+License: https://www.pexels.com/license/
+Downloaded 2026-11-04; locally optimized to 960 × 640 WebP.
+Illustrative sports coaching photo, not a Booking Whale customer endorsement.

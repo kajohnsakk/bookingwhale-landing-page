@@ -1,0 +1,25 @@
+---
+import '../styles/restaurant-demo.css';
+interface Props { slug: 'food-beverage' | 'fitness-sports' | 'services'; locale: 'th' | 'en' | 'zh' }
+const { slug, locale } = Astro.props;
+const th = locale !== 'en';
+const restaurant = slug === 'food-beverage';
+const title = restaurant
+  ? (th ? 'ลูกค้าจองเอง คุณเห็นภาพรวม' : 'Guests book. You see the full picture.')
+  : slug === 'fitness-sports'
+    ? (th ? 'จากการจอง ถึงรายชื่อก่อนเริ่มฝึก' : 'From a booking to your session list.')
+    : (th ? 'ลูกค้าเลือกเวลา คุณเตรียมบริการ' : 'They choose a time. You prepare the service.');
+const merchant = '/assets/hero-screens/' + locale + '/merchant-1200.webp';
+const booking = '/assets/hero-screens/' + locale + '/booking-600.webp';
+---
+<section class="restaurant-section business-product-proof" id={restaurant ? 'restaurant-demo' : 'business-product'}>
+  <div class="restaurant-section-heading"><h2>{title}</h2></div>
+  <div class="restaurant-demo-flow">
+    <figure class="restaurant-demo-panel restaurant-demo-merchant">
+      <a class="restaurant-demo-screen" href={merchant} target="_blank" rel="noopener" aria-label={th ? 'ขยายภาพหน้าจัดการรายการจอง (เปิดแท็บใหม่)' : 'Enlarge the booking dashboard (opens a new tab)'}><img src={merchant} srcset={'/assets/hero-screens/' + locale + '/merchant-640.webp 640w, ' + merchant + ' 1200w'} sizes="(max-width:767px) calc(100vw - 72px), (max-width:1199px) 65vw, 780px" width="1200" height="675" loading="lazy" decoding="async" alt={th ? 'หน้าจัดการ Booking Whale แสดงรายการจอง เวลา จำนวนคน และสถานะจากข้อมูลร้านอาหารตัวอย่าง' : 'Booking Whale dashboard with sample restaurant bookings, times, party sizes and statuses'} /></a>
+    </figure>
+    <figure class="restaurant-demo-panel restaurant-demo-customer">
+      <a class="restaurant-demo-screen" href={booking} target="_blank" rel="noopener" aria-label={th ? 'ขยายภาพหน้าจอง (เปิดแท็บใหม่)' : 'Enlarge the customer booking page (opens a new tab)'}><img src={booking} width="600" height="1298" loading="lazy" decoding="async" alt={th ? 'หน้าจอง Booking Whale แสดงวัน เวลา และจำนวนคนสำหรับร้านอาหารตัวอย่าง' : 'Booking Whale customer page showing dates, times and party sizes for a sample restaurant'} /></a>
+    </figure>
+  </div>
+</section>

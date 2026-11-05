@@ -25,7 +25,6 @@
 #bookingwhale .bw-nav{max-width:960px}
 #bookingwhale .bw-hero-live h1>span{white-space:normal}
 html:lang(en) #bookingwhale .bw-hero-live h1{font-size:clamp(38px,4.2vw,62px);line-height:1.13;letter-spacing:-.045em}
-html:lang(en) #bookingwhale .bw-hero-accent{margin-left:.2em}
 html:lang(zh) #bookingwhale{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif}
 html:lang(zh) #bookingwhale h1,html:lang(zh) #bookingwhale h2,html:lang(zh) #bookingwhale h3{font-family:inherit;line-height:1.35;letter-spacing:-.025em}
 #bookingwhale .bw-flow-chapter h3{overflow-wrap:normal;text-wrap:balance}

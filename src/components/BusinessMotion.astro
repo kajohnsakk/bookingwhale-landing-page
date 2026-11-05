@@ -1,0 +1,42 @@
+<script>
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  const running = new Map<Element, Animation>();
+  const targets = document.querySelectorAll('.restaurant-section-heading, .business-value-grid>article, .business-launch li, .scenario-panels, .restaurant-demo-panel, .restaurant-preparation, .business-index-card, .restaurant-contact');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        const animation = running.get(entry.target);
+        if (animation) {
+          animation.cancel();
+          running.delete(entry.target);
+          observer.unobserve(entry.target);
+        }
+        return;
+      }
+      if (running.has(entry.target)) return;
+      if (preference.matches || document.hidden) {
+        observer.unobserve(entry.target);
+        return;
+      }
+      const group = entry.target.parentElement;
+      const stagger = group?.matches('.business-value-grid, .business-index-grid, .business-launch ol, .restaurant-demo-flow');
+      const index = stagger && group ? [...group.children].indexOf(entry.target) : 0;
+      const animation = entry.target.animate([{opacity:.6,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}], {duration:420,delay:Math.min(index,2)*60,fill:'backwards',easing:'cubic-bezier(.22,.68,.2,1)'});
+      running.set(entry.target, animation);
+      animation.finished.catch(() => {}).finally(() => {
+        running.delete(entry.target);
+        observer.unobserve(entry.target);
+      });
+    });
+  }, {threshold:.12});
+  targets.forEach(target => {
+    if (target.getBoundingClientRect().top >= innerHeight) observer.observe(target);
+  });
+  const finish = () => running.forEach(animation => animation.cancel());
+  preference.addEventListener('change', () => {
+    if (preference.matches) finish();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) finish();
+  });
+</script>

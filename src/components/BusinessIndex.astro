@@ -1,0 +1,34 @@
+---
+import Icon from './Icon.astro';
+import ContentLayout from '../layouts/ContentLayout.astro';
+import BusinessMotion from './BusinessMotion.astro';
+import '../styles/restaurant-business.css';
+import '../styles/business-detail.css';
+import '../styles/business-layouts.css';
+import {businessDetails} from '../data/business-details';
+interface Props { locale?: 'th' | 'en' | 'zh' }
+const {locale='th'}=Astro.props;
+const th=locale!=='en';
+const prefix=locale==='th'?'':`/${locale}`;
+const title=th?'ระบบจองผ่าน LINE OA สำหรับธุรกิจของคุณ':'LINE OA bookings for your business';
+const description=th?'เลือกรูปแบบการจองสำหรับร้านอาหาร ฟิตเนส กีฬา และบริการนัดหมาย ดูตัวอย่าง วิธีเตรียมธุรกิจ และคำถามก่อนเริ่มใช้ Booking Whale':'Explore restaurant, fitness, sports and service appointment bookings through LINE OA. See examples, preparation steps and FAQs for your business.';
+const cards=[
+  {slug:'food-beverage',photo:'/assets/business/food-beverage/cafe',height:1603,title:th?'ร้านอาหารและคาเฟ่':'Restaurants & cafés',unit:th?'จองโต๊ะ':'Table reservations',body:th?'รู้จำนวนคนก่อนเปิดมื้อ วางรอบจองพร้อมเผื่อที่สำหรับ walk-in':'Know your guest count before service. Plan reservation slots with room for walk-ins.',examples:th?'มื้อเย็น · คาเฟ่ · โต๊ะกลุ่ม':'Dinner service · Cafés · Groups',alt:th?'พื้นที่นั่งภายในร้านอาหาร':'Restaurant dining area'},
+  {slug:'fitness-sports',photo:'/assets/business/fitness',height:640,title:businessDetails['fitness-sports'][locale === 'zh' ? 'th' : locale].label,unit:th?'จองคลาส':'Class bookings',body:th?'กำหนดจำนวนที่รับตามพื้นที่และอุปกรณ์ ดูรายชื่อก่อนเริ่มสอน':'Set capacity around your space and equipment. See who is booked before class.',examples:th?'คลาสกลุ่ม · ฝึกกีฬา · เทรนส่วนตัว':'Group classes · Sports coaching · Personal training',alt:th?'ผู้เข้าร่วมคลาสโยคะกำลังฝึกด้วยกันในสตูดิโอ':'Participants practising together in a group yoga class'},
+  {slug:'services',photo:'/assets/business/wellness',height:640,title:businessDetails.services[locale === 'zh' ? 'th' : locale].label,unit:th?'นัดหมายบริการ':'Service appointments',body:th?'ให้ลูกค้าเลือกบริการและเวลานัด วางรอบให้มีเวลาเตรียมพร้อมก่อนรับคนถัดไป':'Let customers choose a service and time. Plan slots with time to prepare for the next client.',examples:th?'นวดและสปา · ดูแลผิว · นัดปรึกษา':'Massage & spa · Skincare · Consultations',alt:th?'ผู้ให้บริการกำลังนวดเพื่อผ่อนคลายให้ลูกค้า':'A therapist giving a relaxing massage'}
+];
+---
+<ContentLayout title={`${title} | Booking Whale`} {description} {locale} breadcrumb={[{name:th?'สำหรับธุรกิจ':'For businesses',path:prefix+'/businesses/'}]}>
+  <div class="restaurant-page business-index-page">
+    <header class="business-index-intro">
+      <div><span class="editorial-kicker">Booking Whale · LINE OA</span><h1>{th?'ให้ลูกค้าจองผ่าน LINE OA':'Let customers book on LINE OA.'}<span>{th?'คุณพร้อมดูแลธุรกิจ':'Prepare for the day ahead.'}</span></h1></div>
+      <div class="business-index-lead"><p>{th?'ร้านอาหาร ฟิตเนส หรืองานบริการ ลูกค้าเลือกเวลาจากรอบที่คุณเปิดรับ คุณเห็นรายการล่วงหน้าและเตรียมทีมได้ง่ายขึ้น':'Tables, classes and appointments. Customers choose from the times you offer, while you see bookings ahead and prepare your team.'}</p><a class="editorial-button" href="#business-options">{th?'เลือกรูปแบบของคุณ':'Find your booking setup'}<Icon name="arrow-down" /></a></div>
+    </header>
+    <div class="business-index-grid" id="business-options">{cards.map((card,i)=><article class="business-index-card">
+      <a class="business-index-image" href={`${prefix}/businesses/${card.slug}/`} aria-label={card.title} tabindex="-1"><img src={card.slug==='food-beverage'?card.photo+'-640.webp':card.photo+'.webp'} srcset={card.slug==='food-beverage'?`${card.photo}-640.webp 640w, ${card.photo}-1200.webp 1200w`:undefined} sizes="(max-width:767px) calc(100vw - 40px), (max-width:1023px) 50vw, 33vw" width={card.slug==='food-beverage'?1200:960} height={card.height} alt={card.alt} loading={i===0?'eager':'lazy'} decoding="async" /></a>
+      <div class="business-index-card-copy"><span class="business-index-unit">{card.unit}</span><h2>{card.title}</h2><p>{card.body}</p><span class="business-index-examples">{card.examples}</span><a class="business-index-link" href={`${prefix}/businesses/${card.slug}/`}>{th?'ดูรูปแบบการจอง':'Explore booking options'}<Icon name="arrow-right" /></a></div>
+    </article>)}</div>
+    <aside class="restaurant-contact"><div><h2>{th?'ยังไม่เจอรูปแบบของคุณ?':'Have a different workflow?'}</h2><p>{th?'เล่าว่าธุรกิจรับจองอย่างไร เราช่วยดูรูปแบบและยืนยันส่วนที่รองรับก่อนเริ่มใช้':'Tell us how your business takes bookings. We’ll review the workflow and confirm what is supported before you start.'}</p></div><a class="editorial-button" href={prefix+'/contact/'} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{th?'ขอดูระบบสำหรับธุรกิจคุณ':'Request a business demo'}<Icon name="arrow-right" /></a></aside>
+  </div>
+  <BusinessMotion />
+</ContentLayout>

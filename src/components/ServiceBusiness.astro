@@ -1,0 +1,46 @@
+---
+import Icon from './Icon.astro';
+import '../styles/restaurant-business.css';
+import BusinessSalesContent from './BusinessSalesContent.astro';
+import {businessSales} from '../data/business-sales';
+import '../styles/business-detail.css';
+import BusinessScenario from './BusinessScenario.astro';
+import BusinessProductProof from './BusinessProductProof.astro';
+import BusinessCostCalculator from './BusinessCostCalculator.astro';
+import '../styles/business-layouts.css';
+import '../styles/business-verticals.css';
+import {businessPages} from '../data/business-pages';
+import {businessDetails} from '../data/business-details';
+interface Props { slug: 'fitness-sports' | 'services'; locale: 'th' | 'en' | 'zh' }
+const {slug,locale}=Astro.props;
+const detail=businessDetails[slug];
+const text=detail[locale === 'zh' ? 'th' : locale];
+const page=businessPages.find(item=>item.slug===slug)!;
+const copy=page[locale === 'zh' ? 'th' : locale];
+const th=locale!=='en';
+const prefix=locale==='th'?'':`/${locale}`;
+const fitness=slug==='fitness-sports';
+const cta=fitness?(th?'ขอดูระบบสำหรับธุรกิจคุณ':'Explore training bookings'):(th?'ขอดูระบบสำหรับบริการคุณ':'Request an appointment demo');
+const heroAlt=fitness?(th?'ผู้เข้าร่วมคลาสโยคะกำลังฝึกด้วยกันในสตูดิโอ':'Participants practising together in a group yoga class'):(th?'ผู้ให้บริการกำลังนวดผ่อนคลายให้ลูกค้า':'A therapist giving a client a relaxing massage');
+---
+<div class:list={["restaurant-page", "business-detail", slug==='fitness-sports'?'studio-layout':'appointment-layout']}>
+  <header class="restaurant-hero">
+    <div class="restaurant-hero-copy"><span class="editorial-kicker">{text.label}</span><h1>{text.title}<span>{text.accent}</span></h1><p>{text.intro}</p><div class="restaurant-actions"><a class="editorial-button" href={prefix+'/contact/'} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{cta}<Icon name="arrow-right" /></a><a href={fitness?"#business-scenarios":"#business-product"}>{fitness?(th?'ดูตัวอย่างตารางฝึก':'Explore training schedules'):(th?'ดูการใช้งานจริง':'See the system')}<Icon name="arrow-down" /></a></div><p class="business-cta-note">{th?'ดูตัวอย่างการจอง พร้อมสอบถามราคา':'Explore your booking setup and ask about pricing.'}</p></div>
+    <div class:list={["business-hero-media", fitness ? "business-hero-collage" : "business-hero-treatment"]}>
+      <figure class="restaurant-photo">
+        <img src={fitness?detail.photo+'-1000.webp':'/assets/business/wellness.webp'} srcset={fitness?`${detail.photo}-640.webp 640w, ${detail.photo}-1000.webp 1000w`:undefined} sizes="(max-width:767px) calc(100vw - 40px), 50vw" width={fitness?1000:960} height={fitness?667:640} alt={fitness?text.alt:heroAlt} fetchpriority="high" decoding="async" />
+      </figure>
+      {fitness&&<figure class="business-hero-support"><img src={fitness?'/assets/business/fitness.webp':detail.photo+'-640.webp'} width={fitness?960:640} height={fitness?640:427} alt={fitness?heroAlt:text.alt} loading="lazy" decoding="async" /></figure>}
+      <div class="business-photo-caption"><span>{fitness?(th?'ก่อนเริ่มคลาส':'Before class'):(th?'ก่อนลูกค้ามาถึง':'Before your client arrives')}</span><strong>{fitness?(th?'รู้จำนวน พร้อมสอน':'Know the numbers. Be ready.'):(th?'เห็นเวลานัด พร้อมดูแล':'See the schedule. Be prepared.')}</strong></div>
+    </div>
+  </header>
+  {fitness&&<BusinessScenario {slug} {locale} />}
+  <BusinessSalesContent {slug} {locale} variant="value" />
+  {!fitness&&<BusinessScenario {slug} {locale} />}
+  <BusinessCostCalculator {slug} {locale} />
+  <BusinessProductProof {slug} {locale} />
+  <BusinessSalesContent {slug} {locale} variant="decision" />
+  <section class="restaurant-section restaurant-faq" id="business-questions"><h2>{th?'คำถามก่อนเริ่ม':'Before you start'}</h2><div>{businessSales[slug][locale === 'zh' ? 'th' : locale].faqs.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}</div></section>
+  <aside class="restaurant-contact"><div><h2>{text.endTitle}</h2><p>{text.endBody}</p></div><a class="editorial-button" href={prefix+'/contact/'} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{cta}<Icon name="arrow-right" /></a></aside>
+  <nav class="restaurant-reading" aria-label={th?'อ่านเพิ่มเติม':'Further reading'}><a href="/blog/line-oa-booking-guide/" lang="th">{th?'คู่มือเริ่มรับจองผ่าน LINE OA':'LINE OA booking guide (Thai)'} <Icon name="arrow-right" /></a>{page.article!=='line-oa-booking-guide'&&<a href={`/blog/${page.article}/`} lang="th">{copy.related} <Icon name="arrow-right" /></a>}</nav>
+</div>

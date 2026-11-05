@@ -1,0 +1,67 @@
+---
+import Icon from './Icon.astro';
+import { bookingCostLimits, bookingCostSliderMax, calculateBookingCost } from '../lib/booking-cost';
+import '../styles/business-cost.css';
+interface Props { slug: 'food-beverage' | 'fitness-sports' | 'services'; locale: 'th' | 'en' | 'zh' }
+const { slug, locale } = Astro.props;
+const th = locale !== 'en';
+const defaults = {
+  'food-beverage': { bookings: 120, minutes: 6, hourlyCost: 100, missed: 4, value: 1200 },
+  'fitness-sports': { bookings: 160, minutes: 4, hourlyCost: 100, missed: 6, value: 350 },
+  services: { bookings: 100, minutes: 6, hourlyCost: 150, missed: 4, value: 800 },
+}[slug];
+const units = {
+  'food-beverage': th ? 'โต๊ะที่จอง' : 'table booking',
+  'fitness-sports': th ? 'ที่นั่งหรือเซสชัน' : 'place or session',
+  services: th ? 'นัดหมาย' : 'appointment',
+}[slug];
+const context = {
+  'food-beverage': th ? 'ลองนับเวลาตอบแชทรับจอง และโต๊ะที่ลูกค้าไม่มาแล้วขายต่อไม่ได้' : 'Consider time spent taking reservations and unfilled tables after a no-show.',
+  'fitness-sports': th ? 'ลองนับเวลาจัดการจอง และที่ว่างในคลาสหรือรอบฝึกที่ขายต่อไม่ได้' : 'Consider booking admin and unfilled places in classes or training sessions.',
+  services: th ? 'ลองนับเวลาจัดการนัด และช่วงบริการที่ว่างโดยไม่มีลูกค้าทดแทน' : 'Consider appointment admin and empty slots with no replacement customer.',
+}[slug];
+const fields = [
+  { key: 'bookings' as const, label: th ? 'จำนวนการจองต่อเดือน' : 'Bookings per month', unit: th ? 'รายการ' : 'bookings', hint: th ? `นับ 1 รายการต่อ 1 ${units}` : `Count each ${units} as one booking.` },
+  { key: 'minutes' as const, label: th ? 'เวลาจัดการต่อการจอง' : 'Admin time per booking', unit: th ? 'นาที' : 'minutes', hint: th ? 'รวมตอบแชท เช็กเวลา และลงรายการ' : 'Include messages, checking times and recording details.' },
+  { key: 'hourlyCost' as const, label: th ? 'มูลค่าเวลาทำงานต่อชั่วโมง' : 'Value of an hour of work', unit: th ? 'บาท' : 'THB', hint: th ? 'ใช้ต้นทุนพนักงาน หรือค่าเวลาของคุณ' : 'Use staff cost or the value of your own time.' },
+  { key: 'missed' as const, label: th ? 'การจองที่ไม่ได้รับรายได้ต่อเดือน' : 'Unpaid, unfilled bookings per month', unit: th ? 'รายการ' : 'bookings', hint: th ? 'เฉพาะยกเลิกหรือไม่มา ที่ไม่ได้รับเงินและขายต่อไม่ได้' : 'Only cancellations or no-shows that were unpaid and not refilled.' },
+  { key: 'value' as const, label: th ? 'รายรับเฉลี่ยต่อการจอง' : 'Average revenue per booking', unit: th ? 'บาท' : 'THB', hint: th ? 'ใช้ยอดของรายการ ไม่ใช่ราคาทั้งแพ็กเกจ' : 'Use the value of one booking, not an entire package.' },
+];
+const estimate = calculateBookingCost(defaults);
+if (!estimate.valid) throw new Error('Invalid calculator defaults');
+const number = (n: number) => new Intl.NumberFormat(locale === 'zh' ? 'zh-CN' : th ? 'th-TH' : 'en-US', { maximumFractionDigits: 1 }).format(n);
+const money = (n: number) => new Intl.NumberFormat(locale === 'zh' ? 'zh-CN' : th ? 'th-TH' : 'en-US', { maximumFractionDigits: 0 }).format(n);
+---
+<section class="restaurant-section business-cost" id="booking-cost" data-booking-cost data-locale={locale} aria-labelledby="booking-cost-title">
+  <div class="restaurant-section-heading"><span class="editorial-kicker">{th ? 'ลองคำนวณจากธุรกิจคุณ' : 'Put your own numbers in'}</span><h2 id="booking-cost-title">{th ? 'งานจองที่ทำเอง ใช้ต้นทุนเท่าไร?' : 'What does manual booking cost you?'}</h2><p>{context}</p></div>
+  <div class="business-cost-layout">
+    <form class="business-cost-form" novalidate>
+      <div class="business-cost-form-heading"><h3>{th ? 'ข้อมูลใน 1 เดือน' : 'Your month in numbers'}</h3><button type="button" data-cost-reset disabled>{th ? 'คืนค่าตัวอย่าง' : 'Reset example'}</button></div>
+      {fields.map(field => <div class="business-cost-field">
+        <label id={`cost-${field.key}-label`} for={`cost-${field.key}`}>{field.label}</label>
+        <div class="business-cost-input"><input id={`cost-${field.key}`} name={field.key} type="number" inputmode={bookingCostLimits[field.key].step === 1 ? 'numeric' : 'decimal'} min="0" max={bookingCostLimits[field.key].max} step={bookingCostLimits[field.key].step} value={defaults[field.key]} required disabled aria-describedby={`cost-${field.key}-unit cost-${field.key}-hint cost-${field.key}-error`} /><span id={`cost-${field.key}-unit`}>{field.unit}</span></div>
+        <div class="business-cost-slider">
+          <input type="range" data-cost-slider={field.key} min="0" max={bookingCostSliderMax[field.key]} step={bookingCostLimits[field.key].step} value={defaults[field.key]} disabled aria-labelledby={`cost-${field.key}-label`} aria-describedby={`cost-${field.key}-hint`} style={`--range-progress:${defaults[field.key] / bookingCostSliderMax[field.key] * 100}%`} />
+          <div class="business-cost-range-labels" aria-hidden="true"><span>0</span><span data-cost-range-max={field.key}>{number(bookingCostSliderMax[field.key])}</span></div>
+        </div>
+        {field.key === 'missed' && <p id={`cost-${field.key}-hint`}>{field.hint}</p>}
+        <p id={`cost-${field.key}-error`} class="business-cost-error" data-cost-error={field.key} hidden></p>
+      </div>)}
+      <details class="business-cost-help"><summary>{th ? 'กรอกตัวเลขอะไรบ้าง?' : 'What should I enter?'}</summary><dl>{fields.filter(field => field.key !== 'missed').map(field => <div><dt>{field.label}</dt><dd id={`cost-${field.key}-hint`}>{field.hint}</dd></div>)}</dl></details>
+    </form>
+    <div class="business-cost-results">
+      <p class="business-cost-state" data-cost-state>{th ? 'ตัวอย่างสมมติ · แก้ตัวเลขให้ตรงกับร้านคุณ' : 'Illustrative example · Adjust to match your business'}</p>
+      <div role="status" aria-live="polite" aria-atomic="true" data-cost-results>
+        <div class="business-cost-time"><Icon name="clock" /><span>{th ? 'เวลาจัดการจองต่อเดือน' : 'Monthly booking admin'}</span><strong><output data-cost-hours for="cost-bookings cost-minutes">{number(estimate.hours)}</output> <small>{th ? 'ชั่วโมง' : 'hours'}</small></strong><p>{th ? 'คิดเป็นมูลค่าเวลาทำงาน' : 'Equivalent work-time value'} <b><output data-cost-labor for="cost-bookings cost-minutes cost-hourlyCost">{money(estimate.laborValue)}</output> {th ? 'บาท/เดือน' : 'THB/month'}</b></p></div>
+        <div class="business-cost-missed"><span>{th ? 'มูลค่าการจองที่ไม่ได้รับรายได้' : 'Potential revenue from unfilled bookings'}</span><strong><output data-cost-missed for="cost-missed cost-value">{money(estimate.missedValue)}</output> <small>{th ? 'บาท/เดือน' : 'THB/month'}</small></strong><p>{th ? 'รายรับที่อาจพลาด ไม่ใช่กำไรสุทธิ' : 'Potential revenue, not net profit.'}</p></div>
+      </div>
+      <p class="business-cost-disclaimer">{th ? 'ระบบจองอาจช่วยลดงานจัดการ แต่ไม่ได้รับประกันว่าจะลดการยกเลิกหรือเรียกคืนรายรับได้ทั้งหมด ตัวเลขนี้ไม่ใช่ยอดประหยัด และยังไม่หักค่าระบบ' : 'Booking software may reduce admin work, but does not guarantee fewer cancellations or recovered revenue. These figures are not promised savings and exclude software fees.'}</p>
+      <details class="business-cost-method"><summary>{th ? 'ดูวิธีคำนวณ' : 'How this is calculated'}</summary><ul><li>{th ? 'ชั่วโมง = จำนวนการจอง × นาทีต่อรายการ ÷ 60' : 'Hours = bookings × minutes per booking ÷ 60'}</li><li>{th ? 'มูลค่าเวลาทำงาน = ชั่วโมง × ค่าเวลาต่อชั่วโมง ไม่ใช่ค่าใช้จ่ายใหม่ที่เพิ่มขึ้น' : 'Work-time value = hours × hourly cost. This is not an additional cash expense.'}</li><li>{th ? 'รายรับที่อาจพลาด = รายการที่ไม่ได้รับเงินและขายต่อไม่ได้ × รายรับเฉลี่ย ไม่รวมรายการที่รับเงินแล้วหรือมีลูกค้าทดแทน' : 'Potential missed revenue = unpaid, unfilled bookings × average revenue. Excludes paid or replacement bookings.'}</li></ul></details>
+      <a class="editorial-button" href={`${locale === 'th' ? '' : `/${locale}`}/contact/`} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{th ? 'ดูวิธีลดงานจองของคุณ' : 'Explore your booking setup'}<Icon name="arrow-right" /></a>
+    </div>
+  </div>
+  <noscript><p>{th ? 'เปิด JavaScript เพื่อคำนวณด้วยตัวเลขของคุณ ขณะนี้แสดงค่าตัวอย่าง' : 'Enable JavaScript to calculate your own numbers. Example figures are shown above.'}</p></noscript>
+</section>
+<script>
+  import '../scripts/business-cost';
+</script>

@@ -29,3 +29,22 @@ test('sitemap contains locale pages but not decorative previews',()=>{
  assert.ok(sitemap.includes('https://bookingwhale.co/zh/'));
  assert.ok(!sitemap.includes('/previews/'));
 });
+
+for (const path of ['businesses/', 'businesses/food-beverage/', 'businesses/fitness-sports/', 'businesses/services/', 'contact/']) {
+ test(`Chinese ${path} is translated and retains localized navigation`, () => {
+  const html = read(`zh/${path}index.html`);
+  assert.match(html, /<html[^>]+lang="zh-Hans"/);
+  assert.equal(copy(html).some(text => /[ก-๛]/.test(text)), false);
+  assert.ok(html.includes(`href="/en/${path}"`));
+  assert.ok(html.includes(`href="/zh/${path}"`));
+  const schema = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)?.[1];
+  assert.ok(schema);
+  assert.doesNotMatch(schema, /[ก-๛]/);
+  assert.ok(read('sitemap-0.xml').includes(`<loc>https://bookingwhale.co/zh/${path}</loc>`));
+  if (path.startsWith('businesses/')) {
+   for (const slug of ['food-beverage', 'fitness-sports', 'services']) {
+    assert.ok(html.includes(`href="/zh/businesses/${slug}/"`));
+   }
+  }
+ });
+}

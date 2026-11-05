@@ -19,10 +19,7 @@ const industries = [
 <div class="bw-business-scroll-track">
 <section class="bw-container bw-section bw-business" id="business">
   <div class="bw-business-intro"><div class="bw-heading"><span class="bw-eyebrow">ธุรกิจของคุณ จองแบบไหน?</span><h2>ทุกการจอง<br><em>จัดการในที่เดียว</em></h2><p class="bw-business-context">ทั้งจองโต๊ะ จองคลาส และนัดหมายบริการ คุณกำหนดเวลาและจำนวนที่รับ ลูกค้าเลือกรอบที่สะดวก</p></div></div>
-  <div class="bw-industry-controls">
-    <p id="business-scroll-hint">เลื่อนดูรูปแบบเพิ่มเติม</p>
-  </div>
-  <div id="business-gallery" class="bw-industry-viewport" tabindex="0" role="region" aria-label="รูปแบบการจองสำหรับธุรกิจ" aria-describedby="business-scroll-hint"><div class="bw-business-directory">
+  <div id="business-gallery" class="bw-industry-viewport" tabindex="0" role="region" aria-label="รูปแบบการจองสำหรับธุรกิจ"><div class="bw-business-directory">
     {industries.map((item) => <article class="bw-industry-graphic">
       <div class="bw-industry-scene" data-industry-index={item.kind} aria-hidden="true">
         <div class="bw-industry-identity"><span class="bw-industry-symbol"><BusinessSymbol kind={item.kind}/></span><span>{item.label}</span></div>
@@ -125,6 +122,17 @@ const industries = [
 :global(#bookingwhale) #business .bw-industry-viewport{container-type:inline-size}
 :global(#bookingwhale) #business .bw-business-directory{gap:24px}
 :global(#bookingwhale) #business .bw-industry-graphic{width:calc((100cqw - 48px)/2.8);flex:0 0 calc((100cqw - 48px)/2.8)}
+@media(min-width:1200px){
+:global(#bookingwhale) #business .bw-industry-graphic{width:calc((100cqw - 72px)/3.8);flex-basis:calc((100cqw - 72px)/3.8)}
+:global(#bookingwhale) #business .bw-industry-scene{padding:16px;height:auto;min-height:300px}
+:global(#bookingwhale) #business .bw-industry-identity{gap:8px;margin-bottom:10px}
+:global(#bookingwhale) #business .bw-industry-symbol{width:64px;height:64px}
+:global(#bookingwhale) #business .bw-industry-symbol :global(svg){width:40px;height:40px}
+:global(#bookingwhale) #business .bw-industry-demo{height:auto;min-height:0;padding-top:8px}
+:global(#bookingwhale) #business .bw-industry-graphic h3{font-size:22px;line-height:1.4}
+:global(#bookingwhale) #business .bw-industry-graphic>p{font-size:15px}
+:global(#bookingwhale) #business .bw-booking-meta{flex-wrap:wrap;gap:6px}
+}
 @media(max-width:767px){
 :global(#bookingwhale) #business .bw-business-directory{gap:20px}
 :global(#bookingwhale) #business .bw-industry-graphic{width:calc((100cqw - 20px)/1.15);flex-basis:calc((100cqw - 20px)/1.15)}
@@ -144,7 +152,7 @@ const industries = [
 :global(#bookingwhale) #business .bw-booking-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:26px}
 :global(#bookingwhale) #business .bw-booking-heading strong{font-size:18px;font-weight:600;line-height:1.4;color:#29384f}
 :global(#bookingwhale) #business .bw-booking-heading>span{font-size:12px;color:#617087;white-space:nowrap}
-:global(#bookingwhale) #business :is(.bw-booking-panel,.bw-rental-schedule,.bw-consultation-summary){background:#fff;border:1px solid #e7ebf1;border-radius:12px;min-height:84px;padding:12px;box-sizing:border-box}
+:global(#bookingwhale) #business :is(.bw-booking-panel,.bw-rental-schedule,.bw-consultation-summary){background:#fff;border:1px solid transparent;border-radius:12px;min-height:84px;padding:12px;box-sizing:border-box}
 :global(#bookingwhale) #business .bw-rental-axis{display:flex;justify-content:space-between;color:#617087;font-size:10px;line-height:16px;font-variant-numeric:tabular-nums}
 :global(#bookingwhale) #business .bw-rental-timeline{position:relative;height:34px;margin:8px 13px 0;background:repeating-linear-gradient(to right,#e7ebf1 0 1px,transparent 1px 25%);border-right:1px solid #e7ebf1}
 :global(#bookingwhale) #business .bw-rental-reservation{position:absolute;inset:0 25%;display:flex;align-items:center;justify-content:center;border-radius:6px;background:#315bca;color:#fff;font-size:11px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -153,7 +161,7 @@ const industries = [
 :global(#bookingwhale) #business .bw-booking-meta :global(svg){width:13px;height:13px;flex-shrink:0}
 :global(#bookingwhale) #business .bw-preview-status{font-size:11px;font-weight:500;color:#347052;background:#edf7f1;border-radius:999px;padding:4px 8px}
 :global(#bookingwhale) #business .bw-consultation-summary{display:flex;align-items:center;gap:14px}
-:global(#bookingwhale) #business .bw-consultation-date{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:0 0 48px;align-self:stretch;background:#fff;border:1px solid #e7ebf1;border-radius:8px;overflow:hidden}
+:global(#bookingwhale) #business .bw-consultation-date{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:0 0 48px;align-self:stretch;background:#fff;border:1px solid transparent;border-radius:8px;overflow:hidden}
 :global(#bookingwhale) #business .bw-consultation-date>span{width:100%;text-align:center;font-size:10px;line-height:19px;background:#dc3545;color:#fff}
 :global(#bookingwhale) #business .bw-consultation-date>b{font-size:23px;font-weight:600;line-height:32px;color:#29384f}
 :global(#bookingwhale) #business .bw-consultation-slot{display:flex;flex-direction:column;gap:6px;min-width:0}
@@ -168,7 +176,7 @@ const industries = [
 :global(#bookingwhale) #business .bw-preview-detail>span{display:inline-flex;align-items:center;gap:5px}
 :global(#bookingwhale) #business .bw-preview-detail :global(svg){width:12px;height:12px;flex-shrink:0}
 :global(#bookingwhale) #business .bw-booking-panel :is(.bw-dinner-rounds,.bw-industry-slots){gap:6px;font-size:12px;line-height:18px;font-variant-numeric:tabular-nums}
-:global(#bookingwhale) #business .bw-booking-panel :is(.bw-dinner-rounds,.bw-industry-slots)>span{display:flex;align-items:center;justify-content:center;gap:4px;padding:5px 2px;border:1px solid #e7ebf1;border-radius:6px;min-width:0}
+:global(#bookingwhale) #business .bw-booking-panel :is(.bw-dinner-rounds,.bw-industry-slots)>span{display:flex;align-items:center;justify-content:center;gap:4px;padding:5px 2px;border:1px solid transparent;border-radius:6px;min-width:0}
 :global(#bookingwhale) #business .bw-booking-panel :is(.bw-dinner-rounds,.bw-industry-slots)>:is(.is-selected,.bw-industry-selected){border-color:transparent}
 :global(#bookingwhale) #business .bw-booking-panel .bw-dinner-rounds :global(svg){width:11px;height:11px;flex-shrink:0}
 :global(#bookingwhale) #business .bw-booking-meta .bw-guest-count{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;color:#526178;font-size:12px;line-height:1.5}
@@ -192,7 +200,7 @@ const industries = [
 :global(#bookingwhale) #business .bw-booking-meta .bw-lesson-confirmed{background:#edf2ff;color:#315bca}
 :global(#bookingwhale) #business .bw-booking-meta .bw-participant-count{border:0;padding:4px 8px;font-size:11px;line-height:1.5;gap:6px;color:#347052}
 :global(#bookingwhale) #business .bw-booking-meta .bw-participant-count b{font-weight:500;margin:0}
-:global(#bookingwhale) #business .bw-booking-demo .bw-travel-panel{display:flex;align-items:center;padding:10px 12px;background:#fff;border-color:#e7ebf1}
+:global(#bookingwhale) #business .bw-booking-demo .bw-travel-panel{display:flex;align-items:center;padding:10px 12px;background:#fff;border-color:transparent}
 :global(#bookingwhale) #business .bw-booking-panel .bw-tour-route{display:flex;flex:1;align-items:center;gap:8px;border:0;margin:0;padding:0}
 :global(#bookingwhale) #business .bw-booking-panel .bw-tour-route>span{flex:0 0 auto;min-width:0;font-size:12px;line-height:18px;color:#29384f}
 :global(#bookingwhale) #business .bw-booking-panel .bw-tour-route>span:last-child{text-align:right}

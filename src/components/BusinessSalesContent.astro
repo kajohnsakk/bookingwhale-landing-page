@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+import { businessSales } from '../data/business-sales';
+import '../styles/business-sales.css';
+interface Props { slug: keyof typeof businessSales; locale: 'th' | 'en' | 'zh'; variant: 'value' | 'decision' }
+const { slug, locale, variant } = Astro.props;
+const copy = businessSales[slug][locale === 'zh' ? 'th' : locale];
+const th = locale !== 'en';
+const valueIcons = {
+  'food-beverage': ['calendar-days', 'users', 'list'],
+  'fitness-sports': ['calendar-days', 'users', 'list'],
+  services: ['calendar-days', 'clock', 'list'],
+} as const;
+---
+{variant === 'value' && <section class="restaurant-section business-sales-value" id="business-value">
+  <div class="restaurant-section-heading"><span class="editorial-kicker">{slug==='food-beverage'?(th?'พร้อมรับทุกมื้อ':'Ready for every service'):slug==='fitness-sports'?(th?'จัดการรอบฝึกให้ลงตัว':'Make every session work'):(th?'ใส่ใจลูกค้าได้เต็มเวลา':'More time for your clients')}</span><h2>{copy.valueTitle}</h2></div>
+  <div class="business-value-grid">{copy.values.map(([title, body], i) => <article>
+    <span class="business-value-icon"><Icon name={valueIcons[slug][i]} /></span><h3>{title}</h3><p>{body}</p>
+  </article>)}</div>
+</section>}
+{variant === 'decision' && <section class="restaurant-section business-launch" id="business-launch">
+  <div class="restaurant-section-heading"><span class="editorial-kicker">{th?'เริ่มกับ Booking Whale':'Getting started'}</span><h2>{copy.launchTitle}</h2><p>{th?'ดูระบบให้เข้ากับวิธีทำงานของคุณ ก่อนตัดสินใจ':'See how the setup fits your workflow before you decide.'}</p></div>
+  <ol>{copy.launch.map(([title, body], i) => <li><span aria-hidden="true">0{i + 1}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
+</section>}

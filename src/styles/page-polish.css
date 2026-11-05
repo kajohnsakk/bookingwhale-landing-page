@@ -303,8 +303,9 @@
 }
 #bookingwhale .bw-hero-booking-note{position:absolute;inset:0;z-index:3;pointer-events:none}
 #bookingwhale .bw-hero-booking-note>p{position:absolute;left:14%;top:20px;margin:0;color:#263142;font-size:16px;font-weight:500;line-height:1.6;letter-spacing:0}
-#bookingwhale .bw-hero-booking-note>p>span{display:inline-block;margin-top:2px;color:#697586;font-size:15px;font-weight:400}
-#bookingwhale .bw-hero-note-arrow{display:block;position:absolute;left:calc(14% - 16px);top:76px;width:50px;height:124px;overflow:visible;stroke:#0036cc;stroke-width:3.25;stroke-linecap:round;stroke-linejoin:round}
+#bookingwhale .bw-hero-booking-note>p>strong{display:block;font-size:15px;font-weight:500;line-height:1.5;white-space:nowrap}
+#bookingwhale .bw-hero-booking-note>p>span{display:block;margin-top:3px;margin-left:0;color:#617087;font-size:13px;line-height:1.5;font-weight:400;white-space:nowrap}
+#bookingwhale .bw-hero-note-arrow{display:block;position:absolute;left:calc(14% - 16px);top:76px;width:50px;height:124px;overflow:visible;stroke:#0747ff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 #bookingwhale .bw-hero-note-arrow path{vector-effect:non-scaling-stroke}
 @media(min-width:901px){#bookingwhale .bw-hero-live{justify-content:center;padding-block:100px 60px}}
 @media(max-width:900px){#bookingwhale .bw-hero-booking-note{display:none}}

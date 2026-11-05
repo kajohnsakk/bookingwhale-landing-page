@@ -1,5 +1,6 @@
 ---
 import Icon from "./Icon.astro";
+import { localeFromPath } from "../i18n";
 import '../styles/footer-controls.css';
 interface Props { sectionBase?: string }
 const { sectionBase = '' } = Astro.props;
@@ -15,7 +16,7 @@ const { sectionBase = '' } = Astro.props;
       <strong>รู้จัก Booking Whale</strong>
       <a href={`${sectionBase}#features`}>จองยังไง</a>
       <a href={`${sectionBase}#business`}>สำหรับธุรกิจของคุณ</a>
-      <a data-contact-open href="https://bookingwhale.co/contact" aria-haspopup="dialog" aria-controls="contact-dialog">เริ่มใช้งาน</a>
+      <a data-contact-open href={localeFromPath(Astro.url.pathname) === 'zh' ? '/zh/contact/' : 'https://bookingwhale.co/contact'} aria-haspopup="dialog" aria-controls="contact-dialog">เริ่มใช้งาน</a>
       <a href={`${sectionBase}#faq`}>คำถามที่พบบ่อย</a>
       <a href="/blog/">บทความสำหรับธุรกิจ</a>
 

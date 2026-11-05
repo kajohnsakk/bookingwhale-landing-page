@@ -1,0 +1,66 @@
+.business-scenario{position:relative;scroll-margin-top:112px}
+.scenario-anchor{position:absolute;top:0;scroll-margin-top:112px}
+.scenario-selector{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 36px}
+.scenario-selector[hidden],.scenario-panel[hidden]{display:none}
+.scenario-selector button{display:flex;align-items:center;gap:10px;min-height:48px;padding:12px 18px;border:0;border-radius:999px;background:#f5f6f8;color:#52627a;font:inherit;font-size:15px;cursor:pointer;transition:background .2s,color .2s}
+.scenario-selector button>span{font-size:12px;opacity:.7}
+.scenario-selector button[aria-pressed=true]{background:#0747ff;color:#fff}
+.scenario-selector button:focus-visible{outline:3px solid #0747ff;outline-offset:4px}
+.scenario-panels{display:grid;gap:32px;position:relative}
+.scenario-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start;min-height:var(--scenario-panel-height,auto)}
+.scenario-story,.scenario-stage{min-width:0}
+.scenario-photo{display:block;width:100%;height:260px;object-fit:cover;border-radius:20px;margin-bottom:24px}
+.restaurant-page .scenario-story h3{font-size:clamp(24px,2.1vw,30px);line-height:1.4;margin:0 0 12px;letter-spacing:-.02em}
+.restaurant-page .scenario-story-copy>p{font-size:16px;line-height:1.75;margin:0;max-width:48ch}
+.restaurant-page .scenario-story-copy .scenario-setup{margin-top:12px;color:#34445f}
+.scenario-board{padding:28px;background:#f7f8fa;border-radius:24px;color:#23324b}
+.scenario-board-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px}
+.scenario-board-heading>div>span{font-size:12px;color:#617087}
+.restaurant-page .scenario-board-heading h4{font-size:20px;line-height:1.5;margin:7px 0 0;letter-spacing:-.02em}
+.scenario-board-heading>.bw-icon{width:22px;height:22px;flex:none;color:#222;margin-top:4px}
+.scenario-board-date{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:#617087;margin-bottom:16px}
+.scenario-board-date>span:first-child{font-weight:600;color:#34445f}
+.scenario-board ol{list-style:none;margin:0;padding:0}
+.scenario-arrival-labels,.scenario-arrival-list li{display:grid;grid-template-columns:.8fr .9fr 1.2fr;gap:8px;align-items:center}
+.scenario-arrival-labels{font-size:12px;color:#617087;padding:0 14px 12px}
+.scenario-arrival-labels>span:last-child{text-align:right}
+.scenario-arrival-list li{background:#fff;padding:20px 14px;border-radius:12px;margin-bottom:8px;font-size:14px}
+.scenario-arrival-list time{font-weight:650;font-size:18px;font-variant-numeric:tabular-nums}
+.scenario-confirmed{display:flex;align-items:center;justify-content:flex-end;gap:5px;font-size:12px;color:#446453}
+.scenario-confirmed .bw-icon{width:13px;height:13px;flex:none;color:#222}
+.scenario-board-total{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;color:#52627a;font-size:13px}
+.scenario-board-total>strong{font-size:26px;color:#23324b}
+.scenario-board-total small{font-size:13px;font-weight:400}
+.scenario-class-label{display:flex;justify-content:space-between;font-size:12px;color:#617087;margin:0 16px 10px}
+.scenario-class-list{display:grid;gap:10px}
+.scenario-class-list li{display:grid;grid-template-columns:62px minmax(0,1fr) auto;align-items:center;gap:6px 10px;padding:18px;background:#fff;border-radius:14px}
+.scenario-class-list time{font-size:20px;font-weight:650;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.restaurant-page .scenario-class-name h5{font-size:14px;font-weight:500;margin:0;line-height:1.5;color:#34445f}
+.scenario-class-name>span{color:#617087;font-size:12px}
+.scenario-class-list strong{font-size:19px;white-space:nowrap;color:#0747ff}
+.scenario-class-list small{font-size:13px;font-weight:400;color:#617087}
+.scenario-capacity-track{grid-column:2/-1;height:4px;border-radius:4px;background:#edf0f5;margin-top:5px;overflow:hidden}
+.scenario-capacity-track>span{display:block;height:100%;background:#0747ff;border-radius:inherit}
+.scenario-agenda-list{display:grid;gap:0}
+.scenario-agenda-list li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:14px;padding:18px 0}
+.scenario-agenda-time{display:flex;flex-direction:column;gap:4px;font-size:17px;font-weight:600;font-variant-numeric:tabular-nums}
+.scenario-agenda-time>span{font-size:12px;font-weight:400;color:#617087}
+.scenario-agenda-list li>div:last-child{position:relative;padding:0 0 0 22px;border-left:2px solid #dfe6fb}
+.scenario-agenda-dot{position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:#0747ff;box-shadow:0 0 0 4px #f7f8fa}
+.restaurant-page .scenario-agenda-list h5{font-size:16px;line-height:1.5;margin:0 0 6px}
+.restaurant-page .scenario-agenda-list p{font-size:13px;line-height:1.6;margin:0}
+.scenario-agenda-gap .scenario-agenda-dot{background:#9ba6b7}
+.scenario-agenda-gap h5{color:#617087;font-weight:500}
+.scenario-takeaway{display:flex;align-items:flex-start;gap:10px;margin-top:24px}
+.scenario-takeaway>.bw-icon{flex:none;width:16px;height:16px;margin-top:4px;color:#222}
+.restaurant-page .scenario-takeaway p{margin:0;font-size:14px;color:#34445f;line-height:1.65}
+.restaurant-page .scenario-note{font-size:11px;text-align:center;margin:12px auto 0;color:#617087;max-width:52ch;line-height:1.6}
+@media(max-width:1023px){.scenario-panel{gap:28px}.scenario-photo{height:230px}.restaurant-page .scenario-story-copy>p{font-size:15px}.scenario-board{padding:22px}.restaurant-page .scenario-board-heading h4{font-size:18px}.scenario-arrival-list li{padding:18px 10px}.scenario-confirmed{font-size:11px}}
+@media(max-width:767px){.scenario-panel{grid-template-columns:1fr;gap:24px}.scenario-selector{gap:8px;margin:24px 0}.scenario-selector button{padding:10px 14px;font-size:14px;min-height:44px}.scenario-selector button>span{display:none}.scenario-photo{height:190px;margin-bottom:20px;border-radius:16px}.restaurant-page .scenario-story h3{font-size:24px;margin-bottom:10px}.restaurant-page .scenario-story-copy>p{max-width:none}.scenario-board{padding:20px;border-radius:20px}.scenario-board-heading{margin-bottom:20px}.scenario-class-list li{padding:16px 12px;grid-template-columns:52px minmax(0,1fr) auto;column-gap:8px}.scenario-class-list time{font-size:18px}.restaurant-page .scenario-class-name h5{font-size:13px}.scenario-takeaway{margin-top:20px}.scenario-agenda-list li{padding:16px 0}.scenario-confirmed{font-size:10px}.scenario-arrival-labels{padding-inline:10px}.scenario-arrival-list time{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.scenario-selector button{transition:none}}
+
+.scenario-class-capacity{display:grid;grid-template-columns:1fr auto;gap:6px 8px;align-items:center}
+.scenario-class-availability{font-size:12px;color:#52627a;white-space:nowrap}
+.scenario-class-capacity .scenario-capacity-track{grid-column:1/-1;margin:0}
+.scenario-class-list .is-full strong{color:#23324b}
+.scenario-class-list .is-full .scenario-capacity-track>span{background:#52627a}

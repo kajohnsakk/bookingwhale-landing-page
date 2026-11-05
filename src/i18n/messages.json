@@ -76,7 +76,7 @@
     "zh": "了解预订流程"
   },
   "เลือกวันและเวลา": {
-    "en": "Choose a date and time",
+    "en": "Choose a date & time",
     "zh": "选择日期和时间"
   },
   "จัดการรายการจอง": {
@@ -1738,5 +1738,45 @@
   "ยืนยันคลาสแล้ว": {
     "en": "Class confirmed",
     "zh": "课程已确认"
+  },
+  "ระบบจองผ่าน": {
+    "en": "Bookings via",
+    "zh": "预约系统，连接"
+  },
+  "จองง่าย เชื่อมต่อลูกค้าได้ทันที": {
+    "en": "Easy booking, instant customer connection",
+    "zh": "轻松预约，即刻连接客户"
+  },
+  "ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที": {
+    "en": "Appointment booking system, queue management, customer database collection. Create your own booking system connected to LINE Official Account. Easy to use, ready to start immediately.",
+    "zh": "预约、排队管理与客户资料，一站式完成。打造适合您的预约系统，连接 LINE 官方账号，操作简单，轻松开始。"
+  },
+  "ลูกค้าใช้งานผ่านแอป": {
+    "en": "customers on the app",
+    "zh": "位应用用户"
+  },
+  "ร้านอาหารและเครื่องดื่ม": {
+    "en": "Food & beverage",
+    "zh": "餐饮"
+  },
+  "ฟิตเนสและกีฬา": {
+    "en": "Fitness & sports",
+    "zh": "健身与运动"
+  },
+  "บริการและนัดหมาย": {
+    "en": "Services & appointments",
+    "zh": "服务与预约"
+  },
+  "ดูธุรกิจทั้งหมด": {
+    "en": "Explore all businesses",
+    "zh": "查看所有业务类型"
+  },
+  "จองแล้ว ดูได้เลย": {
+    "en": "Booking ready",
+    "zh": "预订完成，随时查看"
+  },
+  "รายละเอียดครบในที่เดียว": {
+    "en": "All details in one place",
+    "zh": "所有详情，一目了然"
   }
 }

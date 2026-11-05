@@ -1,0 +1,16 @@
+.business-case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.business-case-grid article{display:flex;flex-direction:column;background:#f7f8fa;border-radius:24px;padding:28px;min-width:0}
+.business-case-grid article h3{font-size:23px;margin:0 0 12px}
+.business-case-grid article>p{font-size:16px;margin:0 0 20px}
+.business-case-grid article .business-case-context{color:#18212f;font-weight:500}
+.business-case-outcome{margin-top:auto;padding-top:20px}
+.business-case-outcome>span{color:#0747ff;font-size:13px;font-weight:600}
+.business-case-outcome p{font-size:16px;margin:6px 0 0}
+.business-day{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.business-day li{display:flex;gap:16px;align-items:flex-start;min-width:0}
+.business-day-number{flex:none;color:#0747ff;font-size:24px;font-weight:600;line-height:1.4}
+.business-day-when{color:#617087;font-size:14px}
+.business-day h3{font-size:20px;margin:8px 0}
+.business-day p{font-size:16px;margin:0}
+@media(max-width:1023px){.business-case-grid{gap:16px}.business-case-grid article{padding:22px}.business-case-grid article h3{font-size:21px}.business-day{gap:20px}}
+@media(max-width:767px){.business-case-grid,.business-day{grid-template-columns:1fr}.business-case-grid article{padding:24px}.business-day{gap:28px}}

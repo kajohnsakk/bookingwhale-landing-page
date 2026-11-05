@@ -1,7 +1,7 @@
 ---
 import '../styles/fonts.css';
 import '../styles/editorial.css';
-import { localePath, type Locale } from '../i18n';
+import { localePath, translate, type Locale } from '../i18n';
 import { buildSeo } from '../seo/metadata';
 import { canonicalPath, languageAlternates } from '../seo/routes.mjs';
 import Analytics from '../components/Analytics.astro';
@@ -16,15 +16,17 @@ interface Props {
   article?: { title: string; published: Date; modified?: Date; image?: string };
   noindex?: boolean;
 }
-const { title, description, locale = 'th', breadcrumb = [], article, noindex = false } = Astro.props;
+const { title: rawTitle, description: rawDescription, locale = 'th', breadcrumb = [], article, noindex = false } = Astro.props;
+const title = translate(rawTitle, locale);
+const description = translate(rawDescription, locale);
 if (!Astro.site) throw new Error('A public site URL is required.');
 const seo = buildSeo(Astro.site, locale, { title, description });
 const canonical = new URL(canonicalPath(Astro.url.pathname), Astro.site).href;
 const alternates = languageAlternates(Astro.url.pathname);
 const image = article?.image ? new URL(article.image, Astro.site).href : seo.image;
 const home = localePath(locale);
-const isThai = locale === 'th';
-const crumbs = [{ name: isThai ? 'หน้าแรก' : 'Home', path: home }, ...breadcrumb];
+const isThai = locale !== 'en';
+const crumbs = [{ name: isThai ? 'หน้าแรก' : 'Home', path: home }, ...breadcrumb].map(crumb => ({ ...crumb, name: translate(crumb.name, locale) }));
 const schema = JSON.parse(seo.schema);
 const webpage = schema['@graph'].find((node: Record<string, unknown>) => node['@type'] === 'WebPage');
 webpage['@id'] = `${canonical}#webpage`;
@@ -52,7 +54,7 @@ if (article) schema['@graph'].push({
     <link rel="canonical" href={canonical} />
     {alternates.map(item => <link rel="alternate" hreflang={item.language} href={new URL(item.path, Astro.site).href} />)}
     <link rel="alternate" type="application/rss+xml" title="Booking Whale Blog" href="/rss.xml" />
-    <link rel="icon" type="image/svg+xml" href="/favicon-browser.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-bookingwhale.svg" />
     <meta name="theme-color" content="#ffffff" />
     <meta property="og:type" content={article ? 'article' : 'website'} />
     <meta property="og:locale" content={seo.ogLocale} />

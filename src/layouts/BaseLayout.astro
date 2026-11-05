@@ -56,7 +56,7 @@ const seo = buildSeo(Astro.site, locale, Astro.props);
     <link rel="canonical" href={seo.canonical} />
     {seo.alternates.map(item=><link rel="alternate" hreflang={item.language} href={item.url} />)}
     <link rel="alternate" hreflang="x-default" href={seo.home} />
-    <link rel="icon" type="image/svg+xml" href="/favicon-browser.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-bookingwhale.svg" />
     <meta name="theme-color" content="#ffffff" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={seo.ogLocale} />

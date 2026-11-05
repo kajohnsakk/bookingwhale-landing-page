@@ -2,22 +2,24 @@
 import Icon from "./Icon.astro";
 import HeroSpread from "./HeroSpread.astro";
 import HeroScreen from "./HeroScreen.astro";
-import { localeFromPath, translate } from "../i18n";
-const locale=localeFromPath(Astro.url.pathname);
-const accentLetters=Array.from(new Intl.Segmenter(locale,{granularity:"grapheme"}).segment(translate("จองเอง",locale)),part=>part.segment);
+import "../styles/hero-restored.css";
 ---
 <div class="bw-hero-scroll-track"><section id="top" class="bw-hero bw-hero-live">
   <div class="bw-container bw-hero-content">
   <div class="bw-hero-copy">
     <span class="bw-eyebrow bw-hero-line-label"><img src="/assets/line-mark-72.png" srcset="/assets/line-mark-72.png 72w, /assets/line-mark-144.png 144w" sizes="24px" width="32" height="32" alt="" decoding="async" /><span>ระบบจองคิวผ่าน LINE OA</span></span>
-    <h1><span>ลูกค้า<em class="bw-hero-accent"><span class="bw-visually-hidden">จองเอง</span><span aria-hidden="true">{accentLetters.map(letter=><span class="bw-hero-letter">{letter}</span>)}</span><svg class="bw-hero-underline" viewBox="0 0 240 14" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M3 10 Q110 2 237 8" pathLength="1" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" /></svg></em></span> <span>คุณจัดการง่าย</span></h1>
-    <p class="bw-lead">ลูกค้าเลือกเวลาเองผ่าน LINE OA <br>คุณดูทุกการจองได้ในที่เดียว</p>
+    <h1 class="bw-hero-restored-title"><span>ระบบจองผ่าน</span> <em class="bw-hero-accent"><span class="bw-visually-hidden">LINE OA</span><span aria-hidden="true">{Array.from("LINE OA").map(letter => <span class="bw-hero-letter">{letter === " " ? "\u00a0" : letter}</span>)}</span><svg class="bw-hero-underline" viewBox="0 0 240 14" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M3 10 Q110 2 237 8" pathLength="1" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" shape-rendering="geometricPrecision" /></svg></em></h1>
+    <p class="bw-lead">จองง่าย เชื่อมต่อลูกค้าได้ทันที</p>
+    <p class="bw-hero-description">ระบบจองนัดหมาย จัดการคิว เก็บฐานข้อมูลลูกค้า สร้างระบบจองในแบบของคุณ เชื่อมต่อกับ LINE Official Account ใช้งานง่าย พร้อมเริ่มได้ทันที</p>
     <div class="bw-actions"><a class="bw-button bw-primary bw-start-button" data-contact-open href="https://bookingwhale.co/contact" aria-haspopup="dialog" aria-controls="contact-dialog">เริ่มใช้งาน <span class="bw-start-arrow" aria-hidden="true"><Icon name="arrow-right" class="bw-action-icon" /></span></a><a class="bw-hero-watch" href="#features">ดูขั้นตอนการจอง <Icon name="chevron-down" class="bw-action-icon" /></a></div>
-    <div class="bw-hero-capabilities"><span><Icon name="calendar" />เลือกวันและเวลา</span><span><Icon name="store" />จัดการรายการจอง</span><span><Icon name="clock" />ดูประวัติลูกค้า</span></div>
+    <div class="bw-hero-customers">
+      <span class="bw-hero-avatars" aria-hidden="true">{["emma-wilson-128", "daniel-carter-128", "hero-asia-3"].map(name=><img src={`/assets/avatars/${name}.webp`} width="44" height="44" alt="" decoding="async" />)}</span>
+      <p><span class="bw-visually-hidden">21,696</span><strong data-customer-count="21696" aria-hidden="true">21,696</strong> <span>ลูกค้าใช้งานผ่านแอป</span></p>
+    </div>
   </div>
   <div class="bw-hero-live-stage" data-static="true" role="group" aria-label="หน้าจองและบัตรยืนยันการจอง">
     <div class="bw-hero-booking-note">
-      <p>เลือกเวลาที่สะดวก<br /><span>จองผ่าน LINE OA</span></p>
+      <p><strong>เลือกวันและเวลา</strong><span>จองผ่าน LINE OA</span></p>
       <svg class="bw-hero-note-arrow" viewBox="0 0 50 124" fill="none" aria-hidden="true">
         <path class="bw-hero-note-curve" d="M28 4 C0 38 5 88 30 116" pathLength="1" />
         <path class="bw-hero-note-tip" d="m14 108 16 8 6-16" />
@@ -28,7 +30,7 @@ const accentLetters=Array.from(new Intl.Segmenter(locale,{granularity:"grapheme"
         <path class="bw-hero-note-curve" d="M10 94 C52 78 53 38 35 8" pathLength="1" />
         <path class="bw-hero-note-tip" d="m29 26 6-18 17 7" />
       </svg>
-      <p>จองเรียบร้อย<br /><span>รายละเอียดอยู่ในมือคุณ</span></p>
+      <p><strong>จองแล้ว ดูได้เลย</strong><span>รายละเอียดครบในที่เดียว</span></p>
     </div>
     <div class="bw-hero-live-panel bw-hero-live-spm"><HeroScreen screen="merchant" title="หน้าการจอง SPM จากคอมโพเนนต์ระบบจริง" /></div>
     <div class="bw-hero-live-panel bw-hero-live-customer"><span class="bw-device-status" aria-hidden="true">9:41<i></i><b>••• ▰</b></span><HeroScreen screen="booking" title="ตัวอย่างหน้าจอง Sunday Social จากระบบลูกค้า" /></div>

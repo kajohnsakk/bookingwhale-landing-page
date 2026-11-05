@@ -1,0 +1,52 @@
+---
+import Icon from './Icon.astro';
+import {businessUseCases} from '../data/business-use-cases';
+import {businessPhotos} from '../data/business-photos';
+import '../styles/business-scenario.css';
+interface Props {slug: keyof typeof businessUseCases; locale: 'th'|'en'|'zh'}
+const {slug,locale}=Astro.props;
+const th=locale!=='en';
+const text=businessUseCases[slug][locale === 'zh' ? 'th' : locale];
+const dining=slug==='food-beverage';
+const studio=slug==='fitness-sports';
+const diningRows=[
+  [{time:'18:00',guests:2},{time:'18:00',guests:4},{time:'19:30',guests:2}],
+  [{time:'10:00',guests:2},{time:'11:30',guests:4},{time:'13:00',guests:2}],
+  [{time:'19:00',guests:4},{time:'19:00',guests:2},{time:'19:00',guests:6}],
+];
+const classRows=[
+  [{time:'17:00',booked:8,capacity:10},{time:'18:00',booked:10,capacity:10},{time:'19:00',booked:6,capacity:10}],
+  [{time:'09:00',booked:4,capacity:6},{time:'10:30',booked:3,capacity:6}],
+  [{time:'14:00',booked:1,capacity:1},{time:'16:00',booked:1,capacity:1}],
+];
+const classNames=locale==='zh'?['团体健身课','小班拳击','私教训练']:th?['คลาสฟิตเนสกลุ่ม','ฝึกมวยกลุ่มเล็ก','เทรนส่วนตัว']:['Group fitness','Small-group boxing','Personal training'];
+const availability=(remaining:number)=>locale==='zh'?(remaining?`剩余 ${remaining} 个名额`:'已满'):th?(remaining?`ว่าง ${remaining} ที่`:'เต็มแล้ว'):(remaining?`${remaining} spots left`:'Full');
+const serviceRows=[
+  [{time:'10:00',end:'11:00',label:th?'นวดอโรมา':'Aroma massage',gap:false},{time:'11:00',end:'11:15',label:th?'เผื่อเวลาเตรียมห้อง':'Room preparation',gap:true},{time:'11:15',end:'12:15',label:th?'นัดถัดไป':'Next appointment',gap:false}],
+  [{time:'10:00',end:'10:45',label:th?'ทรีตเมนต์ดูแลผิว':'Facial treatment',gap:false},{time:'10:45',end:'11:00',label:th?'เตรียมอุปกรณ์':'Equipment preparation',gap:true},{time:'11:00',end:'11:45',label:th?'นัดถัดไป':'Next appointment',gap:false}],
+  [{time:'13:00',end:'14:00',label:th?'นัดปรึกษา · ครั้งละ 1 คน':'Consultation · One client',gap:false},{time:'15:00',end:'16:00',label:th?'นัดปรึกษา · ครั้งละ 1 คน':'Consultation · One client',gap:false}],
+];
+---
+<section class="restaurant-section business-scenario" id="business-scenarios" data-business-scenario data-kind={slug}>
+  {!dining&&<span id="business-example" class="scenario-anchor" />}
+  <div class="restaurant-section-heading"><span class="editorial-kicker">{th?'เห็นภาพกับธุรกิจของคุณ':'Picture it in your business'}</span><h2>{text.heading}</h2><p>{text.intro}</p></div>
+  <div class="scenario-selector" aria-label={th?'เลือกตัวอย่างธุรกิจ':'Choose a business example'}>{text.cases.map((item,i)=><button type="button" disabled data-scenario-choice={i} aria-pressed={i===0} aria-controls={`scenario-${slug}-${i}`}><span aria-hidden="true">0{i+1}</span>{item.title}</button>)}</div>
+  <div class="scenario-panels">{text.cases.map((item,i)=>{
+    const photo=businessPhotos[slug][i];
+    return <article class="scenario-panel" id={`scenario-${slug}-${i}`} data-scenario-panel={i} hidden={i!==0} aria-labelledby={`scenario-title-${slug}-${i}`}>
+      <div class="scenario-story"><img class="scenario-photo" src={photo.src} width={photo.width} height={photo.height} style={`object-position:${photo.position}`} alt={photo[locale === 'zh' ? 'th' : locale]} loading="lazy" decoding="async" /><div class="scenario-story-copy"><h3 id={`scenario-title-${slug}-${i}`}>{item.title}</h3><p>{item.context}</p><p class="scenario-setup">{item.setup}</p></div></div>
+      <div class="scenario-stage">
+        <div class:list={['scenario-board',dining?'scenario-arrivals':studio?'scenario-classes':'scenario-agenda']}>
+          <div class="scenario-board-heading"><div>{!studio&&<span>{th?'มุมมองของเจ้าของธุรกิจ':'From the owner’s perspective'}</span>}<h4>{dining?(th?'เตรียมรับลูกค้าจากรายการจอง':'Plan service from your reservations'):studio?classNames[i]:(th?'วางวันทำงานจากเวลานัด':'Plan your day around appointments')}</h4></div><Icon name={dining?'calendar-days':studio?'users':'clock'} /></div>
+          <div class="scenario-board-date"><span>{th?'24 ตุลาคม':'24 October'}</span><span>{studio?(locale==='zh'?'每节 60 分钟':th?'รอบละ 60 นาที':'60 min per session'):(th?'ตัวอย่างการทำงาน':'Workflow example')}</span></div>
+          {dining?<><div class="scenario-arrival-labels"><span>{th?'เวลา':'Arrival'}</span><span>{th?'จำนวนลูกค้า':'Party size'}</span><span>{th?'สถานะ':'Status'}</span></div><ol class="scenario-arrival-list">{diningRows[i].map(row=><li><time>{row.time}</time><span><strong>{row.guests}</strong> {th?'คน':'guests'}</span><span class="scenario-confirmed"><Icon name="check" />{th?'ยืนยันแล้ว':'Confirmed'}</span></li>)}</ol><div class="scenario-board-total"><span>{th?'ลูกค้าในรายการตัวอย่าง':'Guests in this example'}</span><strong>{diningRows[i].reduce((total,row)=>total+row.guests,0)} <small>{th?'คน':'guests'}</small></strong></div></>:studio?<><div class="scenario-class-label"><span>{locale==='zh'?'时间':th?'รอบเวลา':'Session'}</span><span>{locale==='zh'?'已预约 / 名额':th?'ผู้จอง / ที่เปิดรับ':'Booked / capacity'}</span></div><ol class="scenario-class-list">{classRows[i].map(row=><li class:list={{'is-full':row.booked===row.capacity}}><time>{row.time}</time><div class="scenario-class-capacity"><strong>{row.booked}<small> / {row.capacity}</small></strong><span class="scenario-class-availability">{availability(row.capacity-row.booked)}</span><div class="scenario-capacity-track" aria-hidden="true"><span style={`width:${row.booked/row.capacity*100}%`} /></div></div></li>)}</ol></>:<><ol class="scenario-agenda-list">{serviceRows[i].map((row,j)=><li class:list={{'scenario-agenda-gap':row.gap}}><div class="scenario-agenda-time"><time>{row.time}</time><span>{row.end}</span></div><div><span class="scenario-agenda-dot" aria-hidden="true"/><h5>{row.label}</h5>{(row.gap||j===0)&&<p>{row.gap?(th?'ร้านวางช่วงนี้ไว้ก่อนเปิดรอบถัดไป':'Time allowed before the next slot'):(th?'ตรวจรายละเอียดก่อนลูกค้ามาถึง':'Review details before the client arrives')}</p>}</div></li>)}</ol></>}
+          <div class="scenario-takeaway"><Icon name="check" /><p>{item.outcome}</p></div>
+        </div>
+      </div>
+    </article>;
+  })}</div>
+</section>
+<noscript><style is:inline>.business-scenario .scenario-panel[hidden]{display:grid}.business-scenario .scenario-selector{display:none}</style></noscript>
+<script>
+  import '../scripts/business-scenario.ts';
+</script>

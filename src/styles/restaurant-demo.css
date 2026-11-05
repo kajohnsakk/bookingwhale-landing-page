@@ -1,0 +1,12 @@
+.business-product-proof{padding:40px;background:#f2f6ff;border-radius:24px}
+.business-product-proof>.restaurant-section-heading{max-width:760px;margin-bottom:24px}
+.restaurant-demo-flow{display:grid;grid-template-columns:minmax(0,3.3fr) minmax(0,1fr);gap:32px;align-items:start}
+.restaurant-demo-flow .restaurant-demo-panel{display:flex;flex-direction:column;gap:20px;min-width:0;margin:0}
+.restaurant-page .restaurant-demo-panel h3{font-size:20px;line-height:1.5;margin:0;color:#18212f}
+.restaurant-demo-screen{display:block;min-width:0;border-radius:12px;cursor:zoom-in}
+.restaurant-demo-screen img{display:block;width:100%;height:auto;border-radius:10px}
+.restaurant-demo-customer .restaurant-demo-screen{width:100%;max-width:202px;align-self:center}
+.restaurant-demo-customer .restaurant-demo-screen img{border-radius:18px}
+.business-product-proof>.restaurant-caption{font-size:11px;margin:20px 0 0;color:#56647a}
+@media(min-width:768px) and (max-width:1023px){.business-product-proof{padding:32px}.restaurant-demo-flow{gap:24px;grid-template-columns:minmax(0,3fr) minmax(0,1fr)}.restaurant-page .restaurant-demo-panel h3{font-size:17px}.restaurant-demo-flow .restaurant-demo-panel{gap:16px}}
+@media(max-width:767px){.business-product-proof{padding:28px 20px;border-radius:20px}.business-product-proof>.restaurant-section-heading{margin-bottom:24px}.restaurant-demo-flow{grid-template-columns:1fr;gap:30px}.restaurant-demo-flow .restaurant-demo-panel{gap:14px}.restaurant-page .restaurant-demo-panel h3{font-size:18px}.restaurant-demo-customer{align-items:center}.restaurant-demo-customer .restaurant-demo-screen{max-width:180px}.business-product-proof>.restaurant-caption{font-size:10px;line-height:1.8;margin:20px 0 0}}

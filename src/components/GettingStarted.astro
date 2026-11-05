@@ -17,7 +17,7 @@ const steps = [
               <div class="bw-film-window">
                 <div class="bw-film-chrome"><img src="/assets/line-mark-72.png" loading="lazy" width="24" height="24" alt="" /><strong>LINE Official Account</strong><Icon name="menu" /></div>
                 <div class="bw-film-account"><span class="bw-film-store"><img src="/assets/product-captures/sunday-social-logo.svg" width="34" height="34" alt="" /></span><span><strong>Sunday Social</strong><small>@sundaysocial</small></span><span class="bw-film-online"></span></div>
-                <div class="bw-film-linkrow"><span class="bw-brand-image"></span><span>Booking Whale<small>เชื่อมระบบจอง</small></span><span class="bw-film-switch"><i></i></span></div>
+                <div class="bw-film-linkrow"><span class="bw-brand-image"></span><span>Booking Whale<small>เชื่อมระบบจอง</small></span><span class="bw-film-switch"><i></i></span><span class="bw-film-cursor"><Icon name="mouse-pointer-2" /></span></div>
               </div>
               <div class="bw-film-notice"><Icon name="circle-check" /><span><strong>เชื่อมต่อแล้ว</strong><small>พร้อมเปิดหน้าจองของคุณ</small></span></div>
             </>}
@@ -39,7 +39,7 @@ const steps = [
               </div>
               <div class="bw-film-notice"><img src="/assets/avatars/emma-wilson-72.webp" srcset="/assets/avatars/emma-wilson-72.webp 72w, /assets/avatars/emma-wilson-128.webp 128w" sizes="32px" loading="lazy" width="32" height="32" alt="" /><span><strong>การจองใหม่ · Emma Wilson</strong><small>24 ต.ค. · 19:00 · 2 คน</small></span><Icon name="check" /></div>
             </>}
-            <span class="bw-film-cursor"><Icon name="mouse-pointer-2" /></span>
+            {index !== 0 && <span class="bw-film-cursor"><Icon name="mouse-pointer-2" /></span>}
           </div>
         </div>
       </div>

@@ -1,18 +1,59 @@
 ---
 import Icon from "./Icon.astro";
+import "../styles/business-navigation.css";
 import { localeFromPath, localePath, locales } from "../i18n";
 interface Props { sectionBase?: string; contentPage?: boolean }
 const { sectionBase = '', contentPage = false } = Astro.props;
 const locale=localeFromPath(Astro.url.pathname);
+const businessBase=locale==='th'?'':`/${locale}`;
+const businessLinks=[
+  {slug:'food-beverage',icon:'utensils' as const,label:'ร้านอาหารและเครื่องดื่ม'},
+  {slug:'fitness-sports',icon:'dumbbell' as const,label:'ฟิตเนส & กีฬา'},
+  {slug:'services',icon:'calendar-check' as const,label:'บริการและนัดหมาย'},
+];
 ---
 <header class="bw-nav">
-      <a class="bw-brand" href={`${sectionBase}#top`} aria-label="BookingWhale หน้าแรก"><img class="bw-nav-favicon" src="/assets/bookingwhale-mark-96.png" width="44" height="44" alt="" /><span class="bw-nav-wordmark">Booking Whale</span></a>
+      <a class="bw-brand" href={`${sectionBase}#top`} aria-label="BookingWhale หน้าแรก"><span class="bw-nav-mark"><img class="bw-nav-favicon" src="/assets/bookingwhale-logo-blue-160.webp" width="40" height="40" alt="" /></span><span class="bw-nav-wordmark">Booking Whale</span></a>
       <nav class="bw-main-menu" id="bw-main-menu" aria-label="เมนูหลัก">
         <a href={`${sectionBase}#features`} data-nav-section="features">จองยังไง<Icon name="chevron-right" class="bw-menu-arrow" /></a>
-        <a href={`${sectionBase}#business`} data-nav-section="business">สำหรับธุรกิจ<Icon name="chevron-right" class="bw-menu-arrow" /></a>
+        <details class="bw-business-nav">
+          <summary data-nav-section="business">สำหรับธุรกิจ<Icon name="chevron-down" /></summary>
+          <div class="bw-business-nav-links">
+            {businessLinks.map(item=><a href={`${businessBase}/businesses/${item.slug}/`} aria-current={Astro.url.pathname.includes(`/businesses/${item.slug}`)?'page':undefined}><Icon name={item.icon} class="bw-business-nav-icon" /><span>{item.label}</span>{Astro.url.pathname.includes(`/businesses/${item.slug}`)&&<Icon name="check" class="bw-business-nav-indicator" />}</a>)}
+            <a class="bw-business-nav-overview" href={`${businessBase}/businesses/`} aria-current={Astro.url.pathname === `${businessBase}/businesses/` ? 'page' : undefined}>ดูธุรกิจทั้งหมด<Icon name="arrow-right" /></a>
+          </div>
+        </details>
         <a href={`${sectionBase}#how`} data-nav-section="how">วิธีเริ่มต้น<Icon name="chevron-right" class="bw-menu-arrow" /></a>
         {contentPage ? <a href="/blog/" aria-current={Astro.url.pathname.startsWith('/blog/') ? 'page' : undefined}>บทความ<Icon name="chevron-right" class="bw-menu-arrow" /></a> : <a href="#faq" data-nav-section="faq">คำถามที่พบบ่อย<Icon name="chevron-right" class="bw-menu-arrow" /></a>}
-        <div class="bw-menu-bottom"><span>เริ่มต้นระบบจองผ่าน LINE OA</span><a class="bw-button bw-primary bw-start-button" data-contact-open href="https://bookingwhale.co/contact" aria-haspopup="dialog" aria-controls="contact-dialog">เริ่มใช้งาน <span class="bw-start-arrow" aria-hidden="true"><Icon name="arrow-right" class="bw-action-icon" /></span></a></div>
+        <div class="bw-menu-bottom"><span>เริ่มต้นระบบจองผ่าน LINE OA</span><a class="bw-button bw-primary bw-start-button" data-contact-open href={locale === 'zh' ? '/zh/contact/' : 'https://bookingwhale.co/contact'} aria-haspopup="dialog" aria-controls="contact-dialog">เริ่มใช้งาน <span class="bw-start-arrow" aria-hidden="true"><Icon name="arrow-right" class="bw-action-icon" /></span></a></div>
       </nav>
-      <div class="bw-nav-actions"><details class="bw-language"><summary aria-label={`${locale.toUpperCase()} — ${({en:"Change language",th:"เปลี่ยนภาษา",zh:"切换语言"})[locale]}`}><Icon name="globe" /><span>{locale.toUpperCase()}</span></summary><div class="bw-language-options">{locales.map(item=><a href={localePath(item)} data-language={item} lang={item==='zh'?'zh-Hans':item} aria-current={locale===item?'page':undefined}>{({en:'English',th:'ไทย',zh:'简体中文'})[item]}</a>)}</div></details><a class="bw-button bw-primary bw-nav-demo bw-start-button" aria-label="เริ่มใช้งาน" data-contact-open href="https://bookingwhale.co/contact" aria-haspopup="dialog" aria-controls="contact-dialog"><span class="bw-nav-contact-label">เริ่มใช้งาน</span><span class="bw-nav-contact-arrow bw-start-arrow" aria-hidden="true"><Icon name="arrow-right" class="bw-action-icon" /></span></a><button type="button" id="bw-menu-toggle" class="bw-menu-toggle" aria-label="เปิดเมนู" data-open-label="เปิดเมนู" data-close-label="ปิดเมนู" aria-controls="bw-main-menu" aria-expanded="false"><span class="bw-open-icon"><Icon name="menu" /></span><span class="bw-close-icon"><Icon name="x" /></span></button></div>
+      <div class="bw-nav-actions"><details class="bw-language"><summary aria-label={`${locale.toUpperCase()} — ${({en:"Change language",th:"เปลี่ยนภาษา",zh:"切换语言"})[locale]}`}><Icon name="globe" /><span>{locale.toUpperCase()}</span></summary><div class="bw-language-options">{locales.map(item=><a href={/^\/(?:en\/|zh\/)?(?:businesses|contact)(?:\/|$)/.test(Astro.url.pathname) ? `${item === 'th' ? '' : `/${item}`}${Astro.url.pathname.replace(/^\/(en|zh)(?=\/)/, '')}` : localePath(item)} data-language={item} lang={item==='zh'?'zh-Hans':item} aria-current={locale===item?'page':undefined}>{({en:'English',th:'ไทย',zh:'简体中文'})[item]}</a>)}</div></details><a class="bw-button bw-primary bw-nav-demo bw-start-button" aria-label="เริ่มใช้งาน" data-contact-open href={locale === 'zh' ? '/zh/contact/' : 'https://bookingwhale.co/contact'} aria-haspopup="dialog" aria-controls="contact-dialog"><span class="bw-nav-contact-label">เริ่มใช้งาน</span><span class="bw-nav-contact-arrow bw-start-arrow" aria-hidden="true"><Icon name="arrow-right" class="bw-action-icon" /></span></a><button type="button" id="bw-menu-toggle" class="bw-menu-toggle" aria-label="เปิดเมนู" data-open-label="เปิดเมนู" data-close-label="ปิดเมนู" aria-controls="bw-main-menu" aria-expanded="false"><span class="bw-open-icon"><Icon name="menu" /></span><span class="bw-close-icon"><Icon name="x" /></span></button></div>
     </header>
+
+<script>
+  const businessNav=document.querySelector<HTMLDetailsElement>('.bw-business-nav');
+  if(businessNav){
+    document.addEventListener('pointerdown',event=>{
+      if(event.target instanceof Node&&!businessNav.contains(event.target))businessNav.open=false;
+    });
+    document.addEventListener('keydown',event=>{
+      if(event.key==='Escape'&&businessNav.open){
+        event.stopPropagation();
+        businessNav.open=false;
+        businessNav.querySelector('summary')?.focus({preventScroll:true});
+      }
+    },true);
+    businessNav.addEventListener('click',event=>{
+      if(event.target instanceof Element&&event.target.closest('a'))businessNav.open=false;
+    });
+    document.querySelector('#bw-menu-toggle')?.addEventListener('click',()=>{businessNav.open=false;});
+    matchMedia('(max-width:900px)').addEventListener('change',()=>{businessNav.open=false;});
+    businessNav.addEventListener('toggle',()=>{
+      if(businessNav.open){
+        document.querySelector('.bw-nav')?.classList.remove('bw-nav-hidden');
+        const language=document.querySelector<HTMLDetailsElement>('.bw-language');
+        if(language)language.open=false;
+      }
+    });
+  }
+</script>

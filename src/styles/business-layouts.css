@@ -1,0 +1,109 @@
+.restaurant-page{--restaurant-muted:#56647a}
+.restaurant-page .editorial-kicker{font-size:13px;font-weight:600;letter-spacing:.02em;color:#0747ff}
+.restaurant-page .restaurant-hero{margin:24px 0 72px;gap:56px;min-width:0}
+.restaurant-hero-copy{min-width:0}
+.restaurant-page .restaurant-hero h1{font-size:clamp(36px,3.7vw,52px);line-height:1.3;letter-spacing:-.035em;margin:18px 0 22px;text-wrap:balance}
+.restaurant-page .restaurant-hero-copy>p{font-size:18px;line-height:1.8}
+.restaurant-page .restaurant-actions{gap:12px 20px;margin-top:28px}
+.restaurant-page .restaurant-actions .editorial-button{min-height:52px;padding-inline:24px}
+.restaurant-page .restaurant-hero-copy>.business-cta-note{font-size:12px;line-height:1.6;margin-top:12px}
+.restaurant-page .restaurant-photo img{border-radius:22px}
+.dining-layout .restaurant-hero{grid-template-columns:1fr 1fr;align-items:center}
+.dining-layout .restaurant-hero>.restaurant-photo{position:relative}
+.dining-layout .restaurant-hero .restaurant-photo img{height:520px;object-position:center 62%}
+.business-photo-caption{position:absolute;left:24px;right:24px;bottom:24px;padding:18px 22px;background:#fff;border-radius:14px;display:flex;flex-direction:column;gap:4px}
+.restaurant-page .business-photo-caption{margin:0;color:#18212f}
+.business-photo-caption>span{font-size:12px;color:#56647a;line-height:1.6}
+.business-photo-caption>strong{font-size:17px;line-height:1.6;font-weight:600}
+.business-hero-media{position:relative;min-width:0}
+.studio-layout .restaurant-hero{grid-template-columns:.95fr 1.05fr;gap:64px}
+.studio-layout .business-hero-media{grid-column:1;grid-row:1}
+.studio-layout .restaurant-hero-copy{grid-column:2;grid-row:1}
+.business-hero-collage{padding:0 76px 54px 0}
+.studio-layout .restaurant-hero .restaurant-photo img{height:490px;object-position:center 58%}
+.business-hero-support{position:absolute;bottom:0;right:0;width:55%;padding:8px;background:#fff;border-radius:20px}
+.business-hero-support img{display:block;width:100%;height:206px;object-fit:cover;border-radius:14px}
+.studio-layout .business-photo-caption{left:16px;right:auto;bottom:36px;max-width:66%;padding:16px 20px}
+.studio-layout .business-photo-caption>strong{font-size:16px}
+.appointment-layout .restaurant-hero{grid-template-columns:1.05fr 1fr;gap:64px}
+.business-hero-treatment{padding:0 0 74px 32px}
+.appointment-layout .restaurant-hero .restaurant-photo img{height:420px;object-position:42% center}
+.appointment-layout .business-hero-support{left:0;right:auto;width:48%;padding:7px}
+.appointment-layout .business-hero-support img{height:176px}
+.appointment-layout .business-photo-caption{left:45%;right:0;bottom:0;padding:12px 0 12px 24px;border-radius:0}
+.appointment-layout .business-photo-caption>strong{font-size:16px}
+.restaurant-page .restaurant-section{margin-block:88px}
+.restaurant-page .restaurant-section-heading h2{font-size:clamp(28px,3vw,38px);line-height:1.4;margin:12px 0 16px;text-wrap:balance}
+.restaurant-page .restaurant-section-heading p{font-size:17px}
+.restaurant-page .restaurant-faq{gap:64px;grid-template-columns:.75fr 1.25fr}
+.restaurant-page .restaurant-faq details{background:transparent;border-radius:0;border-bottom:1px solid #e2e7ef;margin:0;padding:21px 0}
+.restaurant-page .restaurant-faq details:first-child{padding-top:0}
+.restaurant-page .restaurant-faq summary{font-size:17px;line-height:1.7;padding-right:8px}
+.restaurant-page .restaurant-faq details[open] summary{color:#0747ff}
+.restaurant-page .restaurant-faq p{font-size:16px;margin-top:12px}
+.restaurant-page .restaurant-contact{padding:44px 48px;border-radius:24px;gap:36px}
+.restaurant-page .restaurant-contact h2{font-size:32px;line-height:1.45}
+.restaurant-page .restaurant-contact p{font-size:16px}
+.restaurant-page .restaurant-reading{font-size:13px;gap:12px 28px;margin-top:24px}
+.dining-layout .restaurant-preparation{grid-template-columns:1fr 1fr;gap:64px}
+.dining-layout .restaurant-preparation .restaurant-photo img{height:400px}
+.dining-layout .restaurant-preparation h2{margin-top:12px}
+.restaurant-page :is(a,summary):focus-visible{outline:3px solid #0747ff;outline-offset:5px}
+@media(min-width:768px) and (max-width:1023px){
+.restaurant-page .restaurant-hero{gap:32px;margin-bottom:56px}
+.restaurant-page .restaurant-hero h1{font-size:36px}
+.restaurant-page .restaurant-hero-copy>p{font-size:16px}
+.restaurant-page .restaurant-actions{gap:10px;margin-top:22px}
+.restaurant-page .restaurant-actions .editorial-button{font-size:14px;padding-inline:18px}
+.restaurant-page .restaurant-actions>a:last-child{font-size:14px}
+.dining-layout .restaurant-hero .restaurant-photo img{height:490px}
+.studio-layout .restaurant-hero{grid-template-columns:.9fr 1.1fr;gap:32px}
+.business-hero-collage{padding-right:42px;padding-bottom:44px}
+.studio-layout .restaurant-hero .restaurant-photo img{height:410px}
+.business-hero-support{width:60%}
+.business-hero-support img{height:160px}
+.studio-layout .business-photo-caption{left:12px;bottom:26px;padding:12px;max-width:70%}
+.business-hero-treatment{padding-left:18px;padding-bottom:80px}
+.appointment-layout .restaurant-hero .restaurant-photo img{height:390px}
+.appointment-layout .business-hero-support img{height:144px}
+.appointment-layout .business-photo-caption{left:43%;padding-left:16px}
+.business-photo-caption>strong,.studio-layout .business-photo-caption>strong,.appointment-layout .business-photo-caption>strong{font-size:14px}
+.restaurant-page .restaurant-section{margin-block:72px}
+.restaurant-page .restaurant-faq,.dining-layout .restaurant-preparation{gap:32px}
+.restaurant-page .restaurant-contact{padding:36px}
+}
+@media(max-width:767px){
+.restaurant-page .restaurant-hero,.studio-layout .restaurant-hero,.appointment-layout .restaurant-hero{display:flex;flex-direction:column;align-items:stretch;gap:28px;margin:16px 0 48px}
+.restaurant-page .restaurant-hero h1{font-size:clamp(32px,7.7vw,44px);line-height:1.3;margin:14px 0 18px}
+.restaurant-page .restaurant-hero-copy>p{font-size:16px;line-height:1.75}
+.restaurant-page .restaurant-actions{margin-top:22px;gap:10px 16px}
+.restaurant-page .restaurant-actions .editorial-button{min-height:48px;padding:11px 20px;font-size:14px}
+.restaurant-page .restaurant-actions>a:last-child{font-size:13px}
+.restaurant-page .restaurant-hero-copy>.business-cta-note{font-size:11px;margin-top:8px}
+.dining-layout .restaurant-hero .restaurant-photo img{height:330px}
+.business-photo-caption{left:16px;right:16px;bottom:16px;padding:14px 16px}
+.business-photo-caption>strong{font-size:15px}
+.business-hero-collage{padding:0 64px 32px 0;max-width:500px;width:100%;align-self:center}
+.studio-layout .restaurant-hero .restaurant-photo img{height:340px;object-position:center 52%}
+.business-hero-support{width:48%;padding:6px;border-radius:16px}
+.business-hero-support img{height:152px;border-radius:12px}
+.studio-layout .business-photo-caption{left:12px;bottom:18px;max-width:64%;padding:12px}
+.studio-layout .business-photo-caption>strong{font-size:13px}
+.business-hero-treatment{padding:0 0 60px 24px;max-width:540px;width:100%;align-self:center}
+.appointment-layout .restaurant-hero .restaurant-photo img{height:280px}
+.appointment-layout .business-hero-support{width:43%;padding:6px}
+.appointment-layout .business-hero-support img{height:136px}
+.appointment-layout .business-photo-caption{left:43%;padding-left:16px;padding-block:8px}
+.appointment-layout .business-photo-caption>strong{font-size:13px}
+.business-photo-caption>span{font-size:11px}
+.restaurant-page .restaurant-section{margin-block:56px}
+.restaurant-page .restaurant-section-heading h2{font-size:28px;margin:10px 0 14px}
+.restaurant-page .restaurant-section-heading p{font-size:16px}
+.restaurant-page .restaurant-faq,.dining-layout .restaurant-preparation{grid-template-columns:1fr;gap:24px}
+.restaurant-page .restaurant-faq h2{margin-bottom:4px}
+.restaurant-page .restaurant-faq summary{font-size:16px}
+.restaurant-page .restaurant-contact{padding:28px 24px;gap:24px;border-radius:20px}
+.restaurant-page .restaurant-contact h2{font-size:26px}
+.restaurant-page .restaurant-contact .editorial-button{font-size:14px}
+.dining-layout .restaurant-preparation .restaurant-photo img{height:260px}
+}

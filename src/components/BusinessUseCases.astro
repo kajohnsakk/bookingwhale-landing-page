@@ -1,0 +1,13 @@
+---
+import {businessUseCases} from '../data/business-use-cases';
+import '../styles/business-use-cases.css';
+interface Props { slug: keyof typeof businessUseCases; locale: 'th' | 'en'; variant?: 'cases' | 'day' }
+const {slug,locale,variant='cases'}=Astro.props;
+const text=businessUseCases[slug][locale];
+const th=locale==='th';
+---
+<section class="restaurant-section business-use-cases" id={variant === 'day' ? undefined : 'business-scenarios'} data-layout={slug} data-variant={variant}>
+  <div class="restaurant-section-heading"><span class="editorial-kicker">{th?'ลองนึกถึงธุรกิจของคุณ':'Picture it in your business'}</span><h2>{variant==='cases'?text.heading:text.dayTitle}</h2><p>{variant==='cases'?text.intro:text.dayIntro}</p></div>
+  {variant==='cases'? <div class="business-case-grid">{text.cases.map((item,i)=><article><span class="business-case-index" aria-hidden="true">0{i+1}</span><h3>{item.title}</h3><p>{item.setup}</p></article>)}</div> : <ol class="business-day">{text.day.map(([when,title,body],i)=><li><span class="business-day-number">0{i+1}</span><div><span class="business-day-when">{when}</span><h3>{title}</h3><p>{body}</p></div></li>)}</ol>}
+  {variant==='cases'&&<p class="restaurant-caption">{th?'ตัวอย่างการจัดรอบ ปรับเวลาและจำนวนที่รับให้เหมาะกับธุรกิจของคุณ':'Example setups. Adjust times and capacity to suit your business.'}</p>}
+</section>

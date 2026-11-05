@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import { setupHeroCustomerCount } from './hero-customer-count';
 import { setupSmoothScrolling, scrollToPosition } from './smooth-scroll';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { preserveGettingStartedPosition } from './preserve-how-position';
@@ -34,6 +35,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
   let menuAnimation=null;
   const permanentCleanups=[];
   permanentCleanups.push(setupSmoothScrolling(gsap,ScrollTrigger));
+  permanentCleanups.push(setupHeroCustomerCount(root,gsap));
   permanentCleanups.push(()=>gsap.removeEventListener('matchMediaInit',rememberGalleryPosition));
   const on=(target,type,handler,options)=>{
     target?.addEventListener(type,handler,options);
@@ -98,7 +100,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     header?.classList.toggle('bw-nav-scrolled',window.scrollY>24);
     const scrollY=Math.max(0,window.scrollY);
     const delta=scrollY-navScrollAnchor;
-    if(scrollY<96||header?.classList.contains('bw-menu-open')||q('.bw-language')?.open){
+    if(scrollY<96||header?.classList.contains('bw-menu-open')||q('.bw-language')?.open||q('.bw-business-nav')?.open){
       header?.classList.remove('bw-nav-hidden');navScrollAnchor=scrollY;
     }else if(Math.abs(delta)>12){
       header?.classList.toggle('bw-nav-hidden',delta>0);navScrollAnchor=scrollY;
@@ -471,8 +473,8 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
       const letters=accent.querySelectorAll('.bw-hero-letter');
       const underline=accent.querySelector('.bw-hero-underline path');
       const writing=gsap.timeline({paused:true,repeat:-1,repeatDelay:4.5});
-      writing.fromTo(letters,{opacity:0,y:5},{opacity:1,y:0,duration:.35,stagger:.09,ease:'power2.out'},0)
-        .fromTo(underline,{strokeDasharray:1,strokeDashoffset:1},{strokeDashoffset:0,autoRound:false,duration:.65,ease:'power2.out'},.4);
+      if(letters.length)writing.fromTo(letters,{opacity:0,y:5},{opacity:1,y:0,duration:.35,stagger:.09,ease:'power2.out'},0);
+      if(underline)writing.fromTo(underline,{strokeDasharray:1,strokeDashoffset:1},{strokeDashoffset:0,autoRound:false,duration:.65,ease:'power2.out'},letters.length?.35+(letters.length-1)*.09:.4);
       observeLoop(accent,writing);
     }
     if(!reduced){
@@ -605,7 +607,6 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     const business=q('.bw-business');
     const rail=q('.bw-business-directory');
     const viewport=q('.bw-industry-viewport');
-    const galleryControls=q('.bw-industry-controls');
     let gallery=null;
     const touchGallery=context.conditions.touch;
     const galleryHold=touchGallery?.06:.1;
@@ -623,9 +624,6 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     const galleryDistance=()=>galleryTravel;
     const galleryOffset=()=>gallery?Math.max(0,-Number(gsap.getProperty(rail,'x'))):viewport.scrollLeft;
     const galleryStep=()=>galleryStride;
-    const syncGallery=()=>{
-      galleryControls.hidden=galleryDistance()<2;
-    };
     const moveGallery=direction=>{
       const offset=galleryOffset();
       const next=direction==='start'?0:direction==='end'?galleryDistance():gsap.utils.clamp(0,galleryDistance(),offset+direction*galleryStep());
@@ -637,7 +635,6 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         scrollToPosition({top:trigger.start+(trigger.end-trigger.start)*(galleryHold+progress)/gallery.duration(),behavior});
       }else viewport.scrollTo({left:next,behavior});
     };
-    listen(viewport,'scroll',syncGallery);
     listen(viewport,'keydown',event=>{
       const direction={ArrowLeft:-1,ArrowRight:1,Home:'start',End:'end'}[event.key];
       if(direction===undefined)return;
@@ -663,12 +660,12 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         };
         sizeTrack();
         ScrollTrigger.addEventListener('refreshInit',sizeTrack);
-        gallery=gsap.timeline({onUpdate:syncGallery,scrollTrigger:{id:'business-gallery',trigger:track,start:()=>`top ${pinTop()}px`,end:()=>`bottom ${pinTop()+business.offsetHeight}px`,scrub:touchGallery?.3:.4,invalidateOnRefresh:true,onUpdate:self=>{
+        gallery=gsap.timeline({scrollTrigger:{id:'business-gallery',trigger:track,start:()=>`top ${pinTop()}px`,end:()=>`bottom ${pinTop()+business.offsetHeight}px`,scrub:touchGallery?.3:.4,invalidateOnRefresh:true,onUpdate:self=>{
           if(touchGallery&&!galleryRestore&&!self.isReverted&&window.innerWidth===galleryViewportWidth&&window.innerHeight===galleryViewportHeight){
             gallerySnapshot=self.scroll()>=self.start&&self.scroll()<=self.end?{progress:self.progress,fraction:gsap.utils.clamp(0,1,self.progress*(1+galleryHold*2)-galleryHold)}:null;
           }
-          settleFastScroll(self);syncGallery();
-        },onScrubComplete:syncGallery}});
+          settleFastScroll(self);
+        }}});
         gallery.to({},{duration:galleryHold});
         gallery.fromTo(rail,{x:0},{x:()=>-distance(),duration:1,ease:touchGallery?'none':'sine.inOut',force3D:true});
         gallery.to({},{duration:galleryHold});
@@ -678,11 +675,10 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     let galleryResizeFrame;
     const galleryObserver=new ResizeObserver(()=>{
       cancelAnimationFrame(galleryResizeFrame);
-      galleryResizeFrame=requestAnimationFrame(()=>{measureGallery();syncGallery();});
+      galleryResizeFrame=requestAnimationFrame(measureGallery);
     });
     galleryObserver.observe(viewport);
     cleanups.push(()=>{galleryObserver.disconnect();cancelAnimationFrame(galleryResizeFrame);});
-    syncGallery();
     syncNavigation();
     return()=>{cleanups.forEach(cleanup=>cleanup());};
   });

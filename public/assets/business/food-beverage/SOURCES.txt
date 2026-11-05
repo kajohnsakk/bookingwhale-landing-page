@@ -1,0 +1,19 @@
+Restaurant page photography, added 2026-11-03.
+Illustrative stock photographs, not Booking Whale customer endorsements.
+
+cafe-640.webp / cafe-1200.webp
+Photographer: Jason Leung
+Source: https://unsplash.com/photos/cozy-restaurant-interior-with-wooden-tables-and-chairs-qm6Ddb2qu7A
+Image: https://images.unsplash.com/photo-1773122150546-94699cfc8f23
+License: https://unsplash.com/license
+Source page identifies this as free under the Unsplash License.
+
+dining-640.webp / dining-1200.webp
+Photographer: Adrien Olichon
+Source: https://unsplash.com/photos/restaurant-interior-with-tables-and-bar-area-h2_8LFfjUUc
+Image: https://images.unsplash.com/photo-1758537697448-dbfc1cb83e49
+License: https://unsplash.com/license
+Source page identifies this as free under the Unsplash License.
+
+Responsive WebP derivatives at quality 80. Original aspect ratios retained.
+Product demonstration images are existing localized project fixtures; see ../../hero-screens/SOURCES.txt.

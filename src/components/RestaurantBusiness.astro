@@ -1,0 +1,112 @@
+---
+import Icon from './Icon.astro';
+import '../styles/restaurant-business.css';
+import BusinessSalesContent from './BusinessSalesContent.astro';
+import {businessSales} from '../data/business-sales';
+import BusinessScenario from './BusinessScenario.astro';
+import BusinessProductProof from './BusinessProductProof.astro';
+import BusinessCostCalculator from './BusinessCostCalculator.astro';
+import '../styles/business-layouts.css';
+import '../styles/business-verticals.css';
+import '../styles/restaurant-demo.css';
+interface Props { locale: 'th' | 'en' | 'zh' }
+const {locale} = Astro.props;
+const th = locale !== 'en';
+const prefix = locale === 'th' ? '' : `/${locale}`;
+const text = th ? {
+  kicker: 'สำหรับร้านอาหารและคาเฟ่',
+  title: 'รู้ยอดจองก่อนเปิดมื้อ', accent: 'เตรียมร้านได้พร้อม',
+  intro: 'ลูกค้าเลือกวัน เวลา และจำนวนคนผ่าน LINE OA ร้านรู้ยอดจองก่อนเปิดมื้อ พร้อมแบ่งที่นั่งสำหรับลูกค้า walk-in',
+  cta: 'ขอดูระบบสำหรับร้านคุณ', secondary: 'ดูตัวอย่างการใช้งาน',
+  photoAlt: 'โต๊ะไม้และพื้นที่นั่งรับประทานอาหารภายในร้านบรรยากาศอบอุ่น',
+  benefitsTitle: 'ก่อนลูกค้ามาถึง ร้านก็พร้อมแล้ว',
+  benefits: [
+    ['เปิดรอบที่ร้านรับไหว', 'กำหนดวัน เวลา และจำนวนที่รับต่อรอบให้เหมาะกับร้าน พร้อมเผื่อที่สำหรับลูกค้า walk-in'],
+    ['รายละเอียดอยู่ในรายการเดียว', 'ลูกค้าเลือกวัน เวลา และจำนวนคนผ่านหน้าจองที่เชื่อมจาก LINE OA ลดการไล่อ่านข้อมูลในแชท'],
+    ['เตรียมร้านจากรายการจอง', 'ดูเวลาที่ลูกค้าจะมา จำนวนคน และสถานะการจอง พร้อมเปิดประวัติเมื่อต้องตรวจสอบข้อมูล']
+  ],
+  demoKicker: 'จากหน้าจอง ถึงหน้าจัดการ',
+  demoTitle: 'ลูกค้าเลือกเอง ร้านเห็นครบ',
+  demoBody: 'เชื่อมลิงก์หน้าจองกับ LINE OA ของร้าน ลูกค้าเลือกรอบที่สะดวก ส่วนร้านดูรายการจองและสถานะจากหน้าจัดการ',
+  merchant: 'สำหรับร้าน · ดูรายการจองของแต่ละวัน',
+  booking: 'สำหรับลูกค้า · เลือกวันและเวลา',
+  demoNote: 'ภาพหน้าจอสาธิต Booking Whale ใช้ข้อมูลตัวอย่าง',
+  exampleTitle: 'เริ่มจากมื้อที่ร้านพร้อม',
+  example: 'เช่น เปิดรับจองมื้อเย็น 18:00, 19:00 และ 20:30 แล้วกำหนดจำนวนที่รับตามพื้นที่และทีมของร้าน',
+  exampleNote: 'ตัวอย่างเวลาเปิดรับจอง ปรับให้เหมาะกับการบริการของร้านได้',
+  prepTitle: 'เตรียม 3 อย่าง แล้วเริ่มวางรอบจอง',
+  prep: [['LINE OA ของร้าน', 'ช่องทางที่ลูกค้าใช้เปิดหน้าจอง'], ['วัน เวลา และจำนวนที่รับ', 'เลือกรอบให้เหมาะกับการบริการและลูกค้า walk-in'], ['กติกาการจองของร้าน', 'ข้อมูลที่อยากให้ลูกค้าทราบก่อนจอง']],
+  faqTitle: 'ก่อนเปิดรับจอง',
+  faqs: [
+    ['ใช้ LINE OA เดิมได้ไหม?', 'ใช้ LINE OA ของร้านเป็นช่องทางเชื่อมไปยังหน้าจองได้ ให้เราแนะนำวิธีวางลิงก์ให้เหมาะกับการใช้งานของร้าน'],
+    ['ยังรับลูกค้า walk-in ได้ไหม?', 'ร้านควรแบ่งจำนวนที่เปิดรับจองล่วงหน้าและจำนวนที่เผื่อสำหรับ walk-in ให้เหมาะกับพื้นที่และกำลังของทีม'],
+    ['เลือกโต๊ะ รวมโต๊ะ หรือรับมัดจำได้ไหม?', 'รูปแบบผังโต๊ะ การรวมโต๊ะ การรับมัดจำ และเงื่อนไขเฉพาะร้าน ควรแจ้งความต้องการก่อนเริ่มใช้ เพื่อให้เรายืนยันส่วนที่ระบบรองรับ'],
+    ['มีค่าใช้จ่ายเท่าไร และทดลองใช้ได้ไหม?', 'ติดต่อเพื่อสอบถามราคาและเงื่อนไขการทดลองใช้ที่เหมาะกับรูปแบบร้าน พร้อมดูระบบก่อนตัดสินใจ']
+  ],
+  endTitle: 'ให้การจองเข้ากับร้านคุณ',
+  endBody: 'บอกช่วงเวลาที่ร้านเปิด จำนวนคนที่รับไหว และวิธีรับ walk-in เราช่วยวางรูปแบบการจองให้เข้ากับแต่ละมื้อ',
+  guide: 'คู่มือเริ่มรับจองผ่าน LINE OA', article: 'แนวทางจัดการการจองร้านอาหาร',
+} : {
+  kicker: 'For restaurants & cafés',
+  title: 'See bookings ahead.', accent: 'Be ready for service.',
+  intro: 'Guests choose a date, time and party size through LINE OA. See reservations before service and plan room for walk-ins.',
+  cta: 'Request a restaurant demo', secondary: 'See how it works',
+  photoAlt: 'Wooden dining tables inside a warmly lit restaurant',
+  benefitsTitle: 'Be ready before guests arrive',
+  benefits: [
+    ['Set capacity around your service', 'Choose booking days, times and capacity to suit your space and team, leaving room for walk-in guests.'],
+    ['Keep the details together', 'Guests choose a date, time and party size from the booking page linked to your LINE OA. Spend less time searching chat messages.'],
+    ['Prepare from your booking list', 'Check arrival times, party sizes and booking status. Refer to customer history when you need earlier details.']
+  ],
+  demoKicker: 'From booking page to dashboard',
+  demoTitle: 'Guests choose. You stay informed.',
+  demoBody: 'Link your booking page from your restaurant’s LINE OA. Guests pick a convenient slot while your team views reservations and their status in the dashboard.',
+  merchant: 'For your team · Daily reservations',
+  booking: 'For guests · Dates and times',
+  demoNote: 'Booking Whale demo screens with sample data',
+  exampleTitle: 'Start with a service you know',
+  example: 'For example, offer dinner slots at 18:00, 19:00 and 20:30, with capacity based on your restaurant’s space and team.',
+  exampleNote: 'Illustrative times. Set slots to suit your service.',
+  prepTitle: 'Three things to prepare',
+  prep: [['Your restaurant’s LINE OA', 'Where guests will find the link to book'], ['Times and capacity', 'Available slots with room for walk-in guests'], ['Your booking rules', 'What guests should know before they reserve']],
+  faqTitle: 'Before you start',
+  faqs: [
+    ['Can we use our existing LINE OA?', 'Use your restaurant’s LINE OA to link guests to the booking page. We can help you decide where to place the link.'],
+    ['Can we still accept walk-ins?', 'Decide how much capacity to offer for advance reservations and how much to keep for walk-ins, based on your space and team.'],
+    ['What about table selection or deposits?', 'Tell us if you need table plans, combined tables, deposits or special conditions. We’ll review your workflow and confirm what is supported before you start.'],
+    ['How much does it cost? Is there a trial?', 'Contact us about pricing and trial availability for your restaurant, and see the system before you decide.']
+  ],
+  endTitle: 'Bookings that fit your restaurant',
+  endBody: 'Share your opening hours, guest capacity and how you handle walk-ins. We’ll help you plan a booking setup around your service.',
+  guide: 'LINE OA booking guide (Thai)', article: 'Restaurant booking guide (Thai)',
+};
+---
+<div class="restaurant-page dining-layout">
+  <header class="restaurant-hero">
+    <div class="restaurant-hero-copy">
+      <span class="editorial-kicker">{text.kicker}</span>
+      <h1>{text.title}<span>{text.accent}</span></h1>
+      <p>{text.intro}</p>
+      <div class="restaurant-actions"><a class="editorial-button" href={prefix + '/contact/'} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{text.cta}<Icon name="arrow-right" /></a><a href="#restaurant-demo">{text.secondary}<Icon name="arrow-down" /></a></div>
+      <p class="business-cta-note">{th?'ดูตัวอย่างการจอง พร้อมสอบถามราคา':'Explore your booking setup and ask about pricing.'}</p>
+    </div>
+    <figure class="restaurant-photo">
+      <picture>
+        <source type="image/avif" srcset="/assets/business/food-beverage/cafe-640.avif 640w, /assets/business/food-beverage/cafe-960.avif 960w, /assets/business/food-beverage/cafe-1200.avif 1200w" sizes="(max-width: 767px) calc(100vw - 40px), 50vw" />
+        <img src="/assets/business/food-beverage/cafe-1200.webp" srcset="/assets/business/food-beverage/cafe-640.webp 640w, /assets/business/food-beverage/cafe-1200.webp 1200w" sizes="(max-width: 767px) calc(100vw - 40px), 50vw" width="1200" height="1603" alt={text.photoAlt} fetchpriority="high" />
+      </picture>
+      <figcaption class="business-photo-caption"><span>{th?'พร้อมก่อนเปิดมื้อ':'Ready before service'}</span><strong>{th?'รู้ว่าใครมา เวลาไหน กี่คน':'Who’s arriving. When. How many.'}</strong></figcaption>
+    </figure>
+  </header>
+  <BusinessSalesContent slug="food-beverage" {locale} variant="value" />
+  <BusinessScenario slug="food-beverage" {locale} />
+  <BusinessCostCalculator slug="food-beverage" {locale} />
+  <BusinessProductProof slug="food-beverage" {locale} />
+  <section class="restaurant-section restaurant-preparation">
+    <figure class="restaurant-photo"><img src="/assets/business/food-beverage/dining-1200.webp" srcset="/assets/business/food-beverage/dining-640.webp 640w, /assets/business/food-beverage/dining-1200.webp 1200w" sizes="(max-width:767px) calc(100vw - 40px), 50vw" width="1200" height="799" loading="lazy" decoding="async" alt={th ? 'โต๊ะในร้านอาหารจัดจานและแก้วพร้อมรับลูกค้า' : 'Restaurant dining tables set with plates and glasses'} /></figure>
+    <div><span class="editorial-kicker">{th?'เริ่มกับ Booking Whale':'Getting started'}</span><h2>{businessSales["food-beverage"][locale === 'zh' ? 'th' : locale].launchTitle}</h2><ol>{businessSales["food-beverage"][locale === 'zh' ? 'th' : locale].launch.map(([title,body])=><li><h3>{title}</h3><p>{body}</p></li>)}</ol></div>
+  </section>
+  <section class="restaurant-section restaurant-faq" id="business-questions"><h2>{text.faqTitle}</h2><div>{businessSales["food-beverage"][locale === 'zh' ? 'th' : locale].faqs.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}</div></section>
+  <aside class="restaurant-contact"><div><h2>{text.endTitle}</h2><p>{text.endBody}</p></div><a class="editorial-button" href={prefix+'/contact/'} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{text.cta}<Icon name="arrow-right" /></a></aside>
+  <nav class="restaurant-reading" aria-label={th ? 'อ่านเพิ่มเติม' : 'Further reading'}><a href="/blog/line-oa-booking-guide/" lang="th">{text.guide} <Icon name="arrow-right" /></a><a href="/blog/restaurant-queue-management/" lang="th">{text.article} <Icon name="arrow-right" /></a></nav>
+</div>

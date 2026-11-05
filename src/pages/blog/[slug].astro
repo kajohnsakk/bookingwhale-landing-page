@@ -1,4 +1,5 @@
 ---
+import Icon from '../../components/Icon.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ContentLayout from '../../layouts/ContentLayout.astro';
 import images from '../../data/blog-images.json';
@@ -23,7 +24,7 @@ const article = {title:post.data.title,published:post.data.pubDate,modified:post
     <div class="editorial-prose">
     {headings.some(item => item.depth === 2) && <details class="editorial-toc"><summary>เนื้อหาในบทความ</summary><ul>{headings.filter(item => item.depth === 2).map(item => <li><a href={`#${item.slug}`}>{item.text}</a></li>)}</ul></details>}
     <Content />
-    <aside class="editorial-cta"><h2>เริ่มรับจองให้เหมาะกับร้านคุณ</h2><p>ดูรูปแบบสำหรับ <a href="/businesses/food-beverage/">ร้านอาหาร</a> <a href="/businesses/fitness-sports/">คลาสและฟิตเนส</a> หรือ <a href="/businesses/services/">ธุรกิจบริการ</a> แล้วสอบถามรายละเอียดก่อนเริ่มใช้งาน</p><a class="editorial-button" data-contact-open href="/contact/" aria-haspopup="dialog" aria-controls="contact-dialog">เริ่มใช้งาน <span aria-hidden="true">→</span></a></aside>
+    <aside class="editorial-cta"><h2>เริ่มรับจองให้เหมาะกับร้านคุณ</h2><p>ดูรูปแบบสำหรับ <a href="/businesses/food-beverage/">ร้านอาหาร</a> <a href="/businesses/fitness-sports/">คลาสและฟิตเนส</a> หรือ <a href="/businesses/services/">ธุรกิจบริการ</a> แล้วสอบถามรายละเอียดก่อนเริ่มใช้งาน</p><a class="editorial-button" data-contact-open href="/contact/" aria-haspopup="dialog" aria-controls="contact-dialog">เริ่มใช้งาน <Icon name="arrow-right" /></a></aside>
     </div>
   </article>
   <section aria-labelledby="related-title"><h2 id="related-title">อ่านต่อ</h2><div class="editorial-grid">{related.map(item => <article class="editorial-card"><span class="editorial-kicker">{item.data.category}</span><h3><a href={`/blog/${item.id}/`}>{item.data.title}</a></h3><p>{item.data.description}</p></article>)}</div></section>
