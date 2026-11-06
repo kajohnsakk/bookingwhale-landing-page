@@ -8,7 +8,7 @@
     background: #fff; box-shadow: none;
     translate: none; opacity: 1; pointer-events: auto;
   }
-  #bookingwhale .bw-nav.bw-nav-hidden:not(.bw-menu-open):not(:has(:focus-visible)) { translate: none; pointer-events: auto; }
+  #bookingwhale .bw-nav.bw-nav-hidden:not(.bw-menu-open):not(:has(:focus-visible)) { translate: 0 calc(-100% - 16px); pointer-events: none; }
   #bookingwhale .bw-nav.bw-menu-open,
   #bookingwhale .bw-nav:has(:focus-visible) { translate: none; }
   #bookingwhale .bw-nav.bw-nav-scrolled { box-shadow: none; }

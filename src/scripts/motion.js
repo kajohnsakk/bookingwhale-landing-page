@@ -84,7 +84,6 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
   const navLinks=qa('[data-nav-section]');
   let navCurrent=null;
   let navFrame=0;
-  let navScrollAnchor=window.scrollY;
   const syncNavigation=()=>{
     navFrame=0;
     const threshold=(header?.offsetHeight||72)+48;
@@ -98,13 +97,6 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     });
     }
     header?.classList.toggle('bw-nav-scrolled',window.scrollY>24);
-    const scrollY=Math.max(0,window.scrollY);
-    const delta=scrollY-navScrollAnchor;
-    if(scrollY<96||header?.classList.contains('bw-menu-open')||q('.bw-language')?.open||q('.bw-business-nav')?.open){
-      header?.classList.remove('bw-nav-hidden');navScrollAnchor=scrollY;
-    }else if(Math.abs(delta)>12){
-      header?.classList.toggle('bw-nav-hidden',delta>0);navScrollAnchor=scrollY;
-    }
     header?.classList.remove('bw-nav-compact');
   };
   on(window,'scroll',()=>{if(!navFrame)navFrame=requestAnimationFrame(syncNavigation);},{passive:true});
