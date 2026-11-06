@@ -51,9 +51,10 @@
 .appointment-layout .scenario-photo{height:240px;margin-bottom:20px}
 .appointment-layout .scenario-story-copy .scenario-setup{display:none}
 .appointment-layout .scenario-board{padding:24px;background:#f7f8fa;border-radius:20px}
+.appointment-layout .scenario-board-heading{margin-bottom:16px}
 .appointment-layout .scenario-board-heading>.bw-icon{display:none}
 .appointment-layout .scenario-board-date>span:last-child{display:none}
-.appointment-layout .scenario-agenda-list li{grid-template-columns:52px minmax(0,1fr);gap:10px}
+.appointment-layout .scenario-agenda-list li{grid-template-columns:52px minmax(0,1fr);gap:10px;padding-block:14px}
 .appointment-layout .scenario-agenda-time{font-size:16px}
 .appointment-layout .business-product-proof{background:#f7f8fa}
 .appointment-layout .restaurant-demo-flow{grid-template-columns:minmax(0,1fr) minmax(0,3.3fr);align-items:center}
@@ -132,16 +133,16 @@
 }
 
 @media(min-width:1024px){
-.dining-layout .scenario-panel{gap:32px;align-items:stretch}
-.dining-layout .scenario-story{display:flex;flex-direction:column}
-.dining-layout .scenario-photo{flex:1 1 0;height:0;min-height:240px;margin-bottom:20px}
-.dining-layout .scenario-story-copy{flex:none;max-width:none}
-.dining-layout .scenario-stage{display:flex}
-.dining-layout .scenario-board{flex:1;display:flex;flex-direction:column}
-.dining-layout .scenario-takeaway{margin-top:auto;padding-top:18px}
+:is(.dining-layout,.studio-layout,.appointment-layout) .scenario-panel{gap:32px;align-items:stretch}
+:is(.dining-layout,.studio-layout,.appointment-layout) .scenario-story{display:flex;flex-direction:column;gap:20px}
+:is(.dining-layout,.studio-layout,.appointment-layout) .scenario-photo{flex:1 1 0;height:0;min-height:240px;margin:0}
+:is(.dining-layout,.studio-layout,.appointment-layout) .scenario-story-copy{flex:none;max-width:none}
+:is(.dining-layout,.studio-layout,.appointment-layout) .scenario-stage{display:flex}
+:is(.dining-layout,.studio-layout,.appointment-layout) .scenario-board{flex:1;display:flex;flex-direction:column}
+:is(.dining-layout,.studio-layout,.appointment-layout) .scenario-takeaway{margin-top:auto;padding-top:18px}
 }
 @media(min-width:768px) and (max-width:1023px){
-.dining-layout .scenario-panel{grid-template-columns:1fr;gap:24px}
-.dining-layout .scenario-story{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
-.dining-layout .scenario-photo{height:240px;margin:0}
+:is(.dining-layout,.studio-layout,.appointment-layout) .scenario-panel{grid-template-columns:1fr;gap:24px}
+:is(.dining-layout,.studio-layout,.appointment-layout) .scenario-story{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+:is(.dining-layout,.studio-layout,.appointment-layout) .scenario-photo{height:240px;margin:0}
 }
