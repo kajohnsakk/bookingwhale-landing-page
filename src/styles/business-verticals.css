@@ -69,9 +69,12 @@
 .dining-layout .business-sales-value>.restaurant-section-heading{max-width:none;margin-bottom:28px}
 .dining-layout .scenario-photo{height:340px;border-radius:20px}
 .dining-layout .scenario-story-copy{max-width:480px}
-.dining-layout .scenario-board{background:#f7f8fa;padding:32px}
-.dining-layout .scenario-arrival-list li{padding:24px 18px}
-.dining-layout .scenario-arrival-list time{font-size:22px}
+.dining-layout .scenario-board{background:#f7f8fa;padding:24px}
+.dining-layout .scenario-board-heading{margin-bottom:16px}
+.dining-layout .scenario-board-total{margin-top:16px}
+.dining-layout .scenario-takeaway{margin-top:18px}
+.dining-layout .scenario-arrival-list li{padding:14px 16px;min-height:60px}
+.dining-layout .scenario-arrival-list time{font-size:20px;line-height:1.4}
 .dining-layout .business-product-proof{background:none;border-radius:0;padding:0}
 .dining-layout .restaurant-demo-flow{padding:32px;border-radius:24px;background:#f7f8fa}
 @media(min-width:768px) and (max-width:1100px){
@@ -124,6 +127,21 @@
 .dining-layout .business-sales-value{padding-block:24px}
 .dining-layout .scenario-photo{height:260px}
 .dining-layout .scenario-board{padding:20px}
-.dining-layout .scenario-arrival-list li{padding:18px 12px}
+.dining-layout .scenario-arrival-list li{padding:14px 12px}
 .dining-layout .scenario-arrival-list time{font-size:18px}
+}
+
+@media(min-width:1024px){
+.dining-layout .scenario-panel{gap:32px;align-items:stretch}
+.dining-layout .scenario-story{display:flex;flex-direction:column}
+.dining-layout .scenario-photo{flex:1 1 0;height:0;min-height:240px;margin-bottom:20px}
+.dining-layout .scenario-story-copy{flex:none;max-width:none}
+.dining-layout .scenario-stage{display:flex}
+.dining-layout .scenario-board{flex:1;display:flex;flex-direction:column}
+.dining-layout .scenario-takeaway{margin-top:auto;padding-top:18px}
+}
+@media(min-width:768px) and (max-width:1023px){
+.dining-layout .scenario-panel{grid-template-columns:1fr;gap:24px}
+.dining-layout .scenario-story{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.dining-layout .scenario-photo{height:240px;margin:0}
 }
