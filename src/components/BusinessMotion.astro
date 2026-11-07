@@ -1,7 +1,7 @@
 <script>
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
   const running = new Map<Element, Animation>();
-  const targets = document.querySelectorAll('.restaurant-section-heading, .business-value-grid>article, .business-launch li, .scenario-panels, .restaurant-demo-panel, .restaurant-preparation, .business-index-card, .restaurant-contact');
+  const targets = document.querySelectorAll('.restaurant-section-heading, .business-value-grid>article, .business-launch li, .scenario-panels, .restaurant-demo-panel, .proof-stage, .restaurant-preparation, .business-index-card, .restaurant-contact');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) {

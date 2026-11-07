@@ -1,25 +1,40 @@
 ---
-import '../styles/restaurant-demo.css';
+import Icon from './Icon.astro';
+import Avatar from './Avatar.astro';
+import { productStories } from '../data/business-product-stories';
+import '../styles/business-product-stories.css';
 interface Props { slug: 'food-beverage' | 'fitness-sports' | 'services'; locale: 'th' | 'en' | 'zh' }
 const { slug, locale } = Astro.props;
-const th = locale !== 'en';
 const restaurant = slug === 'food-beverage';
-const title = restaurant
-  ? (th ? 'ลูกค้าจองเอง คุณเห็นภาพรวม' : 'Guests book. You see the full picture.')
-  : slug === 'fitness-sports'
-    ? (th ? 'จากการจอง ถึงรายชื่อก่อนเริ่มฝึก' : 'From a booking to your session list.')
-    : (th ? 'ลูกค้าเลือกเวลา คุณเตรียมบริการ' : 'They choose a time. You prepare the service.');
-const merchant = '/assets/hero-screens/' + locale + '/merchant-1200.webp';
-const booking = '/assets/hero-screens/' + locale + '/booking-600.webp';
+const fitness = slug === 'fitness-sports';
+const copy = productStories[locale];
+const text = restaurant ? copy.food : fitness ? copy.fitness : copy.services;
+const merchant = `/assets/hero-screens/${locale}/merchant-1200.webp`;
 ---
-<section class="restaurant-section business-product-proof" id={restaurant ? 'restaurant-demo' : 'business-product'}>
-  <div class="restaurant-section-heading"><h2>{title}</h2></div>
-  <div class="restaurant-demo-flow">
-    <figure class="restaurant-demo-panel restaurant-demo-merchant">
-      <a class="restaurant-demo-screen" href={merchant} target="_blank" rel="noopener" aria-label={th ? 'ขยายภาพหน้าจัดการรายการจอง (เปิดแท็บใหม่)' : 'Enlarge the booking dashboard (opens a new tab)'}><img src={merchant} srcset={'/assets/hero-screens/' + locale + '/merchant-640.webp 640w, ' + merchant + ' 1200w'} sizes="(max-width:767px) calc(100vw - 72px), (max-width:1199px) 65vw, 780px" width="1200" height="675" loading="lazy" decoding="async" alt={th ? 'หน้าจัดการ Booking Whale แสดงรายการจอง เวลา จำนวนคน และสถานะจากข้อมูลร้านอาหารตัวอย่าง' : 'Booking Whale dashboard with sample restaurant bookings, times, party sizes and statuses'} /></a>
-    </figure>
-    <figure class="restaurant-demo-panel restaurant-demo-customer">
-      <a class="restaurant-demo-screen" href={booking} target="_blank" rel="noopener" aria-label={th ? 'ขยายภาพหน้าจอง (เปิดแท็บใหม่)' : 'Enlarge the customer booking page (opens a new tab)'}><img src={booking} width="600" height="1298" loading="lazy" decoding="async" alt={th ? 'หน้าจอง Booking Whale แสดงวัน เวลา และจำนวนคนสำหรับร้านอาหารตัวอย่าง' : 'Booking Whale customer page showing dates, times and party sizes for a sample restaurant'} /></a>
-    </figure>
+<section class:list={['restaurant-section', 'business-proof-story', `proof-${slug}`]} id={restaurant ? 'restaurant-demo' : 'business-product'}>
+  <div class="proof-copy restaurant-section-heading">
+    <span class="proof-kicker">{text.kicker}</span>
+    <h2>{text.title}</h2>
+    <p>{text.body}</p>
+    {!restaurant && <ul>{(fitness ? copy.fitness : copy.services).points.map(point => <li><Icon name="check" />{point}</li>)}</ul>}
   </div>
+  {restaurant ? <figure class="proof-stage proof-restaurant-screen">
+    <a href={merchant} target="_blank" rel="noopener" aria-label={copy.food.zoom}>
+      <img src={merchant} srcset={`/assets/hero-screens/${locale}/merchant-640.webp 640w, ${merchant} 1200w, /assets/hero-screens/${locale}/merchant.webp 1600w`} sizes="(max-width:767px) calc(100vw - 40px), (max-width:1199px) calc(100vw - 80px), 1120px" width="1200" height="675" loading="lazy" decoding="async" alt={copy.food.alt} />
+      <span class="proof-enlarge"><Icon name="arrow-up-right" /></span>
+    </a>
+  </figure> : fitness ? <div class="proof-stage proof-schedule" role="img" aria-label={copy.fitness.label}>
+    <div class="proof-screen-bar"><span><Icon name="calendar" />{copy.fitness.screen}</span><span class="proof-screen-note">{copy.fitness.note}</span></div>
+    <div class="proof-week" aria-hidden="true">{copy.fitness.days.map((day, i) => <span class:list={{'is-selected': i === 0}}>{day}<i></i></span>)}</div>
+    <div class="proof-schedule-day">{copy.fitness.selected}<span>3 {locale === 'th' ? 'รอบ' : locale === 'zh' ? '个时段' : 'sessions'}</span></div>
+    <div class="proof-slot-head"><span>{copy.fitness.service}</span><span>{copy.fitness.time}</span><span>{copy.fitness.capacity}</span></div>
+    <div class="proof-slots">{copy.fitness.classes.map((name, i) => <div class="proof-slot"><strong>{name}</strong><span>{['09:00–10:00', '13:00–14:00', '17:00–18:00'][i]}</span><span class="proof-capacity"><Icon name="users" />{copy.fitness.units[i]}</span></div>)}</div>
+    <div class="proof-screen-footer"><Icon name="calendar-check" />{copy.fitness.footer}</div>
+  </div> : <div class="proof-stage proof-client" role="img" aria-label={copy.services.label}>
+    <div class="proof-screen-bar"><span><Icon name="user-round" />{copy.services.screen}</span><span class="proof-screen-note">Booking Whale</span></div>
+    <div class="proof-client-identity"><span class="proof-avatar"><Avatar person="emma" /></span><div><strong>Emma Wilson</strong><span>BW–001284</span></div><Icon name="user-round" /></div>
+    <div class="proof-client-contact"><Icon name="mail" /><span>emma@example.com</span></div>
+    <div class="proof-history-heading"><strong>{copy.services.history}</strong><span>{copy.services.count}</span></div>
+    <div class="proof-history">{copy.services.names.map((name, i) => <div class="proof-history-row"><span class="proof-date"><small>{copy.services.month}</small><b>{i === 0 ? '24' : '10'}</b></span><div class="proof-visit"><strong>{name}</strong><span>{i === 0 ? '11:00–12:00' : '14:00–15:00'} · {copy.services.duration}</span></div><span class="proof-visit-status"><Icon name="check" />{copy.services.statuses[i]}</span></div>)}</div>
+  </div>}
 </section>

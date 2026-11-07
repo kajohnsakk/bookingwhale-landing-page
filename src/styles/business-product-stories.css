@@ -1,0 +1,88 @@
+.business-proof-story{display:grid;gap:32px;align-items:center}
+.business-proof-story .proof-copy{margin:0;max-width:680px}
+.business-proof-story .proof-kicker{display:block;font-size:13px;font-weight:600;color:#536581;margin-bottom:12px}
+.business-proof-story .proof-copy h2{margin:0 0 16px}
+.business-proof-story .proof-copy p{margin:0;font-size:16px;line-height:1.8}
+.business-proof-story .proof-copy ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
+.business-proof-story .proof-copy li{display:flex;align-items:baseline;gap:10px;font-size:14px;line-height:1.6;color:#34435b}
+.business-proof-story .proof-copy li svg{align-self:flex-start;margin-top:4px;color:#18212f}
+.proof-stage{min-width:0}
+.proof-restaurant-screen{padding:20px;background:#f7f8fa;border-radius:24px}
+.proof-restaurant-screen a{display:block;position:relative;cursor:zoom-in;border-radius:14px;overflow:hidden}
+.proof-restaurant-screen img{display:block;width:100%;height:auto}
+.proof-enlarge{position:absolute;right:16px;bottom:16px;width:40px;height:40px;display:grid;place-items:center;background:#fff;border-radius:50%;color:#18212f;box-shadow:0 2px 12px #18212f12}
+.business-proof-story.proof-fitness-sports{grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr);gap:56px}
+.business-proof-story.proof-services{grid-template-columns:minmax(0,1.2fr) minmax(0,.85fr);gap:64px}
+.proof-services .proof-copy{grid-column:2;grid-row:1}
+.proof-services .proof-client{grid-column:1;grid-row:1}
+.proof-schedule,.proof-client{padding:26px;background:#f7f8fa;border-radius:24px;font-size:14px;color:#25344a}
+.proof-screen-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:24px;font-size:13px}
+.proof-screen-bar>span:first-child{display:flex;align-items:center;gap:10px;font-weight:600}
+.proof-screen-note{font-size:11px;color:#617087}
+.proof-week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-bottom:26px}
+.proof-week>span{display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px 4px;border-radius:12px;background:#fff;color:#617087;font-size:12px}
+.proof-week>span.is-selected{background:#0747ff;color:#fff}
+.proof-week i{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.6}
+.proof-schedule-day{display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:18px;margin-bottom:22px}
+.proof-schedule-day>span{font-size:12px;font-weight:400;color:#617087}
+.proof-slot-head,.proof-slot{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) minmax(0,.8fr);gap:12px;align-items:center}
+.proof-slot-head{padding:0 14px 10px;font-size:11px;color:#617087}
+.proof-slots{display:grid;gap:8px}
+.proof-slot{padding:18px 14px;background:#fff;border-radius:12px;font-size:12px;font-variant-numeric:tabular-nums}
+.proof-slot strong{font-size:13px;font-weight:600}
+.proof-slot-head>span:last-child{text-align:right}
+.proof-capacity{display:flex;justify-content:flex-end;align-items:center;gap:6px;white-space:nowrap}
+.proof-capacity svg{width:14px;height:14px;color:#617087}
+.proof-screen-footer{display:flex;align-items:center;gap:10px;font-size:12px;line-height:1.6;color:#536581;margin-top:22px}
+.proof-client-identity{display:flex;align-items:center;gap:14px;background:#fff;padding:20px;border-radius:16px}
+.proof-avatar{display:block;width:48px;height:48px;border-radius:50%;flex-shrink:0}
+.proof-client-identity>div{display:grid;gap:4px;flex:1;min-width:0}
+.proof-client-identity strong{font-size:18px}
+.proof-client-identity>div>span{font-size:11px;color:#617087}
+.proof-client-identity>svg{color:#617087}
+.proof-client-contact{display:flex;align-items:center;gap:8px;padding:18px 20px 24px;font-size:12px;color:#617087}
+.proof-history-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px}
+.proof-history-heading>span{font-size:11px;color:#617087}
+.proof-history{display:grid;gap:10px}
+.proof-history-row{display:flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:18px}
+.proof-date{display:flex;flex-direction:column;align-items:center;width:44px;flex-shrink:0;border-radius:7px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px #e6eaf1}
+.proof-date small{background:#e93249;color:#fff;width:100%;text-align:center;font-size:9px;line-height:18px}
+.proof-date b{font-size:23px;line-height:32px;font-weight:600}
+.proof-visit{display:grid;gap:5px;flex:1;min-width:0}
+.proof-visit strong{font-size:13px}
+.proof-visit>span{font-size:11px;color:#617087}
+.proof-visit-status{display:flex;align-items:center;gap:4px;color:#536581;font-size:10px;white-space:nowrap}
+.proof-visit-status svg{width:12px;height:12px}
+@media(min-width:768px) and (max-width:1100px){
+.business-proof-story.proof-fitness-sports,.business-proof-story.proof-services{grid-template-columns:1fr;gap:28px}
+.proof-services .proof-copy,.proof-services .proof-client{grid-column:auto;grid-row:auto}
+.proof-schedule,.proof-client{max-width:760px;width:100%;box-sizing:border-box}
+.business-proof-story .proof-copy ul{grid-template-columns:1fr 1fr;margin-top:20px}
+}
+@media(max-width:767px){
+.business-proof-story.proof-fitness-sports,.business-proof-story.proof-services{grid-template-columns:1fr;gap:24px}
+.proof-services .proof-copy,.proof-services .proof-client{grid-column:auto;grid-row:auto}
+.business-proof-story .proof-copy ul{margin-top:20px;gap:10px}
+.business-proof-story .proof-copy p{font-size:15px}
+.proof-restaurant-screen{padding:10px;border-radius:16px}
+.proof-enlarge{right:8px;bottom:8px;width:32px;height:32px}
+.proof-schedule,.proof-client{padding:18px;border-radius:20px}
+.proof-screen-bar{padding-bottom:20px;gap:8px;font-size:12px}
+.proof-screen-note{font-size:10px}
+.proof-week{gap:5px;margin-bottom:20px}
+.proof-week>span{padding:10px 3px}
+.proof-slot-head{display:none}
+.proof-slot{grid-template-columns:1fr auto;padding:14px;gap:8px}
+.proof-slot strong{grid-column:1/-1;font-size:14px}
+.proof-schedule-day{margin-bottom:16px}
+.proof-screen-footer{font-size:11px;margin-top:18px;align-items:flex-start}
+.proof-screen-footer svg{margin-top:2px}
+.proof-client-identity{padding:16px;gap:10px}
+.proof-client-identity strong{font-size:16px}
+.proof-avatar{width:40px;height:40px}
+.proof-client-contact{padding:16px 4px 24px}
+.proof-history-row{padding:14px 12px;display:grid;grid-template-columns:40px minmax(0,1fr);gap:6px 12px}
+.proof-date{width:40px;grid-row:1/3}
+.proof-visit-status{grid-column:2}
+.proof-visit strong{font-size:13px}
+}
