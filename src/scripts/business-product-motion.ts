@@ -31,7 +31,7 @@ export function initProductStories() {
         phase = (phase + 1) % 3;
         render();
         schedule();
-      }, phase === 2 ? 4600 : 2600);
+      }, phase === 2 ? 6500 : 3800);
     };
     steps.forEach((step, index) => step.addEventListener('click', () => {
       phase = index;
@@ -45,9 +45,11 @@ export function initProductStories() {
       schedule();
     });
     const observer = new IntersectionObserver(entries => {
-      visible = entries[0].isIntersecting;
+      const nextVisible = entries[0].isIntersecting && entries[0].intersectionRatio >= .25;
+      if (visible === nextVisible) return;
+      visible = nextVisible;
       schedule();
-    }, {threshold: 0, rootMargin: '-15% 0px -15% 0px'});
+    }, {threshold: [0, .25], rootMargin: '-10% 0px -10% 0px'});
     observer.observe(stage);
     preference.addEventListener('change', () => {
       if (preference.matches) phase = 2;

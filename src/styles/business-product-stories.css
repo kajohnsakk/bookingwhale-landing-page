@@ -102,26 +102,23 @@
 .proof-playback button:hover{background:#eef3ff}
 .proof-restaurant-screen{position:relative;margin:0}
 .proof-booking-sequence{position:absolute;right:40px;bottom:38px;width:min(340px,calc(100% - 80px));height:110px;pointer-events:none}
-.proof-booking-scene{position:absolute;inset:0;display:flex;align-items:center;gap:14px;padding:20px;border-radius:16px;background:#fff;box-shadow:0 6px 24px #18212f12;opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .55s cubic-bezier(.22,.68,.2,1)}
+.proof-booking-scene{position:absolute;inset:0;display:flex;align-items:center;gap:14px;padding:20px;border-radius:16px;background:#fff;box-shadow:0 6px 24px #18212f12;opacity:0;transition:opacity .4s ease}
 .proof-booking-scene>div{display:grid;gap:5px;min-width:0}
 .proof-booking-scene small{font-size:13px;color:#536581}
 .proof-booking-scene strong{font-size:18px;line-height:1.4;color:#18212f}
 .proof-booking-scene>div>span{font-size:13px;color:#536581}
 .proof-ticket-icon,.proof-ticket-avatar{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:#eef3ff;color:#0747ff}
 .proof-ticket-icon svg{width:20px;height:20px}
-[data-phase="0"] .proof-booking-scene[data-scene="0"],[data-phase="1"] .proof-booking-scene[data-scene="1"],[data-phase="2"] .proof-booking-scene[data-scene="2"]{opacity:1;transform:translateY(0)}
-.proof-week,.proof-slot,.proof-capacity,.proof-screen-footer,.proof-client-identity,.proof-client-contact,.proof-history-heading,.proof-history-row{transition:opacity .45s ease,transform .55s cubic-bezier(.22,.68,.2,1),box-shadow .35s ease,color .35s ease}
-[data-proof-motion="enabled"][data-phase="0"] .proof-slot,[data-proof-motion="enabled"][data-phase="0"] .proof-screen-footer{opacity:.22;transform:translateY(6px)}
-[data-proof-motion="enabled"][data-phase="1"] .proof-capacity,[data-proof-motion="enabled"][data-phase="1"] .proof-screen-footer{opacity:.3}
-[data-proof-motion="enabled"][data-phase="1"] .proof-slot:nth-child(2){transition-delay:.1s}
-[data-proof-motion="enabled"][data-phase="1"] .proof-slot:nth-child(3){transition-delay:.2s}
+[data-phase="0"] .proof-booking-scene[data-scene="0"],[data-phase="1"] .proof-booking-scene[data-scene="1"],[data-phase="2"] .proof-booking-scene[data-scene="2"]{opacity:1}
+.proof-week>span,.proof-slot,.proof-capacity,.proof-screen-footer,.proof-client-identity,.proof-client-contact,.proof-history-row{transition:background-color .65s ease,color .65s ease}
+.proof-client-contact{border-radius:12px}
+[data-proof-motion="enabled"][data-phase="0"] .proof-client-identity{background:#edf2ff}
+[data-proof-motion="enabled"][data-phase="1"] .proof-client-contact{background:#edf2ff;color:#0747ff}
+[data-proof-motion="enabled"][data-phase="2"] .proof-history-row{background:#edf2ff}
+[data-proof-motion="enabled"][data-phase="0"] .proof-week>span.is-selected{background:#0747ff}
+[data-proof-motion="enabled"][data-phase="1"] .proof-slot{background:#edf2ff}
 [data-proof-motion="enabled"][data-phase="2"] .proof-capacity{color:#0747ff}
 [data-proof-motion="enabled"][data-phase="2"] .proof-screen-footer{color:#0747ff}
-[data-proof-motion="enabled"][data-phase="0"] .proof-client-identity{box-shadow:0 0 0 2px #0747ff22}
-[data-proof-motion="enabled"][data-phase="0"] .proof-client-contact{opacity:.25;transform:translateY(4px)}
-[data-proof-motion="enabled"][data-phase="1"] .proof-client-contact{color:#0747ff}
-[data-proof-motion="enabled"][data-phase="0"] .proof-history-heading,[data-proof-motion="enabled"][data-phase="0"] .proof-history-row,[data-proof-motion="enabled"][data-phase="1"] .proof-history-heading,[data-proof-motion="enabled"][data-phase="1"] .proof-history-row{opacity:.22;transform:translateY(6px)}
-[data-proof-motion="enabled"][data-phase="2"] .proof-history-row:nth-child(2){transition-delay:.12s}
 @media(max-width:767px){
 .proof-playback:not([hidden]){gap:6px;margin-top:12px}
 .proof-steps{gap:4px}
