@@ -13,7 +13,7 @@ const motion = productMotion[locale];
 const steps = restaurant ? motion.food : fitness ? motion.fitness : motion.services;
 const merchant = `/assets/hero-screens/${locale}/merchant-1200.webp`;
 ---
-<section class:list={['restaurant-section', 'business-proof-story', `proof-${slug}`]} data-proof-story data-phase="2" id={restaurant ? 'restaurant-demo' : 'business-product'}>
+<section class:list={['restaurant-section', 'business-proof-story', {'proof-food-beverage': restaurant, 'proof-fitness-sports': fitness, 'proof-services': !restaurant && !fitness}]} data-proof-story data-phase="2" id={restaurant ? 'restaurant-demo' : 'business-product'}>
   <div class="proof-copy restaurant-section-heading">
     <span class="proof-kicker">{text.kicker}</span>
     <h2>{text.title}</h2>
