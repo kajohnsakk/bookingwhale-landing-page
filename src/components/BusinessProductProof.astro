@@ -1,7 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import Avatar from './Avatar.astro';
-import { productStories } from '../data/business-product-stories';
+import { productStories, productMotion } from '../data/business-product-stories';
 import '../styles/business-product-stories.css';
 interface Props { slug: 'food-beverage' | 'fitness-sports' | 'services'; locale: 'th' | 'en' | 'zh' }
 const { slug, locale } = Astro.props;
@@ -9,20 +9,28 @@ const restaurant = slug === 'food-beverage';
 const fitness = slug === 'fitness-sports';
 const copy = productStories[locale];
 const text = restaurant ? copy.food : fitness ? copy.fitness : copy.services;
+const motion = productMotion[locale];
+const steps = restaurant ? motion.food : fitness ? motion.fitness : motion.services;
 const merchant = `/assets/hero-screens/${locale}/merchant-1200.webp`;
 ---
-<section class:list={['restaurant-section', 'business-proof-story', `proof-${slug}`]} id={restaurant ? 'restaurant-demo' : 'business-product'}>
+<section class:list={['restaurant-section', 'business-proof-story', `proof-${slug}`]} data-proof-story data-phase="2" id={restaurant ? 'restaurant-demo' : 'business-product'}>
   <div class="proof-copy restaurant-section-heading">
     <span class="proof-kicker">{text.kicker}</span>
     <h2>{text.title}</h2>
     <p>{text.body}</p>
     {!restaurant && <ul>{(fitness ? copy.fitness : copy.services).points.map(point => <li><Icon name="check" />{point}</li>)}</ul>}
   </div>
+  <div class="proof-demo">
   {restaurant ? <figure class="proof-stage proof-restaurant-screen">
     <a href={merchant} target="_blank" rel="noopener" aria-label={copy.food.zoom}>
       <img src={merchant} srcset={`/assets/hero-screens/${locale}/merchant-640.webp 640w, ${merchant} 1200w, /assets/hero-screens/${locale}/merchant.webp 1600w`} sizes="(max-width:767px) calc(100vw - 40px), (max-width:1199px) calc(100vw - 80px), 1120px" width="1200" height="675" loading="lazy" decoding="async" alt={copy.food.alt} />
       <span class="proof-enlarge"><Icon name="arrow-up-right" /></span>
     </a>
+    <div class="proof-booking-sequence" aria-hidden="true">
+      <div class="proof-booking-scene" data-scene="0"><span class="proof-ticket-icon"><Icon name="clock" /></span><div><small>{motion.booking}</small><strong>{motion.date}</strong><span>{motion.guests}</span></div></div>
+      <div class="proof-booking-scene" data-scene="1"><span class="proof-ticket-avatar"><Avatar person="emma" /></span><div><small>{motion.received}</small><strong>Emma Wilson</strong><span>{motion.date} · {motion.guests}</span></div></div>
+      <div class="proof-booking-scene" data-scene="2"><span class="proof-ticket-icon"><Icon name="check" /></span><div><small>{motion.ready}</small><strong>{motion.date}</strong><span>Emma Wilson · {motion.guests}</span></div></div>
+    </div>
   </figure> : fitness ? <div class="proof-stage proof-schedule" role="img" aria-label={copy.fitness.label}>
     <div class="proof-screen-bar"><span><Icon name="calendar" />{copy.fitness.screen}</span><span class="proof-screen-note">{copy.fitness.note}</span></div>
     <div class="proof-week" aria-hidden="true">{copy.fitness.days.map((day, i) => <span class:list={{'is-selected': i === 0}}>{day}<i></i></span>)}</div>
@@ -37,4 +45,15 @@ const merchant = `/assets/hero-screens/${locale}/merchant-1200.webp`;
     <div class="proof-history-heading"><strong>{copy.services.history}</strong><span>{copy.services.count}</span></div>
     <div class="proof-history">{copy.services.names.map((name, i) => <div class="proof-history-row"><span class="proof-date"><small>{copy.services.month}</small><b>{i === 0 ? '24' : '10'}</b></span><div class="proof-visit"><strong>{name}</strong><span>{i === 0 ? '11:00–12:00' : '14:00–15:00'} · {copy.services.duration}</span></div><span class="proof-visit-status"><Icon name="check" />{copy.services.statuses[i]}</span></div>)}</div>
   </div>}
+    <div class="proof-playback" hidden>
+      <div class="proof-steps" role="group" aria-label={motion.label}>
+        {steps.map((step, index) => <button type="button" data-proof-step={index} aria-pressed={index === 2 ? 'true' : 'false'}><span>{String(index + 1).padStart(2, '0')}</span>{step}</button>)}
+      </div>
+      <button class="proof-play-toggle" type="button" aria-label={motion.pause} data-pause-label={motion.pause} data-play-label={motion.play}><svg class="proof-pause-symbol" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M8 5v14M16 5v14" /></svg><svg class="proof-play-symbol" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m8 5 11 7-11 7z" /></svg></button>
+    </div>
+  </div>
 </section>
+<script>
+  import { initProductStories } from '../scripts/business-product-motion';
+  initProductStories();
+</script>

@@ -10,7 +10,7 @@ export const pruneStyles=()=>({
         plugins:[purgecss({
           content:[fileURLToPath(new URL('../src/**/*.{astro,js,ts,json,md,html}',import.meta.url))],
           safelist:{standard:[/^is-/,/^has-/,/^astro-/,/^bw-film-\d+$/],greedy:[/data-astro-cid-/,/editorial-prose/]},
-          dynamicAttributes:['aria-expanded','aria-selected','data-phase','data-active'],
+          dynamicAttributes:['aria-expanded','aria-selected','data-phase','data-active','data-proof-motion','data-paused'],
           keyframes:false,
           fontFace:false,
           variables:false,

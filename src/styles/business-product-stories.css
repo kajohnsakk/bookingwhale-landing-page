@@ -14,7 +14,7 @@
 .business-proof-story.proof-fitness-sports{grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr);gap:56px}
 .business-proof-story.proof-services{grid-template-columns:minmax(0,1.2fr) minmax(0,.85fr);gap:64px}
 .proof-services .proof-copy{grid-column:2;grid-row:1}
-.proof-services .proof-client{grid-column:1;grid-row:1}
+.proof-services .proof-demo{grid-column:1;grid-row:1}
 .proof-schedule,.proof-client{padding:26px;background:#f7f8fa;border-radius:24px;font-size:14px;color:#25344a}
 .proof-screen-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:24px;font-size:13px}
 .proof-screen-bar>span:first-child{display:flex;align-items:center;gap:10px;font-weight:600}
@@ -55,13 +55,13 @@
 .proof-visit-status svg{width:12px;height:12px}
 @media(min-width:768px) and (max-width:1100px){
 .business-proof-story.proof-fitness-sports,.business-proof-story.proof-services{grid-template-columns:1fr;gap:28px}
-.proof-services .proof-copy,.proof-services .proof-client{grid-column:auto;grid-row:auto}
+.proof-services .proof-copy,.proof-services .proof-demo{grid-column:auto;grid-row:auto}
 .proof-schedule,.proof-client{max-width:760px;width:100%;box-sizing:border-box}
 .business-proof-story .proof-copy ul{grid-template-columns:1fr 1fr;margin-top:20px}
 }
 @media(max-width:767px){
 .business-proof-story.proof-fitness-sports,.business-proof-story.proof-services{grid-template-columns:1fr;gap:24px}
-.proof-services .proof-copy,.proof-services .proof-client{grid-column:auto;grid-row:auto}
+.proof-services .proof-copy,.proof-services .proof-demo{grid-column:auto;grid-row:auto}
 .business-proof-story .proof-copy ul{margin-top:20px;gap:10px}
 .business-proof-story .proof-copy p{font-size:15px}
 .proof-restaurant-screen{padding:10px;border-radius:16px}
@@ -85,4 +85,52 @@
 .proof-date{width:40px;grid-row:1/3}
 .proof-visit-status{grid-column:2}
 .proof-visit strong{font-size:13px}
+}
+.proof-demo{min-width:0}
+.proof-playback:not([hidden]){display:flex;align-items:center;gap:12px;margin-top:18px}
+.proof-food-beverage .proof-playback{max-width:640px;margin-inline:auto}
+.proof-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;flex:1;min-width:0}
+.proof-steps button{appearance:none;border:0;background:transparent;color:#536581;text-align:left;padding:10px 8px;border-radius:10px;font:inherit;font-size:12px;line-height:1.5;cursor:pointer;transition:color .25s,background-color .25s}
+.proof-steps button>span{display:block;font-size:10px;margin-bottom:4px;color:inherit;font-variant-numeric:tabular-nums}
+.proof-steps button[aria-pressed="true"]{color:#0747ff;background:#eef3ff}
+.proof-play-toggle{appearance:none;display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border:0;border-radius:50%;background:#f4f5f7;color:#25344a;cursor:pointer;font-size:18px}
+.proof-play-toggle[hidden]{display:none}
+.proof-play-symbol{display:none;font-size:13px}
+.proof-play-toggle[data-paused="true"] .proof-pause-symbol{display:none}
+.proof-play-toggle[data-paused="true"] .proof-play-symbol{display:block}
+.proof-playback button:focus-visible{outline:2px solid #0747ff;outline-offset:3px}
+.proof-playback button:hover{background:#eef3ff}
+.proof-restaurant-screen{position:relative;margin:0}
+.proof-booking-sequence{position:absolute;right:40px;bottom:38px;width:min(340px,calc(100% - 80px));height:110px;pointer-events:none}
+.proof-booking-scene{position:absolute;inset:0;display:flex;align-items:center;gap:14px;padding:20px;border-radius:16px;background:#fff;box-shadow:0 6px 24px #18212f12;opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .55s cubic-bezier(.22,.68,.2,1)}
+.proof-booking-scene>div{display:grid;gap:5px;min-width:0}
+.proof-booking-scene small{font-size:12px;color:#536581}
+.proof-booking-scene strong{font-size:18px;line-height:1.4;color:#18212f}
+.proof-booking-scene>div>span{font-size:12px;color:#536581}
+.proof-ticket-icon,.proof-ticket-avatar{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:#eef3ff;color:#0747ff}
+.proof-ticket-icon svg{width:20px;height:20px}
+[data-phase="0"] .proof-booking-scene[data-scene="0"],[data-phase="1"] .proof-booking-scene[data-scene="1"],[data-phase="2"] .proof-booking-scene[data-scene="2"]{opacity:1;transform:translateY(0)}
+.proof-week,.proof-slot,.proof-capacity,.proof-screen-footer,.proof-client-identity,.proof-client-contact,.proof-history-heading,.proof-history-row{transition:opacity .45s ease,transform .55s cubic-bezier(.22,.68,.2,1),box-shadow .35s ease,color .35s ease}
+[data-proof-motion="enabled"][data-phase="0"] .proof-slot,[data-proof-motion="enabled"][data-phase="0"] .proof-screen-footer{opacity:.22;transform:translateY(6px)}
+[data-proof-motion="enabled"][data-phase="1"] .proof-capacity,[data-proof-motion="enabled"][data-phase="1"] .proof-screen-footer{opacity:.3}
+[data-proof-motion="enabled"][data-phase="1"] .proof-slot:nth-child(2){transition-delay:.1s}
+[data-proof-motion="enabled"][data-phase="1"] .proof-slot:nth-child(3){transition-delay:.2s}
+[data-proof-motion="enabled"][data-phase="2"] .proof-capacity{color:#0747ff}
+[data-proof-motion="enabled"][data-phase="2"] .proof-screen-footer{color:#0747ff}
+[data-proof-motion="enabled"][data-phase="0"] .proof-client-identity{box-shadow:0 0 0 2px #0747ff22}
+[data-proof-motion="enabled"][data-phase="0"] .proof-client-contact{opacity:.25;transform:translateY(4px)}
+[data-proof-motion="enabled"][data-phase="1"] .proof-client-contact{color:#0747ff}
+[data-proof-motion="enabled"][data-phase="0"] .proof-history-heading,[data-proof-motion="enabled"][data-phase="0"] .proof-history-row,[data-proof-motion="enabled"][data-phase="1"] .proof-history-heading,[data-proof-motion="enabled"][data-phase="1"] .proof-history-row{opacity:.22;transform:translateY(6px)}
+[data-proof-motion="enabled"][data-phase="2"] .proof-history-row:nth-child(2){transition-delay:.12s}
+@media(max-width:767px){
+.proof-playback:not([hidden]){gap:6px;margin-top:12px}
+.proof-steps{gap:4px}
+.proof-steps button{font-size:11px;padding:8px 6px;min-height:54px}
+.proof-booking-sequence{position:relative;right:auto;bottom:auto;width:100%;height:110px;margin-top:10px}
+.proof-booking-scene{padding:16px;box-shadow:none;border-radius:12px}
+.proof-booking-scene strong{font-size:16px}
+.proof-booking-scene>div>span{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+.business-proof-story *{transition:none!important}
 }
