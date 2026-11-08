@@ -21,6 +21,8 @@ export function initProductStories() {
       root.dataset.proofMotion = preference.matches ? 'reduced' : 'enabled';
       toggle.dataset.paused = String(paused || preference.matches);
       toggle.setAttribute('aria-label', (paused || preference.matches ? toggle.dataset.playLabel : toggle.dataset.pauseLabel) || '');
+      const toggleLabel = toggle.querySelector('.proof-toggle-label');
+      if (toggleLabel) toggleLabel.textContent = toggle.getAttribute('aria-label');
       toggle.hidden = preference.matches;
       steps.forEach((step, index) => step.setAttribute('aria-pressed', String(index === phase)));
     };

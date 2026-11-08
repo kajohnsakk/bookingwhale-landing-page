@@ -46,10 +46,11 @@ const merchant = `/assets/hero-screens/${locale}/merchant-1200.webp`;
     <div class="proof-history">{copy.services.names.map((name, i) => <div class="proof-history-row"><span class="proof-date"><small>{copy.services.month}</small><b>{i === 0 ? '24' : '10'}</b></span><div class="proof-visit"><strong>{name}</strong><span>{i === 0 ? '11:00–12:00' : '14:00–15:00'} · {copy.services.duration}</span></div><span class="proof-visit-status"><Icon name="check" />{copy.services.statuses[i]}</span></div>)}</div>
   </div>}
     <div class="proof-playback" hidden>
+      <div class="proof-playback-heading"><span>{motion.label}</span><button class="proof-play-toggle" type="button" aria-label={motion.pause} data-pause-label={motion.pause} data-play-label={motion.play}><svg class="proof-pause-symbol" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M8 5v14M16 5v14" /></svg><svg class="proof-play-symbol" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m8 5 11 7-11 7z" /></svg><span class="proof-toggle-label">{motion.pause}</span></button></div>
       <div class="proof-steps" role="group" aria-label={motion.label}>
         {steps.map((step, index) => <button type="button" data-proof-step={index} aria-pressed={index === 2 ? 'true' : 'false'}><span>{String(index + 1).padStart(2, '0')}</span>{step}</button>)}
       </div>
-      <button class="proof-play-toggle" type="button" aria-label={motion.pause} data-pause-label={motion.pause} data-play-label={motion.play}><svg class="proof-pause-symbol" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M8 5v14M16 5v14" /></svg><svg class="proof-play-symbol" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m8 5 11 7-11 7z" /></svg></button>
+
     </div>
   </div>
 </section>
