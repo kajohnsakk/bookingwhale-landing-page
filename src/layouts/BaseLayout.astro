@@ -7,7 +7,7 @@ import latinHeadingFont from '../assets/fonts/plus-jakarta-sans-latin-core.woff2
 import { heroImageSources } from '../data/hero-images';
 import { localeFromPath } from "../i18n";
 import { buildSeo } from '../seo/metadata';
-import Analytics from '../components/Analytics.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import '../styles/site.css';
 import '../styles/document.css';
 import '../styles/light-theme.css';
@@ -76,10 +76,10 @@ const seo = buildSeo(Astro.site, locale, Astro.props);
     <meta name="twitter:image" content={seo.image} />
     <meta name="twitter:image:alt" content={seo.imageAlt} />
     <script type="application/ld+json" set:html={seo.schema} />
-    <Analytics />
   </head>
   <body>
     <a class="skip-link" href="#main-content">ข้ามไปเนื้อหา</a>
     <slot />
+    <CookieConsent />
   </body>
 </html>

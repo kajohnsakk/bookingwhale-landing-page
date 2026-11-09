@@ -46,7 +46,7 @@
 .proof-history{display:grid;gap:10px}
 .proof-history-row{display:flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:18px}
 .proof-date{display:flex;flex-direction:column;align-items:center;width:44px;flex-shrink:0;border-radius:7px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px #e6eaf1}
-.proof-date small{background:#e93249;color:#fff;width:100%;text-align:center;font-size:11px;line-height:20px}
+.proof-date small{background:#d92d43;color:#fff;width:100%;text-align:center;font-size:11px;line-height:20px}
 .proof-date b{font-size:23px;line-height:32px;font-weight:600}
 .proof-visit{display:grid;gap:5px;flex:1;min-width:0}
 .proof-visit strong{font-size:15px;line-height:1.5}

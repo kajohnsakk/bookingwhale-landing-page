@@ -1,0 +1,59 @@
+---
+import { localeFromPath } from '../i18n';
+import Analytics from './Analytics.astro';
+import consent from '../scripts/cookie-consent.js?raw';
+import '../styles/cookie-consent.css';
+const locale = localeFromPath(Astro.url.pathname);
+const copy = {
+  th: {
+    title: 'การใช้คุกกี้',
+    body: 'เราใช้คุกกี้วิเคราะห์เพื่อปรับปรุงเว็บ คุณปฏิเสธได้และยังใช้งานได้ตามปกติ',
+    accept: 'ยอมรับ', reject: 'ปฏิเสธ', details: 'รายละเอียดคุกกี้', close: 'ปิดการตั้งค่าคุกกี้',
+    necessary: 'จำเป็น: บันทึกตัวเลือกนี้ในเบราว์เซอร์ 180 วัน เพื่อไม่ถามซ้ำ ไม่ใช้ติดตามการใช้งาน',
+    analytics: 'วิเคราะห์ (Google Analytics): เริ่มเมื่อคุณยอมรับเท่านั้น ใช้วัดการเข้าชม การเปิดหน้าติดต่อ และการคลิก LINE โทรศัพท์ หรืออีเมล ข้อมูลส่งให้ Google ซึ่งอาจประมวลผลในต่างประเทศ คุกกี้ _ga และ _ga_* มีอายุ 180 วันนับจากการใช้งานครั้งล่าสุด',
+    change: 'เปลี่ยนตัวเลือกได้ที่ “ตั้งค่าคุกกี้” ท้ายหน้า เมื่อถอนความยินยอม เราจะหยุด Analytics ลบคุกกี้วิเคราะห์ที่เว็บเข้าถึงได้ และโหลดหน้าใหม่ การถอนความยินยอมไม่ลบข้อมูลที่ส่งไปแล้ว',
+    policy: 'นโยบายความเป็นส่วนตัว', contact: 'ติดต่อเรื่องข้อมูลส่วนบุคคล',
+  },
+  en: {
+    title: 'Cookies on this website',
+    body: 'We use analytics cookies to improve our website. You can decline and still use it as usual.',
+    accept: 'Accept', reject: 'Decline', details: 'Cookie details', close: 'Close cookie settings',
+    necessary: 'Necessary: your choice is stored in this browser for 180 days so we do not ask again. It is not used for tracking.',
+    analytics: 'Analytics (Google Analytics): starts only after you accept. It measures visits, contact dialog opens, and clicks on LINE, phone and email links. Data is sent to Google and may be processed abroad. The _ga and _ga_* cookies expire 180 days after their last update.',
+    change: 'Change your choice using “Cookie settings” in the footer. Withdrawing consent stops Analytics, removes accessible analytics cookies and reloads the page. It does not delete data already sent.',
+    policy: 'Privacy policy', contact: 'Contact us about your data',
+  },
+  zh: {
+    title: 'Cookie 使用',
+    body: '我们使用分析 Cookie 改进网站。您可以拒绝，仍可正常使用。',
+    accept: '接受', reject: '拒绝', details: 'Cookie 详情', close: '关闭 Cookie 设置',
+    necessary: '必要存储：在此浏览器中保存您的选择 180 天，以免重复询问，不用于跟踪。',
+    analytics: '分析（Google Analytics）：仅在您同意后启动，用于统计访问、打开联系窗口，以及点击 LINE、电话和电子邮件链接。数据会发送至 Google，并可能在境外处理。_ga 和 _ga_* Cookie 在最后更新后 180 天到期。',
+    change: '您可随时通过页脚的“Cookie 设置”更改选择。撤回同意后，我们将停止 Analytics、删除网站可访问的分析 Cookie 并重新加载页面。这不会删除已经发送的数据。',
+    policy: '隐私政策', contact: '联系我们咨询个人信息',
+  },
+}[locale];
+---
+<section id="bw-cookie-consent" class="bw-cookie-consent" aria-labelledby="bw-cookie-title" hidden>
+  <div class="bw-cookie-copy">
+    <h2 id="bw-cookie-title" tabindex="-1">{copy.title}</h2>
+    <p>{copy.body}</p>
+    <details>
+      <summary>{copy.details}</summary>
+      <div class="bw-cookie-details">
+        <p>{copy.necessary}</p>
+        <p>{copy.analytics}</p>
+        <p>{copy.change}</p>
+        <a href="/privacy-policy/">{copy.policy}</a>
+        <a href="mailto:info@bookingwhale.co">{copy.contact}</a>
+      </div>
+    </details>
+  </div>
+  <div class="bw-cookie-actions">
+    <button type="button" data-cookie-choice="denied">{copy.reject}</button>
+    <button type="button" data-cookie-choice="granted">{copy.accept}</button>
+  </div>
+  <button type="button" class="bw-cookie-close" data-cookie-close aria-label={copy.close} hidden>×</button>
+</section>
+<script is:inline set:html={consent} />
+<Analytics />

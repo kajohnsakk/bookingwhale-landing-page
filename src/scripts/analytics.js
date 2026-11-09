@@ -1,13 +1,52 @@
 (() => {
   if (!['bookingwhale.co', 'www.bookingwhale.co'].includes(location.hostname)) return;
   if (/^\/(?:previews|hero-preview|hero-live)(?:\/|$)/.test(location.pathname)) return;
-  if (document.getElementById('bw-google-tag')) return;
+  if (window.bwAnalyticsInitialized) return;
+  window.bwAnalyticsInitialized = true;
 
   const measurementId = 'G-N2554HPN72';
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { window.dataLayer.push(arguments); };
-  window.gtag('js', new Date());
-  window.gtag('config', measurementId);
+  let started = false;
+  const allowed = () => window.bwCookieConsent?.allowsAnalytics() === true;
+  const clearCookies = () => {
+    const domains = ['', location.hostname, '.' + location.hostname, 'bookingwhale.co', '.bookingwhale.co'];
+    const parts = location.pathname.split('/').filter(Boolean);
+    const paths = ['/', ...parts.map((_, index) => '/' + parts.slice(0, index + 1).join('/'))];
+    for (const cookie of document.cookie.split(';')) {
+      const name = cookie.trim().split('=')[0];
+      if (!/^_ga(?:_|$)|^_gid$|^_gat(?:_|$)/.test(name)) continue;
+      for (const domain of domains) for (const path of paths) {
+        document.cookie = `${name}=; Max-Age=0; path=${path}${domain ? '; domain=' + domain : ''}`;
+      }
+    }
+  };
+  const sync = () => {
+    if (!allowed()) {
+      window['ga-disable-' + measurementId] = true;
+      clearCookies();
+      if (started) {
+        window.dataLayer.length = 0;
+        window.gtag = () => {};
+        document.getElementById('bw-google-tag')?.remove();
+        location.reload();
+      }
+      return;
+    }
+    if (started) return;
+    started = true;
+    window['ga-disable-' + measurementId] = false;
+    window.dataLayer = [];
+    window.gtag = function () { if (allowed()) window.dataLayer.push(arguments); };
+    window.gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    window.gtag('js', new Date());
+    window.gtag('config', measurementId, { cookie_expires: 15552000, allow_google_signals: false, allow_ad_personalization_signals: false });
+    const script = document.createElement('script');
+    script.id = 'bw-google-tag';
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.appendChild(script);
+  };
+  document.addEventListener('bw:cookie-consent', sync);
+  sync();
 
   const placement = element => {
     if (element.closest('#contact-dialog')) return 'modal';
@@ -17,6 +56,7 @@
     return element.closest('section[id]')?.id || 'page';
   };
   const track = (name, element, details = {}) => {
+    if (!allowed() || !started) return;
     window.gtag('event', name, {
       send_to: measurementId,
       placement: placement(element),
@@ -41,9 +81,4 @@
     }
   });
 
-  const script = document.createElement('script');
-  script.id = 'bw-google-tag';
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-  document.head.appendChild(script);
 })();

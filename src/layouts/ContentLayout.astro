@@ -4,7 +4,7 @@ import '../styles/editorial.css';
 import { localePath, translate, type Locale } from '../i18n';
 import { buildSeo } from '../seo/metadata';
 import { canonicalPath, languageAlternates } from '../seo/routes.mjs';
-import Analytics from '../components/Analytics.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import ContactDialog from '../components/ContactDialog.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
@@ -72,7 +72,6 @@ if (article) schema['@graph'].push({
     <meta name="twitter:image" content={image} />
     <meta name="twitter:image:alt" content={article?.title || seo.imageAlt} />
     <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\u003c')} />
-    <Analytics />
   </head>
   <body class="bw-editorial-page" id="top">
     <a class="editorial-skip" href="#main-content">{isThai ? 'ข้ามไปเนื้อหา' : 'Skip to content'}</a>
@@ -86,5 +85,6 @@ if (article) schema['@graph'].push({
       <ContactDialog />
     </div>
     <script>import '../scripts/editorial-navigation.js';</script>
+    <CookieConsent />
   </body>
 </html>

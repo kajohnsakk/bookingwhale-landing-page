@@ -33,6 +33,7 @@ const { sectionBase = '' } = Astro.props;
     <div class="bw-footer-legal">
     <a href="/privacy-policy/">นโยบายความเป็นส่วนตัว <Icon name="arrow-up-right" class="bw-action-icon" /></a>
     <a href="/terms/">ข้อกำหนดการใช้บริการ <Icon name="arrow-up-right" class="bw-action-icon" /></a>
+    <button type="button" data-cookie-settings aria-controls="bw-cookie-consent">{({ th: 'ตั้งค่าคุกกี้', en: 'Cookie settings', zh: 'Cookie 设置' })[localeFromPath(Astro.url.pathname)]}</button>
     </div>
   </div>
 </footer>

@@ -1,6 +1,12 @@
-# Google Analytics
+# Google Analytics and cookie consent
 
-The site uses the existing GA4 measurement ID `G-N2554HPN72`. `BaseLayout.astro` includes `Analytics.astro` once. Its small inline bootstrap creates the standard `dataLayer` queue and loads Google's tag asynchronously, independently of scroll or other interaction. The config call supplies the initial page view; the site does not send a second manual page view.
+The site uses GA4 measurement ID `G-N2554HPN72`. Both page layouts include the shared consent component. Google tags, the dataLayer and contact events start only after analytics consent. Events before acceptance are discarded, never replayed. No consent-mode cookieless pings are sent before acceptance.
+
+The banner and footer settings support Thai, English and Simplified Chinese. Necessary preference storage uses `bw-cookie-consent` in localStorage with a schema version, choice and timestamp. It expires after 180 days. Missing, invalid, expired or unreadable storage defaults to no analytics. The visitor may accept or decline with equally accessible controls; declining does not affect contact links or page functionality. Returning visitors can reopen settings from the footer. The details explain storage, measurement, Google as recipient and withdrawal.
+
+Acceptance initializes analytics once with advertising storage, user data and personalization denied; Google signals and ad personalization are disabled. Analytics cookie lifetime is explicitly 180 days. This does not configure GA property-level event retention, which must be checked separately.
+
+Withdrawal immediately sets the GA disable flag, discards queued events, removes accessible GA cookies and reloads the page to unload automatic Google listeners. Cross-tab preference changes and restored pages are handled. Already sent data is not retroactively deleted. Preferences are browser/origin-specific. If storage is unavailable, no persistent acceptance can be assumed on another page.
 
 ## Events
 
@@ -13,7 +19,7 @@ The site uses the existing GA4 measurement ID `G-N2554HPN72`. `BaseLayout.astro`
 
 `placement` identifies `top`, `navigation`, `mobile_menu`, `contact`, `modal`, or `footer`, depending on the actual trigger. `contact_target` is `primary` or `secondary`. `page_language` is the HTML language (`en`, `th`, or `zh-Hans`). Other future section IDs can also appear as placement values.
 
-Modal events originate after `showModal()` in the existing dialog handler. Modifier-key clicks and attempts to open an already-open dialog do not count as opens. Contact links use a single delegated click listener, including the phone and email links in the footer. Analytics does not cancel navigation, delay links, or change the existing dialog animations. Events can queue while the Google tag is downloading. A blocked tag does not prevent the site or dialog from working.
+Modal events originate after `showModal()` in the existing dialog handler. Modifier-key clicks and attempts to open an already-open dialog do not count as opens. Contact links use a single delegated click listener, including the phone and email links in the footer. Analytics does not cancel navigation, delay links, or change the existing dialog animations. After acceptance, events can queue while the Google tag is downloading. A blocked tag does not prevent the site or dialog from working.
 
 The events measure clicks and dialog opens, not completed conversations or successful bookings. No user-entered text or customer data is added to these custom event parameters. Google's standard enhanced measurement may also produce a separate generic outbound `click` event; use the `contact_*` names for this funnel rather than adding both event families together.
 

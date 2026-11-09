@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 const source = readFileSync(new URL('../src/scripts/analytics.js', import.meta.url), 'utf8');
-const bootstrap = (url, language = 'en') => {
+const bootstrap = (url, language = 'en', granted = true) => {
   const listeners = new Map();
   const scripts = [];
   class Element {
@@ -15,8 +15,13 @@ const bootstrap = (url, language = 'en') => {
       return null;
     }
   }
-  const window = {};
-  const context = { window, location: new URL(url), URL, Element, document: {
+  let consent = granted;
+  let reloads = 0;
+  const window = { bwCookieConsent: { allowsAnalytics: () => consent } };
+  const location = new URL(url);
+  location.reload = () => reloads++;
+  const context = { window, location, URL, Element, document: {
+    cookie: '',
     documentElement: { lang: language },
     getElementById: id => scripts.find(script => script.id === id),
     createElement: () => ({}),
@@ -25,7 +30,7 @@ const bootstrap = (url, language = 'en') => {
   } };
   const run = () => runInNewContext(source, context);
   run();
-  return { window, scripts, listeners, Element, run };
+  return { window, scripts, listeners, Element, run, setConsent(value) { consent = value; listeners.get('bw:cookie-consent')?.(); }, get reloads() { return reloads; } };
 };
 
 test('analytics never loads on localhost, preview hosts or preview paths', () => {
@@ -44,8 +49,8 @@ test('one async Google tag and one config call, including repeated initializatio
     assert.equal(result.scripts.length, 1);
     assert.equal(result.scripts[0].async, true);
     assert.equal(result.scripts[0].src, 'https://www.googletagmanager.com/gtag/js?id=G-N2554HPN72');
-    assert.deepEqual(Array.from(result.window.dataLayer, args => args[0]), ['js', 'config']);
-    assert.equal(result.window.dataLayer[1][1], 'G-N2554HPN72');
+    assert.deepEqual(Array.from(result.window.dataLayer, args => args[0]), ['consent', 'js', 'config']);
+    assert.equal(result.window.dataLayer[2][1], 'G-N2554HPN72');
   }
 });
 
@@ -60,7 +65,7 @@ test('contact events queue without Google loaded and do not interfere with links
   click('https://line.me/unrelated', 'modal');
   click('mailto:someone@example.com', 'footer');
   click('tel:0970166045', 'footer', true);
-  const events = JSON.parse(JSON.stringify(r.window.dataLayer.slice(2).map(args => Array.from(args))));
+  const events = JSON.parse(JSON.stringify(r.window.dataLayer.slice(3).map(args => Array.from(args))));
   assert.deepEqual(events.map(args => args[1]), ['contact_modal_open', 'contact_line_click', 'contact_phone_click', 'contact_phone_click', 'contact_email_click']);
   assert.ok(events.every(args => args[2].page_language === 'th' && args[2].send_to === 'G-N2554HPN72'));
   assert.equal(events[2][2].contact_target, 'primary');
@@ -75,4 +80,31 @@ test('production output includes analytics once per locale and verification is e
   }
   const file = 'googlee32eeeae4c95b322.html';
   assert.equal(readFileSync(new URL(`../dist/${file}`, import.meta.url), 'utf8'), `google-site-verification: ${file}`);
+});
+
+test('no Google tag or queued events before acceptance or after decline', () => {
+  const r = bootstrap('https://bookingwhale.co/', 'th', false);
+  r.listeners.get('bw:contact-open')({ detail: { trigger: new r.Element() } });
+  r.listeners.get('click')({ target: new r.Element('tel:0970166045') });
+  assert.equal(r.scripts.length, 0);
+  assert.equal(r.window.dataLayer, undefined);
+  r.setConsent(false);
+  assert.equal(r.scripts.length, 0);
+  r.setConsent(true);
+  r.setConsent(true);
+  assert.equal(r.scripts.length, 1);
+  assert.equal(r.window.dataLayer.length, 3);
+  r.listeners.get('click')({ target: new r.Element('tel:0970166045') });
+  assert.equal(r.window.dataLayer.length, 4);
+});
+
+test('withdrawal disables Analytics, clears pending events and reloads', () => {
+  const r = bootstrap('https://bookingwhale.co/');
+  r.scripts[0].remove = () => {};
+  r.setConsent(false);
+  assert.equal(r.window['ga-disable-G-N2554HPN72'], true);
+  assert.equal(r.window.dataLayer.length, 0);
+  assert.equal(r.reloads, 1);
+  r.listeners.get('click')({ target: new r.Element('tel:0970166045') });
+  assert.equal(r.window.dataLayer.length, 0);
 });
