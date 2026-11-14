@@ -1,9 +1,9 @@
 ---
 import '../styles/fonts.css';
-import thaiBodyFont from '@fontsource-variable/noto-sans-thai/files/noto-sans-thai-thai-wght-normal.woff2?url';
-import thaiHeadingFont from '@fontsource-variable/anuphan/files/anuphan-thai-wght-normal.woff2?url';
-import latinBodyFont from '../assets/fonts/noto-sans-thai-latin-core.woff2?url';
-import latinHeadingFont from '../assets/fonts/plus-jakarta-sans-latin-core.woff2?url';
+import thaiBodyFont from '../assets/fonts/noto-sans-thai-thai-range.woff2?url';
+import thaiHeadingFont from '../assets/fonts/anuphan-thai-range.woff2?url';
+import latinBodyFont from '../assets/fonts/noto-sans-thai-latin-range.woff2?url';
+import latinHeadingFont from '../assets/fonts/plus-jakarta-sans-latin-range.woff2?url';
 import { heroImageSources } from '../data/hero-images';
 import { localeFromPath } from "../i18n";
 import { buildSeo } from '../seo/metadata';
@@ -29,6 +29,7 @@ import '../styles/getting-started.css';
 import '../styles/section-spacing.css';
 const locale=localeFromPath(Astro.url.pathname);
 const heroImage=heroImageSources(locale,'merchant');
+const isLandingPage=['/','/en/','/zh/'].includes(Astro.url.pathname);
 interface Props { title?: string; description?: string; }
 if (!Astro.site) throw new Error('A public site URL is required for SEO metadata.');
 const seo = buildSeo(Astro.site, locale, Astro.props);
@@ -38,9 +39,9 @@ const seo = buildSeo(Astro.site, locale, Astro.props);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preload" as="image" href={heroImage.src} imagesrcset={heroImage.srcset} imagesizes={heroImage.sizes} fetchpriority="high" />
+    {isLandingPage&&<link rel="preload" as="image" href={heroImage.src} imagesrcset={heroImage.srcset} imagesizes={heroImage.sizes} fetchpriority="high" />}
     {locale==='th'&&<><link rel="preload" as="font" type="font/woff2" href={thaiBodyFont} crossorigin="anonymous" /><link rel="preload" as="font" type="font/woff2" href={thaiHeadingFont} crossorigin="anonymous" /></>}
-    {locale==='en'&&<><link rel="preload" as="font" type="font/woff2" href={latinBodyFont} crossorigin="anonymous" /><link rel="preload" as="font" type="font/woff2" href={latinHeadingFont} crossorigin="anonymous" /></>}
+    {locale!=='zh'&&<><link rel="preload" as="font" type="font/woff2" href={latinBodyFont} crossorigin="anonymous" /><link rel="preload" as="font" type="font/woff2" href={latinHeadingFont} crossorigin="anonymous" /></>}
     <style is:inline>
       #bookingwhale .bw-hero-scroll-track,#bookingwhale #top{min-height:100svh}
       @media(min-width:901px) and (min-height:720px) and (prefers-reduced-motion:no-preference){

@@ -1778,5 +1778,81 @@
   "รายละเอียดครบในที่เดียว": {
     "en": "All details in one place",
     "zh": "所有详情，一目了然"
+  },
+  "ลูกค้าจองเอง ร้านจัดการง่าย": {
+    "en": "Customers book. You stay organized.",
+    "zh": "客户自主预约，商家轻松管理"
+  },
+  "ให้ลูกค้าเลือกวันเวลาผ่าน LINE OA ลดแชทถามเวลาว่าง ดูรายการจองและประวัติลูกค้าในที่เดียว": {
+    "en": "Let customers choose a time through LINE OA. Spend less time answering availability questions, with bookings and customer history in one place.",
+    "zh": "让客户通过 LINE OA 选择日期和时间，减少反复询问空闲时段，集中查看预约与客户记录。"
+  },
+  "ลูกค้าเห็นรอบที่เปิดรับ ไม่ต้องทักถามเวลาว่างทีละข้อความ": {
+    "en": "Customers see your available slots without asking back and forth.",
+    "zh": "客户直接查看开放时段，无需来回询问。"
+  },
+  "รวมชื่อ เวลา และสถานะ ไม่ต้องไล่รวมจากหลายแชท": {
+    "en": "See names, times and booking status together, without piecing together chats.",
+    "zh": "姓名、时间和预约状态集中显示，无需翻找多个聊天记录。"
+  },
+  "เปิดโปรไฟล์ดูข้อมูลและการจองเดิม ไม่ต้องค้นแชทเก่า": {
+    "en": "Open a customer profile for contact details and past bookings.",
+    "zh": "打开客户档案，即可查看联系方式与历史预约。"
+  },
+  "ลูกค้าเลือกรอบที่เปิดผ่าน LINE OA ลดแชทถามเวลาว่าง": {
+    "en": "Customers choose an open slot through LINE OA, with less back-and-forth.",
+    "zh": "客户通过 LINE OA 选择开放时段，减少来回沟通。"
+  },
+  "ดูรายการจองและประวัติลูกค้า ไม่ต้องไล่รวมจากหลายแชท": {
+    "en": "See bookings and customer history together, without searching through chats.",
+    "zh": "集中查看预约与客户记录，无需翻找多个聊天。"
+  },
+  "ใช้ LINE OA เดิมพาลูกค้าเข้าหน้าจอง": {
+    "en": "Use your existing LINE OA to bring customers to your booking page.",
+    "zh": "通过现有 LINE OA 引导客户进入预约页面。"
+  },
+  "เตรียมบริการ วันเวลา และจำนวนที่รับต่อรอบ ทีมงานจะพาดูตัวอย่างและเช็กว่ารองรับรูปแบบร้านคุณได้อย่างไร": {
+    "en": "Have your services, opening times and capacity ready. We’ll walk you through an example and check how your booking flow fits.",
+    "zh": "准备好服务项目、开放时间与每个时段的接待人数。我们会演示示例，并确认系统如何适合您的预约流程。"
+  },
+  "เหมาะกับร้านอาหาร คลาสฟิตเนส และบริการนัดหมายที่กำหนดวันเวลาและจำนวนที่รับได้": {
+    "en": "For restaurants, fitness classes and appointment-based services with set times and capacity.",
+    "zh": "适用于可设置日期、时间与接待人数的餐厅、健身课程和预约服务。"
+  },
+  "เล่ารูปแบบการจองของร้านคุณ": {
+    "en": "Tell us how your business takes bookings.",
+    "zh": "告诉我们您的业务如何接受预约。"
+  },
+  "เราจะพาดูตัวอย่างและเช็กความเหมาะสมก่อนเริ่ม": {
+    "en": "We’ll show you an example and check the fit before you start.",
+    "zh": "我们会演示示例，帮助您在开始前确认是否适合。"
+  },
+  "ขอดูระบบสำหรับธุรกิจคุณ": {
+    "en": "See how it fits your business",
+    "zh": "了解系统如何适合您的业务"
+  },
+  "เลือกโทรหรือ LINE เล่ารูปแบบร้าน แล้วนัดดูตัวอย่างกับเรา": {
+    "en": "Call or message us on LINE to share your needs and arrange a demo.",
+    "zh": "通过电话或 LINE 告诉我们您的需求，预约系统演示。"
+  },
+  "ส่งคำถามหรือบอกรูปแบบการจองที่อยากใช้": {
+    "en": "Ask a question or tell us how you’d like to take bookings.",
+    "zh": "发送问题，或告诉我们您希望采用的预约方式。"
+  },
+  "เล่ารูปแบบร้าน แล้วนัดดูระบบที่เหมาะกับคุณ": {
+    "en": "Tell us about your business and arrange a demo.",
+    "zh": "介绍您的业务，并预约系统演示。"
+  },
+  "ขอดูระบบ": {
+    "en": "Request a demo",
+    "zh": "预约演示"
+  },
+  "เลือกเวลาจอง": {
+    "en": "Choose a booking time",
+    "zh": "选择预订时间"
+  },
+  "ดูรายละเอียด": {
+    "en": "Review booking",
+    "zh": "查看预订详情"
   }
 }

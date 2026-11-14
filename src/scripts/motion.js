@@ -107,7 +107,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
       selectScene(sceneIndex,behavior);
       const story=ScrollTrigger.getById('product-story');
       if(story){syncNavigation();return;}
-      target=q(window.innerWidth<=900&&sceneIndex>=3?'[data-mobile-story="manage"]':'#features');
+      target=q(window.innerWidth<=900&&sceneIndex>=3?'[data-mobile-story="manage"]':'#features')||q('#features');
     }
     const trigger=ScrollTrigger.getAll().find(item=>item.pin&&(item.trigger===target||target.contains(item.pin)));
     const anchor=target.closest('.bw-hero-scroll-track,.bw-business-scroll-track')||target;
@@ -476,7 +476,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         const art=row.querySelector('.bw-step-scene');
         const cursor=art.querySelector('.bw-film-cursor');
         const notice=art.querySelector('.bw-film-notice');
-        const tl=gsap.timeline({paused:true,repeat:-1,repeatDelay:.8,defaults:{ease:'power2.inOut'}});
+        const tl=gsap.timeline({paused:true,repeat:context.conditions.mobile?0:-1,repeatDelay:4,defaults:{ease:'power2.inOut'}});
         gsap.set([cursor,notice],{autoAlpha:0});
         tl.set(notice,{autoAlpha:0},0)
           .fromTo(cursor,{autoAlpha:0,x:12,y:14},{autoAlpha:1,x:0,y:0,duration:.5},.4)
@@ -502,8 +502,8 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
     if(!reduced){
       qa('.bw-industry-scene').forEach(art=>onApproach(art,()=>{
         const index=Number(art.dataset.industryIndex);
-        const tl=gsap.timeline({paused:true,repeat:context.conditions.mobile&&index!==3&&index!==5?0:-1,repeatDelay:1.4,defaults:{ease:'power2.inOut'}});
-        const symbols=gsap.timeline({paused:true,repeat:-1,repeatDelay:2.4});
+        const tl=gsap.timeline({paused:true,repeat:context.conditions.mobile?0:-1,repeatDelay:4,defaults:{ease:'power2.inOut'}});
+        const symbols=gsap.timeline({paused:true,repeat:context.conditions.mobile?0:-1,repeatDelay:6});
         const animateSymbol=(selector,from,to,at=0)=>{
           const nodes=art.querySelectorAll(selector);
           if(nodes.length)symbols.fromTo(nodes,from,{...to,duration:.9,repeat:1,yoyo:true,ease:'sine.inOut'},at);
@@ -528,8 +528,8 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         symbols.to({},{duration:.2},1.8);
         observeLoop(art,symbols);
         const highlight=(selector,from,to,at=1)=>{const nodes=art.querySelectorAll(selector);if(nodes.length)tl.fromTo(nodes,from,{...to,duration:.4,stagger:.12},at+2.2);};
-        if(index===0){highlight('.bw-dinner-rounds .is-selected',{backgroundColor:'#ffffff',color:'#23324b'},{backgroundColor:'#315bca',color:'#fff'},.8);highlight('.bw-guest-count b',{color:'#748094'},{color:'#263449'},1.4);}
-        if(index===1)highlight('.bw-industry-selected',{backgroundColor:'#ffffff',color:'#23324b'},{backgroundColor:'#315bca',color:'#fff'});
+        if(index===0){highlight('.bw-dinner-rounds .is-selected',{backgroundColor:'#ffffff',color:'#23324b'},{backgroundColor:'#0747ff',color:'#fff'},.8);highlight('.bw-guest-count b',{color:'#748094'},{color:'#263449'},1.4);}
+        if(index===1)highlight('.bw-industry-selected',{backgroundColor:'#ffffff',color:'#23324b'},{backgroundColor:'#0747ff',color:'#fff'});
         if(index===2){highlight('.bw-class-time>b',{color:'#23324b'},{color:'#263449'});highlight('.bw-capacity .filled',{backgroundColor:'#fff'},{backgroundColor:'#6c9a90'},.8);}
         if(index===3){
           const progress=art.querySelector('.bw-lesson-progress');
@@ -550,7 +550,7 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
             .fromTo(arrival,{color:'#29384f'},{color:'#315bca',duration:.35},2.8)
             .fromTo(arrival,{scale:1},{scale:1.06,duration:.3,repeat:1,yoyo:true,ease:'sine.inOut'},2.8);
         }
-        if(index===6)highlight('.bw-rental-reservation',{backgroundColor:'#eaf0ff',color:'#334155'},{backgroundColor:'#315bca',color:'#fff'});
+        if(index===6)highlight('.bw-rental-reservation',{backgroundColor:'#eaf0ff',color:'#334155'},{backgroundColor:'#0747ff',color:'#fff'});
         if(index===7)highlight('.bw-preview-status',{backgroundColor:'#fff'},{backgroundColor:'#edf7f1'});
         tl.to({},{duration:1.2},4.4);observeLoop(art,tl);
       }));

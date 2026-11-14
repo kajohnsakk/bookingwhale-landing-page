@@ -54,7 +54,7 @@ test('canonical and all language return links agree with sitemap entries', () =>
   const entries = [...sitemap.matchAll(/<url>(.*?)<\/url>/gs)].map(match => match[1]);
   const articles = readdirSync(new URL('../src/content/blog/', import.meta.url)).filter(file => file.endsWith('.md'));
   const origin = new URL(pages[0].canonical).origin;
-  assert.equal(entries.length, 27 + articles.length);
+  assert.equal(entries.length, 20 + Math.ceil(articles.length / 12) + articles.length);
   for (const path of ['/businesses/', '/en/businesses/', '/zh/businesses/']) {
     assert.ok(entries.some(entry => entry.includes(`<loc>${origin}${path}</loc>`)));
   }

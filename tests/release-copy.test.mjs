@@ -21,6 +21,8 @@ test('primary CTA wording and contact imagery match each page language', () => {
     }
     for (const button of buttons) assert.doesNotMatch(text(button), /จองชมระบบ|ปรึกษาทีมงาน|นัดหมาย/);
     const tabs = nodes.find(node => node.tagName === 'div' && attr(node, 'class') === 'bw-ui-tabs');
-    assert.ok(text(tabs).includes({ en: 'List', th: 'รายการจอง', zh: '列表' }[locale]));
+    assert.ok(tabs, `Product story must be present for ${locale}`);
+    const messages = JSON.parse(readFileSync(new URL('../src/i18n/messages.json', import.meta.url), 'utf8'));
+    for (const label of ['ปฏิทิน', 'รายการจอง']) assert.ok(text(tabs).includes(locale === 'th' ? label : messages[label][locale]));
   }
 });

@@ -35,3 +35,7 @@
 @media(min-width:901px){
 #bookingwhale header.bw-nav,.bw-editorial-page header.bw-nav{padding-left:16px}
 }
+
+#bookingwhale .bw-nav .bw-main-menu>a,#bookingwhale .bw-nav .bw-main-menu>.bw-business-nav>summary{font-size:16px;font-weight:600;line-height:1.5}
+#bookingwhale .bw-nav .bw-language-options{display:grid;gap:6px;padding:10px;min-width:164px}
+#bookingwhale .bw-nav .bw-language-options>a{display:flex;align-items:center;min-height:44px;padding:10px 14px;line-height:1.5;border-radius:10px}

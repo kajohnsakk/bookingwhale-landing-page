@@ -2,33 +2,34 @@
 import Icon from './Icon.astro';
 import Avatar from './Avatar.astro';
 ---
-<ol class="bw-mobile-story" role="list">
+<ol class="bw-mobile-story" role="list" data-booking-demo>
   <li>
-    <div class="bw-mobile-story-copy"><span class="bw-mobile-story-number" aria-hidden="true">01</span><h3>เลือกวันและเวลา</h3><p>ลูกค้าเปิดหน้าจองผ่าน LINE OA เลือกวันและรอบที่สะดวกได้เอง</p></div>
-    <div class="bw-mobile-story-visual" aria-hidden="true">
+    <div class="bw-mobile-story-copy"><span class="bw-mobile-story-number" aria-hidden="true">01</span><h3>เลือกวันและเวลา</h3><p>ลูกค้าเลือกรอบที่เปิดผ่าน LINE OA ลดแชทถามเวลาว่าง</p></div>
+    <div class="bw-mobile-story-visual">
       <div class="bw-mobile-story-shop"><img src="/assets/product-captures/sunday-social-logo.svg" width="32" height="32" alt="" /><strong>Sunday Social</strong><span>เปิดรับจอง</span></div>
       <div class="bw-mobile-story-date"><Icon name="calendar" /><div><small>เลือกวันที่คุณสะดวก</small><strong>24 ต.ค. 2569</strong></div></div>
-      <div class="bw-mobile-story-slots"><span class="is-selected">19:00 – 20:00 <Icon name="check-circle-2" /></span><span>20:30 – 21:30</span></div>
-      <div class="bw-mobile-story-foot"><span>จองโต๊ะ</span><span>2 คน</span></div>
+      <div class="bw-mobile-story-slots" role="group" aria-label="เลือกเวลาจอง"><button type="button" data-demo-slot="19:00 – 20:00" aria-pressed="true">19:00 – 20:00 <Icon name="check-circle-2" /></button><button type="button" data-demo-slot="20:30 – 21:30" aria-pressed="false">20:30 – 21:30 <Icon name="check-circle-2" /></button></div>
+      <div class="bw-mobile-story-foot"><span>จองโต๊ะ</span><span>2 คน</span></div><button type="button" class="bw-demo-action" data-demo-review hidden>ดูรายละเอียด <Icon name="arrow-right" /></button>
     </div>
   </li>
   <li>
     <div class="bw-mobile-story-copy"><span class="bw-mobile-story-number" aria-hidden="true">02</span><h3>จองเรียบร้อย</h3><p>วัน เวลา และจำนวนคน รวมอยู่ในรายการเดียว</p></div>
-    <div class="bw-mobile-story-visual" aria-hidden="true">
+    <div class="bw-mobile-story-visual">
       <div class="bw-mobile-story-confirmed"><Icon name="check-circle-2" /><strong>ยืนยันแล้ว</strong></div>
-      <div class="bw-mobile-story-ticket"><span class="bw-mobile-story-day">24<small>ต.ค.</small></span><div><strong>Sunday Social</strong><span>19:00 – 20:00</span><small>จองโต๊ะ · 2 คน</small></div></div>
-      <div class="bw-mobile-story-foot"><span>รายละเอียดการจอง</span><span>24 ต.ค. 2569</span></div>
+      <div class="bw-mobile-story-ticket"><span class="bw-mobile-story-day">24<small>ต.ค.</small></span><div><strong>Sunday Social</strong><span data-demo-time>19:00 – 20:00</span><small>จองโต๊ะ · 2 คน</small></div></div>
+      <div class="bw-mobile-story-foot"><span>รายละเอียดการจอง</span><span>24 ต.ค. 2569</span></div><button type="button" class="bw-demo-action" data-demo-confirm hidden>ยืนยันการจอง <Icon name="arrow-right" /></button>
     </div>
   </li>
   <li data-mobile-story="manage">
-    <div class="bw-mobile-story-copy"><span class="bw-mobile-story-number" aria-hidden="true">03</span><h3>จัดการต่อได้ในที่เดียว</h3><p>ร้านเห็นรายการจอง พร้อมข้อมูลลูกค้าและประวัติการใช้บริการ</p></div>
-    <div class="bw-mobile-story-visual" aria-hidden="true">
+    <div class="bw-mobile-story-copy"><span class="bw-mobile-story-number" aria-hidden="true">03</span><h3>จัดการต่อได้ในที่เดียว</h3><p>ดูรายการจองและประวัติลูกค้า ไม่ต้องไล่รวมจากหลายแชท</p></div>
+    <div class="bw-mobile-story-visual">
       <div class="bw-mobile-story-shop"><Icon name="store" /><strong>การจองของร้าน</strong><span>1 รายการ</span></div>
       <div class="bw-mobile-story-customer"><span class="bw-mobile-story-avatar"><Avatar person="emma" /></span><div><strong>Emma Wilson</strong><small>จองโต๊ะ · 2 คน</small></div><span class="bw-mobile-story-status">ยืนยันแล้ว</span></div>
-      <div class="bw-mobile-story-history"><Icon name="clock" /><div><strong>ประวัติการจอง</strong><span>24 ต.ค. · 19:00 - 20:00</span></div></div>
+      <div class="bw-mobile-story-history"><Icon name="clock" /><div><strong>ประวัติการจอง</strong><span><span>24 ต.ค.</span> · <span data-demo-time>19:00 – 20:00</span></span></div></div>
     </div>
   </li>
 </ol>
+<script>import { initMobileBookingDemo } from "../scripts/mobile-booking-demo"; initMobileBookingDemo();</script>
 <style is:global>
   #bookingwhale .bw-mobile-story { display:none; }
   @media(max-width:900px) {
@@ -48,8 +49,12 @@ import Avatar from './Avatar.astro';
     #bookingwhale .bw-mobile-story-date div, #bookingwhale .bw-mobile-story-ticket > div, #bookingwhale .bw-mobile-story-customer > div, #bookingwhale .bw-mobile-story-history > div { display:grid; gap:4px; min-width:0; }
     #bookingwhale .bw-mobile-story small { color:var(--bw-muted); font-size:12px; }
     #bookingwhale .bw-mobile-story-slots { display:grid; gap:8px; }
-    #bookingwhale .bw-mobile-story-slots > span { display:flex; justify-content:space-between; align-items:center; min-height:40px; padding:8px 12px; border:1px solid var(--bw-line); border-radius:10px; }
-    #bookingwhale .bw-mobile-story-slots > .is-selected { border-color:var(--bw-blue); color:var(--bw-blue); }
+    #bookingwhale .bw-mobile-story-slots > button { font:inherit; background:#fff; color:var(--bw-ink); cursor:pointer; display:flex; justify-content:space-between; align-items:center; min-height:44px; padding:8px 12px; border:1px solid var(--bw-line); border-radius:10px; }
+    #bookingwhale .bw-mobile-story-slots > [aria-pressed="true"] { border-color:var(--bw-blue); color:var(--bw-blue); background:#f0f4ff; }
+    #bookingwhale .bw-mobile-story-slots > [aria-pressed="false"] svg { visibility:hidden; }
+    #bookingwhale .bw-demo-action:not([hidden]) { display:flex; align-items:center; justify-content:center; gap:10px; min-height:44px; width:100%; margin-top:16px; padding:10px 16px; border:0; border-radius:999px; background:var(--bw-blue); color:#fff; font:inherit; font-weight:600; cursor:pointer; }
+    #bookingwhale .bw-demo-action:disabled { background:#edf7f1; color:#26754b; cursor:default; }
+    #bookingwhale .bw-mobile-story button:focus-visible { outline:2px solid var(--bw-blue); outline-offset:4px; }
     #bookingwhale .bw-mobile-story-foot { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-top:16px; padding-top:14px; border-top:1px solid var(--bw-line); font-size:12px; color:var(--bw-muted); }
     #bookingwhale .bw-mobile-story-confirmed { display:flex; align-items:center; gap:8px; color:#26754b; }
     #bookingwhale .bw-mobile-story-ticket { display:flex; align-items:center; gap:16px; padding-block:24px 8px; }

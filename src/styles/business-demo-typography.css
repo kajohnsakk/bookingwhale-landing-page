@@ -1,0 +1,27 @@
+.restaurant-page{--demo-title:18px;--demo-body:14px;--demo-meta:13px;--demo-time:20px;--demo-padding:24px;--demo-row-padding:16px}
+.restaurant-page .scenario-board,.restaurant-page .proof-schedule,.restaurant-page .proof-client{padding:var(--demo-padding);font-size:var(--demo-body);line-height:1.5}
+.restaurant-page .scenario-board-heading{margin-bottom:20px}
+.restaurant-page .scenario-board-heading h4{font-size:var(--demo-title);line-height:1.5;margin:8px 0 0}
+.restaurant-page .scenario-board-heading>div>span,.restaurant-page .scenario-board-date,.restaurant-page .scenario-arrival-labels,.restaurant-page .scenario-confirmed,.restaurant-page .scenario-class-label,.restaurant-page .scenario-class-name>span,.restaurant-page .scenario-class-availability,.restaurant-page .scenario-agenda-time>span,.restaurant-page .proof-screen-note,.restaurant-page .proof-slot-head,.restaurant-page .proof-client-identity>div>span,.restaurant-page .proof-history-heading>span,.restaurant-page .proof-visit-status{font-size:var(--demo-meta);line-height:1.5}
+.restaurant-page .scenario-arrival-list li,.restaurant-page .scenario-class-list li,.restaurant-page .proof-slot,.restaurant-page .proof-history-row{padding:var(--demo-row-padding);font-size:var(--demo-body);line-height:1.5}
+.restaurant-page .scenario-arrival-list time,.restaurant-page .scenario-class-list time,.restaurant-page .scenario-agenda-time{font-size:var(--demo-time);line-height:1.4}
+.restaurant-page .scenario-agenda-list li{grid-template-columns:62px minmax(0,1fr);padding-block:var(--demo-row-padding)}
+.restaurant-page .scenario-class-name h5,.restaurant-page .scenario-agenda-list h5,.restaurant-page .proof-slot strong,.restaurant-page .proof-visit strong{font-size:16px;font-weight:600;line-height:1.5}
+.restaurant-page .scenario-agenda-list p,.restaurant-page .scenario-takeaway p,.restaurant-page .proof-client-contact{font-size:var(--demo-body);line-height:1.6}
+.restaurant-page .proof-screen-bar{font-size:var(--demo-body);padding-bottom:20px}
+.restaurant-page .proof-client-identity strong,.restaurant-page .proof-history-heading,.restaurant-page .proof-schedule-day,.restaurant-page .proof-booking-scene strong{font-size:var(--demo-title);line-height:1.5}
+.restaurant-page .proof-client-identity{padding:var(--demo-row-padding)}
+.restaurant-page .proof-client-contact{padding:14px var(--demo-row-padding);margin-block:10px 20px}
+.restaurant-page .proof-week{margin-bottom:20px}
+.restaurant-page .proof-slots,.restaurant-page .proof-history{gap:10px}
+.restaurant-page .proof-screen-footer{margin-top:20px}
+.restaurant-page .scenario-confirmed{flex-wrap:wrap;gap:4px}
+.restaurant-page .scenario-confirmed .bw-icon{width:16px;height:16px}
+@media(max-width:767px){
+.restaurant-page{--demo-padding:20px;--demo-row-padding:14px;--demo-time:18px}
+.restaurant-page .proof-history-row{grid-template-columns:40px minmax(0,1fr);column-gap:12px}
+.restaurant-page .scenario-arrival-labels,.restaurant-page .scenario-arrival-list li{grid-template-columns:.8fr .7fr 1.2fr;gap:6px}
+.restaurant-page .scenario-arrival-list li{padding-inline:12px}
+.restaurant-page .scenario-class-list li{column-gap:10px}
+.restaurant-page .proof-screen-note{max-width:48%;text-align:right}
+}

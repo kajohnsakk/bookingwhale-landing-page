@@ -11,6 +11,9 @@
   padding-block: var(--bw-section-half);
 }
 #bookingwhale #main-content > #contact.bw-contact-banner {
+  width: calc(100% - var(--bw-content-gutter) * 2);
+  max-width: calc(var(--bw-content-width) - var(--bw-content-gutter) * 2);
+  margin-inline: auto;
   margin-block: var(--bw-section-half);
 }
 #bookingwhale .bw-page:has(> #main-content) > .bw-footer {

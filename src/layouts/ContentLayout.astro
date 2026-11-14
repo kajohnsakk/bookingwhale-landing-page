@@ -1,5 +1,9 @@
 ---
 import '../styles/fonts.css';
+import thaiBodyFont from '../assets/fonts/noto-sans-thai-thai-range.woff2?url';
+import thaiHeadingFont from '../assets/fonts/anuphan-thai-range.woff2?url';
+import latinBodyFont from '../assets/fonts/noto-sans-thai-latin-range.woff2?url';
+import latinHeadingFont from '../assets/fonts/anuphan-latin-core.woff2?url';
 import '../styles/editorial.css';
 import { localePath, translate, type Locale } from '../i18n';
 import { buildSeo } from '../seo/metadata';
@@ -48,6 +52,8 @@ if (article) schema['@graph'].push({
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {locale==='th'&&<><link rel="preload" as="font" type="font/woff2" href={thaiBodyFont} crossorigin="anonymous" /><link rel="preload" as="font" type="font/woff2" href={thaiHeadingFont} crossorigin="anonymous" /></>}
+    {locale!=='zh'&&<><link rel="preload" as="font" type="font/woff2" href={latinBodyFont} crossorigin="anonymous" /><link rel="preload" as="font" type="font/woff2" href={latinHeadingFont} crossorigin="anonymous" /></>}
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />

@@ -11,6 +11,7 @@ export function initProductStories() {
     let visible = false;
     let paused = false;
     let phase = 0;
+    let engaged = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
     const clear = () => {
       clearTimeout(timer);
@@ -28,12 +29,12 @@ export function initProductStories() {
     };
     const schedule = () => {
       clear();
-      if (!visible || paused || preference.matches || document.hidden) return;
+      if (!visible || paused || engaged || preference.matches || document.hidden) return;
       timer = setTimeout(() => {
         phase = (phase + 1) % 3;
         render();
         schedule();
-      }, phase === 2 ? 6500 : 3800);
+      }, phase === 2 ? 9000 : 5000);
     };
     steps.forEach((step, index) => step.addEventListener('click', () => {
       phase = index;
@@ -44,6 +45,23 @@ export function initProductStories() {
     toggle.addEventListener('click', () => {
       paused = !paused;
       render();
+      schedule();
+    });
+    stage.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'mouse') return;
+      engaged = true;
+      schedule();
+    });
+    stage.addEventListener('pointerleave', () => {
+      engaged = stage.contains(document.activeElement);
+      schedule();
+    });
+    root.addEventListener('focusin', event => {
+      engaged = stage.contains(event.target as Node);
+      schedule();
+    });
+    root.addEventListener('focusout', event => {
+      engaged = stage.contains(event.relatedTarget as Node) || stage.matches(':hover');
       schedule();
     });
     const observer = new IntersectionObserver(entries => {

@@ -107,3 +107,7 @@
 .restaurant-page .restaurant-contact .editorial-button{font-size:14px}
 .dining-layout .restaurant-preparation .restaurant-photo img{height:260px}
 }
+
+.restaurant-page .restaurant-contact{width:100%;margin-inline:0;margin-block:64px 0}
+@media(max-width:1023px){.restaurant-page .restaurant-contact{margin-top:48px}}
+@media(max-width:767px){.restaurant-page .restaurant-contact{margin-top:40px;padding:28px 24px;border-radius:24px}}

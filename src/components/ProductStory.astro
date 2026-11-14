@@ -12,10 +12,10 @@ import MobileBookingStory from "./MobileBookingStory.astro";
     <div class="bw-flow-copy">
       <div class="bw-flow-chapters">
         <div class="bw-flow-chapter"><h3>ลูกค้าจองเอง<br /><em>ผ่าน LINE OA</em></h3><p>เปิดหน้าจอง เลือกวันได้จาก LINE OA ของร้าน</p></div>
-        <div class="bw-flow-chapter"><h3>เห็นเวลาว่าง<br /><em>เลือกได้ทันที</em></h3><p>รอบไหนว่าง ลูกค้าเห็นและเลือกจองได้เอง</p></div>
+        <div class="bw-flow-chapter"><h3>เห็นเวลาว่าง<br /><em>เลือกได้ทันที</em></h3><p>ลูกค้าเห็นรอบที่เปิดรับ ไม่ต้องทักถามเวลาว่างทีละข้อความ</p></div>
         <div class="bw-flow-chapter"><h3>จองเรียบร้อย<br /><em>รายละเอียดครบ</em></h3><p>วัน เวลา และจำนวนคน รวมอยู่ในรายการเดียว</p></div>
-        <div class="bw-flow-chapter"><h3>การจองเข้ามา<br /><em>ร้านก็เห็นทันที</em></h3><p>ดูชื่อลูกค้า เวลา และสถานะได้ในหน้าเดียว</p></div>
-        <div class="bw-flow-chapter"><h3>ดูประวัติการจอง<br /><em>รู้จักลูกค้ามากขึ้น</em></h3><p>เปิดโปรไฟล์เดียว ดูได้ทั้งข้อมูลติดต่อและการจองที่ผ่านมา</p></div>
+        <div class="bw-flow-chapter"><h3>การจองเข้ามา<br /><em>ร้านก็เห็นทันที</em></h3><p>รวมชื่อ เวลา และสถานะ ไม่ต้องไล่รวมจากหลายแชท</p></div>
+        <div class="bw-flow-chapter"><h3>ดูประวัติการจอง<br /><em>รู้จักลูกค้ามากขึ้น</em></h3><p>เปิดโปรไฟล์ดูข้อมูลและการจองเดิม ไม่ต้องค้นแชทเก่า</p></div>
       </div>
       <div class="bw-flow-steps" role="group" aria-label="เลือกขั้นตอนตัวอย่างการจอง">
         {['วัน', 'เวลา', 'รายละเอียด', 'ระบบร้าน', 'ลูกค้า'].map((label, index) => <button type="button" data-step={String(index + 1).padStart(2, '0')} aria-pressed={index === 0 ? 'true' : 'false'}>{label}</button>)}
