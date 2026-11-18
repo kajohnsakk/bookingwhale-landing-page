@@ -2,10 +2,12 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { languageAlternates } from './src/seo/routes.mjs';
 import { pruneStyles } from './scripts/prune-styles.mjs';
+import { dedupeHtmlStyles } from './scripts/dedupe-styles.mjs';
 
 export default defineConfig({
   site: process.env.SITE_URL || 'https://bookingwhale.co',
   output: 'static',
+  build: { inlineStylesheets: 'always' },
   trailingSlash: 'always',
   redirects: {
     '/th/': { destination: '/', status: 301 },
@@ -13,7 +15,7 @@ export default defineConfig({
     '/blog/choosing-right-queue-booking-system-for-your-business/': { destination: '/blog/online-queue-booking-system-guide/', status: 301 },
   },
   vite: { plugins: [pruneStyles()] },
-  integrations: [sitemap({
+  integrations: [...(process.env.CSS_BASELINE ? [] : [dedupeHtmlStyles()]), sitemap({
     filter: page => !['/th/', '/cookies/', '/blog/choosing-right-queue-booking-system-for-your-business/'].includes(new URL(page).pathname) && !/^\/(?:previews|hero-preview|hero-live)(?:\/|$)|^\/404(?:\.html)?(?:\/|$)/.test(new URL(page).pathname),
     serialize: item => ({
       ...item,

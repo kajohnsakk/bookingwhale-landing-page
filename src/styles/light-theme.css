@@ -14,12 +14,6 @@
 #bookingwhale .bw-hero-story-head{border:0;padding-bottom:4px}
 #bookingwhale .bw-ui-hero .bw-ui-window{border-radius:10px}
 #bookingwhale .bw-hero-receipt{border-radius:10px;box-shadow:0 10px 24px #17223809}
-#bookingwhale .bw-channel-strip{background:transparent;border:0;border-top:1px solid var(--bw-line);border-bottom:1px solid var(--bw-line);border-radius:0;padding:22px 0;margin:0 5%;flex-direction:row;justify-content:space-between;gap:20px}
-#bookingwhale .bw-channel-strip>strong{font-size:13px;font-weight:500;text-align:left;color:#606a79;max-width:220px}
-#bookingwhale .bw-channel-strip>div{gap:24px}
-#bookingwhale .bw-channel-strip>div>span{min-height:40px;font-size:12px}
-#bookingwhale .bw-channel-strip svg{width:20px;height:20px;margin:0;color:#718096}
-#bookingwhale .bw-channel-strip img{width:30px;height:30px}
 #bookingwhale .bw-product-heading{max-width:none;display:grid;grid-template-columns:1fr 1fr;gap:16px 64px;align-items:end;margin-bottom:36px}
 #bookingwhale .bw-product-heading>.bw-eyebrow{grid-column:1/-1;margin:0}
 #bookingwhale .bw-product-heading>p{max-width:35ch;margin:0 0 5px;justify-self:end}
@@ -40,8 +34,6 @@
 #bookingwhale .bw-industry-caption h3{font-size:20px;font-weight:600}
 #bookingwhale .bw-more-business{border-bottom:0;color:#606a79}
 #bookingwhale .bw-line-story{padding-block:64px;gap:64px}
-#bookingwhale .bw-line-stage{isolation:isolate}
-#bookingwhale .bw-line-stage::before{content:'';position:absolute;inset:32px 12px 58px 28px;background:#edf5f0;border:0;border-radius:12px;z-index:-1}
 #bookingwhale .bw-line-chat{border-color:#dae4de;border-radius:16px;box-shadow:0 12px 28px #17463108}
 #bookingwhale .bw-line-chat-head{background:#fff}
 #bookingwhale .bw-line-result{border-radius:12px;border-color:#d6deea;box-shadow:0 16px 32px #18212f12}
@@ -62,18 +54,9 @@
 #bookingwhale .bw-faq details[open] summary{color:#0747ff}
 #bookingwhale .bw-faq details p{font-size:13px;margin:0;padding:0 24px 20px 0}
 #bookingwhale .bw-faq-support{grid-column:1;grid-row:2;text-align:left;justify-self:start;margin:0;align-self:start;font-size:13px}
-#bookingwhale .bw-resources{padding-block:72px}
-#bookingwhale .bw-resources-head{margin-bottom:28px}
-#bookingwhale .bw-resources h2{font-size:36px}
-#bookingwhale .bw-article-grid>a{padding-block:28px;grid-template-columns:36px minmax(0,1fr) 180px 48px}
-#bookingwhale .bw-article-grid h3{font-size:25px;font-weight:500}
-#bookingwhale .bw-editorial-art{background:#edf1f7;border:0;border-radius:8px}
-#bookingwhale .bw-article-grid>a:nth-child(2) .bw-editorial-art{background:#edf5f0}
-#bookingwhale .bw-editorial-arrow{background:transparent;border-color:#d9e0e9;color:#0747ff}
 #bookingwhale .bw-contact{margin:0 5% 64px;padding:48px 0 24px;border-top:2px solid #18212f;background:#fff;gap:24px 48px;grid-template-columns:minmax(0,1fr) 200px}
 #bookingwhale .bw-contact-brand{gap:12px;color:#606a79;font-size:12px}
 #bookingwhale .bw-contact h2{font-size:clamp(38px,5cqw,70px);line-height:1.25;letter-spacing:-1.5px}
-#bookingwhale .bw-contact>p{font-size:14px;max-width:46ch}
 #bookingwhale .bw-contact-actions .bw-contact-orbit{width:144px;height:144px}
 #bookingwhale .bw-contact-note{margin-top:12px;border-color:var(--bw-line)}
 #bookingwhale footer{background:#f7f8fa;border-color:#e1e5eb;padding-top:40px}
@@ -134,7 +117,7 @@
 #bookingwhale .bw-faq::before{content:'';position:absolute;inset:0 calc((100% - 100vw)/2);background:#fafbfc;z-index:-1;pointer-events:none}
 #bookingwhale .bw-contact{background:#0747ff;color:#fff;border:0;border-radius:0;margin:0;padding:56px 5% 36px;box-shadow:0 0 0 100vmax #0747ff;clip-path:inset(0 -100vmax)}
 #bookingwhale .bw-contact h2,#bookingwhale .bw-contact h2 em{color:#fff}
-#bookingwhale .bw-contact .bw-contact-brand,#bookingwhale .bw-contact>p,#bookingwhale .bw-contact .bw-contact-phone,#bookingwhale .bw-contact-note{color:#e4ebff}
+#bookingwhale .bw-contact .bw-contact-brand,#bookingwhale .bw-contact .bw-contact-phone,#bookingwhale .bw-contact-note{color:#e4ebff}
 #bookingwhale .bw-contact-note{border-color:#ffffff40}
 #bookingwhale .bw-contact .bw-contact-brand .bw-brand-image{background:#fff;mask:var(--bw-mark-asset) center/contain no-repeat;-webkit-mask:var(--bw-mark-asset) center/contain no-repeat}
 #bookingwhale .bw-contact-actions .bw-contact-orbit{background:#fff;color:#0747ff;box-shadow:none}

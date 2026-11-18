@@ -32,7 +32,6 @@
 .studio-layout .business-launch li{display:block;padding:24px;background:#f7f8fa;border-radius:16px}
 .studio-layout .business-launch li>span{margin-bottom:20px;font-size:26px;line-height:1}
 .studio-layout .business-product-proof{background:transparent;padding:0;border-radius:0}
-.studio-layout .restaurant-demo-flow{padding:32px;background:#f2f6ff;border-radius:24px}
 .restaurant-page.appointment-layout .restaurant-hero{grid-template-columns:1.1fr .9fr;gap:80px}
 .appointment-layout .business-hero-treatment{padding:0}
 .restaurant-page.appointment-layout .restaurant-hero .restaurant-photo img{height:520px;border-radius:160px 160px 24px 24px;object-position:42% center}
@@ -57,7 +56,6 @@
 .appointment-layout .scenario-agenda-list li{grid-template-columns:52px minmax(0,1fr);gap:10px;padding-block:14px}
 .appointment-layout .scenario-agenda-time{font-size:16px}
 .appointment-layout .business-product-proof{background:#f7f8fa}
-.appointment-layout .restaurant-demo-flow{grid-template-columns:minmax(0,1fr) minmax(0,3.3fr);align-items:center}
 .appointment-layout .restaurant-demo-customer{grid-column:1;grid-row:1}
 .appointment-layout .restaurant-demo-merchant{grid-column:2;grid-row:1}
 .appointment-layout .business-launch{background:none;padding:0;gap:80px;grid-template-columns:.9fr 1.1fr}
@@ -77,7 +75,6 @@
 .dining-layout .scenario-arrival-list li{padding:14px 16px;min-height:60px}
 .dining-layout .scenario-arrival-list time{font-size:20px;line-height:1.4}
 .dining-layout .business-product-proof{background:none;border-radius:0;padding:0}
-.dining-layout .restaurant-demo-flow{padding:32px;border-radius:24px;background:#f7f8fa}
 @media(min-width:768px) and (max-width:1100px){
 .restaurant-page.appointment-layout .restaurant-hero{gap:40px}
 .appointment-layout .business-sales-value,.appointment-layout .business-launch{gap:40px}
@@ -108,7 +105,6 @@
 .studio-layout .business-launch ol{grid-template-columns:1fr;gap:12px}
 .studio-layout .business-launch li{display:flex;padding:20px;gap:16px}
 .studio-layout .business-launch li>span{font-size:20px;margin:0;flex-basis:28px;line-height:1.5}
-.studio-layout .restaurant-demo-flow,.dining-layout .restaurant-demo-flow{padding:24px 20px;border-radius:20px}
 .restaurant-page.appointment-layout .restaurant-hero{display:flex;gap:28px}
 .appointment-layout .business-hero-treatment{padding:0;max-width:380px}
 .restaurant-page.appointment-layout .restaurant-hero .restaurant-photo img{height:330px;border-radius:100px 100px 20px 20px}
@@ -121,7 +117,6 @@
 .appointment-layout .scenario-panel{grid-template-columns:1fr;gap:24px}
 .appointment-layout .scenario-photo{height:200px;margin-bottom:16px}
 .appointment-layout .scenario-board{padding:20px}
-.appointment-layout .restaurant-demo-flow{grid-template-columns:1fr;gap:28px}
 .appointment-layout .restaurant-demo-customer,.appointment-layout .restaurant-demo-merchant{grid-column:auto;grid-row:auto}
 .appointment-layout .restaurant-demo-customer{order:-1}
 .appointment-layout .business-launch{grid-template-columns:1fr;gap:24px}

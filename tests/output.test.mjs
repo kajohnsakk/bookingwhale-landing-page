@@ -75,7 +75,7 @@ test('hero previews are prerendered and do not boot app runtimes', () => {
     const preview = readFileSync(new URL(`../dist/hero-preview/${name}.html`, import.meta.url), 'utf8');
     assert.doesNotMatch(preview, /<script\b|rel="modulepreload"/);
     assert.match(preview, /id="root"[^>]*inert/);
-    assert.match(preview, /Sunday Social/);
+    assert.match(preview, /Whale Guide/);
     for (const [, asset] of preview.matchAll(/(?:src|href)="(\/[^"?#]+)"/g)) {
       assert.ok(existsSync(new URL('../dist' + asset, import.meta.url)), asset);
     }

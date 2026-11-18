@@ -7,42 +7,17 @@ const steps = [
 ];
 ---
 <section class="bw-container bw-section bw-how" id="how">
-  <div class="bw-journey-head"><div class="bw-heading"><span class="bw-eyebrow">คุณกำหนดรอบ ลูกค้าเลือกจอง</span><h2>เริ่มรับจอง <em>ใน 3 ขั้นตอน</em></h2></div><a class="bw-inline-link" href="#contact">ให้ทีมงานช่วยเริ่มต้น <Icon name="arrow-up-right" class="bw-action-icon" /></a></div>
-  <ol>
-    {steps.map((step, index) => <li>
-      <div class="bw-step-content"><div class="bw-step-copy"><div class="bw-step-label"><span class="bw-step-number">0{index + 1}</span><span>{step.label}</span></div><h3>{step.title}</h3><p>{step.description}</p></div>
-        <div class={`bw-step-scene bw-onboard-film bw-film-${index}`}>
-          <div class="bw-film-stage" aria-hidden="true">
-            {index === 0 && <>
-              <div class="bw-film-window">
-                <div class="bw-film-chrome"><img src="/assets/line-mark-72.png" loading="lazy" width="24" height="24" alt="" /><strong>LINE Official Account</strong><Icon name="menu" /></div>
-                <div class="bw-film-account"><span class="bw-film-store"><img src="/assets/product-captures/sunday-social-logo.svg" width="34" height="34" alt="" /></span><span><strong>Sunday Social</strong><small>@sundaysocial</small></span><span class="bw-film-online"></span></div>
-                <div class="bw-film-linkrow"><span class="bw-brand-image"></span><span>Booking Whale<small>เชื่อมระบบจอง</small></span><span class="bw-film-switch"><i></i></span><span class="bw-film-cursor"><Icon name="mouse-pointer-2" /></span></div>
-              </div>
-              <div class="bw-film-notice"><Icon name="circle-check" /><span><strong>เชื่อมต่อแล้ว</strong><small>พร้อมเปิดหน้าจองของคุณ</small></span></div>
-            </>}
-            {index === 1 && <>
-              <div class="bw-film-window">
-                <div class="bw-film-chrome"><Icon name="calendar" /><strong>รอบที่เปิดรับจอง</strong><span>ต.ค. 2569</span></div>
-                <div class="bw-film-service"><strong>จองโต๊ะมื้อเย็น</strong><small>มื้อเย็น · 2 คน</small></div>
-                <div class="bw-film-week">{['จ.','อ.','พ.','พฤ.','ศ.','ส.','อา.'].map((day, i) => <span class={i === 5 ? 'is-day' : ''}><small>{day}</small><b>{19 + i}</b></span>)}</div>
-                <div class="bw-film-slots"><span>18:00</span><span class="is-slot">19:00</span><span>20:30</span></div>
-              </div>
-              <div class="bw-film-notice"><Icon name="calendar-check" /><span><strong>เปิดรอบจองแล้ว</strong><small>พร้อมรับจอง 3 รอบ</small></span></div>
-            </>}
-            {index === 2 && <>
-              <div class="bw-film-window">
-                <div class="bw-film-chrome"><Icon name="globe" /><strong>หน้าจองของคุณ</strong><Icon name="arrow-up-right" /></div>
-                <div class="bw-film-url"><Icon name="link" /><span>Sunday Social · จองโต๊ะ</span><Icon name="copy" /></div>
-                <div class="bw-film-channels"><span><img src="/assets/line-mark-72.png" loading="lazy" width="24" height="24" alt="" />LINE</span><span><Icon name="qr-code" />QR Code</span><span><Icon name="share-2" />แชร์ลิงก์</span></div>
-                <div class="bw-film-live"><i></i>เปิดรับจองแล้ว</div>
-              </div>
-              <div class="bw-film-notice"><img src="/assets/avatars/emma-wilson-72.webp" srcset="/assets/avatars/emma-wilson-72.webp 72w, /assets/avatars/emma-wilson-128.webp 128w" sizes="32px" loading="lazy" width="32" height="32" alt="" /><span><strong>การจองใหม่ · Emma Wilson</strong><small>24 ต.ค. · 19:00 · 2 คน</small></span><Icon name="check" /></div>
-            </>}
-            {index !== 0 && <span class="bw-film-cursor"><Icon name="mouse-pointer-2" /></span>}
-          </div>
-        </div>
+  <div class="bw-journey-head"><div class="bw-heading"><span class="bw-eyebrow">คุณกำหนดรอบ ลูกค้าเลือกจอง</span><h2>เริ่มรับจอง <em>ใน 3 ขั้นตอน</em></h2></div><a class="bw-inline-link" href="#contact">คุยกับทีมงาน <Icon name="arrow-up-right" class="bw-action-icon" /></a></div>
+  <div class="bwx-steps" role="list">
+    {steps.map((step, index) => <article class="bwx-step" role="listitem">
+      <div class="bwx-step-visual" aria-hidden="true">
+        {index === 0 && <div class="bwx-sv bwx-sv-connect"><img src="/assets/line-mark-72.png" loading="lazy" width="32" height="32" alt="" /><span><strong>Booking Whale</strong><small>เชื่อมระบบจอง</small></span><span class="bwx-switch"><i></i></span></div>}
+        {index === 1 && <div class="bwx-sv bwx-sv-setting"><Icon name="clock" /><span><strong>19:00–20:00</strong><small>จองโต๊ะมื้อเย็น</small></span><b>รับได้ 8 คน</b></div>}
+        {index === 2 && <div class="bwx-sv bwx-sv-link"><Icon name="link" /><span>Whale Guide · จองโต๊ะ</span><span class="bwx-sv-copy">คัดลอก</span></div>}
       </div>
-    </li>)}
-  </ol>
+      <p class="bwx-step-label"><span>0{index + 1}</span>{step.label}</p>
+      <h3>{step.title}</h3>
+      <p class="bwx-step-desc">{step.description}</p>
+    </article>)}
+  </div>
 </section>

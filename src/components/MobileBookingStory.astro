@@ -2,50 +2,63 @@
 import Icon from './Icon.astro';
 import Avatar from './Avatar.astro';
 ---
-<ol class="bw-mobile-story" role="list" data-booking-demo>
-  <li>
-    <div class="bw-mobile-story-copy"><span class="bw-mobile-story-number" aria-hidden="true">01</span><h3>เลือกวันและเวลา</h3><p>ลูกค้าเลือกรอบที่เปิดผ่าน LINE OA ลดแชทถามเวลาว่าง</p></div>
-    <div class="bw-mobile-story-visual">
-      <div class="bw-mobile-story-shop"><img src="/assets/product-captures/sunday-social-logo.svg" width="32" height="32" alt="" /><strong>Sunday Social</strong><span>เปิดรับจอง</span></div>
+<div class="bw-mobile-story" data-booking-demo>
+  <div class="bw-mobile-story-stage">
+    <div class="bw-mobile-story-visuals">
+    <div class="bw-mobile-story-visual is-active" data-story-visual="0">
+      <div class="bw-mobile-story-shop"><img class="bw-demo-shop-logo" src="/assets/bookingwhale-logo-blue-160.webp" width="32" height="32" alt="" /><strong>Whale Guide</strong><span>เปิดรับจอง</span></div>
       <div class="bw-mobile-story-date"><Icon name="calendar" /><div><small>เลือกวันที่คุณสะดวก</small><strong>24 ต.ค. 2569</strong></div></div>
       <div class="bw-mobile-story-slots" role="group" aria-label="เลือกเวลาจอง"><button type="button" data-demo-slot="19:00 – 20:00" aria-pressed="true">19:00 – 20:00 <Icon name="check-circle-2" /></button><button type="button" data-demo-slot="20:30 – 21:30" aria-pressed="false">20:30 – 21:30 <Icon name="check-circle-2" /></button></div>
       <div class="bw-mobile-story-foot"><span>จองโต๊ะ</span><span>2 คน</span></div><button type="button" class="bw-demo-action" data-demo-review hidden>ดูรายละเอียด <Icon name="arrow-right" /></button>
     </div>
-  </li>
-  <li>
-    <div class="bw-mobile-story-copy"><span class="bw-mobile-story-number" aria-hidden="true">02</span><h3>จองเรียบร้อย</h3><p>วัน เวลา และจำนวนคน รวมอยู่ในรายการเดียว</p></div>
-    <div class="bw-mobile-story-visual">
+    <div class="bw-mobile-story-visual" data-story-visual="1">
       <div class="bw-mobile-story-confirmed"><Icon name="check-circle-2" /><strong>ยืนยันแล้ว</strong></div>
-      <div class="bw-mobile-story-ticket"><span class="bw-mobile-story-day">24<small>ต.ค.</small></span><div><strong>Sunday Social</strong><span data-demo-time>19:00 – 20:00</span><small>จองโต๊ะ · 2 คน</small></div></div>
+      <div class="bw-mobile-story-ticket"><span class="bw-mobile-story-day">24<small>ต.ค.</small></span><div><strong>Whale Guide</strong><span data-demo-time>19:00 – 20:00</span><small>จองโต๊ะ · 2 คน</small></div></div>
       <div class="bw-mobile-story-foot"><span>รายละเอียดการจอง</span><span>24 ต.ค. 2569</span></div><button type="button" class="bw-demo-action" data-demo-confirm hidden>ยืนยันการจอง <Icon name="arrow-right" /></button>
     </div>
-  </li>
-  <li data-mobile-story="manage">
-    <div class="bw-mobile-story-copy"><span class="bw-mobile-story-number" aria-hidden="true">03</span><h3>จัดการต่อได้ในที่เดียว</h3><p>ดูรายการจองและประวัติลูกค้า ไม่ต้องไล่รวมจากหลายแชท</p></div>
-    <div class="bw-mobile-story-visual">
+    <div class="bw-mobile-story-visual" data-story-visual="2">
       <div class="bw-mobile-story-shop"><Icon name="store" /><strong>การจองของร้าน</strong><span>1 รายการ</span></div>
       <div class="bw-mobile-story-customer"><span class="bw-mobile-story-avatar"><Avatar person="emma" /></span><div><strong>Emma Wilson</strong><small>จองโต๊ะ · 2 คน</small></div><span class="bw-mobile-story-status">ยืนยันแล้ว</span></div>
       <div class="bw-mobile-story-history"><Icon name="clock" /><div><strong>ประวัติการจอง</strong><span><span>24 ต.ค.</span> · <span data-demo-time>19:00 – 20:00</span></span></div></div>
     </div>
-  </li>
-</ol>
+    </div>
+    <div class="bw-mobile-story-progress" aria-hidden="true"><span class="is-active"></span><span></span><span></span></div>
+  <ol class="bw-mobile-story-steps">
+    <li class="bw-mobile-story-step is-active" data-story-step="0"><span class="bw-mobile-story-index" aria-hidden="true">01</span><h3>เลือกวันและเวลา</h3><p>ลูกค้าเลือกรอบที่เปิดผ่าน LINE OA ลดแชทถามเวลาว่าง</p></li>
+    <li class="bw-mobile-story-step" data-story-step="1"><span class="bw-mobile-story-index" aria-hidden="true">02</span><h3>จองเรียบร้อย</h3><p>วัน เวลา และจำนวนคน รวมอยู่ในรายการเดียว</p></li>
+    <li class="bw-mobile-story-step" data-story-step="2" data-mobile-story="manage"><span class="bw-mobile-story-index" aria-hidden="true">03</span><h3>จัดการต่อได้ในที่เดียว</h3><p>ดูรายการจองและประวัติลูกค้า ไม่ต้องไล่รวมจากหลายแชท</p></li>
+  </ol>
+  </div>
+  <div class="bw-mobile-story-track" aria-hidden="true"><span data-story-spacer="0"></span><span data-story-spacer="1"></span><span data-story-spacer="2"></span></div>
+</div>
 <script>import { initMobileBookingDemo } from "../scripts/mobile-booking-demo"; initMobileBookingDemo();</script>
 <style is:global>
   #bookingwhale .bw-mobile-story { display:none; }
   @media(max-width:900px) {
     #bookingwhale #features > .bw-flow { display:none; }
     #bookingwhale #features { padding-block:40px 32px; }
-    #bookingwhale .bw-mobile-story { display:grid; gap:32px; max-width:520px; margin:0 auto; padding:0; list-style:none; }
-    #bookingwhale #features .bw-mobile-story > li { display:block; width:100%; min-width:0; margin:0; padding:0; border:0; scroll-margin-top:88px; }
-    #bookingwhale .bw-mobile-story-copy { --bw-story-heading-line:clamp(33.6px,9.1vw,42px); display:grid; grid-template-columns:32px minmax(0,1fr); gap:8px 12px; margin-bottom:16px; }
-    #bookingwhale .bw-mobile-story-number { display:grid; place-items:center; align-self:start; width:30px; height:30px; margin-top:calc((var(--bw-story-heading-line) - 30px) / 2); border:1px solid var(--bw-line); border-radius:50%; color:var(--bw-blue); font-size:12px; font-weight:600; }
-    #bookingwhale #features .bw-mobile-story h3 { margin:0; color:var(--bw-ink); font-size:clamp(24px,6.5vw,30px); line-height:var(--bw-story-heading-line); letter-spacing:-.025em; }
-    #bookingwhale .bw-mobile-story-copy p { grid-column:2; margin:0; color:var(--bw-muted); font-size:16px; line-height:1.75; }
+    #bookingwhale .bw-mobile-story { display:block; position:relative; max-width:520px; margin:0 auto; padding:0; }
+    #bookingwhale .bw-mobile-story-stage { position:sticky; top:72px; z-index:2; display:grid; gap:18px; padding:8px 0 4px; background:#fff; }
+    #bookingwhale .bw-mobile-story-visuals { display:grid; }
+    #bookingwhale #features .bw-mobile-story-visuals > .bw-mobile-story-visual { grid-area:1 / 1; align-self:stretch; min-width:0; opacity:0; visibility:hidden; transform:translateY(10px) scale(.985); transition:opacity .45s ease, transform .5s cubic-bezier(.2,.8,.2,1), visibility 0s linear .45s; }
+    #bookingwhale #features .bw-mobile-story-visuals > .bw-mobile-story-visual.is-active { opacity:1; visibility:visible; transform:none; transition:opacity .45s ease, transform .5s cubic-bezier(.2,.8,.2,1), visibility 0s; }
+    #bookingwhale .bw-mobile-story-progress { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
+    #bookingwhale .bw-mobile-story-progress > span { height:3px; border-radius:3px; background:#e8e8ed; overflow:hidden; position:relative; }
+    #bookingwhale .bw-mobile-story-progress > span::after { content:""; position:absolute; inset:0; border-radius:inherit; background:var(--bw-blue); transform:scaleX(var(--fill,0)); transform-origin:0 50%; }
+    #bookingwhale .bw-mobile-story-steps { display:grid; margin:0; padding:0; list-style:none; }
+    #bookingwhale #features .bw-mobile-story-step { grid-area:1 / 1; display:grid; align-content:start; gap:4px; margin:0; padding:0; border:0; background:none; opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity .4s ease, transform .45s cubic-bezier(.2,.8,.2,1), visibility 0s linear .4s; }
+    #bookingwhale #features .bw-mobile-story-step.is-active { opacity:1; visibility:visible; transform:none; transition:opacity .4s ease .05s, transform .45s cubic-bezier(.2,.8,.2,1) .05s, visibility 0s; }
+    #bookingwhale .bw-mobile-story-index { color:var(--bw-blue); font-size:13px; font-weight:600; line-height:1.4; }
+    #bookingwhale #features .bw-mobile-story h3 { margin:0; color:var(--bw-ink); font-size:21px; line-height:1.35; letter-spacing:-.02em; }
+    #bookingwhale .bw-mobile-story-step p { margin:0; color:var(--bw-muted); font-size:15px; line-height:1.65; }
+    #bookingwhale .bw-mobile-story-track { display:block; }
+    #bookingwhale .bw-mobile-story-track > span { display:block; height:42svh; }
+    #bookingwhale .bw-mobile-story-track > span:last-child { height:22svh; }
     #bookingwhale .bw-mobile-story-visual { padding:20px; border:1px solid var(--bw-line); border-radius:22px; background:#fff; color:var(--bw-ink); font-size:14px; line-height:1.5; }
     #bookingwhale .bw-mobile-story-visual svg { flex:none; width:20px; height:20px; }
     #bookingwhale .bw-mobile-story-shop { display:flex; align-items:center; gap:10px; padding-bottom:16px; border-bottom:1px solid var(--bw-line); }
     #bookingwhale .bw-mobile-story-shop > span { margin-left:auto; color:var(--bw-muted); font-size:11px; }
-    #bookingwhale .bw-mobile-story-date { display:flex; align-items:center; gap:12px; padding-block:20px; }
+    #bookingwhale .bw-mobile-story-date { display:flex; align-items:center; gap:12px; padding-block:18px; }
     #bookingwhale .bw-mobile-story-date div, #bookingwhale .bw-mobile-story-ticket > div, #bookingwhale .bw-mobile-story-customer > div, #bookingwhale .bw-mobile-story-history > div { display:grid; gap:4px; min-width:0; }
     #bookingwhale .bw-mobile-story small { color:var(--bw-muted); font-size:12px; }
     #bookingwhale .bw-mobile-story-slots { display:grid; gap:8px; }
@@ -65,4 +78,12 @@ import Avatar from './Avatar.astro';
     #bookingwhale .bw-mobile-story-history { display:flex; align-items:center; gap:12px; padding-top:16px; border-top:1px solid var(--bw-line); }
     #bookingwhale .bw-mobile-story-history span { color:var(--bw-muted); font-size:12px; }
   }
+  @media(max-width:900px) and (max-height:700px) {
+    #bookingwhale .bw-mobile-story-stage { top:64px; gap:12px; }
+    #bookingwhale .bw-mobile-story-visual { padding:16px; }
+    #bookingwhale .bw-mobile-story-date { padding-block:12px; }
+    #bookingwhale #features .bw-mobile-story h3 { font-size:19px; }
+    #bookingwhale .bw-mobile-story-step p { font-size:14px; }
+  }
+  @media(max-width:900px) and (prefers-reduced-motion:reduce) { #bookingwhale #features .bw-mobile-story-visuals > .bw-mobile-story-visual, #bookingwhale #features .bw-mobile-story-step { transition:none; transform:none; } }
 </style>

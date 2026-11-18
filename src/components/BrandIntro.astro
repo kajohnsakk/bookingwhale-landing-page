@@ -1,0 +1,25 @@
+---
+import Icon from "./Icon.astro";
+import { clients } from "../data/clients";
+const named = clients.slice(0, 2);
+const more = clients.length - named.length;
+const logos = clients.filter(client => client.avatar).slice(0, 4);
+---
+<section class="bwx-intro" aria-label="Booking Whale">
+  <div class="bwx-intro-inner">
+    <p class="bwx-intro-eyebrow bwx-season-greeting"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7M9 4l3 2 3-2M9 20l3-2 3 2M4.6 10.4 5.2 7l-3.3-1M19.4 13.6l-.6 3.4 3.3 1M4.6 13.6 5.2 17l-3.3 1M19.4 10.4 18.8 7l3.3-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>สุขสันต์วันคริสต์มาส</span></p>
+    <p class="bwx-intro-title">Booking Whale</p>
+    <a class="bwx-proof" href="#clients">
+      {logos.length > 0 && (
+        <span class="bwx-proof-logos" aria-hidden="true">
+          {logos.map(client => <img src={client.avatar} alt="" width="28" height="28" decoding="async" />)}
+        </span>
+      )}
+      <span class="bwx-proof-label">ร้านที่รับจองผ่านเรา</span>
+      <span class="bwx-proof-break" aria-hidden="true"></span>
+      <span class="bwx-proof-names">{named.map(client => <span>{client.name}</span>)}</span>
+      {more > 0 && <span class="bwx-proof-more">+{more}</span>}
+      <Icon name="chevron-right" class="bwx-proof-arrow" />
+    </a>
+  </div>
+</section>

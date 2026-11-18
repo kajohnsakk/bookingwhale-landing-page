@@ -1,0 +1,2 @@
+<script is:inline>(function(){var p=new URLSearchParams(location.search).get('theme');var d=new Date();var m=d.getMonth(),day=d.getDate();var on=p==='christmas'||(p!=='default'&&((m===11)||(m===0&&day<=6)));if(on)document.documentElement.dataset.season='christmas';})();</script>
+<script>import { initHolidayTheme } from "../scripts/holiday-theme"; initHolidayTheme();</script>

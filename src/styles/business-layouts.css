@@ -28,8 +28,6 @@
 .appointment-layout .restaurant-hero{grid-template-columns:1.05fr 1fr;gap:64px}
 .business-hero-treatment{padding:0 0 74px 32px}
 .appointment-layout .restaurant-hero .restaurant-photo img{height:420px;object-position:42% center}
-.appointment-layout .business-hero-support{left:0;right:auto;width:48%;padding:7px}
-.appointment-layout .business-hero-support img{height:176px}
 .appointment-layout .business-photo-caption{left:45%;right:0;bottom:0;padding:12px 0 12px 24px;border-radius:0}
 .appointment-layout .business-photo-caption>strong{font-size:16px}
 .restaurant-page .restaurant-section{margin-block:88px}
@@ -65,7 +63,6 @@
 .studio-layout .business-photo-caption{left:12px;bottom:26px;padding:12px;max-width:70%}
 .business-hero-treatment{padding-left:18px;padding-bottom:80px}
 .appointment-layout .restaurant-hero .restaurant-photo img{height:390px}
-.appointment-layout .business-hero-support img{height:144px}
 .appointment-layout .business-photo-caption{left:43%;padding-left:16px}
 .business-photo-caption>strong,.studio-layout .business-photo-caption>strong,.appointment-layout .business-photo-caption>strong{font-size:14px}
 .restaurant-page .restaurant-section{margin-block:72px}
@@ -91,8 +88,6 @@
 .studio-layout .business-photo-caption>strong{font-size:13px}
 .business-hero-treatment{padding:0 0 60px 24px;max-width:540px;width:100%;align-self:center}
 .appointment-layout .restaurant-hero .restaurant-photo img{height:280px}
-.appointment-layout .business-hero-support{width:43%;padding:6px}
-.appointment-layout .business-hero-support img{height:136px}
 .appointment-layout .business-photo-caption{left:43%;padding-left:16px;padding-block:8px}
 .appointment-layout .business-photo-caption>strong{font-size:13px}
 .business-photo-caption>span{font-size:11px}

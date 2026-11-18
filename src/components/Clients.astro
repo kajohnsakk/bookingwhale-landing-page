@@ -1,0 +1,94 @@
+---
+import { clients } from "../data/clients";
+const stops = clients.flatMap(client => (client.locations ?? []).map(location => ({ client, ...location })));
+---
+<section class="bwx-clients bwx-clients-apple" id="clients" aria-labelledby="clients-heading">
+  <div class="bwx-clients-inner">
+    <div class="bwx-clients-head bwx-reveal">
+      <p class="bwx-eyebrow">ลูกค้าของเรา</p>
+      <h2 id="clients-heading">ร้านที่ไว้วางใจเรา</h2>
+    </div>
+    <div class="bwx-map-frame bwx-reveal">
+      <div class="bwx-map">
+        <svg class="bwx-map-art" viewBox="-300 0 1800 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <image href="/images/clients-map.svg" x="-300" y="0" width="1800" height="700" preserveAspectRatio="none" decoding="async" />
+          <g class="bwx-map-labels">
+            <text class="bwx-map-city" x="318" y="300">กรุงเทพฯ</text>
+            <text x="742" y="420">ชลบุรี</text>
+            <text class="bwx-map-sea" x="330" y="560">อ่าวไทย</text>
+          </g>
+        </svg>
+        <div class="bwx-map-pins">
+          {stops.map((stop, index) => (
+            <div class:list={["bwx-pin", stop.side === 'left' && "is-left"]} data-x={stop.x} data-y={stop.y} style={`--i:${index}`}>
+              <span class="bwx-pin-dot" aria-hidden="true"></span><span class="bwx-pin-logo"><img src={stop.client.avatar} alt="" width="96" height="96" decoding="async" /></span><span class="bwx-pin-name"><strong>{stop.client.name}</strong><span>{stop.label}</span></span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const items = document.querySelectorAll<HTMLElement>('.bwx-reveal');
+  if (reduced || !('IntersectionObserver' in window)) {
+    items.forEach(item => item.classList.add('is-visible'));
+  } else {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    items.forEach(item => observer.observe(item));
+  }
+
+  const section = document.querySelector<HTMLElement>('#clients');
+  const map = section?.querySelector<HTMLElement>('.bwx-map');
+  const pins = [...(section?.querySelectorAll<HTMLElement>('.bwx-pin') ?? [])];
+  if (section && map && pins.length) {
+    const art = map.querySelector<SVGSVGElement>('.bwx-map-art');
+    const frame = map.parentElement!;
+    const place = () => {
+      const width = map.clientWidth;
+      const logoSize = parseFloat(getComputedStyle(pins[0]).getPropertyValue('--logo')) || 84;
+      const ys = pins.map(pin => Number(pin.dataset.y));
+      const xs = pins.map(pin => Number(pin.dataset.x));
+      const span = Math.max(...ys) - Math.min(...ys);
+      if (matchMedia('(min-width: 900px)').matches) {
+        const fixed = logoSize + 150;
+        const fitted = `${Math.round(Math.max(span * width / 1800 + fixed, fixed / (1 - span / 700)))}px`;
+        if (frame.style.height !== fitted) frame.style.height = fitted;
+      } else if (frame.style.height) frame.style.removeProperty('height');
+      const height = map.clientHeight;
+      const scale = Math.max(width / 1800, height / 700);
+      const viewWidth = width / scale;
+      const viewHeight = height / scale;
+      const reach = (pins[0].querySelector('.bwx-pin-name') as HTMLElement | null)?.offsetWidth ?? 160;
+      const left = Math.min(...xs) - (reach / 2 + 16) / scale;
+      const right = Math.max(...xs) + (reach / 2 + 16) / scale;
+      const viewX = Math.min(Math.max((left + right) / 2 - viewWidth / 2, -300), 1500 - viewWidth);
+      const top = Math.min(...ys) - (logoSize + 56) / scale;
+      const bottom = Math.max(...ys) + 64 / scale;
+      const viewY = Math.min(Math.max((top + bottom) / 2 - viewHeight / 2, 0), 700 - viewHeight);
+      art?.setAttribute('viewBox', `${viewX} ${viewY} ${viewWidth} ${viewHeight}`);
+      pins.forEach(pin => {
+        pin.style.left = `${(Number(pin.dataset.x) - viewX) * scale}px`;
+        pin.style.top = `${(Number(pin.dataset.y) - viewY) * scale}px`;
+      });
+      map.classList.add('is-placed');
+    };
+    new ResizeObserver(place).observe(map);
+    place();
+
+    const live = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      section.classList.add('is-live');
+      live.disconnect();
+    }, { threshold: .3 });
+    live.observe(map);
+  }
+</script>

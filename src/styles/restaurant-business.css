@@ -20,9 +20,6 @@
 .restaurant-section-heading{max-width:760px;margin-bottom:28px}
 .restaurant-section-heading h2{margin-top:12px;margin-bottom:16px}
 .restaurant-section-heading p{font-size:18px;margin:0}
-.restaurant-demo{display:grid;grid-template-columns:minmax(0,2.5fr) minmax(0,1fr);gap:32px;align-items:start;background:#f7f8fa;padding:32px;border-radius:28px}
-.restaurant-demo figcaption{font-size:14px;font-weight:600;margin-bottom:20px}
-.restaurant-demo img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 3px 10px #18212f0b}
 .restaurant-dashboard{align-self:center}
 .restaurant-booking img{max-width:210px;margin-inline:auto}
 .restaurant-example{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;margin-top:32px}
@@ -49,8 +46,8 @@
 .restaurant-reading{display:flex;flex-wrap:wrap;gap:16px 32px;margin-top:32px;font-size:15px}
 .restaurant-credit{margin-block:24px 48px}
 .restaurant-credit a{color:inherit}
-@media(max-width:1023px){.restaurant-hero,.restaurant-preparation,.restaurant-faq{gap:32px}.restaurant-benefits{gap:16px}.restaurant-benefits article{padding:22px}.restaurant-hero h1{font-size:38px}.restaurant-contact{align-items:flex-start;flex-direction:column}.restaurant-demo{gap:20px;padding:24px}}
-@media(max-width:767px){.restaurant-hero,.restaurant-preparation,.restaurant-faq,.restaurant-example{grid-template-columns:1fr}.restaurant-hero{margin:20px 0 56px;gap:28px}.restaurant-hero h1{font-size:clamp(32px,7.8vw,42px)}.restaurant-hero-copy>p,.restaurant-section-heading p{font-size:16px}.restaurant-photo img{height:320px;border-radius:24px}.restaurant-section{margin-block:56px}.restaurant-benefits{grid-template-columns:1fr}.restaurant-benefits article{padding:24px}.restaurant-benefits h3{font-size:20px}.restaurant-number{margin-bottom:12px}.restaurant-demo{grid-template-columns:1fr;gap:28px;padding:20px}.restaurant-booking img{max-width:240px}.restaurant-demo figcaption{margin-bottom:14px}.restaurant-example{gap:20px}.restaurant-preparation .restaurant-photo img{height:280px}.restaurant-faq{gap:0}.restaurant-contact{padding:28px 24px;border-radius:24px}.restaurant-contact h2{font-size:28px}.restaurant-contact p{font-size:16px}.restaurant-actions{gap:12px 20px}.restaurant-page h2{font-size:28px}.restaurant-reading{flex-direction:column}}
+@media(max-width:1023px){.restaurant-hero,.restaurant-preparation,.restaurant-faq{gap:32px}.restaurant-benefits{gap:16px}.restaurant-benefits article{padding:22px}.restaurant-hero h1{font-size:38px}.restaurant-contact{align-items:flex-start;flex-direction:column}}
+@media(max-width:767px){.restaurant-hero,.restaurant-preparation,.restaurant-faq,.restaurant-example{grid-template-columns:1fr}.restaurant-hero{margin:20px 0 56px;gap:28px}.restaurant-hero h1{font-size:clamp(32px,7.8vw,42px)}.restaurant-hero-copy>p,.restaurant-section-heading p{font-size:16px}.restaurant-photo img{height:320px;border-radius:24px}.restaurant-section{margin-block:56px}.restaurant-benefits{grid-template-columns:1fr}.restaurant-benefits article{padding:24px}.restaurant-benefits h3{font-size:20px}.restaurant-number{margin-bottom:12px}.restaurant-booking img{max-width:240px}.restaurant-example{gap:20px}.restaurant-preparation .restaurant-photo img{height:280px}.restaurant-faq{gap:0}.restaurant-contact{padding:28px 24px;border-radius:24px}.restaurant-contact h2{font-size:28px}.restaurant-contact p{font-size:16px}.restaurant-actions{gap:12px 20px}.restaurant-page h2{font-size:28px}.restaurant-reading{flex-direction:column}}
 
 .restaurant-page .business-cta-note{font-size:13px;line-height:1.6;margin-top:14px;color:#617087}
 .dining-layout .restaurant-hero-copy>.business-cta-note{grid-column:2;margin-top:12px}

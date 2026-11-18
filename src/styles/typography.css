@@ -52,10 +52,7 @@
 @media(max-width:750px){
 #bookingwhale .bw-hero-capabilities{gap:10px 16px}
 #bookingwhale .bw-hero-capabilities>span{font-size:12px}
-#bookingwhale #features .bw-flow-chapter p{max-width:none}
 #bookingwhale .bw-footer.bw-footer-refined .bw-footer-identity p{font-size:17px}
 }
 @media(max-width:450px){
-#bookingwhale #features .bw-flow-steps{gap:2px}
-#bookingwhale #features .bw-flow-steps button{font-size:13px;padding-inline:8px}
 }

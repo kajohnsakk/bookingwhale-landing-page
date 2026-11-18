@@ -4,7 +4,11 @@
 
 Hero image aspect ratios are fixed in `HeroScreen.astro` to prevent rounding in smaller raster dimensions from changing their rendered geometry. All Hero images remain eager, and the merchant screen retains its high fetch priority. Below-the-fold portraits, onboarding marks and closed-dialog illustrations load lazily.
 
-Exact duplicate CSS declarations were removed only when a later rule with the same selector, enclosing conditions, property, value and importance already supplied them. No CSS was removed merely because it was unused in an initial viewport. Stylesheet loading and the Google tag's loading behavior remain unchanged.
+Stylesheets are inlined into each page (`build.inlineStylesheets: 'always'`), so the first paint does not wait for separate CSS requests. After the build, `scripts/dedupe-styles.mjs` removes declarations that a later rule with the same selector and enclosing conditions always overrides; declarations using fallbacks for newer CSS features (`svh`, `clamp()`, `light-dark()` and similar) and custom properties are kept.
+
+Rules in `src/styles/` that never applied were removed after a coverage pass over every page type at nine viewport sizes, with scrolling, the menu, the contact dialog, FAQ items and the holiday theme exercised. Hover, focus, open, attribute and script-driven states, print, reduced-motion, pointer and container-query rules were kept regardless of coverage. Full-page screenshots before and after matched across all pages and viewports checked.
+
+The clients map artwork is served as `/images/clients-map.svg` so it does not add to the HTML; its labels stay inline so they are translated with the page.
 
 For production hosting:
 

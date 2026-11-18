@@ -111,13 +111,13 @@
     "en": "Business booking dashboard preview",
     "zh": "商家预订后台示例"
   },
-  "ตัวอย่างหน้าจอง Sunday Social จากระบบลูกค้า": {
-    "en": "Sunday Social customer booking preview",
-    "zh": "Sunday Social 客户预订页面示例"
+  "ตัวอย่างหน้าจอง Whale Guide จากระบบลูกค้า": {
+    "en": "Whale Guide customer booking preview",
+    "zh": "Whale Guide 客户预订页面示例"
   },
-  "ตัวอย่างบัตรยืนยันการจอง Sunday Social": {
-    "en": "Sunday Social booking confirmation preview",
-    "zh": "Sunday Social 预订确认示例"
+  "ตัวอย่างบัตรยืนยันการจอง Whale Guide": {
+    "en": "Whale Guide booking confirmation preview",
+    "zh": "Whale Guide 预订确认示例"
   },
   "ระบบจองเดียว": {
     "en": "One booking system",
@@ -384,8 +384,8 @@
     "zh": "2026年10月24日"
   },
   "เหลือ 4 ที่": {
-    "en": "4 spots left",
-    "zh": "余4位"
+    "en": "4 seats left",
+    "zh": "剩余 4 位"
   },
   "เลือก": {
     "en": "Select",
@@ -803,9 +803,9 @@
     "en": "Your booking page",
     "zh": "你的预订页面"
   },
-  "Sunday Social · จองโต๊ะ": {
-    "en": "Sunday Social · Table booking",
-    "zh": "Sunday Social · 餐桌预订"
+  "Whale Guide · จองโต๊ะ": {
+    "en": "Whale Guide · Table booking",
+    "zh": "Whale Guide · 餐桌预订"
   },
   "แชร์ลิงก์": {
     "en": "Share link",
@@ -1854,5 +1854,389 @@
   "ดูรายละเอียด": {
     "en": "Review booking",
     "zh": "查看预订详情"
+  },
+  "ใช้งานจริงโดย": {
+    "en": "Used by",
+    "zh": "正在使用的商家"
+  },
+  "ลูกค้าของเรา": {
+    "en": "Our clients",
+    "zh": "我们的客户"
+  },
+  "ธุรกิจที่ใช้เรา": {
+    "en": "Trusted by",
+    "zh": "信赖我们的商家"
+  },
+  "ร้านโอมากาเสะที่ให้ Booking Whale ดูแลการจองที่นั่งผ่าน LINE OA": {
+    "en": "Omakase counters that run their seat reservations on Booking Whale through LINE OA.",
+    "zh": "通过 LINE OA 使用 Booking Whale 管理座位预订的 Omakase 餐厅。"
+  },
+  "โอมากาเสะ": {
+    "en": "Omakase",
+    "zh": "Omakase"
+  },
+  "อาหารญี่ปุ่น": {
+    "en": "Japanese",
+    "zh": "日本料理"
+  },
+  "กรุงเทพฯ": {
+    "en": "Bangkok",
+    "zh": "曼谷"
+  },
+  "พัทยา": {
+    "en": "Pattaya",
+    "zh": "芭提雅"
+  },
+  "ประเภทธุรกิจ": {
+    "en": "Business type",
+    "zh": "业务类型"
+  },
+  "ดูเพิ่มเติม": {
+    "en": "Show more",
+    "zh": "显示更多"
+  },
+  "ธุรกิจที่ให้ Booking Whale ดูแลการจองผ่าน LINE OA": {
+    "en": "Businesses that run their bookings on Booking Whale through LINE OA.",
+    "zh": "通过 LINE OA 使用 Booking Whale 管理预订的商家。"
+  },
+  "24 ตุลาคม · 2 ชั่วโมง": {
+    "en": "24 October · 2 hours",
+    "zh": "10月24日 · 2 小时"
+  },
+  "24 ตุลาคม · ผู้ร่วมทริป 2 คน": {
+    "en": "24 October · 2 travelers",
+    "zh": "10月24日 · 2 位旅客"
+  },
+  "60 นาที · กับครูแดเนียล": {
+    "en": "60 min · with Daniel",
+    "zh": "60 分钟 · Daniel 老师"
+  },
+  "จองคลาสนี้": {
+    "en": "Book this class",
+    "zh": "预约此课程"
+  },
+  "จองช่วงเวลานี้": {
+    "en": "Book this time",
+    "zh": "预约此时段"
+  },
+  "จองผ่าน LINE": {
+    "en": "Book via LINE",
+    "zh": "通过 LINE 预约"
+  },
+  "จองแล้ว 5 จาก 8": {
+    "en": "5 of 8 booked",
+    "zh": "已订 5/8"
+  },
+  "นวดอโรม่า · 60 นาที": {
+    "en": "Aroma massage · 60 min",
+    "zh": "香薰按摩 · 60 分钟"
+  },
+  "พฤหัส 29 ต.ค.": {
+    "en": "Thu 29 Oct",
+    "zh": "10月29日 周四"
+  },
+  "ยืนยัน 2 ที่นั่ง": {
+    "en": "Confirm 2 seats",
+    "zh": "确认 2 个座位"
+  },
+  "ยืนยันคลาสเรียน": {
+    "en": "Confirm lesson",
+    "zh": "确认课程"
+  },
+  "ยืนยันทริป": {
+    "en": "Confirm trip",
+    "zh": "确认行程"
+  },
+  "ยืนยันนัดหมาย": {
+    "en": "Confirm appointment",
+    "zh": "确认预约"
+  },
+  "วันเสาร์ 24 ตุลาคม": {
+    "en": "Saturday, 24 October",
+    "zh": "10月24日 周六"
+  },
+  "วันเสาร์ 24 ตุลาคม · 2 คน": {
+    "en": "Saturday, 24 October · 2 guests",
+    "zh": "10月24日 周六 · 2 位"
+  },
+  "วันเสาร์ 24 ตุลาคม · 60 นาที": {
+    "en": "Saturday, 24 October · 60 min",
+    "zh": "10月24日 周六 · 60 分钟"
+  },
+  "เรียนตัวต่อตัว · 60 นาที": {
+    "en": "Private lesson · 60 min",
+    "zh": "一对一课程 · 60 分钟"
+  },
+  "พิลาทิส · 18:00": {
+    "en": "Pilates · 18:00",
+    "zh": "普拉提 · 18:00"
+  },
+  "เสาร์ 24 ต.ค. · 14:00–16:00": {
+    "en": "Sat 24 Oct · 14:00–16:00",
+    "zh": "10月24日 周六 · 14:00–16:00"
+  },
+  "โลโก้ร้านของคุณ": {
+    "en": "Your logo here",
+    "zh": "你的品牌标志"
+  },
+  "ร้านต่อไปบน Booking Whale": {
+    "en": "Next on Booking Whale",
+    "zh": "下一个加入 Booking Whale"
+  },
+  "30 นาที": {
+    "en": "30 min",
+    "zh": "30 分钟"
+  },
+  "90 นาที": {
+    "en": "90 min",
+    "zh": "90 分钟"
+  },
+  "คัดลอก": {
+    "en": "Copy",
+    "zh": "复制"
+  },
+  "ที่นั่ง": {
+    "en": "seats",
+    "zh": "座位"
+  },
+  "พิลาทิส 18:00": {
+    "en": "Pilates 18:00",
+    "zh": "普拉提 18:00"
+  },
+  "สตูดิโอ A · 24 ต.ค.": {
+    "en": "Studio A · 24 Oct",
+    "zh": "A 工作室 · 10月24日"
+  },
+  "เดินเที่ยวเมืองเก่า · 2 คน": {
+    "en": "Old town walk · 2 people",
+    "zh": "古城徒步 · 2 人"
+  },
+  "เปิดรอบ ตั้งจำนวนที่รับ แล้วดูรายการจองในที่เดียว": {
+    "en": "Open time slots, set capacity, and see every booking in one place.",
+    "zh": "开放时段、设置名额，并在一处查看所有预约。"
+  },
+  "เลือกรอบ · 2 คน": {
+    "en": "Choose a time · 2 guests",
+    "zh": "选择时段 · 2 位"
+  },
+  "ให้ลูกค้าจองเองผ่าน LINE OA ของร้านคุณ": {
+    "en": "Let customers book themselves through your LINE OA",
+    "zh": "让顾客通过你的 LINE OA 自助预约"
+  },
+  "ลูกค้าเลือกเวลาเอง": {
+    "en": "Customers pick their own time",
+    "zh": "顾客自行选择时间"
+  },
+  "จองโต๊ะมื้อเย็น · 2 คน": {
+    "en": "Dinner table · 2 guests",
+    "zh": "晚餐订位 · 2 位"
+  },
+  "ลูกค้าเลือกระยะเวลาบริการ": {
+    "en": "Customers choose the service length",
+    "zh": "顾客选择服务时长"
+  },
+  "ลูกค้าเห็นที่ว่างในคลาส": {
+    "en": "Customers see open spots in class",
+    "zh": "顾客查看课程剩余名额"
+  },
+  "พิลาทิส 18:00 · ว่างอีก 3 ที่": {
+    "en": "Pilates 18:00 · 3 spots left",
+    "zh": "普拉提 18:00 · 剩 3 个名额"
+  },
+  "ลูกค้าเลือกวันและเวลาเรียน": {
+    "en": "Students pick a lesson day and time",
+    "zh": "学员选择上课日期和时间"
+  },
+  "ลูกค้าเลือกจำนวนที่นั่ง": {
+    "en": "Customers choose how many seats",
+    "zh": "顾客选择座位数量"
+  },
+  "ลูกค้าเลือกรอบทัวร์": {
+    "en": "Customers pick a tour time",
+    "zh": "顾客选择旅游场次"
+  },
+  "ลูกค้าจองช่วงเวลาที่ต้องการ": {
+    "en": "Customers book the hours they need",
+    "zh": "顾客预订所需时段"
+  },
+  "ลูกค้าเลือกวันนัดหมาย": {
+    "en": "Customers pick an appointment day",
+    "zh": "顾客选择预约日期"
+  },
+  "จองเวลาปรึกษา · 60 นาที": {
+    "en": "Consultation · 60 min",
+    "zh": "咨询预约 · 60 分钟"
+  },
+  "4 คน": {
+    "en": "4 guests",
+    "zh": "4 位"
+  },
+  "ครบในระบบเดียว": {
+    "en": "Everything in one system",
+    "zh": "一个系统全搞定"
+  },
+  "ครั้งที่ Emma มาใช้บริการ": {
+    "en": "visits by Emma",
+    "zh": "Emma 的到访次数"
+  },
+  "จองคิว": {
+    "en": "Book",
+    "zh": "预约"
+  },
+  "จำกัดจำนวนต่อรอบ": {
+    "en": "Cap each time slot",
+    "zh": "限制每个时段人数"
+  },
+  "ดูรายการจองในที่เดียว": {
+    "en": "See every booking in one place",
+    "zh": "在一处查看所有预约"
+  },
+  "ติดต่อร้าน": {
+    "en": "Contact",
+    "zh": "联系店铺"
+  },
+  "ทำอะไรได้บ้าง": {
+    "en": "What it does",
+    "zh": "功能一览"
+  },
+  "ประวัติลูกค้า": {
+    "en": "Customer history",
+    "zh": "顾客记录"
+  },
+  "รีวิว": {
+    "en": "Reviews",
+    "zh": "评价"
+  },
+  "ลูกค้ากดจองจากเมนู LINE OA ของร้าน": {
+    "en": "Customers book from your LINE OA menu",
+    "zh": "顾客从你的 LINE OA 菜单预约"
+  },
+  "ลูกค้าเลือกรอบเวลาเอง": {
+    "en": "Customers choose their own time",
+    "zh": "顾客自行选择时段"
+  },
+  "เมนู": {
+    "en": "Menu",
+    "zh": "菜单"
+  },
+  "เห็นเฉพาะรอบที่ยังว่าง": {
+    "en": "Only open times are shown",
+    "zh": "只显示仍有空位的时段"
+  },
+  "แจ้งเตือนทุกการจองใหม่": {
+    "en": "A notice for every new booking",
+    "zh": "每笔新预约都有通知"
+  },
+  "แผนที่": {
+    "en": "Map",
+    "zh": "地图"
+  },
+  "โปรโมชัน": {
+    "en": "Promotions",
+    "zh": "优惠"
+  },
+  "ไม่ต้องโหลดแอปเพิ่ม ใช้ LINE OA ที่ลูกค้าเพิ่มเพื่อนไว้แล้ว": {
+    "en": "No extra app to download. Customers use the LINE OA they already follow.",
+    "zh": "无需下载其他应用，顾客直接使用已关注的 LINE OA。"
+  },
+  "แชร์หน้าจองได้หลายช่องทาง": {
+    "en": "Share your booking page anywhere",
+    "zh": "多种渠道分享预约页"
+  },
+  "สวัสดีค่ะ กดจองคิวได้จากเมนูด้านล่างเลย": {
+    "en": "Hi! Tap Book in the menu below.",
+    "zh": "您好！点击下方菜单即可预约。"
+  },
+  "เมื่อสักครู่": {
+    "en": "just now",
+    "zh": "刚刚"
+  },
+  "ใหม่": {
+    "en": "New",
+    "zh": "新"
+  },
+  "24 ต.ค. · 18:00 · 3 คน": {
+    "en": "24 Oct · 18:00 · 3 guests",
+    "zh": "10月24日 · 18:00 · 3 位"
+  },
+  "24 ต.ค. · 20:30 · 4 คน": {
+    "en": "24 Oct · 20:30 · 4 guests",
+    "zh": "10月24日 · 20:30 · 4 位"
+  },
+  "การจองใหม่ · Sofia Chen": {
+    "en": "New booking · Sofia Chen",
+    "zh": "新预约 · Sofia Chen"
+  },
+  "การจองใหม่ · Daniel Lee": {
+    "en": "New booking · Daniel Lee",
+    "zh": "新预约 · Daniel Lee"
+  },
+  "ร้านที่รับจองผ่านเรา": {
+    "en": "Taking bookings with us",
+    "zh": "使用我们接受预约的店铺"
+  },
+  "รับได้ 8 คน": {
+    "en": "Up to 8",
+    "zh": "最多 8 人"
+  },
+  "ส่งในแชท LINE ติด QR ที่ร้าน หรือแปะลิงก์": {
+    "en": "Send it in LINE chat, put a QR in the shop, or share the link.",
+    "zh": "在 LINE 聊天中发送、在店内张贴二维码，或分享链接。"
+  },
+  "ธุรกิจแบบไหน": {
+    "en": "Any kind of business",
+    "zh": "任何类型的业务"
+  },
+  "ก็รับจองได้": {
+    "en": "can take bookings",
+    "zh": "都能接受预约"
+  },
+  "สุขสันต์วันคริสต์มาส": {
+    "en": "Merry Christmas",
+    "zh": "圣诞快乐"
+  },
+  "เปิดรับจองผ่าน LINE OA และจัดการทุกการจองในที่เดียว": {
+    "en": "They take bookings through LINE OA and manage every one in one place.",
+    "zh": "通过 LINE OA 接受预订，并在同一处管理所有预订。"
+  },
+  "รอบที่เปิดจอง": {
+    "en": "Available times",
+    "zh": "可预订时段"
+  },
+  "เหลือ 2 ที่": {
+    "en": "2 seats left",
+    "zh": "剩余 2 位"
+  },
+  "เลือกสาขา": {
+    "en": "Choose a branch",
+    "zh": "选择分店"
+  },
+  "นิฮอนมาชิ": {
+    "en": "Nihonmachi",
+    "zh": "Nihonmachi"
+  },
+  "ทองหล่อ": {
+    "en": "Thonglor",
+    "zh": "通罗"
+  },
+  "ชลบุรี": {
+    "en": "Chonburi",
+    "zh": "春武里"
+  },
+  "อ่าวไทย": {
+    "en": "Gulf of Thailand",
+    "zh": "泰国湾"
+  },
+  "ร้านที่ไว้วางใจเรา": {
+    "en": "Trusted by",
+    "zh": "信赖我们的商家"
+  },
+  "ลาดพร้าว": {
+    "en": "Lat Phrao",
+    "zh": "拉抛"
+  },
+  "ไลฟ์มิวสิก": {
+    "en": "Live music",
+    "zh": "现场音乐"
   }
 }

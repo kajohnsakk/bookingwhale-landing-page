@@ -55,9 +55,6 @@
 .editorial-prose table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;font-size:14px}
 .editorial-prose :is(th,td){padding:12px;border:1px solid #e1e5ed;text-align:left;min-width:110px}
 .editorial-prose th{background:#f5f6f8}
-.editorial-prose pre{overflow:auto;padding:20px;background:#f5f6f8;border-radius:16px}
-.editorial-prose blockquote{margin:24px 0;padding:8px 24px;border-left:3px solid #0747ff;background:#f8f9fc}
-.editorial-prose hr{border:0;border-top:1px solid #e8ebf1;margin:32px 0}
 .editorial-toc{margin-block:24px;padding:20px 24px;background:#f6f7f9;border-radius:24px}
 .editorial-toc summary{cursor:pointer;font-weight:600;min-height:28px}
 .editorial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-block:24px 56px}

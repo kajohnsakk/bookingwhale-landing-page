@@ -14,7 +14,6 @@
 #bookingwhale .bw-business-nav-links>a[aria-current=page]>.bw-business-nav-indicator{color:#222}
 #bookingwhale .bw-main-menu .bw-business-nav-links>a[aria-current=page]:hover{background:#f7f7f7}
 #bookingwhale .bw-business-nav-links>a:focus-visible{outline:2px solid #0747ff;outline-offset:1px}
-#bookingwhale .bw-business-nav-links small{margin-left:auto;color:#617087;font-size:11px}
 #bookingwhale .bw-main-menu .bw-business-nav-links>a.bw-business-nav-overview{justify-content:space-between;margin-top:8px;padding-top:16px;min-height:56px;border-top:1px solid #ebebeb;border-radius:0 0 12px 12px;color:#222;font-size:14px;font-weight:500}
 #bookingwhale .bw-business-nav-links>a.bw-business-nav-overview>svg{width:16px;height:16px;color:currentColor}
 @media(max-width:900px){

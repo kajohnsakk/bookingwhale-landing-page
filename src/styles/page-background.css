@@ -8,7 +8,6 @@ body,#bookingwhale,#bookingwhale .bw-page{background:var(--bw-page-surface)}
 #bookingwhale #features .bw-flow-copy .bw-product-heading h2,#bookingwhale #features .bw-flow-copy p,#bookingwhale #features .bw-flow-kicker,#bookingwhale #features .bw-flow-scroll,#bookingwhale #features .bw-flow-steps,#bookingwhale #features .bw-flow-route,#bookingwhale #features .bw-flow-bottom{color:#586579}
 #bookingwhale #features .bw-product-heading em,#bookingwhale #features .bw-product-heading>.bw-eyebrow,#bookingwhale #features .bw-flow-chapter em,#bookingwhale #features .bw-flow-chapter>span{color:#0747ff}
 #bookingwhale #features .bw-flow-steps,#bookingwhale #features .bw-flow-route,#bookingwhale #features .bw-flow-bottom{--bw-blue:#0747ff;--bw-line:#c5c8cb}
-#bookingwhale #features .bw-flow-route::before,#bookingwhale #features .bw-flow-route::after{background:#c5c8cb}
 #bookingwhale #features .bw-flow-steps button{color:#586579}
 #bookingwhale #features .bw-flow-steps button[aria-pressed=true]{border-color:#a8b9dd;background:#edf2ff}
 #bookingwhale #features .bw-flow-steps button:focus-visible{outline-color:#0747ff}

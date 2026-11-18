@@ -81,10 +81,6 @@
   #bookingwhale #main-content > #how { max-width: none; background: #fff; gap: 0; }
   #bookingwhale .bw-how .bw-journey-head { display: block; margin: 0 auto 24px; max-width: 520px; text-align: center; }
   #bookingwhale .bw-how .bw-step-content { display: contents; }
-  #bookingwhale .bw-how ol { gap: 20px; max-width: 520px; margin-inline: auto; }
-  #bookingwhale .bw-how li,
-  #bookingwhale .bw-how li:first-child { grid-template-columns: 28px minmax(0,1fr); gap: 16px 10px; padding: 24px 20px 16px; border: 1px solid #e8edf5; border-radius: 24px; background: #fff; }
-  #bookingwhale .bw-how li:last-child { padding-bottom: 16px; }
   #bookingwhale .bw-how .bw-step-number { display: grid; place-items: center; align-self: start; width: 28px; height: 28px; margin: 0; font-size: 12px; color: #0747ff; background: #eaf0ff; border-radius: 50%; }
   #bookingwhale .bw-how .bw-step-copy { grid-column: 2; }
   #bookingwhale #how .bw-step-label { display: flex; align-items: center; min-height: 28px; margin: 0; color: #0747ff; font-size: 14px; }

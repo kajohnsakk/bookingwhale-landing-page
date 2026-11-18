@@ -9,8 +9,8 @@ export const pruneStyles=()=>({
       postcss:{
         plugins:[purgecss({
           content:[fileURLToPath(new URL('../src/**/*.{astro,js,ts,json,md,html}',import.meta.url))],
-          safelist:{standard:[/^is-/,/^has-/,/^astro-/,/^bw-film-\d+$/],greedy:[/data-astro-cid-/,/editorial-prose/]},
-          dynamicAttributes:['aria-expanded','aria-selected','data-phase','data-active','data-proof-motion','data-paused'],
+          safelist:{standard:[/^is-/,/^has-/,/^astro-/,/^bw-film-\d+$/,/^bwx-logo-/],greedy:[/data-astro-cid-/,/editorial-prose/]},
+          dynamicAttributes:['aria-expanded','aria-selected','data-phase','data-active','data-proof-motion','data-paused','data-season'],
           keyframes:false,
           fontFace:false,
           variables:false,

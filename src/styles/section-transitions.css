@@ -13,8 +13,6 @@
 #bookingwhale .bw-business .bw-industry-caption p,#bookingwhale .bw-business .bw-gallery-cue,#bookingwhale .bw-business .bw-gallery-cue button{color:#b8c5dc}
 #bookingwhale .bw-business .bw-image{color:#18212f}
 #bookingwhale .bw-line-story{position:relative;isolation:isolate;background:transparent;margin-top:0;padding-top:90px}
-#bookingwhale .bw-line-story::before{content:'';position:absolute;inset:0 calc((100% - 100vw)/2);background:#fff;border-radius:var(--return-radius,36px) var(--return-radius,36px) 0 0;z-index:-1;pointer-events:none}
-#bookingwhale .bw-line-story::after{content:'';position:absolute;top:0;left:calc((100% - 100vw)/2);width:100vw;height:90px;background:#101e38;z-index:-2;pointer-events:none}
 @container(max-width:750px){
 #bookingwhale .bw-product-stories{padding-top:110px}
 #bookingwhale .bw-story-curtain{height:80px;border-radius:0 0 24px 24px}
@@ -31,7 +29,6 @@
 #bookingwhale .bw-cinematic .bw-business .bw-gallery-scene{background:#101e38}
 #bookingwhale .bw-business .bw-more-business{color:#b8c5dc;border-color:#40516c}
 #bookingwhale .bw-flow-route{position:relative;gap:16px;padding:12px 0 18px}
-#bookingwhale .bw-flow-route::before,#bookingwhale .bw-flow-route::after{content:'';height:1px;flex:1;max-width:72px;background:#405675}
 #bookingwhale .bw-flow-route>span{display:inline-flex}
 #bookingwhale .bw-product-stories .bw-ui-window{border:1px solid #d7deea;border-radius:14px;box-shadow:0 0 0 5px #ffffff06,0 18px 44px #030b191a}
 #bookingwhale .bw-product-stories .bw-ui-chrome{background:#f8fafd;border-bottom:1px solid #dfe5ee}
@@ -57,18 +54,13 @@
 #bookingwhale .bw-business .bw-heading h2,#bookingwhale .bw-business .bw-industry-graphic h3{color:#18212f}
 #bookingwhale .bw-business .bw-heading .bw-eyebrow,#bookingwhale .bw-business .bw-industry-graphic p,#bookingwhale .bw-business .bw-directory-note{color:#617087}
 #bookingwhale .bw-business .bw-directory-note a{color:#344f7a}
-#bookingwhale .bw-line-story::after{background:#f5f6fa}
 
 #bookingwhale .bw-how{--bw-blue:#52627c;--bw-blue-soft:#f0f3f7;--bw-line:#e0e5eb;padding-top:44px;padding-bottom:60px}
 #bookingwhale .bw-how .bw-journey-head{margin-bottom:32px}
 #bookingwhale .bw-how .bw-inline-link{color:#42536c;font-size:12px}
-#bookingwhale .bw-how ol{gap:28px}
-#bookingwhale .bw-how ol::before,#bookingwhale .bw-how ol::after{top:21px;height:1px}
-#bookingwhale .bw-how ol::after{background:#8b98ab}
 #bookingwhale .bw-how .bw-step-number{font-weight:500;letter-spacing:-2px;padding-right:16px}
 #bookingwhale .bw-how .bw-step-label{font-size:9px;letter-spacing:.12em;margin-bottom:8px;color:#7a8595}
 #bookingwhale .bw-how h3{font-size:18px;line-height:1.5;margin:0 0 8px}
-#bookingwhale .bw-how li p{font-size:12px;line-height:1.8;margin:0 0 18px;color:#677386}
 #bookingwhale .bw-how .bw-step-scene{height:192px;padding:12px;border:1px solid #e0e5eb;border-radius:14px;background:#fff;box-shadow:none}
 #bookingwhale .bw-how .bw-onboard-art{height:120px;min-height:120px;border-radius:8px;background:#f6f7f9;padding:12px;box-sizing:border-box}
 #bookingwhale .bw-how .bw-onboard-result{color:#506658}
@@ -81,7 +73,6 @@
 @container(max-width:750px){#bookingwhale .bw-how ol{gap:24px}#bookingwhale .bw-how li,#bookingwhale .bw-how li:first-child{grid-template-columns:44px minmax(0,1fr);gap:16px}#bookingwhale .bw-how .bw-step-number{font-size:34px}#bookingwhale .bw-how .bw-step-scene{max-width:440px}#bookingwhale .bw-how .bw-inline-link{display:inline-block;margin-top:16px}}
 #bookingwhale .bw-how .bw-inline-link{font-size:13px}
 #bookingwhale .bw-how .bw-step-label{font-size:10px}
-#bookingwhale .bw-how li p{font-size:13px;min-height:44px}
 @container(max-width:750px){#bookingwhale .bw-how li p{min-height:0}}
 
 #bookingwhale .bw-business::before{clip-path:inset(0 var(--business-inset,0%) round var(--business-radius,0px));pointer-events:none}
@@ -106,7 +97,6 @@
 #bookingwhale .bw-business::before{bottom:-1px;border:0;box-shadow:none}
 #bookingwhale .bw-business::after{top:-80px}
 #bookingwhale .bw-line-story{padding-top:56px;border:0;box-shadow:none}
-#bookingwhale .bw-line-story::before{top:-1px;border:0;box-shadow:none}
 @container(min-width:850px){#bookingwhale .bw-cinematic .bw-business::before{top:-80px}}
 @container(max-width:750px){#bookingwhale .bw-business{padding-block:28px}#bookingwhale .bw-line-story{padding-top:36px}}
 
@@ -167,8 +157,6 @@
 #bookingwhale .bw-film-notice{bottom:12px;padding:10px 12px}
 #bookingwhale .bw-film-1 .bw-film-cursor{right:45%;top:178px}
 #bookingwhale .bw-film-2 .bw-film-cursor{right:36px;top:92px}
-#bookingwhale .bw-line-story::before{border-radius:0}
-#bookingwhale .bw-line-story::after{display:none}
 @container(min-width:850px){#bookingwhale .bw-cinematic .bw-business::after{bottom:0}#bookingwhale .bw-cinematic .bw-line-story{margin-top:0}}
 
 #bookingwhale #contact.bw-contact-showcase{display:block;padding-block:60px 48px;margin-bottom:0;color:#1b2934}
@@ -184,12 +172,9 @@
 #bookingwhale #contact .bw-contact-phone svg{width:14px;height:14px}
 #bookingwhale #contact .bw-contact-products{min-width:0;aspect-ratio:1.45;isolation:isolate}
 #bookingwhale #contact figure{margin:0;min-width:0}
-#bookingwhale #contact figcaption{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#34483d;margin-top:22px;white-space:nowrap}
-#bookingwhale #contact figcaption span{font-size:12px;font-weight:400;color:#6d7b72}
 #bookingwhale #contact .bw-contact-merchant{width:77%;top:4%;z-index:1}
 #bookingwhale #contact .bw-contact-merchant figcaption{justify-content:flex-end;padding-right:12px}
 #bookingwhale #contact .bw-contact-customer{width:24%;left:1%;top:2%;z-index:2}
-#bookingwhale #contact figure a{display:block;text-decoration:none;color:inherit}
 #bookingwhale #contact figure a:focus-visible{outline:3px solid #0747ff;outline-offset:6px}
 #bookingwhale #contact figure img{display:block;width:100%;height:auto;object-fit:contain}
 #bookingwhale #contact .bw-computer-bezel{position:relative;display:block;border:5px solid #252b30;border-top-width:14px;border-bottom-width:10px;border-radius:14px 14px 4px 4px;background:#fff;outline:1px solid #70797d}
