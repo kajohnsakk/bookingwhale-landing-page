@@ -1,0 +1,8 @@
+html[data-season=christmas] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas]{display:inline-flex;align-items:center;gap:8px;margin:0 0 6px;padding:6px 14px 6px 12px;border-radius:999px;background:#fdeef0;color:#c4122f;font-size:14px;font-weight:600;line-height:1.4;letter-spacing:0}
+html[data-season=christmas] #bookingwhale .bwx-season-greeting svg{flex:none;width:16px;height:16px}
+html[data-season=christmas] #bookingwhale #main-content{position:relative}
+html[data-season=christmas] #bookingwhale #contact>:not(.bwx-snow){position:relative;z-index:1}
+html[data-season=christmas] #bookingwhale .bw-nav .bw-nav-mark{position:relative;overflow:visible}
+html[data-season=christmas] #bookingwhale .bw-nav .bw-nav-mark>.bw-nav-favicon{border-radius:inherit}
+html[data-season=christmas] #bookingwhale .bw-nav .bw-nav-mark::after{content:"";position:absolute;top:-13px;right:-10px;width:26px;height:23px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 30'%3E%3Cpath d='M5 23C8 12 15 4 27 6c-2 6-1 11 2 17Z' fill='%23d62839'/%3E%3Cpath d='M13 9c4-3 9-4 13-3' stroke='%23ff6b78' stroke-width='1.5' fill='none' stroke-linecap='round' opacity='.7'/%3E%3Crect x='2' y='20' width='29' height='8' rx='4' fill='%23fff' stroke='%23e3e6ea'/%3E%3Ccircle cx='28' cy='6' r='4' fill='%23fff' stroke='%23e3e6ea'/%3E%3C/svg%3E") center/contain no-repeat;transform:rotate(16deg);pointer-events:none}
+html[data-season=christmas] #bookingwhale .bw-hero-live .bw-hero-underline{color:#d62839}

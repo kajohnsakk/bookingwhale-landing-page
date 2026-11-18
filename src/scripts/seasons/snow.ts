@@ -2,7 +2,7 @@ type Flake = { x: number; y: number; r: number; vy: number; drift: number; phase
 
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 
-function snow(host: HTMLElement, options: { color: string; density: number; className: string; height?: () => number }) {
+export function snow(host: HTMLElement, options: { color: string; density: number; className: string; height?: () => number }) {
   const canvas = document.createElement('canvas');
   canvas.className = `bwx-snow ${options.className}`;
   canvas.setAttribute('aria-hidden', 'true');
@@ -75,13 +75,4 @@ function snow(host: HTMLElement, options: { color: string; density: number; clas
   document.addEventListener('visibilitychange', update);
   reduced.addEventListener('change', update);
   resize();
-}
-
-export function initHolidayTheme() {
-  if (document.documentElement.dataset.season !== 'christmas') return;
-  const main = document.querySelector<HTMLElement>('#main-content');
-  const hero = document.querySelector<HTMLElement>('#top');
-  if (main && hero) snow(main, { color: '#9fb4d6', density: 9000, className: 'bwx-snow-top', height: () => hero.getBoundingClientRect().bottom - main.getBoundingClientRect().top });
-  const contact = document.querySelector<HTMLElement>('#contact');
-  if (contact) snow(contact, { color: '#ffffff', density: 5000, className: 'bwx-snow-contact' });
 }

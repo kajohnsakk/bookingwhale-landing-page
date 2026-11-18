@@ -370,17 +370,6 @@ html #bookingwhale .bwx-intro .bwx-intro-title{font-size:clamp(40px,6vw,80px)}
 @media(min-width:901px){html #bookingwhale .bw-nav a[href^="#"]:not(.bw-brand),html #bookingwhale .bw-nav summary,html #bookingwhale .bw-nav .bw-main-menu>.bw-business-nav>summary{font-size:14px}html #bookingwhale .bw-nav .bw-start-button{min-height:36px;padding-block:6px;font-size:14px}}
 @media(min-width:768px){html #bookingwhale #main-content :is(#top,#contact) .bw-button{min-height:44px;padding-block:10px;font-size:15px}html #bookingwhale #main-content #top h1{font-size:clamp(40px,3.6vw,48px)}html #bookingwhale #main-content #top .bw-lead{font-size:18px}html #bookingwhale #main-content #top .bw-hero-description{font-size:16px}html #bookingwhale #main-content :is(#clients h2,#how h2,#faq h2,#business .bw-heading h2,#contact h2){font-size:clamp(30px,2.6vw,36px)}html #bookingwhale #main-content #features .bw-flow-chapter h3{font-size:clamp(30px,2.6vw,36px)}html #bookingwhale #main-content :is(#features .bw-flow-chapter p,#clients .bwx-clients-lead,#business .bw-business-context,#faq summary,#faq details p,#contact p){font-size:16px}html #bookingwhale #main-content :is(#how h3,#business .bw-industry-graphic h3,#business .bwx-card h3,#business h3){font-size:19px}}
 
-#bookingwhale .bwx-season-greeting{display:none}
-html[data-season=christmas] #bookingwhale .bwx-season-greeting{display:inline-flex;align-items:center;gap:8px;margin:0 0 6px;padding:6px 14px 6px 12px;border-radius:999px;background:#fdeef0;color:#c4122f;font-size:14px;font-weight:600;line-height:1.4;letter-spacing:0}
-html[data-season=christmas] #bookingwhale .bwx-season-greeting svg{flex:none;width:16px;height:16px}
-html[data-season=christmas] #bookingwhale #main-content{position:relative}
-#bookingwhale .bwx-snow{position:absolute;top:0;left:0;z-index:1;display:block;width:100%;pointer-events:none}
-#bookingwhale #contact .bwx-snow-contact{z-index:0;height:100%}
-html[data-season=christmas] #bookingwhale #contact>:not(.bwx-snow){position:relative;z-index:1}
-html[data-season=christmas] #bookingwhale .bw-nav .bw-nav-mark{position:relative;overflow:visible}
-html[data-season=christmas] #bookingwhale .bw-nav .bw-nav-mark>.bw-nav-favicon{border-radius:inherit}
-html[data-season=christmas] #bookingwhale .bw-nav .bw-nav-mark::after{content:"";position:absolute;top:-13px;right:-10px;width:26px;height:23px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 30'%3E%3Cpath d='M5 23C8 12 15 4 27 6c-2 6-1 11 2 17Z' fill='%23d62839'/%3E%3Cpath d='M13 9c4-3 9-4 13-3' stroke='%23ff6b78' stroke-width='1.5' fill='none' stroke-linecap='round' opacity='.7'/%3E%3Crect x='2' y='20' width='29' height='8' rx='4' fill='%23fff' stroke='%23e3e6ea'/%3E%3Ccircle cx='28' cy='6' r='4' fill='%23fff' stroke='%23e3e6ea'/%3E%3C/svg%3E") center/contain no-repeat;transform:rotate(16deg);pointer-events:none}
-html[data-season=christmas] #bookingwhale .bw-hero-live .bw-hero-underline{color:#d62839}
 @media(min-width:734px){#bookingwhale #main-content #clients .bwx-clients-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:40px}#bookingwhale #main-content #clients .bwx-tile-media{aspect-ratio:3/2;border-radius:20px}}
 @media(min-width:1068px){#bookingwhale #main-content #clients .bwx-clients-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(min-width:734px){}
