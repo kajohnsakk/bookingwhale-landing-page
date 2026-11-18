@@ -22,7 +22,6 @@ import Avatar from './Avatar.astro';
       <div class="bw-mobile-story-history"><Icon name="clock" /><div><strong>ประวัติการจอง</strong><span><span>24 ต.ค.</span> · <span data-demo-time>19:00 – 20:00</span></span></div></div>
     </div>
     </div>
-    <div class="bw-mobile-story-progress" aria-hidden="true"><span class="is-active"></span><span></span><span></span></div>
   <ol class="bw-mobile-story-steps">
     <li class="bw-mobile-story-step is-active" data-story-step="0"><span class="bw-mobile-story-index" aria-hidden="true">01</span><h3>เลือกวันและเวลา</h3><p>ลูกค้าเลือกรอบที่เปิดผ่าน LINE OA ลดแชทถามเวลาว่าง</p></li>
     <li class="bw-mobile-story-step" data-story-step="1"><span class="bw-mobile-story-index" aria-hidden="true">02</span><h3>จองเรียบร้อย</h3><p>วัน เวลา และจำนวนคน รวมอยู่ในรายการเดียว</p></li>
@@ -42,9 +41,6 @@ import Avatar from './Avatar.astro';
     #bookingwhale .bw-mobile-story-visuals { display:grid; }
     #bookingwhale #features .bw-mobile-story-visuals > .bw-mobile-story-visual { grid-area:1 / 1; align-self:stretch; min-width:0; opacity:0; visibility:hidden; transform:translateY(10px) scale(.985); transition:opacity .45s ease, transform .5s cubic-bezier(.2,.8,.2,1), visibility 0s linear .45s; }
     #bookingwhale #features .bw-mobile-story-visuals > .bw-mobile-story-visual.is-active { opacity:1; visibility:visible; transform:none; transition:opacity .45s ease, transform .5s cubic-bezier(.2,.8,.2,1), visibility 0s; }
-    #bookingwhale .bw-mobile-story-progress { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
-    #bookingwhale .bw-mobile-story-progress > span { height:3px; border-radius:3px; background:#e8e8ed; overflow:hidden; position:relative; }
-    #bookingwhale .bw-mobile-story-progress > span::after { content:""; position:absolute; inset:0; border-radius:inherit; background:var(--bw-blue); transform:scaleX(var(--fill,0)); transform-origin:0 50%; }
     #bookingwhale .bw-mobile-story-steps { display:grid; margin:0; padding:0; list-style:none; }
     #bookingwhale #features .bw-mobile-story-step { grid-area:1 / 1; display:grid; align-content:start; gap:4px; margin:0; padding:0; border:0; background:none; opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity .4s ease, transform .45s cubic-bezier(.2,.8,.2,1), visibility 0s linear .4s; }
     #bookingwhale #features .bw-mobile-story-step.is-active { opacity:1; visibility:visible; transform:none; transition:opacity .4s ease .05s, transform .45s cubic-bezier(.2,.8,.2,1) .05s, visibility 0s; }
@@ -55,6 +51,7 @@ import Avatar from './Avatar.astro';
     #bookingwhale .bw-mobile-story-track > span { display:block; height:42svh; }
     #bookingwhale .bw-mobile-story-track > span:last-child { height:22svh; }
     #bookingwhale .bw-mobile-story-visual { padding:20px; border:1px solid var(--bw-line); border-radius:22px; background:#fff; color:var(--bw-ink); font-size:14px; line-height:1.5; }
+    #bookingwhale #features .bw-mobile-story-visual:is([data-story-visual="1"], [data-story-visual="2"]) { display:flex; flex-direction:column; justify-content:center; }
     #bookingwhale .bw-mobile-story-visual svg { flex:none; width:20px; height:20px; }
     #bookingwhale .bw-mobile-story-shop { display:flex; align-items:center; gap:10px; padding-bottom:16px; border-bottom:1px solid var(--bw-line); }
     #bookingwhale .bw-mobile-story-shop > span { margin-left:auto; color:var(--bw-muted); font-size:11px; }

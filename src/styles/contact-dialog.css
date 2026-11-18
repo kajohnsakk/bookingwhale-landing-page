@@ -68,3 +68,14 @@
 #bookingwhale .bw-dialog-channel{padding-inline:14px}
 }
 @media(prefers-reduced-motion:reduce){#bookingwhale .bw-dialog-line{transition:none}}
+#bookingwhale .bw-dialog-channel{background:#f5f6f8}
+#bookingwhale .bw-dialog-email{color:#46556a;font-size:14px}
+#bookingwhale .bw-dialog-email a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:#c5ccd6}
+@media(min-width:601px){
+#bookingwhale .bw-contact-dialog #contact-dialog-title{margin-top:4px}
+#bookingwhale .bw-dialog-channel{padding:16px 22px 14px}
+#bookingwhale .bw-dialog-illustration{width:210px;height:176px;margin-bottom:10px}
+#bookingwhale .bw-dialog-channel-actions :is(.bw-dialog-phone-primary,.bw-dialog-line){min-width:220px;min-height:48px;padding:8px 22px}
+#bookingwhale .bw-dialog-channel-actions .bw-dialog-phone-secondary{font-size:13px}
+}
+@media(max-width:600px){#bookingwhale .bw-dialog-channel{background:transparent}}

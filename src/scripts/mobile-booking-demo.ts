@@ -4,7 +4,6 @@ export function initMobileBookingDemo() {
   root.dataset.ready = 'true';
   const stage = root.querySelector<HTMLElement>('.bw-mobile-story-stage')!;
   const spacers = [...root.querySelectorAll<HTMLElement>('[data-story-spacer]')];
-  const bars = [...root.querySelectorAll<HTMLElement>('.bw-mobile-story-progress > span')];
   const visuals = [...root.querySelectorAll<HTMLElement>('[data-story-visual]')];
   const steps = [...root.querySelectorAll<HTMLElement>('[data-story-step]')];
   const slots = [...root.querySelectorAll<HTMLButtonElement>('[data-demo-slot]')];
@@ -112,7 +111,6 @@ export function initMobileBookingDemo() {
     const progress = Math.min(1, Math.max(0, (stickTop - root.getBoundingClientRect().top) / travel));
     const position = progress * steps.length;
     const index = Math.min(steps.length - 1, Math.floor(position));
-    bars.forEach((bar, i) => bar.style.setProperty('--fill', String(Math.min(1, Math.max(0, position - i)))));
     activate(index);
   };
   const request = () => { if (!frame) frame = requestAnimationFrame(sync); };
