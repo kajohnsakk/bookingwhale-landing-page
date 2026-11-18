@@ -450,7 +450,8 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
       track.classList.add('is-spread-track');
       cleanups.push(()=>{heroSection.classList.remove('is-spread-ready');track.classList.remove('is-spread-track');});
       const cards=qa('.bw-spread-card');
-      const positions=[[3,9,-8],[7,32,6],[2,55,-5],[6,78,7],[80,7,8],[76,30,-6],[81,53,5],[77,76,-7]];
+      const positions=[[0,-.07,-3],[0,.47,2],[1,.17,2],[1,.71,-2],[1,.09,3],[1,.63,-2],[0,-.03,-2],[0,.51,3]];
+      const cue=spread.querySelector('.bw-spread-cue');
       const split=gsap.timeline({scrollTrigger:{id:'hero-spread',trigger:track,start:'top top',end:'bottom bottom',scrub:.55,invalidateOnRefresh:true,onUpdate:self=>{settleFastScroll(self);revealHeroAnnotation();}}});
       gsap.set(spread.querySelector('.bw-spread-heading'),{autoAlpha:0,x:0,xPercent:-50,yPercent:-50,y:24});
       cards.forEach(card=>gsap.set(card,{left:'50%',top:'50%',x:0,y:0,xPercent:-50,yPercent:-50,scale:.65,autoAlpha:0}));
@@ -468,12 +469,22 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
         .to(bookingFrame,{y:()=>-heroSection.clientHeight*.85,autoAlpha:0,duration:.65,ease:'power2.in'},.72)
         .to(successFrame,{y:()=>heroSection.clientHeight*.85,autoAlpha:0,duration:.65,ease:'power2.in'},.78)
         .to(heroSection.querySelector('.bw-hero-live-spm'),{x:()=>heroSection.clientWidth*.65,autoAlpha:0,duration:.65,ease:'power2.in'},.84);
+      if(cue)gsap.set(cue,{autoAlpha:0});
       cards.forEach((card,i)=>{
-        const [x,y,rotation]=positions[i];
-        const fit=(size,box,pct,start)=>Math.min(Math.max(box*pct/100,start),box-size-24)-box/2;
-        split.to(card,{x:()=>fit(card.offsetWidth,spread.clientWidth,x,24),y:()=>fit(card.offsetHeight,spread.clientHeight,y,88),xPercent:0,yPercent:0,scale:1,rotation,autoAlpha:1,duration:.65,ease:'power2.inOut'},.95+i*.025);
+        const [column,top,rotation]=positions[i];
+        const right=i>=cards.length/2;
+        const x=()=>{
+          const width=card.offsetWidth;
+          const bleed=window.innerWidth<1200?.35:.25;
+          const edge=column===0?-width*bleed:width*(1-bleed)+16;
+          const left=right?window.innerWidth-edge-width:edge;
+          return left-spread.getBoundingClientRect().left-spread.clientWidth/2;
+        };
+        split.to(card,{x,y:()=>spread.clientHeight*(top-.5),xPercent:0,yPercent:0,scale:1,rotation,autoAlpha:1,duration:.65,ease:'power2.inOut'},.95+i*.025);
       });
-      split.to(spread.querySelector('.bw-spread-heading'),{autoAlpha:1,y:0,duration:.35},1.35).to({},{duration:.3});
+      split.to(spread.querySelector('.bw-spread-heading'),{autoAlpha:1,y:0,duration:.35},1.35);
+      if(cue)split.to(cue,{autoAlpha:1,duration:.3},1.5);
+      split.to({},{duration:.3});
     }
     if(window.innerWidth<=900&&!reduced){
       const stage=q('.bw-hero-live-stage[data-static]');

@@ -12,6 +12,7 @@ const examples=[
 ] as const;
 ---
 <div class="bw-hero-spread">
- <div class="bw-spread-heading"><p>ระบบจองเดียว</p><h2>ปรับให้เข้ากับ<br/><em>ธุรกิจของคุณ</em></h2><span>จองบริการ จองคลาส จองรอบที่สะดวก</span><a href="#business">ดูรูปแบบการจอง <Icon name="arrow-down"/></a></div>
+ <div class="bw-spread-heading"><p>ระบบจองเดียว</p><h2>ปรับให้เข้ากับ<br/><em>ธุรกิจของคุณ</em></h2><span>จองบริการ จองคลาส จองรอบที่สะดวก</span></div>
  <div class="bw-spread-cards" tabindex="0" role="group" aria-label="ตัวอย่างบริการที่จองได้">{examples.map((item,i)=><article class="bw-spread-card" data-spread-index={i}><header><Icon name={item.icon}/><span>{item.title}</span></header><strong>{item.service}</strong><div class="bw-spread-slot"><span>24 ต.ค.</span><b>{item.time}</b><Icon name="check"/></div><p>{item.detail}</p></article>)}</div>
+ <a class="bw-spread-cue" href="#business">ดูรูปแบบการจอง <Icon name="chevrons-down"/></a>
 </div>
