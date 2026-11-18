@@ -2,7 +2,7 @@
 import Icon from "./Icon.astro";
 import { localeFromPath } from "../i18n";
 const locale=localeFromPath(Astro.url.pathname);
-const captures=`/assets/product-captures/${locale}/`;
+const captures=`/assets/product-captures/v2/${locale}/`;
 ---
 <section id="contact" class="bw-container bw-contact bw-contact-showcase bw-contact-banner">
   <div class="bw-contact-copy"><span class="bw-eyebrow">BOOKING WHALE</span><h2>ให้ลูกค้าจองง่าย<br><em>ให้ร้านจัดการคล่อง</em></h2><p><span class="bw-copy-sentence">เล่ารูปแบบการจองของร้านคุณ</span> <span class="bw-copy-sentence">เราจะพาดูตัวอย่างและเช็กความเหมาะสมก่อนเริ่ม</span></p><div class="bw-contact-actions"><a class="bw-button bw-primary bw-start-button" data-contact-open href="https://bookingwhale.co/contact" aria-haspopup="dialog" aria-controls="contact-dialog"><span>เริ่มใช้งาน</span><span class="bw-start-arrow" aria-hidden="true"><Icon name="arrow-right" /></span></a></div></div>

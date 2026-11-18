@@ -20,9 +20,9 @@ for(const person of ['emma-wilson','daniel-carter'])for(const width of [72,128])
 }
 for(const locale of ['en','th','zh'])for(const screen of ['merchant','booking','success']){
  for(const width of screen==='merchant'?[400,600,640,800,1200]:[200,300,390,600]){
-  await sharp(publicFile(`assets/hero-screens/${locale}/${screen}.webp`).pathname)
+  await sharp(publicFile(`assets/hero-screens-v2/${locale}/${screen}.webp`).pathname)
     .resize({width})
     .webp({quality:90,effort:6})
-    .toFile(publicFile(`assets/hero-screens/${locale}/${screen}-${width}.webp`).pathname);
+    .toFile(publicFile(`assets/hero-screens-v2/${locale}/${screen}-${width}.webp`).pathname);
  }
 }

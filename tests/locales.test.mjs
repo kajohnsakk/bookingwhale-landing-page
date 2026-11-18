@@ -16,7 +16,7 @@ for(const [locale,path,lang,cta] of [['en','en/index.html','en','Get started'],[
   assert.equal(ids.length,new Set(ids).size);
   for(const [,id]of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(id));
   for(const name of ['booking','merchant','success']){
-   assert.ok(html.includes(`/assets/hero-screens/${locale}/${name}.webp`));
+   assert.ok(html.includes(`/assets/hero-screens-v2/${locale}/${name}.webp`));
    const preview=read(`previews/${locale}/${name}.html`);
    assert.doesNotMatch(preview,/<script\b/);
    if(locale!=='th')assert.equal(copy(preview).some(text=>/[ก-๛]/.test(text.replaceAll('฿',''))),false);

@@ -16,6 +16,7 @@ For production hosting:
 - Enable Brotli or gzip for HTML, CSS, JavaScript, JSON and SVG responses. WOFF2 and WebP are already compressed.
 - Content-hashed `/_astro/` assets can use `Cache-Control: public, max-age=31536000, immutable`.
 - HTML should revalidate, for example with `Cache-Control: no-cache` and ETag support.
+- Hero and contact screenshots live in versioned folders (`/assets/hero-screens-v2/`, `/assets/product-captures/v2/`). When the screenshots are regenerated, rename the folder to the next version and update the paths, so browsers that cached the old images for a year fetch the new ones.
 - `/assets/` names are not all content-hashed. Use revalidation or a bounded cache lifetime, and purge changed files on release. Do not apply immutable year-long caching to those paths without versioning their URLs.
 - Preserve the Google verification file and existing legal/article routes when deploying.
 

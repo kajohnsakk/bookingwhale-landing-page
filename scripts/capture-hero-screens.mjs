@@ -15,7 +15,7 @@ try{
     await Promise.all(Array.from(document.images,image=>image.decode()));
    });
    const capture=await page.screenshot();
-   const folder=new URL(`../public/assets/hero-screens/${locale}/`,import.meta.url);
+   const folder=new URL(`../public/assets/hero-screens-v2/${locale}/`,import.meta.url);
    await mkdir(folder,{recursive:true});
    await sharp(capture).webp({quality:82}).toFile(new URL(`${screen}.webp`,folder).pathname);
    const placeholder=await sharp(capture).resize({width:screen==='merchant'?320:120}).webp({quality:45}).toBuffer();

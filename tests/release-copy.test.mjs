@@ -15,7 +15,7 @@ test('primary CTA wording and contact imagery match each page language', () => {
     assert.ok(buttons.length >= 3);
     for (const button of buttons) assert.equal(text(button).trim(), cta);
     for (const image of ['customer-booking', 'merchant-bookings']) {
-      const source = `/assets/product-captures/${locale}/${image}.webp`;
+      const source = `/assets/product-captures/v2/${locale}/${image}.webp`;
       assert.ok(html.includes(source));
       assert.ok(existsSync(new URL(`../dist${source}`, import.meta.url)));
     }

@@ -6,7 +6,7 @@ const html = readFileSync(new URL('../dist/index.html', import.meta.url), 'utf8'
 test('responsive hero candidates have accurate width descriptors and matching preloads', async () => {
   for(const locale of ['en','th','zh']){
     const page=readFileSync(new URL(`../dist/${locale==='th'?'':locale+'/'}index.html`,import.meta.url),'utf8');
-    const images=[...page.matchAll(/<img\b[^>]*src="(\/assets\/hero-screens\/[^\"]+)"[^>]*>/g)];
+    const images=[...page.matchAll(/<img\b[^>]*src="(\/assets\/hero-screens-v2\/[^\"]+)"[^>]*>/g)];
     const preload=page.match(/<link\b[^>]*as="image"[^>]*>/)[0];
     for(const [tag,src] of images){
       const srcset=tag.match(/srcset="([^"]+)"/)[1];
@@ -52,10 +52,10 @@ test('local assets used by the document exist', () => {
 test('hero screens have eager images and embedded fallbacks without waiting for JavaScript', () => {
   for (const locale of ['en','th','zh']) {
     const page=readFileSync(new URL(`../dist/${locale==='th'?'':locale+'/'}index.html`,import.meta.url),'utf8');
-    const images=[...page.matchAll(/<img\b[^>]*src="(\/assets\/hero-screens\/[^\"]+)"[^>]*>/g)];
+    const images=[...page.matchAll(/<img\b[^>]*src="(\/assets\/hero-screens-v2\/[^\"]+)"[^>]*>/g)];
     assert.equal(images.length,3);
     for(const [tag,src] of images){
-      assert.ok(src.startsWith(`/assets/hero-screens/${locale}/`));
+      assert.ok(src.startsWith(`/assets/hero-screens-v2/${locale}/`));
       assert.match(tag,/loading="eager"/);
       assert.match(tag,/width="\d+" height="\d+"/);
       assert.ok(existsSync(new URL('../dist'+src,import.meta.url)));
