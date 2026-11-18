@@ -2,13 +2,37 @@
 import Icon from "./Icon.astro";
 import { clients } from "../data/clients";
 import { seasons } from "../data/seasons";
+import { localeFromPath } from "../i18n";
+const locale = localeFromPath(Astro.url.pathname);
 const named = clients.slice(0, 2);
 const more = clients.length - named.length;
 const logos = clients.filter(client => client.avatar).slice(0, 4);
 ---
 <section class="bwx-intro" aria-label="Booking Whale">
   <div class="bwx-intro-inner">
-    {seasons.map(season => <p class="bwx-intro-eyebrow bwx-season-greeting" data-season-greeting={season.id}><Icon name={season.icon} /><span>{season.greeting}</span></p>)}
+    {seasons.map(season => (
+      <p class="bwx-intro-eyebrow bwx-season-greeting" data-season-greeting={season.id}>
+        <Icon name={season.icon} /><span class="bwx-season-text">{season.greeting}</span>
+        {season.countdown && (
+          <>
+            <span class="bwx-cd" aria-hidden="true">
+              <span class="bwx-cd-title"><i>✦</i>{season.countdown.title[locale]}</span>
+              <span class="bwx-cd-row">
+                <span class="bwx-cd-unit"><span class="bwx-cd-num" data-cd="days">00</span><span class="bwx-cd-label">{season.countdown.units[locale][0]}</span></span>
+                <span class="bwx-cd-sep">·</span>
+                {(['hours', 'minutes', 'seconds'] as const).map((part, index) => (
+                  <>
+                    {index > 0 && <span class="bwx-cd-sep">:</span>}
+                    <span class="bwx-cd-unit"><span class="bwx-cd-num" data-cd={part}><span data-digit><span>0</span></span><span data-digit><span>0</span></span></span><span class="bwx-cd-label">{season.countdown!.units[locale][index + 1]}</span></span>
+                  </>
+                ))}
+              </span>
+            </span>
+            <span class="bw-visually-hidden bwx-cd-summary"></span>
+          </>
+        )}
+      </p>
+    ))}
     <p class="bwx-intro-title">Booking Whale</p>
     <a class="bwx-proof" href="#clients">
       {logos.length > 0 && (

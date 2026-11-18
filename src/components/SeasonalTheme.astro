@@ -2,7 +2,7 @@
 import { seasons } from '../data/seasons';
 import '../styles/seasons/base.css';
 import '../styles/seasons/christmas.css';
-const ranges = seasons.map(({ id, start, end }) => ({ id, start, end }));
+const ranges = seasons.map(({ id, start, end, countdown }) => ({ id, start, end, to: countdown?.to }));
 ---
-<script is:inline define:vars={{ ranges }}>(function(){var requested=new URLSearchParams(location.search).get('theme');var now=new Date();var today=String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');var active=ranges.find(function(r){if(requested)return r.id===requested;return r.start<=r.end?today>=r.start&&today<=r.end:today>=r.start||today<=r.end;});if(active)document.documentElement.dataset.season=active.id;})();</script>
+<script is:inline define:vars={{ ranges }}>(function(){var root=document.documentElement;var requested=new URLSearchParams(location.search).get('theme');var now=new Date();var today=String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');var active=ranges.find(function(r){if(requested)return r.id===requested;return r.start<=r.end?today>=r.start&&today<=r.end:today>=r.start||today<=r.end;});if(!active)return;root.dataset.season=active.id;if(active.to&&today>=active.start&&today<active.to)root.dataset.seasonPhase='countdown';})();</script>
 <script>import { initSeason } from "../scripts/seasons"; initSeason();</script>

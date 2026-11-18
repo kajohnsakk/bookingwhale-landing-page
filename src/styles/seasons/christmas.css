@@ -1,4 +1,6 @@
-html[data-season=christmas] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas]{display:inline-flex;align-items:center;gap:8px;margin:0 0 6px;padding:6px 14px 6px 12px;border-radius:999px;background:#fdeef0;color:#c4122f;font-size:14px;font-weight:600;line-height:1.4;letter-spacing:0}
+html[data-season=christmas] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas]{display:inline-flex;align-items:center;gap:10px;margin:0 0 8px;padding:0;background:none;color:#b3122b;font-size:15px;font-weight:600;line-height:1.4;letter-spacing:.02em}
+html[data-season=christmas] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas]>svg{display:none}
+html[data-season=christmas] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas]::before,html[data-season=christmas] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas]::after{content:"✦";color:#c9a24a;font-size:13px}
 html[data-season=christmas] #bookingwhale .bwx-season-greeting svg{flex:none;width:16px;height:16px}
 html[data-season=christmas] #bookingwhale #main-content{position:relative}
 html[data-season=christmas] #bookingwhale #contact>:not(.bwx-snow){position:relative;z-index:1}
@@ -6,3 +8,97 @@ html[data-season=christmas] #bookingwhale .bw-nav .bw-nav-mark{position:relative
 html[data-season=christmas] #bookingwhale .bw-nav .bw-nav-mark>.bw-nav-favicon{border-radius:inherit}
 html[data-season=christmas] #bookingwhale .bw-nav .bw-nav-mark::after{content:"";position:absolute;top:-13px;right:-10px;width:26px;height:23px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 30'%3E%3Cpath d='M5 23C8 12 15 4 27 6c-2 6-1 11 2 17Z' fill='%23d62839'/%3E%3Cpath d='M13 9c4-3 9-4 13-3' stroke='%23ff6b78' stroke-width='1.5' fill='none' stroke-linecap='round' opacity='.7'/%3E%3Crect x='2' y='20' width='29' height='8' rx='4' fill='%23fff' stroke='%23e3e6ea'/%3E%3Ccircle cx='28' cy='6' r='4' fill='%23fff' stroke='%23e3e6ea'/%3E%3C/svg%3E") center/contain no-repeat;transform:rotate(16deg);pointer-events:none}
 html[data-season=christmas] #bookingwhale .bw-hero-live .bw-hero-underline{color:#d62839}
+html[data-season=christmas][data-season-phase=countdown] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas]{display:inline-flex;flex-direction:column;align-items:center;margin:0 0 10px;padding:0;background:none}
+html[data-season=christmas][data-season-phase=countdown] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas]>:is(svg,.bwx-season-text){display:none}
+html[data-season=christmas][data-season-phase=countdown] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas] .bwx-cd{display:flex}
+html[data-season=christmas] #bookingwhale .bwx-cd{flex-direction:column;align-items:center;gap:6px}
+html[data-season=christmas] #bookingwhale .bwx-cd-title{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;line-height:1.4;letter-spacing:.02em;color:#b3122b}
+html[data-season=christmas] #bookingwhale .bwx-cd-title i{display:inline-block;font-style:normal;color:#c9a24a;animation:bwx-twinkle 2.6s ease-in-out infinite}
+html[data-season=christmas] #bookingwhale .bwx-cd-row{position:relative;display:flex;align-items:flex-start;gap:10px}
+html[data-season=christmas] #bookingwhale .bwx-cd-unit{display:flex;flex-direction:column;align-items:center;min-width:2.4em}
+html[data-season=christmas] #bookingwhale .bwx-cd-num{display:inline-flex;justify-content:center;font-size:30px;font-weight:700;line-height:1.1;letter-spacing:-.01em;color:#1b5e3b;font-variant-numeric:tabular-nums;opacity:0;transition:opacity .5s ease}
+html[data-season=christmas] #bookingwhale .bwx-cd.is-live .bwx-cd-num{opacity:1}
+html[data-season=christmas] #bookingwhale .bwx-cd-label{margin-top:2px;font-size:11px;font-weight:500;line-height:1.3;color:#6e6e73}
+html[data-season=christmas] #bookingwhale .bwx-cd-sep{font-size:24px;font-weight:600;line-height:1.3;color:#c9a24a}
+html[data-season=christmas] #bookingwhale .bwx-cd [data-digit]{position:relative;display:inline-block;width:1ch;height:1.1em;overflow:hidden;text-align:center}
+html[data-season=christmas] #bookingwhale .bwx-cd [data-digit]>span{display:block;line-height:1.1em}
+html[data-season=christmas] #bookingwhale .bwx-cd [data-digit]>.is-entering{position:absolute;inset:0}
+html[data-season=christmas] #bookingwhale .bwx-cd-spark{position:absolute;width:7px;height:7px;background:#c9a24a;pointer-events:none;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+html[data-season=christmas] #bookingwhale .bwx-cd-spark:nth-child(3n){background:#d62839}
+@media(max-width:600px){html[data-season=christmas] #bookingwhale .bwx-cd-num{font-size:24px}html[data-season=christmas] #bookingwhale .bwx-cd-sep{font-size:20px}html[data-season=christmas] #bookingwhale .bwx-cd-row{gap:6px}html[data-season=christmas] #bookingwhale .bwx-cd-unit{min-width:2.1em}}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale .bwx-cd-num{transition:none}}
+html[data-season=christmas][data-season-phase=countdown] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas]::before,html[data-season=christmas][data-season-phase=countdown] #bookingwhale .bwx-season-greeting[data-season-greeting=christmas]::after{content:none}
+@keyframes bwx-twinkle{0%,100%{opacity:.45;transform:scale(.85)}50%{opacity:1;transform:scale(1.15)}}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale .bwx-cd-title i{animation:none;opacity:1}}
+html[data-season=christmas] #bookingwhale #main-content :is(.bw-eyebrow,.bwx-eyebrow):has(+ h2)::before{content:"✦";margin-right:6px;color:#c9a24a}
+html[data-season=christmas] #bookingwhale #main-content #contact .bw-eyebrow:has(+ h2)::before{color:#f4d77a}
+html[data-season=christmas] .bwx-page-snow{position:fixed;inset:0;z-index:60;display:none;pointer-events:none}
+html[data-season=christmas] .bwx-page-snow.is-visible{display:block;animation:bwx-fade-in .8s ease both}
+html[data-season=christmas] .bwx-page-snow .bwx-snow{position:absolute;inset:0;width:100%}
+html[data-season=christmas] #bookingwhale #contact>.bwx-band-star{position:absolute;z-index:1;width:var(--size);height:var(--size);margin:calc(var(--size) / -2) 0 0 calc(var(--size) / -2);background:#f4d77a;opacity:0;pointer-events:none;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%)}
+html[data-season=christmas] #bookingwhale #contact.bwx-stars-on>.bwx-band-star{animation:bwx-star-in .8s ease-out calc(var(--i) * .12s) both,bwx-star-twinkle 3.2s ease-in-out calc(1s + var(--i) * .4s) infinite}
+@keyframes bwx-fade-in{from{opacity:0}to{opacity:1}}
+@keyframes bwx-star-in{from{opacity:0;transform:scale(.3) rotate(-45deg)}to{opacity:.9;transform:none}}
+@keyframes bwx-star-twinkle{0%,100%{opacity:.9;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale #contact.bwx-stars-on>.bwx-band-star{animation:none;opacity:.9}html[data-season=christmas] .bwx-page-snow.is-visible{animation:none}}
+html[data-season=christmas] #bookingwhale .bwx-button-flake{position:absolute;top:-2px;z-index:2;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 0 .5px #c9d6ea;pointer-events:none}
+html[data-season=christmas] #bookingwhale .bw-start-button{position:relative}
+html[data-season=christmas] #bookingwhale .bwx-button-snow{position:absolute;left:0;z-index:1;overflow:visible;pointer-events:none}
+html[data-season=christmas] #bookingwhale #bw-back-to-top.bwx-snowman-button,html[data-season=christmas] #bookingwhale #bw-back-to-top.bwx-snowman-button:hover{overflow:visible;background:transparent;box-shadow:none}
+html[data-season=christmas] #bookingwhale #bw-back-to-top.bwx-snowman-button>svg:not(.bwx-snowman){display:none}
+html[data-season=christmas] #bookingwhale #bw-back-to-top .bwx-snowman{position:absolute;left:50%;bottom:-6px;width:62px;height:74px;translate:-50% 0;overflow:visible}
+html[data-season=christmas] #bookingwhale #bw-back-to-top[data-visible] .bwx-snowman{transform-origin:50% 100%;animation:bwx-sway 4.6s ease-in-out infinite}
+html[data-season=christmas] #bookingwhale .bwx-snowman-eyes{transform-origin:40px 35px}
+html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman-eyes{animation:bwx-blink 1.6s ease-in-out infinite}
+html[data-season=christmas] #bookingwhale .bwx-snowman-scarf{transform-origin:47px 52px}
+html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman-scarf{animation:bwx-scarf 1.2s ease-in-out infinite}
+html[data-season=christmas] #bookingwhale .bwx-snowman-arm-right{transform-origin:58px 64px}
+html[data-season=christmas] #bookingwhale #bw-back-to-top.bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman{animation:bwx-hop .6s cubic-bezier(.3,1.6,.5,1)}
+html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman-arm-right{animation:bwx-wave .45s ease-in-out 2}
+@keyframes bwx-sway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+@keyframes bwx-blink{0%,90%,100%{transform:scaleY(1)}94%{transform:scaleY(.1)}}
+@keyframes bwx-scarf{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(8deg)}}
+@keyframes bwx-hop{0%,100%{translate:-50% 0}40%{translate:-50% -7px}}
+@keyframes bwx-wave{0%,100%{transform:rotate(0)}50%{transform:rotate(-28deg)}}
+@media(max-width:750px){html[data-season=christmas] #bookingwhale #bw-back-to-top .bwx-snowman{width:50px;height:60px;bottom:-4px}}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale :is(.bwx-snowman-sway,.bwx-snowman-eyes,.bwx-snowman-scarf,.bwx-snowman-arm-right),html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman{animation:none}}
+html[data-season=christmas] #bookingwhale .bwx-snowman-hat{transform-origin:40px 14px}
+html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman-hat{animation:bwx-spin 3s linear infinite}
+html[data-season=christmas] #bookingwhale .bwx-snowman-spark-late{animation-delay:1.4s}
+@keyframes bwx-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale :is(.bwx-snowman-hat,.bwx-snowman-spark){animation:none}}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale .bwx-button-spark{animation:none}}
+html[data-season=christmas] #bookingwhale .is-spread-ready .bw-spread-card:nth-child(3n+1)::after{content:"❄";position:absolute;top:-9px;right:-7px;font-size:18px;line-height:1;color:#8fbdea;transform:rotate(14deg);pointer-events:none}
+html[data-season=christmas] #bookingwhale #business .bwx-snap::after{content:"";position:absolute;top:0;left:0;right:0;height:14px;pointer-events:none;opacity:0;transform:translateY(-6px);transition:opacity .35s ease,transform .35s ease;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 14'%3E%3Cpath d='M0 0h60v4c-3 0-4 2-6 2s-2 6-4 6-1-7-4-7-3 3-6 3-2-3-5-3-2 8-4 8-1-8-4-8-3 4-6 4-2-4-5-4-2 5-4 5-1-6-4-6-3 2-8 2z' fill='%23e3f0fd'/%3E%3C/svg%3E") top left/60px 14px repeat-x}
+html[data-season=christmas] #bookingwhale #business .bw-industry-graphic:is(:hover,:focus-within) .bwx-snap::after{opacity:1;transform:none}
+html[data-season=christmas] #bookingwhale #clients .bwx-pin-logo::after{content:"✦";position:absolute;top:-7px;right:-7px;font-size:20px;line-height:1;color:#c9a24a;animation:bwx-star-twinkle 3.2s ease-in-out calc(var(--i,0) * .9s) infinite}
+html[data-season=christmas] #bookingwhale #how .bwx-step-label>span::before{content:"❄";display:inline-block;margin-right:5px;color:#8fbdea;animation:bwx-spin 12s linear infinite}
+html[data-season=christmas] #bookingwhale #main-content #faq summary::after{content:"❄";font-size:15px;transition:transform .45s cubic-bezier(.3,1.4,.5,1),background-color .2s,color .2s}
+html[data-season=christmas] #bookingwhale #main-content #faq details[open] summary::after{content:"❄";transform:rotate(180deg)}
+html[data-season=christmas] #bookingwhale .bwx-burst{position:fixed;z-index:95;width:8px;height:8px;background:#c9a24a;pointer-events:none;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+html[data-season=christmas] #bookingwhale .bwx-burst:nth-child(odd){background:#8fbdea}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale #clients .bwx-pin-logo::after,html[data-season=christmas] #bookingwhale #how .bwx-step-label>span::before{animation:none}html[data-season=christmas] #bookingwhale #main-content #faq summary::after,html[data-season=christmas] #bookingwhale #business .bwx-snap::after{transition:none}}
+html[data-season=christmas] #bookingwhale .bwx-lights{position:absolute;left:28px;top:calc(100% - 3px);height:24px;overflow:visible;pointer-events:none}
+html[data-season=christmas] #bookingwhale .bwx-lights[data-phase="0"] .bwx-light-0{opacity:.35}
+html[data-season=christmas] #bookingwhale .bwx-lights[data-phase="1"] .bwx-light-1{opacity:.35}
+html[data-season=christmas] #bookingwhale .bwx-lights[data-phase="2"] .bwx-light-2{opacity:.35}
+html[data-season=christmas] #bookingwhale .bwx-lights[data-phase="3"] .bwx-light-3{opacity:.35}
+html[data-season=christmas] #bookingwhale .bwx-cd.is-live .bwx-cd-unit{animation:bwx-drop .7s cubic-bezier(.3,1.5,.5,1) both}
+html[data-season=christmas] #bookingwhale .bwx-cd.is-live .bwx-cd-unit:nth-of-type(3){animation-delay:.1s}
+html[data-season=christmas] #bookingwhale .bwx-cd.is-live .bwx-cd-unit:nth-of-type(5){animation-delay:.2s}
+html[data-season=christmas] #bookingwhale .bwx-cd.is-live .bwx-cd-unit:nth-of-type(7){animation-delay:.3s}
+@keyframes bwx-drop{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+html[data-season=christmas] #bookingwhale .bwx-sweep-host{position:relative}
+html[data-season=christmas] #bookingwhale .bwx-sweep{position:absolute;left:0;line-height:1;color:#8fbdea;pointer-events:none}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale .bwx-light,html[data-season=christmas] #bookingwhale .bwx-cd.is-live .bwx-cd-unit{animation:none}}
+html[data-season=christmas] #bookingwhale #clients .bwx-map::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:#cfe3fb;mix-blend-mode:color}
+html[data-season=christmas] #bookingwhale #clients .bwx-map-art{filter:brightness(1.03)}
+html[data-season=christmas] #bookingwhale #clients.is-live .bwx-pin-dot::after{background:rgba(111,168,230,.3);animation:bwx-dot-ripple 3.2s ease-out calc(var(--i) * 1s + .6s) infinite both}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale #clients.is-live .bwx-pin-dot::after{animation:none;opacity:0}}
+html[data-season=christmas] #bookingwhale #main-content #features .bw-flow-steps button[aria-pressed=true]::after{content:"❄";display:inline-block;position:static;width:auto;height:auto;margin-left:6px;background:none;color:#6fa8e6;font-size:13px;line-height:1;animation:bwx-spin 10s linear infinite}
+html[data-season=christmas] #bookingwhale #features .bw-mobile-story-step.is-active .bw-mobile-story-index::after{content:"❄";display:inline-block;margin-left:6px;color:#6fa8e6;animation:bwx-spin 10s linear infinite}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale #main-content #features .bw-flow-steps button[aria-pressed=true]::after,html[data-season=christmas] #bookingwhale #features .bw-mobile-story-step.is-active .bw-mobile-story-index::after{animation:none}}
+html[data-season=christmas] #bookingwhale .bwx-snowman-badge{transform-box:fill-box;transform-origin:center;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman-badge{transform:translateY(-2px) scale(1.08)}
+@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale .bwx-snowman-badge{transition:none}}
+html[data-season=christmas] #bookingwhale .bwx-resting,html[data-season=christmas] #bookingwhale .bwx-resting *,html[data-season=christmas] #bookingwhale .bwx-resting *::before,html[data-season=christmas] #bookingwhale .bwx-resting *::after{animation-play-state:paused!important}
