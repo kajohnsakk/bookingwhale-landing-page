@@ -17,7 +17,7 @@ export const productStories = {
 };
 
 export const productMotion = {
-  th: { label: 'ขั้นตอนการใช้งาน', pause: 'หยุดภาพสาธิต', play: 'เล่นภาพสาธิต', food: ['เลือกเวลาจอง', 'การจองเข้าร้าน', 'เตรียมโต๊ะ'], fitness: ['เลือกวัน', 'กำหนดรอบฝึก', 'เปิดรับตามจำนวน'], services: ['เปิดโปรไฟล์', 'ดูข้อมูลติดต่อ', 'ดูประวัติการจอง'], booking: 'จองโต๊ะมื้อเย็น', guests: '2 คน', received: 'ได้รับการจอง', ready: 'พร้อมเตรียมโต๊ะ', date: '26 ต.ค. · 19:00', service: 'จองโต๊ะ' },
-  en: { label: 'How it works', pause: 'Pause demo', play: 'Play demo', food: ['Choose a time', 'Receive booking', 'Prepare the table'], fitness: ['Choose a day', 'Set sessions', 'Open your slots'], services: ['Open profile', 'Contact details', 'Booking history'], booking: 'Dinner reservation', guests: '2 guests', received: 'Booking received', ready: 'Prepare the table', date: '26 Oct · 19:00', service: 'Table booking' },
-  zh: { label: '使用步骤', pause: '暂停演示', play: '播放演示', food: ['选择时间', '收到预约', '准备座位'], fitness: ['选择日期', '设置时段', '按人数开放预约'], services: ['打开档案', '查看联系方式', '查看预约记录'], booking: '晚餐预约', guests: '2 人', received: '已收到预约', ready: '准备接待', date: '10月26日 · 19:00', service: '餐桌预约' }
+  th: { label: 'ขั้นตอนการใช้งาน', food: ['เลือกเวลาจอง', 'การจองเข้าร้าน', 'เตรียมโต๊ะ'], fitness: ['เลือกวัน', 'กำหนดรอบฝึก', 'เปิดรับตามจำนวน'], services: ['เปิดโปรไฟล์', 'ดูข้อมูลติดต่อ', 'ดูประวัติการจอง'], booking: 'จองโต๊ะมื้อเย็น', guests: '2 คน', received: 'ได้รับการจอง', ready: 'พร้อมเตรียมโต๊ะ', date: '26 ต.ค. · 19:00', service: 'จองโต๊ะ' },
+  en: { label: 'How it works', food: ['Choose a time', 'Receive booking', 'Prepare the table'], fitness: ['Choose a day', 'Set sessions', 'Open your slots'], services: ['Open profile', 'Contact details', 'Booking history'], booking: 'Dinner reservation', guests: '2 guests', received: 'Booking received', ready: 'Prepare the table', date: '26 Oct · 19:00', service: 'Table booking' },
+  zh: { label: '使用步骤', food: ['选择时间', '收到预约', '准备座位'], fitness: ['选择日期', '设置时段', '按人数开放预约'], services: ['打开档案', '查看联系方式', '查看预约记录'], booking: '晚餐预约', guests: '2 人', received: '已收到预约', ready: '准备接待', date: '10月26日 · 19:00', service: '餐桌预约' }
 };

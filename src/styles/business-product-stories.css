@@ -97,12 +97,6 @@
 .proof-steps button[aria-pressed="true"]{color:var(--proof-ink);font-weight:600}
 .proof-steps button[aria-pressed="true"]::before{background:var(--proof-accent)}
 .proof-steps button[aria-pressed="true"]>span{color:var(--proof-accent)}
-.proof-play-toggle{appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 0 8px 8px;border:0;background:transparent;color:var(--proof-text);cursor:pointer;font:inherit;font-size:12px;white-space:nowrap}
-.proof-play-toggle svg{width:14px;height:14px;flex-shrink:0}
-.proof-play-toggle[hidden]{display:none}
-.proof-play-symbol{display:none;font-size:13px}
-.proof-play-toggle[data-paused="true"] .proof-pause-symbol{display:none}
-.proof-play-toggle[data-paused="true"] .proof-play-symbol{display:block}
 .proof-playback button:focus-visible{outline:2px solid #0747ff;outline-offset:3px}
 .proof-playback button:hover{color:var(--proof-accent)}
 .proof-restaurant-screen{position:relative;margin:0}

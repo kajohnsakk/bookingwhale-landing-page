@@ -5,13 +5,13 @@ export function initProductStories() {
     root.dataset.proofReady = 'true';
     const stage = root.querySelector<HTMLElement>('.proof-stage');
     const controls = root.querySelector<HTMLElement>('.proof-playback');
-    const toggle = root.querySelector<HTMLButtonElement>('.proof-play-toggle');
     const steps = [...root.querySelectorAll<HTMLButtonElement>('[data-proof-step]')];
-    if (!stage || !controls || !toggle) return;
+    if (!stage || !controls) return;
     let visible = false;
-    let paused = false;
     let phase = 0;
     let engaged = false;
+    let started = false;
+    let chosen = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
     const clear = () => {
       clearTimeout(timer);
@@ -20,16 +20,11 @@ export function initProductStories() {
     const render = () => {
       root.dataset.phase = String(phase);
       root.dataset.proofMotion = preference.matches ? 'reduced' : 'enabled';
-      toggle.dataset.paused = String(paused || preference.matches);
-      toggle.setAttribute('aria-label', (paused || preference.matches ? toggle.dataset.playLabel : toggle.dataset.pauseLabel) || '');
-      const toggleLabel = toggle.querySelector('.proof-toggle-label');
-      if (toggleLabel) toggleLabel.textContent = toggle.getAttribute('aria-label');
-      toggle.hidden = preference.matches;
       steps.forEach((step, index) => step.setAttribute('aria-pressed', String(index === phase)));
     };
     const schedule = () => {
       clear();
-      if (!visible || paused || engaged || preference.matches || document.hidden) return;
+      if (!visible || engaged || chosen || preference.matches || document.hidden) return;
       timer = setTimeout(() => {
         phase = (phase + 1) % 3;
         render();
@@ -38,15 +33,11 @@ export function initProductStories() {
     };
     steps.forEach((step, index) => step.addEventListener('click', () => {
       phase = index;
-      paused = true;
+      started = true;
+      chosen = true;
       render();
       schedule();
     }));
-    toggle.addEventListener('click', () => {
-      paused = !paused;
-      render();
-      schedule();
-    });
     stage.addEventListener('pointerenter', event => {
       if (event.pointerType !== 'mouse') return;
       engaged = true;
@@ -68,6 +59,11 @@ export function initProductStories() {
       const nextVisible = entries[0].isIntersecting && entries[0].intersectionRatio >= .25;
       if (visible === nextVisible) return;
       visible = nextVisible;
+      if (visible && !started && !preference.matches) {
+        started = true;
+        phase = 0;
+        render();
+      }
       schedule();
     }, {threshold: [0, .25], rootMargin: '-10% 0px -10% 0px'});
     observer.observe(stage);
