@@ -378,7 +378,6 @@ import { preserveGettingStartedPosition } from './preserve-how-position';
       });
     }
     if(context.conditions.mobile&&!reduced){
-      qa('.bw-mobile-story-visual').forEach(card=>onApproach(card,()=>gsap.fromTo(card,{y:12},{y:0,duration:.45,ease:'power2.out'})));
     }
     const heroSection=q('.bw-hero-live');
     const scrollCue=q('.bw-hero-watch .bw-action-icon');
