@@ -57,7 +57,7 @@ const money = (n: number) => new Intl.NumberFormat(locale === 'zh' ? 'zh-CN' : t
       </div>
       <p class="business-cost-disclaimer">{th ? 'ระบบจองอาจช่วยลดงานจัดการ แต่ไม่ได้รับประกันว่าจะลดการยกเลิกหรือเรียกคืนรายรับได้ทั้งหมด ตัวเลขนี้ไม่ใช่ยอดประหยัด และยังไม่หักค่าระบบ' : 'Booking software may reduce admin work, but does not guarantee fewer cancellations or recovered revenue. These figures are not promised savings and exclude software fees.'}</p>
       <details class="business-cost-method"><summary>{th ? 'ดูวิธีคำนวณ' : 'How this is calculated'}</summary><ul><li>{th ? 'ชั่วโมง = จำนวนการจอง × นาทีต่อรายการ ÷ 60' : 'Hours = bookings × minutes per booking ÷ 60'}</li><li>{th ? 'มูลค่าเวลาทำงาน = ชั่วโมง × ค่าเวลาต่อชั่วโมง ไม่ใช่ค่าใช้จ่ายใหม่ที่เพิ่มขึ้น' : 'Work-time value = hours × hourly cost. This is not an additional cash expense.'}</li><li>{th ? 'รายรับที่อาจพลาด = รายการที่ไม่ได้รับเงินและขายต่อไม่ได้ × รายรับเฉลี่ย ไม่รวมรายการที่รับเงินแล้วหรือมีลูกค้าทดแทน' : 'Potential missed revenue = unpaid, unfilled bookings × average revenue. Excludes paid or replacement bookings.'}</li></ul></details>
-      <a class="editorial-button" href={`${locale === 'th' ? '' : `/${locale}`}/contact/`} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{th ? 'ดูวิธีลดงานจองของคุณ' : 'Explore your booking setup'}<Icon name="arrow-right" /></a>
+      <a class="editorial-button" href={`${locale === 'th' ? '' : `/${locale}`}/contact/`}>{th ? 'ดูวิธีลดงานจองของคุณ' : 'Explore your booking setup'}<Icon name="arrow-right" /></a>
     </div>
   </div>
   <noscript><p>{th ? 'เปิด JavaScript เพื่อคำนวณด้วยตัวเลขของคุณ ขณะนี้แสดงค่าตัวอย่าง' : 'Enable JavaScript to calculate your own numbers. Example figures are shown above.'}</p></noscript>

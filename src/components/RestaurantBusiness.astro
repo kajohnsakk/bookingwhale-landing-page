@@ -88,7 +88,7 @@ const text = th ? {
       <span class="editorial-kicker">{text.kicker}</span>
       <h1>{text.title}<span>{text.accent}</span></h1>
       <p>{text.intro}</p>
-      <div class="restaurant-actions"><a class="editorial-button" href={prefix + '/contact/'} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{text.cta}<Icon name="arrow-right" /></a><a href="#restaurant-demo">{text.secondary}<Icon name="arrow-down" /></a></div>
+      <div class="restaurant-actions"><a class="editorial-button" href={prefix + '/contact/'}>{text.cta}<Icon name="arrow-right" /></a><a href="#restaurant-demo">{text.secondary}<Icon name="arrow-down" /></a></div>
       <p class="business-cta-note">{th?'ดูตัวอย่างการจอง พร้อมสอบถามราคา':'Explore your booking setup and ask about pricing.'}</p>
     </div>
     <figure class="restaurant-photo">
@@ -108,6 +108,6 @@ const text = th ? {
     <div><span class="editorial-kicker">{th?'เริ่มกับ Booking Whale':'Getting started'}</span><h2>{businessSales["food-beverage"][locale === 'zh' ? 'th' : locale].launchTitle}</h2><ol>{businessSales["food-beverage"][locale === 'zh' ? 'th' : locale].launch.map(([title,body])=><li><h3>{title}</h3><p>{body}</p></li>)}</ol></div>
   </section>
   <section class="restaurant-section restaurant-faq" id="business-questions"><h2>{text.faqTitle}</h2><div>{businessSales["food-beverage"][locale === 'zh' ? 'th' : locale].faqs.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}</div></section>
-  <aside class="restaurant-contact"><div><h2>{text.endTitle}</h2><p>{text.endBody}</p></div><a class="editorial-button" href={prefix+'/contact/'} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{text.cta}<Icon name="arrow-right" /></a></aside>
+  <aside class="restaurant-contact"><div><h2>{text.endTitle}</h2><p>{text.endBody}</p></div><a class="editorial-button" href={prefix+'/contact/'}>{text.cta}<Icon name="arrow-right" /></a></aside>
   <nav class="restaurant-reading" aria-label={th ? 'อ่านเพิ่มเติม' : 'Further reading'}><a href="/blog/line-oa-booking-guide/" lang="th">{text.guide} <Icon name="arrow-right" /></a><a href="/blog/restaurant-queue-management/" lang="th">{text.article} <Icon name="arrow-right" /></a></nav>
 </div>

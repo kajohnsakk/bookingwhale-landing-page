@@ -7,10 +7,9 @@ const bootstrap = (url, language = 'en', granted = true) => {
   const listeners = new Map();
   const scripts = [];
   class Element {
-    constructor(href, zone = 'modal') { this.href = href; this.zone = zone; }
+    constructor(href, zone = 'page') { this.href = href; this.zone = zone; }
     closest(selector) {
       if (selector === 'a[href]') return this.href ? this : null;
-      if (selector === '#contact-dialog' && this.zone === 'modal') return this;
       if (selector === 'footer' && this.zone === 'footer') return this;
       return null;
     }
@@ -57,20 +56,24 @@ test('one async Google tag and one config call, including repeated initializatio
 test('contact events queue without Google loaded and do not interfere with links', () => {
   const r = bootstrap('https://bookingwhale.co/th/', 'th');
   const click = (href, zone, prevented = false) => r.listeners.get('click')({ target: new r.Element(href, zone), defaultPrevented: prevented });
-  r.listeners.get('bw:contact-open')({ detail: { trigger: new r.Element() } });
-  click('https://line.me/R/ti/p/%40337esngk', 'modal');
-  click('tel:0970166045', 'modal');
+  click('https://bookingwhale.co/contact/', 'page');
+  click('https://bookingwhale.co/en/contact/', 'footer');
+  click('https://example.com/contact/', 'page');
+  click('https://bookingwhale.co/contact-us/', 'page');
+  click('https://line.me/R/ti/p/%40337esngk', 'page');
+  click('tel:0970166045', 'page');
   click('tel:0805956458', 'footer');
   click('mailto:info@bookingwhale.co', 'footer');
-  click('https://line.me/unrelated', 'modal');
+  click('https://line.me/unrelated', 'page');
   click('mailto:someone@example.com', 'footer');
   click('tel:0970166045', 'footer', true);
   const events = JSON.parse(JSON.stringify(r.window.dataLayer.slice(3).map(args => Array.from(args))));
-  assert.deepEqual(events.map(args => args[1]), ['contact_modal_open', 'contact_line_click', 'contact_phone_click', 'contact_phone_click', 'contact_email_click']);
+  assert.deepEqual(events.map(args => args[1]), ['contact_cta_click', 'contact_cta_click', 'contact_line_click', 'contact_phone_click', 'contact_phone_click', 'contact_email_click']);
   assert.ok(events.every(args => args[2].page_language === 'th' && args[2].send_to === 'G-N2554HPN72'));
-  assert.equal(events[2][2].contact_target, 'primary');
-  assert.equal(events[3][2].contact_target, 'secondary');
-  assert.equal(events[4][2].placement, 'footer');
+  assert.equal(events[1][2].placement, 'footer');
+  assert.equal(events[3][2].contact_target, 'primary');
+  assert.equal(events[4][2].contact_target, 'secondary');
+  assert.equal(events[5][2].placement, 'footer');
 });
 
 test('production output includes analytics once per locale and verification is exact', () => {
@@ -84,7 +87,7 @@ test('production output includes analytics once per locale and verification is e
 
 test('no Google tag or queued events before acceptance or after decline', () => {
   const r = bootstrap('https://bookingwhale.co/', 'th', false);
-  r.listeners.get('bw:contact-open')({ detail: { trigger: new r.Element() } });
+  r.listeners.get('click')({ target: new r.Element('https://bookingwhale.co/contact/') });
   r.listeners.get('click')({ target: new r.Element('tel:0970166045') });
   assert.equal(r.scripts.length, 0);
   assert.equal(r.window.dataLayer, undefined);

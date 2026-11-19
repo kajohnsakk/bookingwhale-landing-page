@@ -13,15 +13,9 @@ export const scrollToPosition = ({top, behavior = 'instant'}) => {
 
 export const setupSmoothScrolling = (gsap, ScrollTrigger) => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const dialog = document.getElementById('contact-dialog');
   const tick = time => scroller?.raf(time * 1000);
   const resize = () => scroller?.resize();
   const reset = () => scroller?.scrollTo(window.scrollY, {immediate: true, force: true});
-  const pause = () => scroller?.stop();
-  const resume = () => {
-    scroller?.start();
-    resize();
-  };
   const dispose = () => {
     gsap.ticker.remove(tick);
     scroller?.destroy();
@@ -39,7 +33,6 @@ export const setupSmoothScrolling = (gsap, ScrollTrigger) => {
     });
     scroller.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(tick);
-    if (dialog?.open) pause();
   };
   const onKey = event => {
     if (event.defaultPrevented) return;
@@ -50,8 +43,6 @@ export const setupSmoothScrolling = (gsap, ScrollTrigger) => {
     reset();
   };
   reduced.addEventListener('change', configure);
-  dialog?.addEventListener('bw:contact-open', pause);
-  dialog?.addEventListener('close', resume);
   window.addEventListener('keydown', onKey);
   window.addEventListener('resize', reset, {passive: true});
   window.addEventListener('pageshow', onPageShow);
@@ -60,8 +51,6 @@ export const setupSmoothScrolling = (gsap, ScrollTrigger) => {
   return () => {
     dispose();
     reduced.removeEventListener('change', configure);
-    dialog?.removeEventListener('bw:contact-open', pause);
-    dialog?.removeEventListener('close', resume);
     window.removeEventListener('keydown', onKey);
     window.removeEventListener('resize', reset);
     window.removeEventListener('pageshow', onPageShow);

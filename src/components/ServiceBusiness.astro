@@ -26,7 +26,7 @@ const heroAlt=fitness?(th?'ผู้เข้าร่วมคลาสโย�
 ---
 <div class:list={["restaurant-page", "business-detail", slug==='fitness-sports'?'studio-layout':'appointment-layout']}>
   <header class="restaurant-hero">
-    <div class="restaurant-hero-copy"><span class="editorial-kicker">{text.label}</span><h1>{text.title}<span>{text.accent}</span></h1><p>{text.intro}</p><div class="restaurant-actions"><a class="editorial-button" href={prefix+'/contact/'} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{cta}<Icon name="arrow-right" /></a><a href={fitness?"#business-scenarios":"#business-product"}>{fitness?(th?'ดูตัวอย่างตารางฝึก':'Explore training schedules'):(th?'ดูการใช้งานจริง':'See the system')}<Icon name="arrow-down" /></a></div><p class="business-cta-note">{th?'ดูตัวอย่างการจอง พร้อมสอบถามราคา':'Explore your booking setup and ask about pricing.'}</p></div>
+    <div class="restaurant-hero-copy"><span class="editorial-kicker">{text.label}</span><h1>{text.title}<span>{text.accent}</span></h1><p>{text.intro}</p><div class="restaurant-actions"><a class="editorial-button" href={prefix+'/contact/'}>{cta}<Icon name="arrow-right" /></a><a href={fitness?"#business-scenarios":"#business-product"}>{fitness?(th?'ดูตัวอย่างตารางฝึก':'Explore training schedules'):(th?'ดูการใช้งานจริง':'See the system')}<Icon name="arrow-down" /></a></div><p class="business-cta-note">{th?'ดูตัวอย่างการจอง พร้อมสอบถามราคา':'Explore your booking setup and ask about pricing.'}</p></div>
     <div class:list={["business-hero-media", fitness ? "business-hero-collage" : "business-hero-treatment"]}>
       <figure class="restaurant-photo">
         <img src={fitness?detail.photo+'-1000.webp':'/assets/business/wellness.webp'} srcset={fitness?`${detail.photo}-640.webp 640w, ${detail.photo}-1000.webp 1000w`:undefined} sizes="(max-width:767px) calc(100vw - 40px), 50vw" width={fitness?1000:960} height={fitness?667:640} alt={fitness?text.alt:heroAlt} fetchpriority="high" decoding="async" />
@@ -42,6 +42,6 @@ const heroAlt=fitness?(th?'ผู้เข้าร่วมคลาสโย�
   <BusinessProductProof {slug} {locale} />
   <BusinessSalesContent {slug} {locale} variant="decision" />
   <section class="restaurant-section restaurant-faq" id="business-questions"><h2>{th?'คำถามก่อนเริ่ม':'Before you start'}</h2><div>{businessSales[slug][locale === 'zh' ? 'th' : locale].faqs.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}</div></section>
-  <aside class="restaurant-contact"><div><h2>{text.endTitle}</h2><p>{text.endBody}</p></div><a class="editorial-button" href={prefix+'/contact/'} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{cta}<Icon name="arrow-right" /></a></aside>
+  <aside class="restaurant-contact"><div><h2>{text.endTitle}</h2><p>{text.endBody}</p></div><a class="editorial-button" href={prefix+'/contact/'}>{cta}<Icon name="arrow-right" /></a></aside>
   <nav class="restaurant-reading" aria-label={th?'อ่านเพิ่มเติม':'Further reading'}><a href="/blog/line-oa-booking-guide/" lang="th">{th?'คู่มือเริ่มรับจองผ่าน LINE OA':'LINE OA booking guide (Thai)'} <Icon name="arrow-right" /></a>{page.article!=='line-oa-booking-guide'&&<a href={`/blog/${page.article}/`} lang="th">{copy.related} <Icon name="arrow-right" /></a>}</nav>
 </div>

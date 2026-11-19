@@ -1,17 +1,59 @@
 ---
-import Icon from './Icon.astro';
 import ContentLayout from '../layouts/ContentLayout.astro';
+import Icon from './Icon.astro';
+import '../styles/contact-page.css';
 interface Props { locale?: 'th' | 'en' | 'zh' }
 const {locale='th'}=Astro.props;
 const th=locale!=='en';
 const title=th?'ติดต่อ Booking Whale | เริ่มรับจองผ่าน LINE OA':'Contact Booking Whale | Start taking bookings through LINE OA';
 const description=th?'สอบถามระบบจองออนไลน์ผ่าน LINE OA ติดต่อ Booking Whale ทาง LINE โทร 097-016-6045 หรือ 080-595-6458 และอีเมล info@bookingwhale.co':'Ask about online bookings through LINE OA. Contact Booking Whale on LINE, call +66 97 016 6045 or +66 80 595 6458, or email info@bookingwhale.co.';
+const prefix=locale==='th'?'':`/${locale}`;
 ---
-<ContentLayout {title} {description} {locale} breadcrumb={[{name:th?'ติดต่อเรา':'Contact',path:locale==='th'?'/contact/':`/${locale}/contact/`}]}>
-  <header class="editorial-intro"><span class="editorial-kicker">Booking Whale</span><h1>{th?'จองง่ายขึ้น เริ่มตรงนี้':'Easier bookings start here.'}</h1><p>{th?'บอกเราว่าร้านคุณรับจองแบบไหน เราช่วยคุณเริ่มต้นได้':'Tell us how your business takes bookings. We’ll help you get started.'}</p><a class="editorial-button" href={locale==='th'?'/contact/':`/${locale}/contact/`} data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">{th?'เลือกช่องทางติดต่อ':'Choose a contact method'} <Icon name="arrow-right" /></a></header>
-  <div class="editorial-grid">
-    <section class="editorial-card"><h2>{th?'ทักหาเราทาง LINE':'Contact us on LINE'}</h2><p>{th?'ถามเรื่องระบบ หรือให้เราช่วยเริ่มรับจองได้ในแชท':'Ask about the system or get help setting up bookings in the chat.'}</p><a href="https://line.me/R/ti/p/%40337esngk" target="_blank" rel="noopener noreferrer">{th?'เพิ่มเพื่อน LINE':'Add us on LINE'} <Icon name="arrow-right" /></a></section>
-    <section class="editorial-card"><h2>{th?'โทรสอบถาม':'Call us'}</h2><p><a href="tel:0970166045">097-016-6045</a></p><p><a href="tel:0805956458">080-595-6458</a></p></section>
-    <section class="editorial-card"><h2>{th?'อีเมล':'Email'}</h2><p><a href="mailto:info@bookingwhale.co">info@bookingwhale.co</a></p></section>
+<ContentLayout {title} {description} {locale} breadcrumb={[{name:'ติดต่อเรา',path:`${prefix}/contact/`}]}>
+  <div class="cp" data-contact-page>
+    <header class="cp-head">
+      <h1>คุยกับทีม Booking Whale</h1>
+      <p>เล่ารูปแบบร้านของคุณ แล้วนัดดูตัวอย่างระบบกับทีมงาน</p>
+    </header>
+    <div class="cp-layout">
+      <div class="cp-main">
+      <section class="cp-list" id="contact-channels" aria-label="ช่องทางติดต่อ">
+        <div class="cp-row">
+          <span class="cp-row-icon" aria-hidden="true"><Icon name="message-circle" /></span>
+          <span class="cp-row-text"><strong>ทักหาเราทาง LINE</strong><span>LINE ID @337esngk</span></span>
+          <a class="cp-act cp-act-line" href="https://line.me/R/ti/p/%40337esngk" target="_blank" rel="noopener noreferrer" aria-label="เพิ่มเพื่อน LINE">เพิ่มเพื่อน</a>
+        </div>
+        <div class="cp-row">
+          <span class="cp-row-icon" aria-hidden="true"><Icon name="phone" /></span>
+          <span class="cp-row-text"><strong>097-016-6045</strong><span>สำรอง <a href="tel:0805956458">080-595-6458</a></span></span>
+          <a class="cp-act" href="tel:0970166045" aria-label="โทร 097-016-6045">โทร</a>
+        </div>
+        <div class="cp-row">
+          <span class="cp-row-icon" aria-hidden="true"><Icon name="mail" /></span>
+          <span class="cp-row-text"><strong><a href="mailto:info@bookingwhale.co">info@bookingwhale.co</a></strong><span>อีเมล</span></span>
+          <button class="cp-act cp-copy" type="button" data-copy="info@bookingwhale.co" data-open-label="คัดลอก" data-close-label="คัดลอกแล้ว"><Icon name="check" /><span>คัดลอก</span></button>
+          <span class="cp-sr" aria-live="polite" data-copy-status></span>
+        </div>
+      </section>
+      <aside class="cp-card" data-reveal id="contact-next" aria-labelledby="cp-next-title">
+        <h2 id="cp-next-title">หลังจากติดต่อเรา</h2>
+        <ol class="cp-steps">
+          <li><span class="cp-step-dot">1</span><span><strong>เล่ารูปแบบร้าน</strong><span>บอกเราว่าร้านรับจองแบบไหน เช่น จองโต๊ะ จองคิว หรือจองคลาส</span></span></li>
+          <li><span class="cp-step-dot">2</span><span><strong>ดูตัวอย่างระบบ</strong><span>ทีมงานพาดูหน้าจองของลูกค้าและหน้าจัดการของร้าน</span></span></li>
+          <li><span class="cp-step-dot">3</span><span><strong>เริ่มรับจอง</strong><span>เชื่อม LINE OA แล้วแชร์หน้าจองให้ลูกค้า</span></span></li>
+        </ol>
+        <div class="cp-card-foot">
+          <span>ยังไม่แน่ใจว่าแบบไหนเหมาะกับร้าน?</span>
+          <a href={`${prefix}/businesses/`}>ดูตัวอย่างการจองตามประเภทธุรกิจ</a>
+        </div>
+      </aside>
+      </div>
+      <figure class="cp-photo">
+        <picture><source media="(min-width: 901px)" srcset="/assets/contact/team-portrait-640.webp 640w, /assets/contact/team-portrait-960.webp 960w" sizes="(min-width: 1200px) 450px, 38vw" width="960" height="1440" /><img src="/assets/contact/team-wide-960.webp" srcset="/assets/contact/team-wide-960.webp 960w, /assets/contact/team-wide-1440.webp 1440w" sizes="(min-width: 901px) 450px, calc(100vw - 40px)" width="1440" height="960" alt="" fetchpriority="high" decoding="async" /></picture>
+        <div class="cp-chip cp-chip-msg" aria-hidden="true"><img src="/assets/bookingwhale-mark-96.png" width="32" height="32" alt="" /><span><strong>Booking Whale</strong><span>ยินดีช่วยเลย ร้านรับจองแบบไหน?</span></span><i></i></div>
+        <div class="cp-chip cp-chip-date" aria-hidden="true"><span class="cp-chip-icon"><Icon name="calendar-check" /></span><span><strong>นัดดูตัวอย่างระบบ</strong><span>พรุ่งนี้ 14:00</span></span></div>
+      </figure>
+    </div>
   </div>
 </ContentLayout>
+<script>import '../scripts/contact-page';</script>

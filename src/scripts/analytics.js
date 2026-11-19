@@ -49,7 +49,6 @@
   sync();
 
   const placement = element => {
-    if (element.closest('#contact-dialog')) return 'modal';
     if (element.closest('.bw-main-menu')) return 'mobile_menu';
     if (element.closest('header')) return 'navigation';
     if (element.closest('footer')) return 'footer';
@@ -65,14 +64,13 @@
     });
   };
 
-  document.addEventListener('bw:contact-open', event => {
-    if (event.detail?.trigger instanceof Element) track('contact_modal_open', event.detail.trigger);
-  });
   document.addEventListener('click', event => {
     const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
     if (!link || event.defaultPrevented) return;
     const url = new URL(link.href);
-    if (url.hostname === 'line.me' && url.pathname === '/R/ti/p/%40337esngk') {
+    if (url.origin === location.origin && /^\/(?:en\/|zh\/)?contact\/?$/.test(url.pathname)) {
+      track('contact_cta_click', link);
+    } else if (url.hostname === 'line.me' && url.pathname === '/R/ti/p/%40337esngk') {
       track('contact_line_click', link);
     } else if (url.protocol === 'tel:' && ['0970166045', '0805956458'].includes(url.pathname)) {
       track('contact_phone_click', link, { contact_target: url.pathname === '0970166045' ? 'primary' : 'secondary' });

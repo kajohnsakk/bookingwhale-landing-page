@@ -183,8 +183,6 @@ html:lang(zh) #bookingwhale,html:lang(zh) #bookingwhale .bw-page p:not(:is(.bw-u
 #bookingwhale .bw-hero-capabilities>span{color:var(--bwx-muted)}
 #bookingwhale #business .bw-business-context,#bookingwhale #business .bw-industry-graphic>p,#bookingwhale #how .bw-step-copy p{color:var(--bwx-muted)}
 #bookingwhale .bw-footer.bw-footer-refined .bw-footer-bottom{color:var(--bwx-muted)}
-#bookingwhale .bw-contact-dialog .bw-contact-dialog-close{color:var(--bwx-ink)}
-#bookingwhale .bw-contact-dialog #contact-dialog-description{color:var(--bwx-muted)}
 #bookingwhale .bw-dialog-channel p{color:var(--bwx-muted)}
 #bookingwhale .bw-dialog-channel-actions .bw-dialog-phone-secondary{color:var(--bwx-muted)}
 #bookingwhale .bw-dialog-email{color:var(--bwx-muted)}

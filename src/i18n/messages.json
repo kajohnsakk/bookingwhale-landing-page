@@ -927,10 +927,6 @@
     "en": "Choose how to reach us. We’re here to help you get started.",
     "zh": "选择你方便的联系方式，我们随时为你提供入门帮助。"
   },
-  "ปิดหน้าต่างติดต่อ": {
-    "en": "Close contact dialog",
-    "zh": "关闭联系窗口"
-  },
   "คุยกับเราผ่าน LINE": {
     "en": "Chat with us on LINE",
     "zh": "通过 LINE 与我们联系"
@@ -2242,5 +2238,81 @@
   "ไลฟ์มิวสิก": {
     "en": "Live music",
     "zh": "现场音乐"
+  },
+  "เล่ารูปแบบร้านของคุณ แล้วนัดดูตัวอย่างระบบกับทีมงาน": {
+    "en": "Tell us how your business works, then book a walkthrough with our team.",
+    "zh": "告诉我们您的经营方式，然后与团队预约系统演示。"
+  },
+  "ช่องทางติดต่อ": {
+    "en": "Contact options",
+    "zh": "联系方式"
+  },
+  "หลังจากติดต่อเรา": {
+    "en": "What happens next",
+    "zh": "联系之后"
+  },
+  "เล่ารูปแบบร้าน": {
+    "en": "Tell us about your business",
+    "zh": "介绍您的店铺"
+  },
+  "บอกเราว่าร้านรับจองแบบไหน เช่น จองโต๊ะ จองคิว หรือจองคลาส": {
+    "en": "Share how you take bookings, such as tables, queues or classes.",
+    "zh": "告诉我们您如何接收预订，例如订桌、排队或课程。"
+  },
+  "ดูตัวอย่างระบบ": {
+    "en": "See the system",
+    "zh": "查看系统演示"
+  },
+  "ทีมงานพาดูหน้าจองของลูกค้าและหน้าจัดการของร้าน": {
+    "en": "Our team walks you through the customer booking page and the shop dashboard.",
+    "zh": "团队为您演示顾客预订页面和店铺管理页面。"
+  },
+  "เชื่อม LINE OA แล้วแชร์หน้าจองให้ลูกค้า": {
+    "en": "Connect your LINE OA and share the booking page with customers.",
+    "zh": "连接 LINE OA，并将预订页面分享给顾客。"
+  },
+  "ยังไม่แน่ใจว่าแบบไหนเหมาะกับร้าน?": {
+    "en": "Not sure what fits your business?",
+    "zh": "还不确定哪种适合您的店铺？"
+  },
+  "ดูตัวอย่างการจองตามประเภทธุรกิจ": {
+    "en": "See booking examples by business type",
+    "zh": "按业务类型查看预订示例"
+  },
+  "คัดลอกแล้ว": {
+    "en": "Copied",
+    "zh": "已复制"
+  },
+  "ยินดีช่วยเลย ร้านรับจองแบบไหน?": {
+    "en": "Happy to help. How do you take bookings?",
+    "zh": "很乐意帮忙。您的店铺如何接受预订？"
+  },
+  "คุยกับทีม Booking Whale": {
+    "en": "Talk to the Booking Whale team",
+    "zh": "联系 Booking Whale 团队"
+  },
+  "นัดดูตัวอย่างระบบ": {
+    "en": "System walkthrough booked",
+    "zh": "已预约系统演示"
+  },
+  "พรุ่งนี้ 14:00": {
+    "en": "Tomorrow, 2:00 PM",
+    "zh": "明天 14:00"
+  },
+  "เพิ่มเพื่อน": {
+    "en": "Add",
+    "zh": "添加"
+  },
+  "โทร": {
+    "en": "Call",
+    "zh": "拨打"
+  },
+  "สำรอง": {
+    "en": "Backup",
+    "zh": "备用"
+  },
+  "โทร 097-016-6045": {
+    "en": "Call 097-016-6045",
+    "zh": "拨打 097-016-6045"
   }
 }
