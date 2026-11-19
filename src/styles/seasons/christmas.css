@@ -44,29 +44,12 @@ html[data-season=christmas] #bookingwhale #contact.bwx-stars-on>.bwx-band-star{a
 html[data-season=christmas] #bookingwhale .bwx-button-flake{position:absolute;top:-2px;z-index:2;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 0 .5px #c9d6ea;pointer-events:none}
 html[data-season=christmas] #bookingwhale .bw-start-button{position:relative}
 html[data-season=christmas] #bookingwhale .bwx-button-snow{position:absolute;left:0;z-index:1;overflow:visible;pointer-events:none}
-html[data-season=christmas] #bookingwhale #bw-back-to-top.bwx-snowman-button,html[data-season=christmas] #bookingwhale #bw-back-to-top.bwx-snowman-button:hover{overflow:visible;background:transparent;box-shadow:none}
-html[data-season=christmas] #bookingwhale #bw-back-to-top.bwx-snowman-button>svg:not(.bwx-snowman){display:none}
-html[data-season=christmas] #bookingwhale #bw-back-to-top .bwx-snowman{position:absolute;left:50%;bottom:-6px;width:62px;height:74px;translate:-50% 0;overflow:visible}
-html[data-season=christmas] #bookingwhale #bw-back-to-top[data-visible] .bwx-snowman{transform-origin:50% 100%;animation:bwx-sway 4.6s ease-in-out infinite}
-html[data-season=christmas] #bookingwhale .bwx-snowman-eyes{transform-origin:40px 35px}
-html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman-eyes{animation:bwx-blink 1.6s ease-in-out infinite}
-html[data-season=christmas] #bookingwhale .bwx-snowman-scarf{transform-origin:47px 52px}
-html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman-scarf{animation:bwx-scarf 1.2s ease-in-out infinite}
-html[data-season=christmas] #bookingwhale .bwx-snowman-arm-right{transform-origin:58px 64px}
-html[data-season=christmas] #bookingwhale #bw-back-to-top.bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman{animation:bwx-hop .6s cubic-bezier(.3,1.6,.5,1)}
-html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman-arm-right{animation:bwx-wave .45s ease-in-out 2}
 @keyframes bwx-sway{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
 @keyframes bwx-blink{0%,90%,100%{transform:scaleY(1)}94%{transform:scaleY(.1)}}
 @keyframes bwx-scarf{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(8deg)}}
 @keyframes bwx-hop{0%,100%{translate:-50% 0}40%{translate:-50% -7px}}
 @keyframes bwx-wave{0%,100%{transform:rotate(0)}50%{transform:rotate(-28deg)}}
-@media(max-width:750px){html[data-season=christmas] #bookingwhale #bw-back-to-top .bwx-snowman{width:50px;height:60px;bottom:-4px}}
-@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale :is(.bwx-snowman-sway,.bwx-snowman-eyes,.bwx-snowman-scarf,.bwx-snowman-arm-right),html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman{animation:none}}
-html[data-season=christmas] #bookingwhale .bwx-snowman-hat{transform-origin:40px 14px}
-html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman-hat{animation:bwx-spin 3s linear infinite}
-html[data-season=christmas] #bookingwhale .bwx-snowman-spark-late{animation-delay:1.4s}
 @keyframes bwx-spin{to{transform:rotate(360deg)}}
-@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale :is(.bwx-snowman-hat,.bwx-snowman-spark){animation:none}}
 @media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale .bwx-button-spark{animation:none}}
 html[data-season=christmas] #bookingwhale .is-spread-ready .bw-spread-card:nth-child(3n+1)::after{content:"❄";position:absolute;top:-9px;right:-7px;font-size:18px;line-height:1;color:#8fbdea;transform:rotate(14deg);pointer-events:none}
 html[data-season=christmas] #bookingwhale #business .bwx-snap::after{content:"";position:absolute;top:0;left:0;right:0;height:14px;pointer-events:none;opacity:0;transform:translateY(-6px);transition:opacity .35s ease,transform .35s ease;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 14'%3E%3Cpath d='M0 0h60v4c-3 0-4 2-6 2s-2 6-4 6-1-7-4-7-3 3-6 3-2-3-5-3-2 8-4 8-1-8-4-8-3 4-6 4-2-4-5-4-2 5-4 5-1-6-4-6-3 2-8 2z' fill='%23e3f0fd'/%3E%3C/svg%3E") top left/60px 14px repeat-x}
@@ -98,7 +81,5 @@ html[data-season=christmas] #bookingwhale #clients.is-live .bwx-pin-dot::after{b
 html[data-season=christmas] #bookingwhale #main-content #features .bw-flow-steps button[aria-pressed=true]::after{content:"❄";display:inline-block;position:static;width:auto;height:auto;margin-left:6px;background:none;color:#6fa8e6;font-size:13px;line-height:1;animation:bwx-spin 10s linear infinite}
 html[data-season=christmas] #bookingwhale #features .bw-mobile-story-step.is-active .bw-mobile-story-index::after{content:"❄";display:inline-block;margin-left:6px;color:#6fa8e6;animation:bwx-spin 10s linear infinite}
 @media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale #main-content #features .bw-flow-steps button[aria-pressed=true]::after,html[data-season=christmas] #bookingwhale #features .bw-mobile-story-step.is-active .bw-mobile-story-index::after{animation:none}}
-html[data-season=christmas] #bookingwhale .bwx-snowman-badge{transform-box:fill-box;transform-origin:center;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
-html[data-season=christmas] #bookingwhale .bwx-snowman-button:is(:hover,:focus-visible) .bwx-snowman-badge{transform:translateY(-2px) scale(1.08)}
-@media(prefers-reduced-motion:reduce){html[data-season=christmas] #bookingwhale .bwx-snowman-badge{transition:none}}
 html[data-season=christmas] #bookingwhale .bwx-resting,html[data-season=christmas] #bookingwhale .bwx-resting *,html[data-season=christmas] #bookingwhale .bwx-resting *::before,html[data-season=christmas] #bookingwhale .bwx-resting *::after{animation-play-state:paused!important}
+html[data-season=christmas] #bookingwhale #bw-back-to-top{overflow:visible}

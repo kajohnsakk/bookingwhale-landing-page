@@ -9,9 +9,9 @@ import { localePath, translate, type Locale } from '../i18n';
 import { buildSeo } from '../seo/metadata';
 import { canonicalPath, languageAlternates } from '../seo/routes.mjs';
 import CookieConsent from '../components/CookieConsent.astro';
-import ContactDialog from '../components/ContactDialog.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import SeasonalTheme from '../components/SeasonalTheme.astro';
 interface Props {
   title: string;
   description: string;
@@ -81,6 +81,7 @@ if (article) schema['@graph'].push({
   </head>
   <body class="bw-editorial-page" id="top">
     <a class="editorial-skip" href="#main-content">{isThai ? 'ข้ามไปเนื้อหา' : 'Skip to content'}</a>
+    <SeasonalTheme />
     <div id="bookingwhale">
       <Navbar sectionBase={home} contentPage />
       <main id="main-content" class="editorial-container">
@@ -88,7 +89,6 @@ if (article) schema['@graph'].push({
         <slot />
       </main>
       <Footer sectionBase={home} />
-      <ContactDialog />
     </div>
     <script>import '../scripts/editorial-navigation.js';</script>
     <CookieConsent />

@@ -245,7 +245,46 @@ const capPath = (width: number, height: number, style: CapStyle, seed: number) =
   return `M${top.join(' L')} L${bottom.reverse().join(' L')} Z`;
 };
 
+const roundCapPath = (size: number) => {
+  const r = size / 2;
+  const span = .95;
+  const steps = 48;
+  const drips: Array<[number, number]> = [[-.38, 2.6], [.42, 3.4]];
+  const outer: string[] = [];
+  const inner: string[] = [];
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    const angle = -span + 2 * span * t;
+    const taper = Math.sin(Math.PI * t) ** .6;
+    const lumps = 1 + .1 * Math.sin(t * 7 + .8);
+    const crest = taper * (2.2 + 1.2 * Math.exp(-(((angle + .2) / .5) ** 2))) * lumps;
+    const drip = drips.reduce((sum, [at, length]) => sum + length * Math.max(0, 1 - ((angle - at) / .17) ** 2) ** 1.4, 0);
+    const hang = taper * (1.8 + .3 * Math.sin(t * 6 + 1.3)) + drip;
+    const point = (radius: number) => `${(r + radius * Math.sin(angle)).toFixed(2)} ${(r - radius * Math.cos(angle)).toFixed(2)}`;
+    outer.push(point(r + crest));
+    inner.push(point(r - hang));
+  }
+  return `M${outer.join(' L')} L${inner.reverse().join(' L')} Z`;
+};
+
 const snowCaps = () => {
+  const round = document.getElementById('bw-back-to-top');
+  if (round) {
+    const cap = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    cap.classList.add('bwx-button-snow');
+    cap.setAttribute('aria-hidden', 'true');
+    round.append(cap);
+    const draw = () => {
+      const size = round.offsetWidth;
+      if (!size) return;
+      const d = roundCapPath(size);
+      cap.setAttribute('viewBox', `-6 -8 ${size + 12} ${size + 16}`);
+      cap.style.cssText = `top:-8px;left:-6px;width:${size + 12}px;height:${size + 16}px`;
+      cap.innerHTML = `<path d="${d}" transform="translate(0 1.4)" fill="rgba(3, 32, 140, .35)"/><path d="${d}" fill="#fff" stroke="#dbe6f5" stroke-width=".8" stroke-linejoin="round"/>`;
+    };
+    draw();
+    new ResizeObserver(draw).observe(round);
+  }
   [...document.querySelectorAll<HTMLElement>('#bookingwhale .bw-start-button')].forEach((button, index) => {
     const style = capStyles[index % capStyles.length];
     const cap = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -272,34 +311,6 @@ const snowCaps = () => {
     draw();
     new ResizeObserver(draw).observe(button);
   });
-};
-
-const snowmanSvg = `<svg class="bwx-snowman" viewBox="0 0 80 96" aria-hidden="true" focusable="false">
-<path class="bwx-snowman-spark" d="M10 30l1.6 4.4L16 36l-4.4 1.6L10 42l-1.6-4.4L4 36l4.4-1.6z" fill="#9cc8f2"/>
-<path class="bwx-snowman-spark bwx-snowman-spark-late" d="M70 20l1.2 3.3 3.3 1.2-3.3 1.2L70 29l-1.2-3.3-3.3-1.2 3.3-1.2z" fill="#9cc8f2"/>
-<g class="bwx-snowman-sway">
-<g class="bwx-snowman-arm bwx-snowman-arm-left" fill="none" stroke="#6ea6dd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 64 8 54M14 58.3l-5 .8M12 56.8l.3-5"/></g>
-<g class="bwx-snowman-arm bwx-snowman-arm-right" fill="none" stroke="#6ea6dd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M58 64l14-10M66 58.3l5 .8M68 56.8l-.3-5"/></g>
-<circle cx="40" cy="72" r="21" fill="#f4f9ff" stroke="#8fbdea" stroke-width="1.5"/>
-<path d="M24.5 76a16.5 16.5 0 0 0 12 11.5" fill="none" stroke="#cfe3f7" stroke-width="2" stroke-linecap="round"/>
-<circle cx="40" cy="66" r="1.7" fill="#3f8fd2"/><circle cx="40" cy="74" r="1.7" fill="#3f8fd2"/><circle cx="40" cy="82" r="1.7" fill="#3f8fd2"/>
-<circle cx="40" cy="38" r="14" fill="#f4f9ff" stroke="#8fbdea" stroke-width="1.5"/>
-<path d="M29.5 41a11 11 0 0 0 7 8" fill="none" stroke="#cfe3f7" stroke-width="1.8" stroke-linecap="round"/>
-<g class="bwx-snowman-eyes"><ellipse cx="35" cy="35.5" rx="1.7" ry="2.3" fill="#1c3566"/><ellipse cx="45" cy="35.5" rx="1.7" ry="2.3" fill="#1c3566"/><circle cx="35.6" cy="34.6" r=".6" fill="#fff"/><circle cx="45.6" cy="34.6" r=".6" fill="#fff"/></g>
-<path d="M36 42.5q4 3 8 0" fill="none" stroke="#1c3566" stroke-width="1.2" stroke-linecap="round"/>
-<path d="M40 38.2l8.5 1.6-8.5 1.8z" fill="#f2994a"/>
-<path d="M27 49c8 4 18 4 26 0v4.6c-8 3.6-18 3.6-26 0z" fill="#5aa9e6"/><path d="M28 51.6c8 3.2 16 3.2 24 0" fill="none" stroke="#d9efff" stroke-width="1" stroke-linecap="round"/>
-<path class="bwx-snowman-scarf" d="M45 52l4 12 4-1.5-3-11.5z" fill="#3f8fd2"/>
-<g class="bwx-snowman-hat" fill="none" stroke="#6ea6dd" stroke-width="1.5" stroke-linecap="round"><path d="M40 6v16M33.1 10l13.8 8M33.1 18l13.8-8M40 9.5l-2.2-2M40 9.5l2.2-2M40 18.5l-2.2 2M40 18.5l2.2 2"/></g>
-</g>
-<g class="bwx-snowman-badge"><circle cx="63" cy="82" r="11" fill="#0747ff" stroke="#fff" stroke-width="2"/><path d="M63 87V77.5m-4 4 4-4 4 4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
-</svg>`;
-
-const snowmanButton = () => {
-  const button = document.getElementById('bw-back-to-top');
-  if (!button) return;
-  button.classList.add('bwx-snowman-button');
-  button.insertAdjacentHTML('beforeend', snowmanSvg);
 };
 
 const burstTimes = new WeakMap<Element, number>();
@@ -370,7 +381,7 @@ const storySparkle = () => {
   document.querySelectorAll<HTMLElement>('.bw-mobile-story-step').forEach(item => {
     watch(item, 'class', () => item.classList.contains('is-active'), () => { drift(item.querySelector<HTMLElement>('h3')); return null; });
   });
-  const mobile = document.querySelector('.bw-mobile-story-visual[data-story-visual="1"]');
+  const mobile = document.querySelector('.bw-mobile-story-visual[data-story-visual="2"]');
   watch(mobile, 'class', () => Boolean(mobile?.classList.contains('is-active')), () => document.querySelector('.bw-mobile-story-confirmed'));
 };
 
@@ -452,20 +463,20 @@ const headingSweep = () => {
 };
 
 export function start() {
-  setupGreeting();
-  restOffscreen();
   fairyLights();
-  headingSweep();
-  storySparkle();
   shakeButtons();
   snowCaps();
-  snowmanButton();
+  if (!document.querySelector('.bw-hero-live')) return;
+  setupGreeting();
+  restOffscreen();
+  headingSweep();
+  storySparkle();
   const map = document.querySelector<HTMLElement>('#clients .bwx-map');
   if (map) snow(map, { color: '#8fb0e4', density: 8000, className: 'bwx-snow-map', avoid: () => [...map.querySelectorAll('.bwx-pin-name, .bwx-pin-logo')] });
   pageSnow();
   bandStars();
   const main = document.querySelector<HTMLElement>('#main-content');
-  const hero = document.querySelector<HTMLElement>('#top');
+  const hero = document.querySelector<HTMLElement>('.bw-hero-live');
   if (main && hero) snow(main, { color: '#8ea8dc', density: 7000, className: 'bwx-snow-top', watch: [hero], height: () => hero.getBoundingClientRect().bottom - main.getBoundingClientRect().top, avoid: () => [...document.querySelectorAll('.bwx-intro-title, .bwx-season-greeting, #top .bw-hero-copy :is(h1, .bw-lead, .bw-hero-description, .bw-actions)')] });
   const contact = document.querySelector<HTMLElement>('#contact');
   if (contact) snow(contact, { color: '#ffffff', density: 4500, className: 'bwx-snow-contact', avoid: () => [...contact.querySelectorAll('.bw-contact-copy > *')] });
